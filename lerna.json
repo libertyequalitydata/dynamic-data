@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent",
+  "ignoreChanges": [
+    "**/CHANGELOG.md",
+    "**/node_modules/**",
+    "**/package.json",
+    "**/*.md",
+    "**/perf/**"
+  ]
+}
