@@ -36,5 +36,6 @@
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
     "cross-env": "^7.0.3"
-  }
+  },
+  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c"
 }
