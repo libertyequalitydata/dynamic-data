@@ -1,4 +1,4 @@
-import { getRandomInt } from "@led/utils";
+import { getRandomInt } from "@dynamic-data/utils";
 
 describe("utils", () => {
   //test.todo("needs tests");

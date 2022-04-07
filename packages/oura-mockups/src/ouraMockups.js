@@ -105,7 +105,7 @@ const dataModels = {
   SleepSummaryAsync: { data: SleepSummaryAsync, mockup: SleepSummaryModel },
 };
 
-function getActivityMockupData(dataType, dataModel, dataDate) {
+export function getActivityMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
@@ -162,7 +162,7 @@ function getActivityMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-function getReadinessMockupData(dataType, dataModel, dataDate) {
+export function getReadinessMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
@@ -190,7 +190,7 @@ function getReadinessMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-function getSleepMockupData(dataType, dataModel, dataDate) {
+export function getSleepMockupData(dataType, dataModel, dataDate) {
   console.log("MOCK 2 ", dataModel);
   console.log("MOCK 4 ", dataDate);
   let mockupData = {};
@@ -269,13 +269,6 @@ function getSleepMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-function getModelCSVHeader(dataModel) {
+export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split(",");
 }
-
-module.exports = {
-  getActivityMockupData,
-  getModelCSVHeader,
-  getReadinessMockupData,
-  getSleepMockupData,
-};
