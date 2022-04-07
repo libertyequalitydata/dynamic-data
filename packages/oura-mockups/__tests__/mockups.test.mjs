@@ -2,14 +2,15 @@
 
 //const { getRandomInt } = require("@dynamic-data/utils");
 
-const { default: MOCK } = require("@dynamic-data/oura-data");
+import * as TEST from "@dynamic-data/oura-data/mockups";
 
 describe("Oura", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummary;
+  it("ActivitySummary mockup datamodel from mockups", () => {
+    //const data = ActivitySummary;
     //console.log("MOCK ", MOCK);
-    //console.log("MOCK DATA", data);
+    // console.log("MOCK DATA", data);
+    console.log("MOCK DATA", TEST);
 
     expect(typeof data).toBe("object");
   });

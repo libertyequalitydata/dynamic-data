@@ -1,3 +1,4 @@
+/*
 const {
   ActivitySummary,
   ActivitySummaryAsync,
@@ -13,6 +14,22 @@ const {
   getNewDate,
   getSleepDate,
 } = require("./randomUtils");
+*/
+import {
+  ActivitySummary,
+  ActivitySummaryAsync,
+  ReadinessSummary,
+  ReadinessSummaryAsync,
+  SleepSummary,
+  SleepSummaryAsync,
+} from "@dynamic-data/oura-data/mockups";
+
+import {
+  toIsoString,
+  getRandomInt,
+  getNewDate,
+  getSleepDate,
+} from "@dynamic-data/utils";
 
 const ActivitySummaryModel = {
   summary_date: (d, i) => {
@@ -88,20 +105,20 @@ const SleepSummaryModel = {
 };
 
 const dataModels = {
-  ActivitySummary: { data: ActivitySummary[0], mockup: ActivitySummaryModel },
+  ActivitySummary: { data: ActivitySummary, mockup: ActivitySummaryModel },
   ActivitySummaryAsync: {
     data: ActivitySummaryAsync,
     mockup: ActivitySummaryModel,
   }, // CSV header is same as JSON attributes
   ReadinessSummary: {
-    data: ReadinessSummary[0],
+    data: ReadinessSummary,
     mockup: ReadinessSummaryModel,
   },
   ReadinessSummaryAsync: {
     data: ReadinessSummaryAsync,
     mockup: ReadinessSummaryModel,
   },
-  SleepSummary: { data: SleepSummary[0], mockup: SleepSummaryModel },
+  SleepSummary: { data: SleepSummary, mockup: SleepSummaryModel },
   SleepSummaryAsync: { data: SleepSummaryAsync, mockup: SleepSummaryModel },
 };
 
