@@ -18,9 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --out-dir ./dist/esm",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --out-dir ./dist/cjs"
+    "build": "rm -rf ./dist && rollup -c"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
