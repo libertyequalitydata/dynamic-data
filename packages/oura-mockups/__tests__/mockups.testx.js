@@ -2,7 +2,7 @@
 
 //const { getRandomInt } = require("@dynamic-data/utils");
 
-const { default: MOCK } = require("@dynamic-data/oura-data");
+const MOCK = require("@dynamic-data/oura-data");
 
 describe("Oura", () => {
   //test.todo("needs tests");
