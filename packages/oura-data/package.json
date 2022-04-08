@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/oura-data",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Mockup DataModel for Oura connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
