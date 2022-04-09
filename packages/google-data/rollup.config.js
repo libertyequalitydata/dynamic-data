@@ -5,7 +5,7 @@ import commonjs from "@rollup/plugin-commonjs";
 const extensions = [".js"];
 
 export default {
-  input: ["src/index.js"],
+  input: ["src/index.js", "src/mockups/index.js"],
   output: [
     {
       //file: "dist/esm/bundle.js",
