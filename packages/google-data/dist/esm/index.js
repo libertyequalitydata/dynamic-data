@@ -1,18 +1,15 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _mockups = require("./mockups");
+import { Activity } from './mockups/activity.js';
+import { Location } from './mockups/location.js';
+import { Places } from './mockups/places.js';
+import { Routes } from './mockups/routes.js';
 
 //
-const Data = {
-  Activity: _mockups.Activity,
-  Location: _mockups.Location,
-  Places: _mockups.Places,
-  Routes: _mockups.Routes
+var Data = {
+  Activity: Activity,
+  Location: Location,
+  Places: Places,
+  Routes: Routes
 };
-var _default = Data;
-exports.default = _default;
+
+export { Data as default };
+//# sourceMappingURL=index.js.map

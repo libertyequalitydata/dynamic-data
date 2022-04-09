@@ -1,12 +1,12 @@
 module.exports = {
   presets: [
     [
-      '@babel/env',
+      "@babel/preset-env",
       {
-        targets: {
-          node: 12,
-        },
+        targets: ">0.2%, not dead, not op_mini all",
       },
     ],
+    "@babel/preset-react",
   ],
+  plugins: ["@babel/plugin-transform-runtime"],
 };

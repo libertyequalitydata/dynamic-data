@@ -1,18 +1,16 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _mockups = require("./mockups");
+var activity = require('./mockups/activity.js');
+var location = require('./mockups/location.js');
+var places = require('./mockups/places.js');
+var routes = require('./mockups/routes.js');
 
 //
-const Data = {
-  Activity: _mockups.Activity,
-  Location: _mockups.Location,
-  Places: _mockups.Places,
-  Routes: _mockups.Routes
+var Data = {
+  Activity: activity.Activity,
+  Location: location.Location,
+  Places: places.Places,
+  Routes: routes.Routes
 };
-var _default = Data;
-exports.default = _default;
+
+module.exports = Data;
