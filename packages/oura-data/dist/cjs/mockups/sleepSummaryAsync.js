@@ -1,13 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.SleepSummaryAsync = void 0;
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var _sleepSummary = require("./sleepSummary");
+var sleepSummary = require('./sleepSummary.js');
+var dataMockups = require('./dataMockups.js');
 
-var _dataMockups = require("./dataMockups");
+const SleepSummaryAsync = dataMockups.AsyncData(sleepSummary.SleepSummary);
 
-const SleepSummaryAsync = (0, _dataMockups.AsyncData)(_sleepSummary.SleepSummary);
 exports.SleepSummaryAsync = SleepSummaryAsync;

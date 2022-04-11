@@ -92,9 +92,13 @@ module.exports = {
   // moduleNameMapper: {},
   moduleNameMapper: {
     "^@dynamic-data/oura-data/mockups(.*)$":
-      "@dynamic-data/oura-data/dist/esm/mockups/$1",
+      "@dynamic-data/oura-data/dist/cjs/mockups/$1",
     "^@dynamic-data/google-data/mockups(.*)$":
-      "@dynamic-data/google-data/dist/esm/mockups/$1",
+      "@dynamic-data/google-data/dist/cjs/mockups/$1",
+    "^@dynamic-data/garmin-data/mockups(.*)$":
+      "@dynamic-data/garmin-data/dist/cjs/mockups/$1",
+    "^@dynamic-data/fitbit-data/mockups(.*)$":
+      "@dynamic-data/fitbit-data/dist/cjs/mockups/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var Routes = [{
+const Routes = [{
   startLocation: {
     latitudeE7: 605841426,
     longitudeE7: 248303862

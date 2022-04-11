@@ -1,4 +1,4 @@
-var Routes = [{
+const Routes = [{
   startLocation: {
     latitudeE7: 605841426,
     longitudeE7: 248303862
@@ -15,4 +15,3 @@ var Routes = [{
 }];
 
 export { Routes };
-//# sourceMappingURL=routes.js.map

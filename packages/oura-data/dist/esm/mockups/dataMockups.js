@@ -1,10 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.AsyncData = void 0;
-
 const AsyncData = dataModel => {
   let data = [];
   const header = Object.keys(dataModel).map(t => {
@@ -25,4 +18,4 @@ const AsyncData = dataModel => {
   return data;
 };
 
-exports.AsyncData = AsyncData;
+export { AsyncData };

@@ -1,83 +1,19 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var _activitySummary = require("./activitySummary.js");
+var activitySummary = require('./activitySummary.js');
+var readinessSummary = require('./readinessSummary.js');
+var sleepSummary = require('./sleepSummary.js');
+var activitySummaryAsync = require('./activitySummaryAsync.js');
+var readinessSummaryAsync = require('./readinessSummaryAsync.js');
+var sleepSummaryAsync = require('./sleepSummaryAsync.js');
 
-Object.keys(_activitySummary).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _activitySummary[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _activitySummary[key];
-    }
-  });
-});
 
-var _readinessSummary = require("./readinessSummary.js");
 
-Object.keys(_readinessSummary).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _readinessSummary[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _readinessSummary[key];
-    }
-  });
-});
-
-var _sleepSummary = require("./sleepSummary.js");
-
-Object.keys(_sleepSummary).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _sleepSummary[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _sleepSummary[key];
-    }
-  });
-});
-
-var _activitySummaryAsync = require("./activitySummaryAsync.js");
-
-Object.keys(_activitySummaryAsync).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _activitySummaryAsync[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _activitySummaryAsync[key];
-    }
-  });
-});
-
-var _readinessSummaryAsync = require("./readinessSummaryAsync.js");
-
-Object.keys(_readinessSummaryAsync).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _readinessSummaryAsync[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _readinessSummaryAsync[key];
-    }
-  });
-});
-
-var _sleepSummaryAsync = require("./sleepSummaryAsync.js");
-
-Object.keys(_sleepSummaryAsync).forEach(function (key) {
-  if (key === "default" || key === "__esModule") return;
-  if (key in exports && exports[key] === _sleepSummaryAsync[key]) return;
-  Object.defineProperty(exports, key, {
-    enumerable: true,
-    get: function () {
-      return _sleepSummaryAsync[key];
-    }
-  });
-});
+exports.ActivitySummary = activitySummary.ActivitySummary;
+exports.ReadinessSummary = readinessSummary.ReadinessSummary;
+exports.SleepSummary = sleepSummary.SleepSummary;
+exports.ActivitySummaryAsync = activitySummaryAsync.ActivitySummaryAsync;
+exports.ReadinessSummaryAsync = readinessSummaryAsync.ReadinessSummaryAsync;
+exports.SleepSummaryAsync = sleepSummaryAsync.SleepSummaryAsync;

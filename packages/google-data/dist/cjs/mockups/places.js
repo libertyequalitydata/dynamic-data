@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var Places = [{
+const Places = [{
   latitudeE7: 606224118,
   longitudeE7: 248047081,
   address: "Mäkikuumolantie 3\n05800 Hyvinkää\nSuomi",

@@ -1,20 +1,18 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _mockups = require("./mockups");
+import { ActivitySummary } from './mockups/activitySummary.js';
+import { ReadinessSummary } from './mockups/readinessSummary.js';
+import { SleepSummary } from './mockups/sleepSummary.js';
+import { ActivitySummaryAsync } from './mockups/activitySummaryAsync.js';
+import { ReadinessSummaryAsync } from './mockups/readinessSummaryAsync.js';
+import { SleepSummaryAsync } from './mockups/sleepSummaryAsync.js';
 
 //
 const Data = {
-  SleepSummary: _mockups.SleepSummary,
-  SleepSummaryAsync: _mockups.SleepSummaryAsync,
-  ActivitySummary: _mockups.ActivitySummary,
-  ActivitySummaryAsync: _mockups.ActivitySummaryAsync,
-  ReadinessSummary: _mockups.ReadinessSummary,
-  ReadinessSummaryAsync: _mockups.ReadinessSummaryAsync
+  SleepSummary,
+  SleepSummaryAsync,
+  ActivitySummary,
+  ActivitySummaryAsync,
+  ReadinessSummary,
+  ReadinessSummaryAsync
 };
-var _default = Data;
-exports.default = _default;
+
+export { Data as default };

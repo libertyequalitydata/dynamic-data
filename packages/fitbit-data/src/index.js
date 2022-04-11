@@ -4,15 +4,12 @@ import {
   ActivitiesDataAsync,
   ActivitiesSummary,
   ActivitiesSummaryAsync,
-  HeartRateData,
   HeartRateDataAsync,
   HeartRateSummary,
   HeartRateSummaryAsync,
-  SleepData,
   SleepDataAsync,
   SleepSummary,
   SleepSummaryAsync,
-  SleepQuality,
   SleepQualityAsync,
 } from "./mockups";
 
@@ -21,15 +18,12 @@ const Data = {
   ActivitiesDataAsync,
   ActivitiesSummary,
   ActivitiesSummaryAsync,
-  HeartRateData,
   HeartRateDataAsync,
   HeartRateSummary,
   HeartRateSummaryAsync,
-  SleepData,
   SleepDataAsync,
   SleepSummary,
   SleepSummaryAsync,
-  SleepQuality,
   SleepQualityAsync,
 };
 

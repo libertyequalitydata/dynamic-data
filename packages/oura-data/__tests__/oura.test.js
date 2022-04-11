@@ -4,9 +4,9 @@
 
 //const { Activity } = require("../dist/cjs/mockups");
 
-const { default: MOCK } = require("../src");
+const MOCK = require("@dynamic-data/oura-data");
 
-const { ActivitySummary } = require("../src/mockups");
+const { ActivitySummary } = require("@dynamic-data/oura-data/mockups");
 
 describe("oura", () => {
   //test.todo("needs tests");

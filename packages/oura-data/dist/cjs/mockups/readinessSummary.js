@@ -1,9 +1,7 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ReadinessSummary = void 0;
+Object.defineProperty(exports, '__esModule', { value: true });
+
 const ReadinessSummary = {
   summary_date: "2016-09-03",
   period_id: 0,
@@ -18,4 +16,5 @@ const ReadinessSummary = {
   score_temperature: 86,
   rest_mode_state: 0
 };
+
 exports.ReadinessSummary = ReadinessSummary;

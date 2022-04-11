@@ -1,13 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ReadinessSummaryAsync = void 0;
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var _readinessSummary = require("./readinessSummary");
+var readinessSummary = require('./readinessSummary.js');
+var dataMockups = require('./dataMockups.js');
 
-var _dataMockups = require("./dataMockups");
+const ReadinessSummaryAsync = dataMockups.AsyncData(readinessSummary.ReadinessSummary);
 
-const ReadinessSummaryAsync = (0, _dataMockups.AsyncData)(_readinessSummary.ReadinessSummary);
 exports.ReadinessSummaryAsync = ReadinessSummaryAsync;

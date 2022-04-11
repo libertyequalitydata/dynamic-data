@@ -6,7 +6,7 @@ var places = require('./mockups/places.js');
 var routes = require('./mockups/routes.js');
 
 //
-var Data = {
+const Data = {
   Activity: activity.Activity,
   Location: location.Location,
   Places: places.Places,

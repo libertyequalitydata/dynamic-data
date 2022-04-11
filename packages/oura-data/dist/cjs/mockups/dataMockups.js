@@ -1,9 +1,6 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.AsyncData = void 0;
+Object.defineProperty(exports, '__esModule', { value: true });
 
 const AsyncData = dataModel => {
   let data = [];

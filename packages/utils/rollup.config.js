@@ -8,28 +8,15 @@ export default [
     input: "src/index.js",
     output: [
       {
-        file: "dist/esm/bundle.js",
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
-    plugins: [
-      resolve({ extensions }),
-      babel({
-        babelHelpers: "bundled",
-        include: ["src/**/*.js"],
-        extensions,
-        exclude: "./node_modules/**",
-      }),
-    ],
-  },
-  {
-    input: "src/index.js",
-    output: [
-      {
-        file: "dist/cjs/bundle.js",
+        exports: "auto",
+        dir: "dist/cjs",
         format: "cjs",
-        sourcemap: true,
+        preserveModules: true,
+      },
+      {
+        dir: "dist/esm",
+        format: "esm",
+        preserveModules: true,
       },
     ],
     plugins: [

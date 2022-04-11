@@ -1,35 +1,11 @@
-/*
-const {
-  ActivitySummary,
-  ActivitySummaryAsync,
-  ReadinessSummary,
-  ReadinessSummaryAsync,
-  SleepSummary,
-  SleepSummaryAsync,
-} = require("@prifina/oura-data/mockups");
-
-const {
-  toIsoString,
-  getRandomInt,
-  getNewDate,
-  getSleepDate,
-} = require("./randomUtils");
-*/
-import {
-  ActivitySummary,
-  ActivitySummaryAsync,
-  ReadinessSummary,
-  ReadinessSummaryAsync,
-  SleepSummary,
-  SleepSummaryAsync,
-} from "@dynamic-data/oura-data/mockups";
-
 import {
   toIsoString,
   getRandomInt,
   getNewDate,
   getSleepDate,
 } from "@dynamic-data/utils";
+
+import MOCK from "@dynamic-data/oura-data";
 
 const ActivitySummaryModel = {
   summary_date: (d, i) => {
@@ -72,6 +48,7 @@ const SleepSummaryModel = {
   },
 
   bedtime_start: (d, start, range) => {
+    console.log("BED TIME ", d, start, range);
     return getSleepDate(d, start, range);
   },
   bedtime_end: (d, sleepTimeRangeInMins) => {
@@ -105,22 +82,32 @@ const SleepSummaryModel = {
 };
 
 const dataModels = {
-  ActivitySummary: { data: ActivitySummary, mockup: ActivitySummaryModel },
+  ActivitySummary: {
+    data: MOCK.ActivitySummary,
+    mockup: ActivitySummaryModel,
+  },
   ActivitySummaryAsync: {
-    data: ActivitySummaryAsync,
+    data: MOCK.ActivitySummaryAsync,
     mockup: ActivitySummaryModel,
   }, // CSV header is same as JSON attributes
   ReadinessSummary: {
-    data: ReadinessSummary,
+    data: MOCK.ReadinessSummary,
     mockup: ReadinessSummaryModel,
   },
   ReadinessSummaryAsync: {
-    data: ReadinessSummaryAsync,
+    data: MOCK.ReadinessSummaryAsync,
     mockup: ReadinessSummaryModel,
   },
-  SleepSummary: { data: SleepSummary, mockup: SleepSummaryModel },
-  SleepSummaryAsync: { data: SleepSummaryAsync, mockup: SleepSummaryModel },
+  SleepSummary: { data: MOCK.SleepSummary, mockup: SleepSummaryModel },
+  SleepSummaryAsync: {
+    data: MOCK.SleepSummaryAsync,
+    mockup: SleepSummaryModel,
+  },
 };
+
+export function getModelCSVHeader(dataModel) {
+  return dataModels[dataModel].data[0].split("\t");
+}
 
 export function getActivityMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
@@ -129,8 +116,8 @@ export function getActivityMockupData(dataType, dataModel, dataDate) {
     mockupData = dataModels[dataModel].data;
   }
   if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split(",");
-    const mockupDataHeader = dataModels[dataModel].data[0].split(",");
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
     mockupDataHeader.forEach((k, i) => {
       mockupData[k] = mockupDataRow[i];
     });
@@ -186,8 +173,8 @@ export function getReadinessMockupData(dataType, dataModel, dataDate) {
     mockupData = dataModels[dataModel].data;
   }
   if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split(",");
-    const mockupDataHeader = dataModels[dataModel].data[0].split(",");
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
     mockupDataHeader.forEach((k, i) => {
       mockupData[k] = mockupDataRow[i];
     });
@@ -208,16 +195,16 @@ export function getReadinessMockupData(dataType, dataModel, dataDate) {
 }
 
 export function getSleepMockupData(dataType, dataModel, dataDate) {
-  console.log("MOCK 2 ", dataModel);
-  console.log("MOCK 4 ", dataDate);
+  //console.log("MOCK 2 ", dataModel);
+  //console.log("MOCK 4 ", dataDate);
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
   }
   if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split(",");
-    const mockupDataHeader = dataModels[dataModel].data[0].split(",");
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
     mockupDataHeader.forEach((k, i) => {
       mockupData[k] = mockupDataRow[i];
     });
@@ -247,6 +234,7 @@ export function getSleepMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key]();
         break;
       case "bedtime_start":
+        console.log("SLEEP ", mockupData, Object.keys(mockupData));
         mockupData[key] = mockupModel[key](mockupData["summary_date"], 22, 3);
         break;
       case "bedtime_end":
@@ -284,8 +272,4 @@ export function getSleepMockupData(dataType, dataModel, dataDate) {
   });
 
   return mockupData;
-}
-
-export function getModelCSVHeader(dataModel) {
-  return dataModels[dataModel].data[0].split(",");
 }

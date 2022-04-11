@@ -1,25 +1,62 @@
-"use strict";
+import { getRandomInt } from "@dynamic-data/utils";
 
-//const { getRandomInt } = require("@dynamic-data/utils");
+import MOCK from "@dynamic-data/oura-data";
 
-import * as DATA from "@dynamic-data/oura-data/mockups";
+import {
+  getModelCSVHeader,
+  getActivityMockupData,
+  getReadinessMockupData,
+  getSleepMockupData,
+} from "@dynamic-data/oura-mockups";
 
 describe("Oura", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from mockups", () => {
-    //const data = ActivitySummary;
+  it("ActivitySummary mockup datamodel from default", () => {
+    const data = MOCK.ActivitySummary;
     //console.log("MOCK ", MOCK);
-    // console.log("MOCK DATA", data);
-    console.log("MOCK DATA", DATA);
+    //console.log("MOCK DATA", data);
 
-    // expect(typeof data).toBe("object");
+    expect(typeof data).toBe("object");
   });
 
-  /*
   it("RandomInt", () => {
     const result = getRandomInt(1, 10);
     //console.log(typeof result);
     expect(typeof result).toEqual("number");
   });
-  */
+
+  it("getModelCSVHeader", () => {
+    const result = getModelCSVHeader("ActivitySummaryAsync");
+    //console.log(result);
+    expect(Array.isArray(result)).toBe(true);
+  });
+  it("getActivityMockupData", () => {
+    const result = getActivityMockupData(
+      "SYNC",
+      "ActivitySummary",
+      "2022-04-03T04:00:00+03:00"
+    );
+    //console.log(result);
+    expect(typeof result).toBe("object");
+  });
+
+  it("getReadinessMockupData", () => {
+    const result = getReadinessMockupData(
+      "SYNC",
+      "ReadinessSummary",
+      "2022-04-03T04:00:00+03:00"
+    );
+    //console.log(result);
+    expect(typeof result).toBe("object");
+  });
+
+  it("getSleepMockupData", () => {
+    const result = getSleepMockupData(
+      "SYNC",
+      "SleepSummary",
+      "2022-04-03T04:00:00+03:00"
+    );
+    //console.log(result);
+    expect(typeof result).toBe("object");
+  });
 });

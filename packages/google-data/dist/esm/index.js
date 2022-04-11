@@ -4,12 +4,11 @@ import { Places } from './mockups/places.js';
 import { Routes } from './mockups/routes.js';
 
 //
-var Data = {
-  Activity: Activity,
-  Location: Location,
-  Places: Places,
-  Routes: Routes
+const Data = {
+  Activity,
+  Location,
+  Places,
+  Routes
 };
 
 export { Data as default };
-//# sourceMappingURL=index.js.map

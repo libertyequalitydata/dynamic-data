@@ -1,20 +1,20 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _mockups = require("./mockups");
+var activitySummary = require('./mockups/activitySummary.js');
+var readinessSummary = require('./mockups/readinessSummary.js');
+var sleepSummary = require('./mockups/sleepSummary.js');
+var activitySummaryAsync = require('./mockups/activitySummaryAsync.js');
+var readinessSummaryAsync = require('./mockups/readinessSummaryAsync.js');
+var sleepSummaryAsync = require('./mockups/sleepSummaryAsync.js');
 
 //
 const Data = {
-  SleepSummary: _mockups.SleepSummary,
-  SleepSummaryAsync: _mockups.SleepSummaryAsync,
-  ActivitySummary: _mockups.ActivitySummary,
-  ActivitySummaryAsync: _mockups.ActivitySummaryAsync,
-  ReadinessSummary: _mockups.ReadinessSummary,
-  ReadinessSummaryAsync: _mockups.ReadinessSummaryAsync
+  SleepSummary: sleepSummary.SleepSummary,
+  SleepSummaryAsync: sleepSummaryAsync.SleepSummaryAsync,
+  ActivitySummary: activitySummary.ActivitySummary,
+  ActivitySummaryAsync: activitySummaryAsync.ActivitySummaryAsync,
+  ReadinessSummary: readinessSummary.ReadinessSummary,
+  ReadinessSummaryAsync: readinessSummaryAsync.ReadinessSummaryAsync
 };
-var _default = Data;
-exports.default = _default;
+
+module.exports = Data;

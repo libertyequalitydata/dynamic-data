@@ -1,13 +1,10 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.ActivitySummaryAsync = void 0;
+Object.defineProperty(exports, '__esModule', { value: true });
 
-var _activitySummary = require("./activitySummary");
+var activitySummary = require('./activitySummary.js');
+var dataMockups = require('./dataMockups.js');
 
-var _dataMockups = require("./dataMockups");
+const ActivitySummaryAsync = dataMockups.AsyncData(activitySummary.ActivitySummary);
 
-const ActivitySummaryAsync = (0, _dataMockups.AsyncData)(_activitySummary.ActivitySummary);
 exports.ActivitySummaryAsync = ActivitySummaryAsync;
