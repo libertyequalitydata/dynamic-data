@@ -2,7 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-const Routes = [{
+const Routes = {
   startLocation: {
     latitudeE7: 605841426,
     longitudeE7: 248303862
@@ -16,6 +16,6 @@ const Routes = [{
   activityType: "IN_PASSENGER_VEHICLE",
   startTimestamp: "2022-02-01T09:12:21.890Z",
   endTimestamp: "2022-02-01T09:24:24.250Z"
-}];
+};
 
 exports.Routes = Routes;
