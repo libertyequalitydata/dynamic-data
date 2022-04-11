@@ -1,10 +1,9 @@
 {
   "name": "@dynamic-data/garmin-data",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Mockup Data for Garmin connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
-  
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
