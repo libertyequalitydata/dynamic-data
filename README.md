@@ -30,5 +30,5 @@ You can find the install packages for some of the existing ones via [NPM here](h
 1. have a data model and populate it with the first set of example data
 2. what parts to make dynamic and why?
 3. what is the logic to use to generate dynamic data?
-4. coding of the dynamic data generation logic (need to know node.js)
+4. coding of the dynamic data generation logic
 5. connect also with ‘[jest](https://jestjs.io/)’ to create test cases
