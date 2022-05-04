@@ -9,7 +9,7 @@
 - **Creating simulations**. By chaining multiple dynamic data models, it’s possible to create simulations for “if this, then that” type of scenarios that help simulate some end results would look like based on given input and known biz logic or process dependencies.
 - **Machine Learning models training**. If known variations is known based on real life data sets, it’s possible then to replicate dynamic fake data based on it. And then that data can be used for basic ML training. The quality of the trained model, is dependable from the quality of the logic used for creating dynamic fake data.
 
-You can find the install packages for some of the existing ones from [here](https://www.npmjs.com/search?q=%40dynamic-data).
+You can find the install packages for some of the existing ones via [NPM here](https://www.npmjs.com/search?q=%40dynamic-data).
 
 ### Principles for creating dynamic data
 
@@ -20,7 +20,7 @@ You can find the install packages for some of the existing ones from [here](http
 
 ### Optional starting points
 
-- start from an existing data source (API) → data model + data examples. Inspiration can be taken from here [https://www.prifina.com/your-data.html](https://www.prifina.com/your-data.html)
+- start from an existing data source (API) → data model + data examples. Inspiration can be taken from [Prifina > Your Data](https://www.prifina.com/your-data.html)
 - start from the data model only
 - create a new data model based on biz logic
 - start from another data faker (a good place to start as having a big userbase and audience, but not catering to more advanced dynamic data needs and more advanced data source types)
