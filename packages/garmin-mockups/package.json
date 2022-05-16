@@ -1,7 +1,7 @@
 {
-  "name": "@dynamic-data/oura-mockups",
+  "name": "@dynamic-data/garmin-mockups",
   "version": "0.0.6",
-  "description": "Oura Mockup Data Generators",
+  "description": "Garmin Mockup Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -20,6 +20,7 @@
   "scripts": {
     "build-mac": "rm -rf ./dist && rollup -c",
     "build-windows": "rd /s /q dist && rollup -c",
+    "build": "rollup -c",
     "test": "jest"
   },
   "devDependencies": {
