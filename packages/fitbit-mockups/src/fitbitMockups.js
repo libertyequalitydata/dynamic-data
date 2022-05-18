@@ -58,7 +58,10 @@ const ActivitiesDataModel = {
   },
   activityName: () =>{
     const example = ["Walk", "Run", "Swimming", "Cycling"]
-    return example[getRandomInt(0,example.length-1)];
+    return example[getRandomInt(0,example.length)-1];
+  },
+  activityTypeId: () => {
+    return getRandomInt(8000,9999)
   },
   averageHeartRate: () => {
     function randomG(v){ 
@@ -68,7 +71,85 @@ const ActivitiesDataModel = {
       }
       return r / v;
     }
-    return randomG(6);
+    return Math.round(randomG(6));
+  },
+  calories: () => {
+      return getRandomInt(0,2000)
+  },
+  caloriesLink: (time, duration) => {
+    let date = time.split("T")[0]
+    // let timeEdit = time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1]
+    let timeEdit = new Date(0);
+    timeEdit.setHours(time.split("T")[1].split(":")[0])
+    timeEdit.setMinutes(time.split("T")[1].split(":")[1])
+    timeEdit.setSeconds(parseInt(time.split("T")[1].split(":")[2].split(".")[0]) + (duration/1000))
+
+    return "https://api.fitbit.com/1/user/-/activities/calories/date/"+date+"/"+date+"/1min/time/"+time.split("T")[1].split(":")[0]+":"+time.split("T")[1].split(":")[1]+"/"+timeEdit.getHours()+":"+timeEdit.getMinutes()+".json"
+},
+  heartRateLink: (time, duration) => {
+    let date = time.split("T")[0]
+    // let timeEdit = time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1]
+    let timeEdit = new Date(0);
+    timeEdit.setHours(time.split("T")[1].split(":")[0])
+    timeEdit.setMinutes(time.split("T")[1].split(":")[1])
+    timeEdit.setSeconds(parseInt(time.split("T")[1].split(":")[2].split(".")[0]) + (duration/1000))
+
+    return "https://api.fitbit.com/1/user/-/activities/heart/date/"+date+"/"+date+"/1sec/time/"+time.split("T")[1].split(":")[0]+":"+time.split("T")[1].split(":")[1]+":"+time.split("T")[1].split(":")[2].split(".")[0]+"/"+timeEdit.getHours()+":"+timeEdit.getMinutes()+":"+timeEdit.getSeconds()+".json"
+  },
+
+  activeZoneMinutes: (hasActiveZoneMinutes) => {
+    if (hasActiveZoneMinutes){
+      let cardio = getRandomInt(0,20)
+      let fatBurn = getRandomInt(0,20)
+      let outOfZone =  getRandomInt(0,20)
+      let peak = getRandomInt(0,20)
+      return {
+        minutesInHeartRateZones: [
+          {
+            minuteMultiplier: 2,
+            minutes: cardio,
+            order: 2,
+            type: 'CARDIO',
+            zoneName: 'Cardio'
+          },
+          {
+            minuteMultiplier: 1,
+            minutes: fatBurn,
+            order: 1,
+            type: 'FAT_BURN',
+            zoneName: 'Fat Burn'
+          },
+          {
+            minuteMultiplier: 0,
+            minutes: outOfZone,
+            order: 0,
+            type: 'OUT_OF_ZONE',
+            zoneName: 'Out of Range'
+          },
+          {
+            minuteMultiplier: 2,
+            minutes: peak,
+            order: 3,
+            type: 'PEAK',
+            zoneName: 'Peak'
+          }
+
+        ],
+        totalMinutes: peak+outOfZone+fatBurn+cardio
+      }
+    } else {
+      return undefined
+    }
+  },
+
+  hasActiveZoneMinutes: () => {
+    let x = getRandomInt(0,2);
+    switch (x) {
+      case 1:
+        return true;
+      case 2:
+        return false;
+    }
   },
 
   duration: (activeDuration) => {
@@ -79,7 +160,7 @@ const ActivitiesDataModel = {
     if (["Swimming"].includes(type)){
       return 0.0000;
     } else {  
-      return (getRandomInt(0,100000)/10000);
+      return (getRandomInt(0,100000)/1000);
     }
     
     // return 0;
@@ -97,7 +178,7 @@ const ActivitiesDataModel = {
     finalDate.setHours(getRandomInt(1,23),getRandomInt(1,59),getRandomInt(1,59),getRandomInt(1,999))
     const timezones = ["-12:00", "-11:00", "-10:00", "-9:30", "-9:00", "-08:00", "-07:00", "-06:00", "-05:00", "-04:00", "-03:30", "-03:00", "-02:00", "-01:00", "+00:00", "+01:00", "+02:00", "+03:00", "+03:30", "+04:00", "+04:30", "+05:00", "+05:30", "+05:45", "+06:00", "+06:30", "+07:00", "+08:00", "+08:45", "+09:00", "+09:30", "+10:00", "+10:30", "+11:00", "+12:00", "+12:45", "+13:00", "+14:00"]
     let finalDateStr = finalDate.toISOString();
-    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0,timezones.length -1)];
+    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0,timezones.length )-1];
     // return 0;
   },
   lastModified: (originalStartTime)=> {
@@ -114,12 +195,12 @@ const ActivitiesDataModel = {
     let date = new Date(x);
     //7 days
     date.setTime(date.getTime()+getRandomInt(1, 604800000))
-    return date.toISOString().split("Z")[0] + timezone;
+    return date.toISOString();
 
   },
   logType: ()=>{
     const values = ["auto_detected", "manual", "tracker",  "mobile_run"]
-    return values[getRandomInt(0,values.length -1)]
+    return values[getRandomInt(0,values.length )-1]
   },
 
   steps: (type, duration)=>{
@@ -141,7 +222,35 @@ const ActivitiesDataModel = {
       default:
         return getRandomInt(0,9999)
     }
+    },
+
+  tcxLink: (logID) => {
+    return "https://api.fitbit.com/1/user/-/activities/"+logID+".tcx"
+  },
+
+  logType: () => {
+    let values = ["mobile_run", "example_2", "example_3"]
+    return values[getRandomInt(0, values.length )- 1]
+  },
+  logId: () => {
+    return getRandomInt(10000000000, 99999999999)
+  },
+
+  manualValuesSpecified: () => {
+    function trueOrFalse() {
+      let x = getRandomInt(0,1);
+      switch (x) {
+        case 0:
+          return true;
+        case 1:
+          return false;
+    }}
+    return {
+      calories: trueOrFalse(),
+      distance: trueOrFalse(),
+      steps: trueOrFalse()
     }
+  },
     
   
 
@@ -444,51 +553,162 @@ const HeartRateSummaryModel = {
   }
 }
 
+const SleepQualityModel = {
+  p_timestamp: (date) => {
+    let x  = new Date(date)
+    return x.getTime();
+  },
+  p_datetime: () => {
+    let finalDate = new Date(0);
+    let maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020,2050));
+    finalDate.setMonth(getRandomInt(0,11));
+    finalDate.setDate(1)
+    maxMonthDate = finalDate
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0)
+    finalDate.setDate(getRandomInt(1,maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1,23),getRandomInt(1,59),getRandomInt(1,59),getRandomInt(1,999))
+    return finalDate.toISOString();
+  },
+  p_value: () => {
+    return getRandomInt(0, 100)
+  },
+  p_level: () => {
+    let values = ['wake', 'example2', 'example3']
+    return values[getRandomInt(0, values.length )- 1]
+  }
+}
+
+const SleepDataModel = {
+  p_timestamp: (date) => {
+    let x  = new Date(date)
+    return x.getTime();
+  },
+  p_datetime: () => {
+    let finalDate = new Date(0);
+    let maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020,2050));
+    finalDate.setMonth(getRandomInt(0,11));
+    finalDate.setDate(1)
+    maxMonthDate = finalDate
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0)
+    finalDate.setDate(getRandomInt(1,maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1,23),getRandomInt(1,59),getRandomInt(1,59),getRandomInt(1,999))
+    return finalDate.toISOString();
+  },
+  p_level: () => {
+    let values = ['wake', 'example2', 'example3']
+    return values[getRandomInt(0, values.length )- 1]
+  },
+  p_seconds: () => {
+    return getRandomInt(0, 600)
+  },
+}
+
+const HeartRateDataModel = {
+  p_date: () => {
+    let finalDate = new Date(0);
+    let maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020,2050));
+    finalDate.setMonth(getRandomInt(0,11));
+    finalDate.setDate(1)
+    maxMonthDate = finalDate
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0)
+    finalDate.setDate(getRandomInt(1,maxMonthDate.getDate()));
+    return finalDate.getFullYear() + "-" + finalDate.getMonth() + "-" + finalDate.getDate();
+
+
+  },
+  p_time: () => {
+    let hour = getRandomInt(0,23)
+    let minute = getRandomInt(0,59)
+    let second = getRandomInt(0,59)
+    let string = ""
+    if (hour<10){
+      string += "0"
+    }
+    string += hour + ":"
+    if (minute<10){
+      string += "0"
+    }
+    string += minute + ":"
+    if (second<10){
+      string += "0"
+    }
+    string += second
+    return string
+
+  },
+  p_value: () => {
+    return getRandomInt(30,80)
+  },
+}
+
 const dataModels = {
   ActivitiesData: {
     data: MOCK.ActivitiesData,
     mockup: ActivitiesDataModel
   },
-  // ActivitiesDataAsync: {
-  //   data: MOCK.ActivitiesDataAsync,
-  //   mockup: ActivitiesDataAsyncModel
-  // },
+  ActivitiesDataAsync: {
+    data: MOCK.ActivitiesDataAsync,
+    mockup: ActivitiesDataModel
+  },
   ActivitiesSummary: {
     data: MOCK.ActivitiesSummary,
     mockup: ActivitiesSummaryModel
   },
-  // ActivitiesSummaryAsync: {
-  //   data: MOCK.ActivitiesSummaryAsync,
-  //   mockup: ActivitiesSummaryAsyncModel
-  // },
-  // HeartRateDataAsync: {
-  //   data: MOCK.HeartRateDataAsync,
-  //   mockup: HeartRateDataAsyncModel
-  // },
+  ActivitiesSummaryAsync: {
+    data: MOCK.ActivitiesSummaryAsync,
+    mockup: ActivitiesSummaryModel
+  },
+  HeartRateData: {
+    data: MOCK.HeartRateData,
+    mockup: HeartRateDataModel
+  },
+  HeartRateDataAsync: {
+    data: MOCK.HeartRateDataAsync,
+    mockup: HeartRateDataModel
+  },
   HeartRateSummary: {
     data: MOCK.HeartRateSummary,
     mockup: HeartRateSummaryModel
   },
-  // HeartRateSummaryAsync: {
-  //   data: MOCK.HeartRateSummaryAsync,
-  //   mockup: HeartRateSummaryAsyncModel
-  // },
-  // SleepDataAsync: {
-  //   data: MOCK.SleepDataAsync,
-  //   mockup: SleepDataAsyncModel
-  // },
+  
+  HeartRateSummaryAsync: {
+    data: MOCK.HeartRateSummaryAsync,
+    mockup: HeartRateSummaryModel
+  },
+
+  SleepData: {
+    data: MOCK.SleepData,
+    mockup: SleepDataModel
+  },
+  SleepDataAsync: {
+    data: MOCK.SleepDataAsync,
+    mockup: SleepDataModel
+  },
   SleepSummary: {
     data: MOCK.SleepSummary,
     mockup: SleepSummaryModel
   },
-  // SleepSummaryAsync: {
-  //   data: MOCK.SleepSummaryAsync
-  // },
-  // SleepQualityAsync: {
-  //   data: MOCK.SleepQualityAsync,
-  //   mockup: SleepQualityAsyncModel
-  // },
+  SleepSummaryAsync: {
+    data: MOCK.SleepSummary,
+    mockup: SleepSummaryModel
+  },
+  SleepQuality: {
+    data: MOCK.SleepQuality,
+    mockup: SleepQualityModel
+  },
+  SleepQualityAsync: {
+    data: MOCK.SleepQualityAsync,
+    mockup: SleepQualityModel
+  },
 };
+
+
 
 export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
@@ -509,6 +729,7 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
   }
 
   [    
+    "hasActiveZoneMinutes",
     "activeDuration",
     "activityLevel",
     "activityName",
@@ -520,7 +741,15 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
     "startTime",
     "lastModified",
     "logType",
-    "steps"
+    "steps",
+    "caloriesLink",
+    "heartRateLink",
+    "calories",
+    "activeZoneMinutes",
+    "manualValuesSpecified",
+    "logType",
+    "logId",
+    "tcxLink"
   ].forEach((key, i) => {
     switch (key) {
       case "activityLevel":
@@ -542,11 +771,28 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
       case "steps":
         mockupData[key] = mockupModel[key](mockupData["activityName"], mockupData["activeDuration"]);
         break;
+      case "caloriesLink":
+        mockupData[key] = mockupModel[key](mockupData["originalStartTime"], mockupData["originalDuration"]);
+        break;
+      case "heartRateLink":
+        mockupData[key] = mockupModel[key](mockupData["originalStartTime"], mockupData["originalDuration"]);
+        break;
+      case "activeZoneMinutes":
+        mockupData[key] = mockupModel[key](mockupData["hasActiveZoneMinutes"]);
+        break;
+      case "tcxLink":
+        mockupData[key] = mockupModel[key](mockupData["logId"]);
+        break;
       case "activeDuration":
       case "activityName":
       case "averageHeartRate":
       case "originalStartTime":
       case "logType":
+      case "calories":
+      case "hasActiveZoneMinutes":
+      case "manualValuesSpecified":
+      case "logType":
+      case "logId":
         mockupData[key] = mockupModel[key]();
         break;
       
@@ -697,7 +943,7 @@ export function getReadinessMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepMockupData(dataType, dataModel, dataDate) {
+export function getSleepSummaryData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
@@ -811,6 +1057,107 @@ export function getHeartRateSummary(dataType, dataModel, dataDate) {
       case "FAT_BURN":
       case "CARDIO":
       case "PEAK":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+
+  return mockupData;
+}
+
+export function getSleepQualityData(dataType, dataModel, dataDate) {
+  let mockupData = {};
+  const mockupModel = dataModels[dataModel].mockup;
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+  if (dataType === "ASYNC") {
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach((k, i) => {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  [
+     "p_datetime",
+     "p_value",
+     "p_level",
+     "p_timestamp",
+  ].forEach((key, i) => {
+    switch (key) {
+      case "p_timestamp":
+        mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+        break;
+      case "p_level":
+      case "p_value":
+      case "p_datetime":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+
+  return mockupData;
+}
+
+export function getSleepDataData(dataType, dataModel, dataDate) {
+  let mockupData = {};
+  const mockupModel = dataModels[dataModel].mockup;
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+  if (dataType === "ASYNC") {
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach((k, i) => {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  [
+     "p_datetime",
+     "p_level",
+     "p_seconds",
+     "p_timestamp",
+  ].forEach((key, i) => {
+    switch (key) {
+      case "p_timestamp":
+        mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+        break;
+      case "p_level":
+      case "p_seconds":
+      case "p_datetime":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+
+  return mockupData;
+}
+
+export function getHeartRateDataData(dataType, dataModel, dataDate) {
+  let mockupData = {};
+  const mockupModel = dataModels[dataModel].mockup;
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+  if (dataType === "ASYNC") {
+    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach((k, i) => {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  [
+     "p_date",
+     "p_time",
+     "p_value",
+  ].forEach((key, i) => {
+    switch (key) {
+      case "p_date":
+      case "p_time":
+      case "p_value":
         mockupData[key] = mockupModel[key]();
         break;
     }

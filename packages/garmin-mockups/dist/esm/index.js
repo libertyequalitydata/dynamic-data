@@ -3810,20 +3810,518 @@ const DailiesDataObject = {
 
 const EpochsData = ["summaryid\tactivitytype\tactivekilocalories\tsteps\tdistanceinmeters\tdurationinseconds\tactivetimeinseconds\tstarttimeinseconds\tstarttimeoffsetinseconds\tmet\tintensity\tmeanmotionintensity\tmaxmotionintensity", "x3a9c8fe-61c90200-8\tSEDENTARY\t0\t0\t0.0\t900\t900\t1640563200\t7200\t1.0\tSEDENTARY\t0.0\t0.0"];
 
+const EpochsDataObject = {
+  summaryid: "x3a9c8fe-61c90200-8",
+  activitytype: "SEDENTARY",
+  activekilocalories: 0,
+  steps: 0,
+  distanceinmeters: 0.0,
+  durationinseconds: 900,
+  activetimeinseconds: 900,
+  starttimeinseconds: 1640563200,
+  starttimeoffsetinseconds: 7200,
+  met: 1.0,
+  intensity: "SEDENTARY",
+  meanmotionintensity: 0.0,
+  maxmotionintensity: 0.0
+};
+
 const SleepsData = ["summaryid\tcalendardate\tdurationinseconds\tstarttimeinseconds\tstarttimeoffsetinseconds\tunmeasurablesleepinseconds\tdeepsleepdurationinseconds\tlightsleepdurationinseconds\tremsleepinseconds\tawakedurationinseconds\tsleeplevelsmap\tvalidation\ttimeoffsetsleepspo2", "x3a9c8fe-61c8ca74-8340\t2021-12-27\t33600\t1640548980\t7200\t0\t0\t28260\t5340\t60\t{deep=null, light=[{starttimeinseconds=1640548980, endtimeinseconds=1640554560}, {starttimeinseconds=1640557080, endtimeinseconds=1640559720}, {starttimeinseconds=1640559960, endtimeinseconds=1640560560}, {starttimeinseconds=1640561700, endtimeinseconds=1640561880}, {starttimeinseconds=1640562120, endtimeinseconds=1640566260}, {starttimeinseconds=1640566320, endtimeinseconds=1640574840}, {starttimeinseconds=1640575020, endtimeinseconds=1640575200}, {starttimeinseconds=1640575500, endtimeinseconds=1640579640}, {starttimeinseconds=1640580360, endtimeinseconds=1640582640}], rem=[{starttimeinseconds=1640554560, endtimeinseconds=1640557080}, {starttimeinseconds=1640559720, endtimeinseconds=1640559960}, {starttimeinseconds=1640560560, endtimeinseconds=1640561700}, {starttimeinseconds=1640561880, endtimeinseconds=1640562120}, {starttimeinseconds=1640574840, endtimeinseconds=1640575020}, {starttimeinseconds=1640575200, endtimeinseconds=1640575500}, {starttimeinseconds=1640579640, endtimeinseconds=1640580360}], awake=[{starttimeinseconds=1640566260, endtimeinseconds=1640566320}]}\tENHANCED_TENTATIVE\t{23040=100, 19200=93, 11520=94, 18180=94, 22020=92, 17160=94, 21000=92, 24840=93, 19980=92, 23820=93, 12300=93, 22800=96, 11280=91, 18960=92, 21780=94, 17940=93, 13080=95, 16920=94, 20760=91, 24600=93, 19740=93, 23580=100, 12060=94, 11040=93, 22560=89, 18720=95, 21540=93, 17700=95, 12840=93, 24360=93, 16680=96, 20520=92, 19500=92, 11820=94, 23340=96, 18480=94, 10800=95, 22320=85, 21300=91, 17460=96, 12600=92, 24120=92, 20280=92, 16440=94, 11580=92, 19260=92, 23100=98, 22080=89, 18240=94, 21060=91, 24900=93, 17220=94, 20040=92, 23880=92, 12360=94, 11340=91, 22860=100, 19020=92, 18000=94, 21840=95, 24660=93, 16980=94, 20820=92, 23640=100, 12120=93, 19800=93, 11100=93, 18780=96, 22620=95, 17760=95, 21600=94, 24420=94, 20580=92, 16740=95, 12900=91, 19560=92, 23400=98, 11880=94, 18540=93, 10860=92, 22380=85, 21360=92, 17520=95, 20340=92, 12660=91, 16500=96, 24180=91, 23160=100, 19320=91, 11640=93, 18300=94, 22140=87, 17280=95, 21120=92, 24960=91, 20100=92, 23940=90, 12420=94, 22920=100, 19080=92, 11400=93, 21900=95, 18060=94, 17040=91, 20880=92, 24720=92, 19860=93, 23700=100, 12180=94, 11160=93, 22680=98, 18840=95, 21660=95, 17820=95, 12960=88, 16800=96, 24480=94, 20640=93, 19620=92, 11940=94, 23460=98, 10920=93, 22440=83, 18600=94, 21420=92, 17580=95, 12720=91, 24240=92, 16560=96, 20400=91, 19380=93, 11700=93, 23220=99, 18360=94, 22200=88, 25020=91, 21180=90, 17340=95, 24000=91, 20160=92, 12480=94, 11460=93, 22980=100, 19140=92, 18120=95, 21960=94, 24780=93, 20940=93, 13260=93, 17100=93, 23760=96, 12240=92, 19920=92, 11220=92, 22740=100, 18900=93, 17880=95, 21720=95, 24540=93, 16860=93, 20700=92, 13020=96, 19680=93, 23520=100, 12000=93, 18660=95, 22500=84, 10980=91, 21480=92, 17640=95, 20460=93, 24300=92, 12780=91, 16620=96, 23280=98, 19440=93, 11760=93, 18420=94, 10740=93, 22260=86, 21240=92, 17400=96, 25080=91, 20220=92, 12540=93, 24060=92}"];
+
+const SleepsDataObject = {
+  summaryid: "x3a9c8fe-61c8ca74-8340",
+  calendardate: "2021-12-27",
+  durationinseconds: 33600,
+  starttimeinseconds: 1640548980,
+  starttimeoffsetinseconds: 7200,
+  unmeasurablesleepinseconds: 0,
+  deepsleepdurationinseconds: 0,
+  lightsleepdurationinseconds: 28260,
+  remsleepinseconds: 5340,
+  awakedurationinseconds: 60,
+  sleeplevelsmap: {
+    deep: null,
+    light: [{
+      starttimeinseconds: 1640548980,
+      endtimeinseconds: 1640554560
+    }, {
+      starttimeinseconds: 1640557080,
+      endtimeinseconds: 1640559720
+    }, {
+      starttimeinseconds: 1640559960,
+      endtimeinseconds: 1640560560
+    }, {
+      starttimeinseconds: 1640561700,
+      endtimeinseconds: 1640561880
+    }, {
+      starttimeinseconds: 1640562120,
+      endtimeinseconds: 1640566260
+    }, {
+      starttimeinseconds: 1640566320,
+      endtimeinseconds: 1640574840
+    }, {
+      starttimeinseconds: 1640575020,
+      endtimeinseconds: 1640575200
+    }, {
+      starttimeinseconds: 1640575500,
+      endtimeinseconds: 1640579640
+    }, {
+      starttimeinseconds: 1640580360,
+      endtimeinseconds: 1640582640
+    }],
+    rem: [{
+      starttimeinseconds: 1640554560,
+      endtimeinseconds: 1640557080
+    }, {
+      starttimeinseconds: 1640559720,
+      endtimeinseconds: 1640559960
+    }, {
+      starttimeinseconds: 1640560560,
+      endtimeinseconds: 1640561700
+    }, {
+      starttimeinseconds: 1640561880,
+      endtimeinseconds: 1640562120
+    }, {
+      starttimeinseconds: 1640574840,
+      endtimeinseconds: 1640575020
+    }, {
+      starttimeinseconds: 1640575200,
+      endtimeinseconds: 1640575500
+    }, {
+      starttimeinseconds: 1640579640,
+      endtimeinseconds: 1640580360
+    }],
+    awake: [{
+      starttimeinseconds: 1640566260,
+      endtimeinseconds: 1640566320
+    }]
+  },
+  validation: "ENHANCED_TENTATIVE",
+  timeoffsetsleepspo2: {
+    23040: 100,
+    19200: 93,
+    11520: 94,
+    18180: 94,
+    22020: 92,
+    17160: 94,
+    21000: 92,
+    24840: 93,
+    19980: 92,
+    23820: 93,
+    12300: 93,
+    22800: 96,
+    11280: 91,
+    18960: 92,
+    21780: 94,
+    17940: 93,
+    13080: 95,
+    16920: 94,
+    20760: 91,
+    24600: 93,
+    19740: 93,
+    23580: 100,
+    12060: 94,
+    11040: 93,
+    22560: 89,
+    18720: 95,
+    21540: 93,
+    17700: 95,
+    12840: 93,
+    24360: 93,
+    16680: 96,
+    20520: 92,
+    19500: 92,
+    11820: 94,
+    23340: 96,
+    18480: 94,
+    10800: 95,
+    22320: 85,
+    21300: 91,
+    17460: 96,
+    12600: 92,
+    24120: 92,
+    20280: 92,
+    16440: 94,
+    11580: 92,
+    19260: 92,
+    23100: 98,
+    22080: 89,
+    18240: 94,
+    21060: 91,
+    24900: 93,
+    17220: 94,
+    20040: 92,
+    23880: 92,
+    12360: 94,
+    11340: 91,
+    22860: 100,
+    19020: 92,
+    18000: 94,
+    21840: 95,
+    24660: 93,
+    16980: 94,
+    20820: 92,
+    23640: 100,
+    12120: 93,
+    19800: 93,
+    11100: 93,
+    18780: 96,
+    22620: 95,
+    17760: 95,
+    21600: 94,
+    24420: 94,
+    20580: 92,
+    16740: 95,
+    12900: 91,
+    19560: 92,
+    23400: 98,
+    11880: 94,
+    18540: 93,
+    10860: 92,
+    22380: 85,
+    21360: 92,
+    17520: 95,
+    20340: 92,
+    12660: 91,
+    16500: 96,
+    24180: 91,
+    23160: 100,
+    19320: 91,
+    11640: 93,
+    18300: 94,
+    22140: 87,
+    17280: 95,
+    21120: 92,
+    24960: 91,
+    20100: 92,
+    23940: 90,
+    12420: 94,
+    22920: 100,
+    19080: 92,
+    11400: 93,
+    21900: 95,
+    18060: 94,
+    17040: 91,
+    20880: 92,
+    24720: 92,
+    19860: 93,
+    23700: 100,
+    12180: 94,
+    11160: 93,
+    22680: 98,
+    18840: 95,
+    21660: 95,
+    17820: 95,
+    12960: 88,
+    16800: 96,
+    24480: 94,
+    20640: 93,
+    19620: 92,
+    11940: 94,
+    23460: 98,
+    10920: 93,
+    22440: 83,
+    18600: 94,
+    21420: 92,
+    17580: 95,
+    12720: 91,
+    24240: 92,
+    16560: 96,
+    20400: 91,
+    19380: 93,
+    11700: 93,
+    23220: 99,
+    18360: 94,
+    22200: 88,
+    25020: 91,
+    21180: 90,
+    17340: 95,
+    24000: 91,
+    20160: 92,
+    12480: 94,
+    11460: 93,
+    22980: 100,
+    19140: 92,
+    18120: 95,
+    21960: 94,
+    24780: 93,
+    20940: 93,
+    13260: 93,
+    17100: 93,
+    23760: 96,
+    12240: 92,
+    19920: 92,
+    11220: 92,
+    22740: 100,
+    18900: 93,
+    17880: 95,
+    21720: 95,
+    24540: 93,
+    16860: 93,
+    20700: 92,
+    13020: 96,
+    19680: 93,
+    23520: 100,
+    12000: 93,
+    18660: 95,
+    22500: 84,
+    10980: 91,
+    21480: 92,
+    17640: 95,
+    20460: 93,
+    24300: 92,
+    12780: 91,
+    16620: 96,
+    23280: 98,
+    19440: 93,
+    11760: 93,
+    18420: 94,
+    10740: 93,
+    22260: 86,
+    21240: 92,
+    17400: 96,
+    25080: 91,
+    20220: 92,
+    12540: 93,
+    24060: 92
+  }
+};
 
 const PulseoxData = ["summaryid\tcalendardate\tstarttimeinseconds\tdurationinseconds\tstarttimeoffsetinseconds\ttimeoffsetspo2values\tondemand\tuser\tday\tperiod", "x3a9c8fe-61c8e5e0\t2021-12-27\t1640556000\t18060\t7200\t{15360=83, 3840=93, 11520=94, 14340=92, 10500=95, 17160=92, 9480=96, 13320=91, 5640=91, 4620=93, 12300=93, 16140=99, 15120=88, 11280=94, 3600=95, 10260=95, 14100=90, 17940=91, 13080=92, 16920=91, 5400=94, 15900=100, 4380=93, 12060=92, 11040=95, 14880=94, 10020=93, 13860=93, 17700=93, 6180=93, 12840=92, 5160=92, 16680=96, 15660=100, 11820=93, 4140=92, 10800=95, 14640=95, 5940=96, 13620=92, 9780=93, 17460=93, 12600=93, 4920=93, 16440=100, 11580=95, 15420=84, 3900=91, 10560=95, 14400=92, 5700=91, 9540=96, 13380=93, 17220=92, 12360=93, 16200=98, 4680=93, 11340=94, 3660=93, 15180=86, 14160=92, 10320=96, 16980=92, 5460=93, 13140=92, 12120=93, 15960=100, 4440=94, 11100=94, 14940=92, 13920=92, 10080=94, 17760=93, 16740=93, 5220=93, 12900=92, 11880=92, 15720=96, 4200=91, 10860=93, 14700=94, 6000=95, 17520=93, 13680=91, 9840=94, 4980=94, 12660=93, 16500=100, 15480=89, 3960=93, 11640=95, 14460=93, 10620=95, 17280=93, 13440=92, 5760=93, 9600=96, 4740=94, 12420=92, 16260=96, 15240=85, 3720=95, 11400=94, 10380=96, 14220=91, 17040=92, 9360=94, 13200=92, 5520=92, 4500=92, 12180=92, 16020=98, 11160=94, 15000=89, 10140=94, 13980=91, 17820=93, 12960=92, 16800=92, 5280=94, 15780=100, 11940=92, 4260=91, 10920=94, 14760=95, 9900=94, 13740=92, 17580=93, 12720=93, 5040=93, 16560=100, 15540=95, 11700=96, 4020=93, 10680=95, 14520=94, 5820=91, 13500=92, 9660=95, 17340=94, 4800=94, 12480=92, 16320=98, 15300=85, 11460=93, 3780=92, 14280=92, 10440=95, 5580=91, 9420=96, 13260=92, 17100=91, 16080=100, 12240=91, 4560=93, 11220=94, 15060=87, 14040=92, 17880=91, 10200=95, 16860=90, 5340=94, 13020=92, 12000=92, 15840=100, 4320=93, 14820=95, 10980=94, 13800=92, 17640=92, 9960=91, 12780=93, 16620=100, 5100=94, 4080=93, 11760=95, 15600=98, 14580=95, 10740=95, 17400=94, 13560=93, 5880=88, 9720=96, 4860=94, 12540=92, 16380=98}\tfalse"];
 
-//
+const PulseoxObject = {
+  summaryid: "x3a9c8fe-61c8e5e0",
+  calendardate: "2021-12-27",
+  starttimeinseconds: 1640556000,
+  durationinseconds: 18060,
+  starttimeoffsetinseconds: 7200,
+  timeoffsetspo2values: {
+    15360: 83,
+    3840: 93,
+    11520: 94,
+    14340: 92,
+    10500: 95,
+    17160: 92,
+    9480: 96,
+    13320: 91,
+    5640: 91,
+    4620: 93,
+    12300: 93,
+    16140: 99,
+    15120: 88,
+    11280: 94,
+    3600: 95,
+    10260: 95,
+    14100: 90,
+    17940: 91,
+    13080: 92,
+    16920: 91,
+    5400: 94,
+    15900: 100,
+    4380: 93,
+    12060: 92,
+    11040: 95,
+    14880: 94,
+    10020: 93,
+    13860: 93,
+    17700: 93,
+    6180: 93,
+    12840: 92,
+    5160: 92,
+    16680: 96,
+    15660: 100,
+    11820: 93,
+    4140: 92,
+    10800: 95,
+    14640: 95,
+    5940: 96,
+    13620: 92,
+    9780: 93,
+    17460: 93,
+    12600: 93,
+    4920: 93,
+    16440: 100,
+    11580: 95,
+    15420: 84,
+    3900: 91,
+    10560: 95,
+    14400: 92,
+    5700: 91,
+    9540: 96,
+    13380: 93,
+    17220: 92,
+    12360: 93,
+    16200: 98,
+    4680: 93,
+    11340: 94,
+    3660: 93,
+    15180: 86,
+    14160: 92,
+    10320: 96,
+    16980: 92,
+    5460: 93,
+    13140: 92,
+    12120: 93,
+    15960: 100,
+    4440: 94,
+    11100: 94,
+    14940: 92,
+    13920: 92,
+    10080: 94,
+    17760: 93,
+    16740: 93,
+    5220: 93,
+    12900: 92,
+    11880: 92,
+    15720: 96,
+    4200: 91,
+    10860: 93,
+    14700: 94,
+    6000: 95,
+    17520: 93,
+    13680: 91,
+    9840: 94,
+    4980: 94,
+    12660: 93,
+    16500: 100,
+    15480: 89,
+    3960: 93,
+    11640: 95,
+    14460: 93,
+    10620: 95,
+    17280: 93,
+    13440: 92,
+    5760: 93,
+    9600: 96,
+    4740: 94,
+    12420: 92,
+    16260: 96,
+    15240: 85,
+    3720: 95,
+    11400: 94,
+    10380: 96,
+    14220: 91,
+    17040: 92,
+    9360: 94,
+    13200: 92,
+    5520: 92,
+    4500: 92,
+    12180: 92,
+    16020: 98,
+    11160: 94,
+    15000: 89,
+    10140: 94,
+    13980: 91,
+    17820: 93,
+    12960: 92,
+    16800: 92,
+    5280: 94,
+    15780: 100,
+    11940: 92,
+    4260: 91,
+    10920: 94,
+    14760: 95,
+    9900: 94,
+    13740: 92,
+    17580: 93,
+    12720: 93,
+    5040: 93,
+    16560: 100,
+    15540: 95,
+    11700: 96,
+    4020: 93,
+    10680: 95,
+    14520: 94,
+    5820: 91,
+    13500: 92,
+    9660: 95,
+    17340: 94,
+    4800: 94,
+    12480: 92,
+    16320: 98,
+    15300: 85,
+    11460: 93,
+    3780: 92,
+    14280: 92,
+    10440: 95,
+    5580: 91,
+    9420: 96,
+    13260: 92,
+    17100: 91,
+    16080: 100,
+    12240: 91,
+    4560: 93,
+    11220: 94,
+    15060: 87,
+    14040: 92,
+    17880: 91,
+    10200: 95,
+    16860: 90,
+    5340: 94,
+    13020: 92,
+    12000: 92,
+    15840: 100,
+    4320: 93,
+    14820: 95,
+    10980: 94,
+    13800: 92,
+    17640: 92,
+    9960: 91,
+    12780: 93,
+    16620: 100,
+    5100: 94,
+    4080: 93,
+    11760: 95,
+    15600: 98,
+    14580: 95,
+    10740: 95,
+    17400: 94,
+    13560: 93,
+    5880: 88,
+    9720: 96,
+    4860: 94,
+    12540: 92,
+    16380: 98
+  },
+  ondemand: false,
+  user: undefined,
+  day: undefined,
+  period: undefined
+};
+
 const Data = {
   DailiesData,
   EpochsData,
   SleepsData,
   PulseoxData,
-  DailiesDataObject
+  DailiesDataObject,
+  EpochsDataObject,
+  SleepsDataObject,
+  PulseoxObject
 };
 
 var DailiesDataModel = {
+  summaryid: function summaryid() {
+    function makeid(length) {
+      var result = 'x';
+      var characters = 'abcdef0123456789';
+      var charactersLength = characters.length;
+
+      for (var i = 1; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+        if ((i + 1) % 8 === 0) {
+          result += "-";
+        } else if (i + 2 === length) {
+          result += "-";
+        }
+      }
+
+      return result;
+    }
+
+    return makeid(21);
+  },
   starttimeinseconds: function starttimeinseconds() {
     var finalDate = new Date(0);
     var maxMonthDate = new Date(0);
@@ -3835,11 +4333,10 @@ var DailiesDataModel = {
     maxMonthDate.setDate(0);
     finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
     finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    console.log(finalDate.getFullYear() + "-" + finalDate.getMonth() + "-" + finalDate.getDate());
-    return finalDate.getTime();
+    return Math.floor(finalDate.getTime() / 1000);
   },
   calendardate: function calendardate(timestamp) {
-    var finalDate = new Date(timestamp);
+    var finalDate = new Date(timestamp * 1000);
     return finalDate.getFullYear() + "-" + (finalDate.getMonth() + 1) + "-" + finalDate.getDate();
   },
   reststressdurationinseconds: function reststressdurationinseconds() {
@@ -3896,52 +4393,461 @@ var DailiesDataModel = {
   },
   steps: function steps() {
     return getRandomInt(2000, 13000);
+  },
+  starttimeoffsetinseconds: function starttimeoffsetinseconds() {
+    var timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14];
+    return timezones[getRandomInt(0, timezones.length - 1)] * 60 * 60;
+  },
+  bmrkilocalories: function bmrkilocalories() {
+    return getRandomInt(700, 2500);
+  },
+  activitytype: function activitytype() {
+    var text = ["WALKING", "RUNNING", "CYCLING", "SWIMMING", "HIKING", "BMX"];
+    return text[getRandomInt(0, text.length - 1)];
+  },
+  floorsclimbed: function floorsclimbed() {
+    return getRandomInt(1, 15);
+  },
+  floorsclimbedgoal: function floorsclimbedgoal() {
+    return getRandomInt(1, 15);
+  },
+  stepsgoal: function stepsgoal() {
+    return getRandomInt(2000, 13000);
+  },
+  intensitydurationgoalinseconds: function intensitydurationgoalinseconds(steps) {
+    var ratio = Math.round((6200 + getRandomInt(-1000, 1000)) / 9000);
+    return ratio * steps;
+  },
+  maxstresslevel: function maxstresslevel() {
+    return getRandomInt(80, 100);
+  },
+  stressqualifier: function stressqualifier() {
+    var qualifier = ["unknown", "high", "low", "medium"]; //NB: high, low and medium are not offical values (just placeholder). Please replace as neccessary.
+
+    return qualifier[getRandomInt(0, qualifier.length - 1)];
+  },
+  averagestresslevel: function averagestresslevel() {
+    return getRandomInt(1, 20);
+  },
+  vigorousintensitydurationinseconds: function vigorousintensitydurationinseconds() {
+    return getRandomInt(1200, 5000);
+  },
+  moderateintensitydurationinseconds: function moderateintensitydurationinseconds() {
+    return getRandomInt(1200, 5000);
+  }
+};
+var EpochsDataModel = {
+  summaryid: function summaryid() {
+    function makeid(length) {
+      var result = 'x';
+      var characters = 'abcdef0123456789';
+      var charactersLength = characters.length;
+
+      for (var i = 1; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+        if ((i + 1) % 8 === 0) {
+          result += "-";
+        }
+      }
+
+      return result;
+    }
+
+    return makeid(17);
+  },
+  activitytype: function activitytype() {
+    var activities = ["SEDENTARY", "EXAMPLE2", "EXAMPLE3", "EXAMPLE4"];
+    return activities[getRandomInt(0, activities.length - 1)];
+  },
+  activekilocalories: function activekilocalories() {
+    return getRandomInt(0, 999);
+  },
+  steps: function steps() {
+    return getRandomInt(0, 9999);
+  },
+  distanceinmeters: function distanceinmeters() {
+    return getRandomInt(0, 9999) / 10;
+  },
+  durationinseconds: function durationinseconds() {
+    return getRandomInt(0, 999);
+  },
+  activetimeinseconds: function activetimeinseconds() {
+    return getRandomInt(0, 999);
+  },
+  starttimeinseconds: function starttimeinseconds() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
+    return Math.floor(finalDate.getTime() / 1000);
+  },
+  starttimeoffsetinseconds: function starttimeoffsetinseconds() {
+    var timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14];
+    return timezones[getRandomInt(0, timezones.length - 1)] * 60 * 60;
+  },
+  met: function met() {
+    //https://golf.procon.org/met-values-for-800-activities/
+    return getRandomInt(10, 198) / 10;
+  },
+  intensity: function intensity() {
+    var intensities = ["SEDENTARY", "EXAMPLE2", "EXAMPLE3", "EXAMPLE4"];
+    return intensities[getRandomInt(0, intensities.length - 1)];
+  },
+  meanmotionintensity: function meanmotionintensity() {
+    return getRandomInt(0, 999) / 10;
+  },
+  maxmotionintensity: function maxmotionintensity() {
+    return getRandomInt(0, 999) / 10;
+  }
+};
+var remNum = getRandomInt(6, 10);
+var awakeNum = getRandomInt(1, 3);
+var deepNum = getRandomInt(5, 8);
+var lightNum = deepNum + awakeNum + remNum + 1;
+var unmeasurableNum = getRandomInt(0, 2);
+var SleepsDataModel = {
+  summaryid: function summaryid() {
+    function makeid(length) {
+      var result = 'x';
+      var characters = 'abcdef0123456789';
+      var charactersLength = characters.length;
+
+      for (var i = 1; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+        if ((i + 1) % 8 === 0) {
+          result += "-";
+        }
+      }
+
+      return result;
+    }
+
+    return makeid(20);
+  },
+  starttimeinseconds: function starttimeinseconds() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
+    return Math.floor(finalDate.getTime() / 1000);
+  },
+  calendardate: function calendardate(timestamp) {
+    var finalDate = new Date(timestamp * 1000);
+    return finalDate.getFullYear() + "-" + (finalDate.getMonth() + 1) + "-" + finalDate.getDate();
+  },
+  starttimeoffsetinseconds: function starttimeoffsetinseconds() {
+    var timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14];
+    return timezones[getRandomInt(0, timezones.length - 1)] * 60 * 60;
+  },
+  lightsleepdurationinseconds: function lightsleepdurationinseconds() {
+    return (3140 + getRandomInt(-500, 500)) * lightNum;
+  },
+  remsleepinseconds: function remsleepinseconds() {
+    return (762 + getRandomInt(-50, 50)) * remNum;
+  },
+  deepsleepdurationinseconds: function deepsleepdurationinseconds() {
+    return (762 + getRandomInt(-50, 50)) * deepNum;
+  },
+  awakedurationinseconds: function awakedurationinseconds() {
+    return (60 + getRandomInt(-10, 10)) * awakeNum;
+  },
+  durationinseconds: function durationinseconds(light, rem, awake, deep, unmeasurable) {
+    return light + rem + awake + deep + unmeasurable;
+  },
+  sleeplevelsmap: function sleeplevelsmap(start, light, rem, awake, deep, unmeasurable) {
+    var deepObj = [];
+    var lightObj = [];
+    var remObj = [];
+    var awakeObj = [];
+    var deepCounter = deepNum;
+    var lightCounter = lightNum;
+    var remCounter = remNum;
+    var awakeCounter = awakeNum;
+    var unmeasurableCounter = unmeasurableNum;
+    var positionsForUnmeasurable = [];
+    var indexUnmeasureable = 0;
+    var up = true;
+    var ready = false;
+
+    while (positionsForUnmeasurable.length !== unmeasurableCounter) {
+      var x = getRandomInt(1, lightCounter);
+
+      if (!positionsForUnmeasurable.includes(x)) {
+        positionsForUnmeasurable.push(x);
+      }
+    }
+
+    positionsForUnmeasurable.sort(function (a, b) {
+      return b - a;
+    });
+    var avgLight = light / lightCounter;
+    var avgAwake = awake / awakeCounter;
+    var avgDeep = deep / deepCounter;
+    var avgRem = rem / remCounter;
+    var avgUnmeasureable = unmeasurable / unmeasurableCounter;
+    var currentTime = start;
+    var nextTime = 0;
+
+    while (lightCounter > 0) {
+      if (unmeasurableCounter > 0 && positionsForUnmeasurable[indexUnmeasureable] === lightCounter) {
+        currentTime = currentTime + avgUnmeasureable;
+        indexUnmeasureable += 1;
+        unmeasurableCounter -= 1;
+      }
+
+      if (lightCounter > 0) {
+        nextTime = currentTime + avgLight;
+        lightObj.push({
+          starttimeinseconds: currentTime,
+          endtimeinseconds: nextTime
+        });
+        currentTime = nextTime;
+        lightCounter -= 1;
+        up = !up;
+      }
+
+      if (Math.round(awakeCounter * lightNum / (awakeNum + 1)) === lightCounter && awakeCounter > 0) {
+        ready = true;
+      }
+
+      if (ready && up) {
+        nextTime = currentTime + avgAwake;
+        awakeObj.push({
+          starttimeinseconds: currentTime,
+          endtimeinseconds: nextTime
+        });
+        currentTime = nextTime;
+        awakeCounter -= 1;
+        ready = false;
+      } else if (remCounter > 0 && deepCounter > 0) {
+        if (up) {
+          nextTime = currentTime + avgRem;
+          remObj.push({
+            starttimeinseconds: currentTime,
+            endtimeinseconds: nextTime
+          });
+          currentTime = nextTime;
+          remCounter -= 1;
+        } else {
+          nextTime = currentTime + avgDeep;
+          deepObj.push({
+            starttimeinseconds: currentTime,
+            endtimeinseconds: nextTime
+          });
+          currentTime = nextTime;
+          deepCounter -= 1;
+        }
+      } else if (remCounter > 0) {
+        nextTime = currentTime + avgRem;
+        remObj.push({
+          starttimeinseconds: currentTime,
+          endtimeinseconds: nextTime
+        });
+        currentTime = nextTime;
+        remCounter -= 1;
+      } else if (deepCounter > 0) {
+        nextTime = currentTime + avgDeep;
+        deepObj.push({
+          starttimeinseconds: currentTime,
+          endtimeinseconds: nextTime
+        });
+        currentTime = nextTime;
+        deepCounter -= 1;
+      }
+    }
+
+    if (deepObj.length === 0) {
+      deepObj = null;
+    }
+
+    if (lightObj.length === 0) {
+      lightObj = null;
+    }
+
+    if (remObj.length === 0) {
+      remObj = null;
+    }
+
+    if (awakeObj.length === 0) {
+      awakeObj = null;
+    }
+
+    return {
+      deep: deepObj,
+      light: lightObj,
+      rem: remObj,
+      awake: awakeObj
+    };
+  },
+  timeoffsetsleepspo2: function timeoffsetsleepspo2() {
+    var finalReturn = {};
+    var counter = 0;
+    var max = 100;
+    var min = 80;
+    var runOn = getRandomInt(1, 5); // let number = Math.round((max + min)/2);
+
+    var number = 93;
+
+    while (10740 + counter * 60 < 25080) {
+      counter += 1;
+
+      if (runOn === 0) {
+        runOn = getRandomInt(1, 10);
+        var x = getRandomInt(-10, 10);
+
+        while (number + x < min || number + x > max) {
+          x = getRandomInt(-10, 10);
+        }
+
+        number = number + x;
+      }
+
+      finalReturn = _objectSpread2(_objectSpread2({}, finalReturn), {}, _defineProperty({}, 10740 + counter * 60, number));
+      runOn -= 1;
+    }
+
+    return finalReturn;
+  },
+  unmeasurablesleepinseconds: function unmeasurablesleepinseconds() {
+    return (60 + getRandomInt(-10, 10)) * unmeasurableNum;
+  },
+  validation: function validation() {
+    var values = ["ENHANCED_TENTATIVE", "EXAMPLE2", "EXAMPLE3"];
+    return values[getRandomInt(0, values.length - 1)];
+  }
+};
+var PulseoxModel = {
+  summaryid: function summaryid() {
+    function makeid(length) {
+      var result = 'x';
+      var characters = 'abcdef0123456789';
+      var charactersLength = characters.length;
+
+      for (var i = 1; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+
+        if ((i + 1) % 8 === 0 && i + 1 !== length) {
+          result += "-";
+        }
+      }
+
+      return result;
+    }
+
+    return makeid(16);
+  },
+  starttimeinseconds: function starttimeinseconds() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
+    return Math.floor(finalDate.getTime() / 1000);
+  },
+  calendardate: function calendardate(timestamp) {
+    var finalDate = new Date(timestamp * 1000);
+    return finalDate.getFullYear() + "-" + (finalDate.getMonth() + 1) + "-" + finalDate.getDate();
+  },
+  starttimeoffsetinseconds: function starttimeoffsetinseconds() {
+    var timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14];
+    return timezones[getRandomInt(0, timezones.length - 1)] * 60 * 60;
+  },
+  durationinseconds: function durationinseconds() {
+    return getRandomInt(15000, 25000);
+  },
+  timeoffsetspo2values: function timeoffsetspo2values() {
+    var finalReturn = {};
+    var counter = 0;
+    var max = 100;
+    var min = 80;
+    var runOn = getRandomInt(1, 3); // let number = Math.round((max + min)/2);
+
+    var number = 93;
+
+    while (3600 + counter * 60 < 17940) {
+      counter += 1;
+
+      if (runOn === 0) {
+        runOn = getRandomInt(1, 10);
+        var x = getRandomInt(-10, 10);
+
+        while (number + x < min || number + x > max) {
+          x = getRandomInt(-10, 10);
+        }
+
+        number = number + x;
+      }
+
+      finalReturn = _objectSpread2(_objectSpread2({}, finalReturn), {}, _defineProperty({}, 3600 + counter * 60, number));
+      runOn -= 1;
+    }
+
+    return finalReturn;
+  },
+  ondemand: function ondemand() {
+    var x = getRandomInt(0, 1);
+
+    switch (x) {
+      case 0:
+        return false;
+
+      case 1:
+        return true;
+    }
   }
 };
 var dataModels = {
   DailiesDataObject: {
     data: Data.DailiesDataObject,
     mockup: DailiesDataModel
-  } // // ActivitiesDataAsync: {
-  // //   data: MOCK.ActivitiesDataAsync,
-  // //   mockup: ActivitiesDataAsyncModel
-  // // },
-  // ActivitiesSummary: {
-  //   data: MOCK.ActivitiesSummary,
-  //   mockup: ActivitiesSummaryModel
-  // },
-  // // ActivitiesSummaryAsync: {
-  // //   data: MOCK.ActivitiesSummaryAsync,
-  // //   mockup: ActivitiesSummaryAsyncModel
-  // // },
-  // // HeartRateDataAsync: {
-  // //   data: MOCK.HeartRateDataAsync,
-  // //   mockup: HeartRateDataAsyncModel
-  // // },
-  // HeartRateSummary: {
-  //   data: MOCK.HeartRateSummary,
-  //   mockup: HeartRateSummaryModel
-  // },
-  // // HeartRateSummaryAsync: {
-  // //   data: MOCK.HeartRateSummaryAsync,
-  // //   mockup: HeartRateSummaryAsyncModel
-  // // },
-  // // SleepDataAsync: {
-  // //   data: MOCK.SleepDataAsync,
-  // //   mockup: SleepDataAsyncModel
-  // // },
-  // SleepSummary: {
-  //   data: MOCK.SleepSummary,
-  //   mockup: SleepSummaryModel
-  // },
-  // // SleepSummaryAsync: {
-  // //   data: MOCK.SleepSummaryAsync
-  // // },
-  // // SleepQualityAsync: {
-  // //   data: MOCK.SleepQualityAsync,
-  // //   mockup: SleepQualityAsyncModel
-  // // },
-
+  },
+  DailiesDataAsync: {
+    data: Data.DailiesData,
+    mockup: DailiesDataModel
+  },
+  EpochsDataObject: {
+    data: Data.EpochsDataObject,
+    mockup: EpochsDataModel
+  },
+  EpochsDataAsync: {
+    data: Data.EpochsData,
+    mockup: EpochsDataModel
+  },
+  SleepsDataObject: {
+    data: Data.SleepsDataObject,
+    mockup: SleepsDataModel
+  },
+  SleepsDataAsync: {
+    data: Data.SleepsData,
+    mockup: SleepsDataModel
+  },
+  PulseoxObject: {
+    data: Data.PulseoxObject,
+    mockup: PulseoxModel
+  },
+  PulseoxAsync: {
+    data: Data.PulseoxData,
+    mockup: PulseoxModel
+  }
 };
 function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
@@ -4000,7 +4906,7 @@ function getDailiesMockupData(dataType, dataModel, dataDate) {
   var c = (ordered[2] - ordered[3] - 1) / 100;
   var d = (ordered[0] - ordered[2] - 1) / 100;
   var e = (104 - ordered[0]) / 100;
-  ["starttimeinseconds", "reststressdurationinseconds", "calendardate", "restingheartrateinbeatsperminute", "activitystressdurationinseconds", "stressdurationinseconds", "lowstressdurationinseconds", "mediumstressdurationinseconds", "highstressdurationinseconds", "minheartrateinbeatsperminute", "maxheartrateinbeatsperminute", "averageheartrateinbeatsperminute", "timeoffsetheartratesamples", "durationinseconds", "steps", "distanceinmeters", "activekilocalories"].forEach(function (key, i) {
+  ["summaryid", "starttimeinseconds", "reststressdurationinseconds", "calendardate", "restingheartrateinbeatsperminute", "activitystressdurationinseconds", "stressdurationinseconds", "lowstressdurationinseconds", "mediumstressdurationinseconds", "highstressdurationinseconds", "minheartrateinbeatsperminute", "maxheartrateinbeatsperminute", "averageheartrateinbeatsperminute", "timeoffsetheartratesamples", "durationinseconds", "steps", "distanceinmeters", "activekilocalories", "starttimeoffsetinseconds", "activitytype", "floorsclimbed", "floorsclimbedgoal", "stepsgoal", "intensitydurationgoalinseconds", "maxstresslevel", "stressqualifier", "averagestresslevel", "vigorousintensitydurationinseconds", "moderateintensitydurationinseconds", "bmrkilocalories", "summaryid"].forEach(function (key, i) {
     switch (key) {
       case "calendardate":
         mockupData[key] = mockupModel[key](mockupData["starttimeinseconds"]);
@@ -4038,6 +4944,7 @@ function getDailiesMockupData(dataType, dataModel, dataDate) {
 
       case "distanceinmeters":
       case "activekilocalories":
+      case "intensitydurationgoalinseconds":
         mockupData[key] = mockupModel[key](mockupData["steps"]);
         break;
 
@@ -4046,6 +4953,135 @@ function getDailiesMockupData(dataType, dataModel, dataDate) {
       case "restingheartrateinbeatsperminute":
       case "durationinseconds":
       case "steps":
+      case "starttimeoffsetinseconds":
+      case "bmrkilocalories":
+      case "activitytype":
+      case "floorsclimbed":
+      case "floorsclimbedgoal":
+      case "stepsgoal":
+      case "maxstresslevel":
+      case "stressqualifier":
+      case "averagestresslevel":
+      case "vigorousintensitydurationinseconds":
+      case "moderateintensitydurationinseconds":
+      case "summaryid":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
+function getSleepMockupData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
+
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["starttimeinseconds", "calendardate", "starttimeoffsetinseconds", "lightsleepdurationinseconds", "remsleepinseconds", "deepsleepdurationinseconds", "unmeasurablesleepinseconds", "awakedurationinseconds", "durationinseconds", "sleeplevelsmap", "timeoffsetsleepspo2", "summaryid", "validation"].forEach(function (key, i) {
+    switch (key) {
+      case "calendardate":
+        mockupData[key] = mockupModel[key](mockupData["starttimeinseconds"]);
+        break;
+
+      case "durationinseconds":
+        mockupData[key] = mockupModel[key](mockupData["lightsleepdurationinseconds"], mockupData["remsleepinseconds"], mockupData["awakedurationinseconds"], mockupData["deepsleepdurationinseconds"], mockupData["unmeasurablesleepinseconds"]);
+        break;
+
+      case "sleeplevelsmap":
+        mockupData[key] = mockupModel[key](mockupData["starttimeinseconds"], mockupData["lightsleepdurationinseconds"], mockupData["remsleepinseconds"], mockupData["awakedurationinseconds"], mockupData["deepsleepdurationinseconds"], mockupData["unmeasurablesleepinseconds"]);
+        break;
+
+      case "starttimeinseconds":
+      case "starttimeoffsetinseconds":
+      case "lightsleepdurationinseconds":
+      case "remsleepinseconds":
+      case "timeoffsetsleepspo2":
+      case "summaryid":
+      case "unmeasurablesleepinseconds":
+      case "deepsleepdurationinseconds":
+      case "awakedurationinseconds":
+      case "validation":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
+function getPulseoxMockupData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
+
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["starttimeinseconds", "calendardate", "durationinseconds", "starttimeoffsetinseconds", "timeoffsetspo2values", "ondemand", "summaryid"].forEach(function (key, i) {
+    switch (key) {
+      case "calendardate":
+        mockupData[key] = mockupModel[key](mockupData["starttimeinseconds"]);
+        break;
+
+      case "starttimeinseconds":
+      case "durationinseconds":
+      case "starttimeoffsetinseconds":
+      case "timeoffsetspo2values":
+      case "ondemand":
+      case "summaryid":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
+function getEpochsMockupData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
+
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["summaryid", "activitytype", "activekilocalories", "steps", "distanceinmeters", "durationinseconds", "activetimeinseconds", "starttimeinseconds", "starttimeoffsetinseconds", "met", "intensity", "meanmotionintensity", "maxmotionintensity"].forEach(function (key, i) {
+    switch (key) {
+      case "summaryid":
+      case "activitytype":
+      case "activekilocalories":
+      case "steps":
+      case "distanceinmeters":
+      case "durationinseconds":
+      case "activetimeinseconds":
+      case "starttimeinseconds":
+      case "starttimeoffsetinseconds":
+      case "met":
+      case "intensity":
+      case "meanmotionintensity":
+      case "maxmotionintensity":
         mockupData[key] = mockupModel[key]();
         break;
     }
@@ -4053,4 +5089,4 @@ function getDailiesMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export { getDailiesMockupData, getModelCSVHeader };
+export { getDailiesMockupData, getEpochsMockupData, getModelCSVHeader, getPulseoxMockupData, getSleepMockupData };

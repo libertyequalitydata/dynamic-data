@@ -1,3 +1,18 @@
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 function getRandomInt(min, max) {
   return Math.ceil(Math.random() * (max - min) + min);
 }
@@ -161,6 +176,12 @@ const ActivitiesSummary = {
 
 const ActivitiesSummaryAsync = ["activityscore\tactivitycalories\tcaloriesbmr\tcaloriesout\tdistances\televation\tfairlyactiveminutes\tfloors\theartratezones\tlightlyactiveminutes\tmarginalcalories\trestingheartrate\tsedentaryminutes\tsteps\tveryactiveminutes", "-1\t277\t1014\t1254\t{total=1460, tracker=1460, loggedactivities=0, veryactive=490, moderatelyactive=400, lightlyactive=570, sedentaryactive=0}\t6\t7\t2\t{out_of_range={caloriesout=1216, max=96, min=30, minutes=813}, fat_burn={caloriesout=30, max=118, min=96, minutes=4}, cardio={caloriesout=0, max=146, min=118, minutes=0}, peak={caloriesout=0, max=220, min=146, minutes=0}}\t48\t146\t52\t185\t2111\t8"];
 
+const HeartRateData = {
+  p_date: "2021-12-30",
+  p_time: "00:00:00",
+  p_value: 47
+};
+
 const HeartRateDataAsync = ["p_date\tp_time\tp_value", "2021-12-30\t00:00:00\t47"];
 
 const HeartRateSummary = {
@@ -183,6 +204,13 @@ const HeartRateSummary = {
 };
 
 const HeartRateSummaryAsync = ["out_of_zone\tfat_burn\tcardio\tpeak", "{cals=707, mins=1440}\t{cals=0, mins=0}\t{cals=0, mins=0}\t{cals=0, mins=0}"];
+
+const SleepData = {
+  p_timestamp: 1640803620000,
+  p_datetime: "2021-12-29T18:47:00.000Z",
+  p_level: "wake",
+  p_seconds: 270
+};
 
 const SleepDataAsync = ["p_timestamp\tp_datetime\tp_level\tp_seconds", "1640803620000\t2021-12-29T18:47:00.000Z\twake\t270"];
 
@@ -220,6 +248,13 @@ const SleepSummary = {
 
 const SleepSummaryAsync = ["deep\tlight\trem\twake\tstarttimets\tendtimets\tstarttime\tendtime\tminutesafterwakeup\tminutesasleep\tminutesawake\tminutestofallasleep\ttimeinbed", "{count=3, minutes=75, thirtydayavgminutes=74}\t{count=40, minutes=329, thirtydayavgminutes=260}\t{count=6, minutes=64, thirtydayavgminutes=106}\t{count=34, minutes=101, thirtydayavgminutes=67}\t1640803620000\t1640837790000\t2021-12-29T18:47:00.000Z\t2021-12-30T04:16:30.000Z\t0\t468\t101\t0\t569"];
 
+const SleepQuality = {
+  p_timestamp: 1640542920000,
+  p_datetime: "2021-12-26T18:22:00.000Z",
+  p_value: 47,
+  p_level: "wake"
+};
+
 const SleepQualityAsync = ["p_timestamp\tp_datetime\tp_value\tp_level", "1640542920000\t2021-12-26T18:22:00.000Z\t60\twake"];
 
 //
@@ -228,16 +263,21 @@ const Data = {
   ActivitiesDataAsync,
   ActivitiesSummary,
   ActivitiesSummaryAsync,
+  HeartRateData,
   HeartRateDataAsync,
   HeartRateSummary,
   HeartRateSummaryAsync,
+  SleepData,
   SleepDataAsync,
   SleepSummary,
   SleepSummaryAsync,
+  SleepQuality,
   SleepQualityAsync
 };
 
-var ActivitiesDataModel = {
+var _ActivitiesDataModel;
+
+var ActivitiesDataModel = (_ActivitiesDataModel = {
   activeDuration: function activeDuration() {
     return getRandomInt(30000, 3600000); // return 0;
   },
@@ -288,6 +328,9 @@ var ActivitiesDataModel = {
     var example = ["Walk", "Run", "Swimming", "Cycling"];
     return example[getRandomInt(0, example.length - 1)];
   },
+  activityTypeId: function activityTypeId() {
+    return getRandomInt(8000, 9999);
+  },
   averageHeartRate: function averageHeartRate() {
     function randomG(v) {
       var r = 0;
@@ -299,7 +342,77 @@ var ActivitiesDataModel = {
       return r / v;
     }
 
-    return randomG(6);
+    return Math.round(randomG(6));
+  },
+  calories: function calories() {
+    return getRandomInt(0, 2000);
+  },
+  caloriesLink: function caloriesLink(time, duration) {
+    var date = time.split("T")[0]; // let timeEdit = time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1]
+
+    var timeEdit = new Date(0);
+    timeEdit.setHours(time.split("T")[1].split(":")[0]);
+    timeEdit.setMinutes(time.split("T")[1].split(":")[1]);
+    timeEdit.setSeconds(parseInt(time.split("T")[1].split(":")[2].split(".")[0]) + duration / 1000);
+    return "https://api.fitbit.com/1/user/-/activities/calories/date/" + date + "/" + date + "/1min/time/" + time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1] + "/" + timeEdit.getHours() + ":" + timeEdit.getMinutes() + ".json";
+  },
+  heartRateLink: function heartRateLink(time, duration) {
+    var date = time.split("T")[0]; // let timeEdit = time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1]
+
+    var timeEdit = new Date(0);
+    timeEdit.setHours(time.split("T")[1].split(":")[0]);
+    timeEdit.setMinutes(time.split("T")[1].split(":")[1]);
+    timeEdit.setSeconds(parseInt(time.split("T")[1].split(":")[2].split(".")[0]) + duration / 1000);
+    return "https://api.fitbit.com/1/user/-/activities/heart/date/" + date + "/" + date + "/1sec/time/" + time.split("T")[1].split(":")[0] + ":" + time.split("T")[1].split(":")[1] + ":" + time.split("T")[1].split(":")[2].split(".")[0] + "/" + timeEdit.getHours() + ":" + timeEdit.getMinutes() + ":" + timeEdit.getSeconds() + ".json";
+  },
+  activeZoneMinutes: function activeZoneMinutes(hasActiveZoneMinutes) {
+    if (hasActiveZoneMinutes) {
+      var cardio = getRandomInt(0, 20);
+      var fatBurn = getRandomInt(0, 20);
+      var outOfZone = getRandomInt(0, 20);
+      var peak = getRandomInt(0, 20);
+      return {
+        minutesInHeartRateZones: [{
+          minuteMultiplier: 2,
+          minutes: cardio,
+          order: 2,
+          type: 'CARDIO',
+          zoneName: 'Cardio'
+        }, {
+          minuteMultiplier: 1,
+          minutes: fatBurn,
+          order: 1,
+          type: 'FAT_BURN',
+          zoneName: 'Fat Burn'
+        }, {
+          minuteMultiplier: 0,
+          minutes: outOfZone,
+          order: 0,
+          type: 'OUT_OF_ZONE',
+          zoneName: 'Out of Range'
+        }, {
+          minuteMultiplier: 2,
+          minutes: peak,
+          order: 3,
+          type: 'PEAK',
+          zoneName: 'Peak'
+        }],
+        totalMinutes: peak + outOfZone + fatBurn + cardio
+      };
+    } else {
+      return undefined;
+    }
+  },
+  hasActiveZoneMinutes: function hasActiveZoneMinutes() {
+    var x = getRandomInt(0, 2);
+
+    switch (x) {
+      case 1:
+        return true;
+
+      case 2:
+        return false;
+    }
   },
   duration: function duration(activeDuration) {
     return activeDuration + getRandomInt(0, 3600000); // return 0;
@@ -308,7 +421,7 @@ var ActivitiesDataModel = {
     if (["Swimming"].includes(type)) {
       return 0.0000;
     } else {
-      return getRandomInt(0, 100000) / 10000;
+      return getRandomInt(0, 100000) / 1000;
     } // return 0;
 
   },
@@ -329,20 +442,19 @@ var ActivitiesDataModel = {
   },
   lastModified: function lastModified(originalStartTime) {
     var x;
-    var timezone; // return x.toIsoString();
 
     if (originalStartTime.includes("+")) {
       x = originalStartTime.split("+")[0];
-      timezone = "+" + originalStartTime.split("+")[1];
+      "+" + originalStartTime.split("+")[1];
     } else {
       x = originalStartTime.split("-")[0];
-      timezone = "-" + originalStartTime.split("-")[3];
+      "-" + originalStartTime.split("-")[3];
     }
 
     var date = new Date(x); //7 days
 
     date.setTime(date.getTime() + getRandomInt(1, 604800000));
-    return date.toISOString().split("Z")[0] + timezone;
+    return date.toISOString();
   },
   logType: function logType() {
     var values = ["auto_detected", "manual", "tracker", "mobile_run"];
@@ -371,8 +483,34 @@ var ActivitiesDataModel = {
       default:
         return getRandomInt(0, 9999);
     }
+  },
+  tcxLink: function tcxLink(logID) {
+    return "https://api.fitbit.com/1/user/-/activities/" + logID + ".tcx";
   }
-}; //https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/
+}, _defineProperty(_ActivitiesDataModel, "logType", function logType() {
+  var values = ["mobile_run", "example_2", "example_3"];
+  return values[getRandomInt(0, values.length - 1)];
+}), _defineProperty(_ActivitiesDataModel, "logId", function logId() {
+  return getRandomInt(10000000000, 99999999999);
+}), _defineProperty(_ActivitiesDataModel, "manualValuesSpecified", function manualValuesSpecified() {
+  function trueOrFalse() {
+    var x = getRandomInt(0, 1);
+
+    switch (x) {
+      case 0:
+        return true;
+
+      case 1:
+        return false;
+    }
+  }
+
+  return {
+    calories: trueOrFalse(),
+    distance: trueOrFalse(),
+    steps: trueOrFalse()
+  };
+}), _ActivitiesDataModel); //https://dev.fitbit.com/build/reference/web-api/activity/get-daily-activity-summary/
 
 var ActivitiesSummaryModel = {
   //Inspiration for data ranges:
@@ -652,6 +790,32 @@ var HeartRateSummaryModel = {
     };
   }
 };
+var SleepQualityModel = {
+  p_timestamp: function p_timestamp(date) {
+    var x = new Date(date);
+    return x.getTime();
+  },
+  p_datetime: function p_datetime() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
+    return finalDate.toISOString();
+  },
+  p_value: function p_value() {
+    return getRandomInt(0, 100);
+  },
+  p_level: function p_level() {
+    var values = ['wake', 'example2', 'example3'];
+    return values[getRandomInt(0, values.length - 1)];
+  }
+};
 var dataModels = {
   ActivitiesData: {
     data: Data.ActivitiesData,
@@ -688,10 +852,14 @@ var dataModels = {
   SleepSummary: {
     data: Data.SleepSummary,
     mockup: SleepSummaryModel
-  } // SleepSummaryAsync: {
+  },
+  // SleepSummaryAsync: {
   //   data: MOCK.SleepSummaryAsync
   // },
-  // SleepQualityAsync: {
+  SleepQuality: {
+    data: Data.SleepQuality,
+    mockup: SleepQualityModel
+  } // SleepQualityAsync: {
   //   data: MOCK.SleepQualityAsync,
   //   mockup: SleepQualityAsyncModel
   // },
@@ -716,7 +884,7 @@ function getActivitiesMockupData(dataType, dataModel, dataDate) {
     });
   }
 
-  ["activeDuration", "activityLevel", "activityName", "averageHeartRate", "elevationGain", "duration", "originalDuration", "originalStartTime", "startTime", "lastModified", "logType", "steps"].forEach(function (key, i) {
+  ["hasActiveZoneMinutes", "activeDuration", "activityLevel", "activityName", "averageHeartRate", "elevationGain", "duration", "originalDuration", "originalStartTime", "startTime", "lastModified", "logType", "steps", "caloriesLink", "heartRateLink", "calories", "activeZoneMinutes", "manualValuesSpecified", "logType", "logId", "tcxLink"].forEach(function (key, i) {
     switch (key) {
       case "activityLevel":
       case "duration":
@@ -743,11 +911,32 @@ function getActivitiesMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key](mockupData["activityName"], mockupData["activeDuration"]);
         break;
 
+      case "caloriesLink":
+        mockupData[key] = mockupModel[key](mockupData["originalStartTime"], mockupData["originalDuration"]);
+        break;
+
+      case "heartRateLink":
+        mockupData[key] = mockupModel[key](mockupData["originalStartTime"], mockupData["originalDuration"]);
+        break;
+
+      case "activeZoneMinutes":
+        mockupData[key] = mockupModel[key](mockupData["hasActiveZoneMinutes"]);
+        break;
+
+      case "tcxLink":
+        mockupData[key] = mockupModel[key](mockupData["logId"]);
+        break;
+
       case "activeDuration":
       case "activityName":
       case "averageHeartRate":
       case "originalStartTime":
       case "logType":
+      case "calories":
+      case "hasActiveZoneMinutes":
+      case "manualValuesSpecified":
+      case "logType":
+      case "logId":
         mockupData[key] = mockupModel[key]();
         break;
       // case "summary_date":
@@ -987,5 +1176,36 @@ function getHeartRateSummary(dataType, dataModel, dataDate) {
   });
   return mockupData;
 }
+function getSleepQualityData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
 
-export { getActivitiesMockupData, getActivitiesSummaryData, getHeartRateSummary, getModelCSVHeader, getReadinessMockupData, getSleepMockupData };
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["p_datetime", "p_value", "p_level", "p_timestamp"].forEach(function (key, i) {
+    switch (key) {
+      case "p_timestamp":
+        mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+        break;
+
+      case "p_level":
+      case "p_value":
+      case "p_datetime":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
+
+export { getActivitiesMockupData, getActivitiesSummaryData, getHeartRateSummary, getModelCSVHeader, getReadinessMockupData, getSleepMockupData, getSleepQualityData };

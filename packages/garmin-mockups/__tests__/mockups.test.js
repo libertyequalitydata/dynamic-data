@@ -4,54 +4,100 @@ const { getRandomInt } = require("@dynamic-data/utils");
 
 const MOCK = require("@dynamic-data/garmin-data");
 const {
-  getDailiesMockupData  
+  getDailiesMockupData,  
+  getSleepMockupData,
+  getPulseoxMockupData,
+  getEpochsMockupData
 } = require("@dynamic-data/garmin-mockups");
 
 describe("Garmin", () => {
   //test.todo("needs tests");
   it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.DailiesDataObject;
+    const data = MOCK.SleepsDataObject;
     console.log("MOCK ", data);
-    // console.log("MOCK DATA", data);
 
-
-    // expect(typeof data).toBe("object");
+    expect(typeof data).toBe("object");
   });
-
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.DailiesDataObject;
-    console.log("MOCK ", data);
-    // console.log("MOCK DATA", data);
-
-
-    // expect(typeof data).toBe("object");
-  });
-
-  // it("RandomInt", () => {
-  //   const result = getRandomInt(1, 10);
-  //   //console.log(typeof result);
-  //   expect(typeof result).toEqual("number");
-  // });
-
-  // it("getModelCSVHeader", () => {
-  //   const result = getModelCSVHeader("ActivitySummaryAsync");
-  //   //console.log(result);
-  //   expect(Array.isArray(result)).toBe(true);
-  // });
-
-  it("getReadinessMockupData", () => {
-    const result = getDailiesMockupData(
-      "SYNC",
-      "DailiesDataObject",
-      "2022-04-03"
-    );
-    console.log(result);
-    expect(typeof result).toBe("object");
-  });
-
-  // it("getSleepMockupData", () => {
-  //   const result = getSleepMockupData("SYNC", "SleepSummary", "2022-04-03");
-  //   console.log("SLEEP RESULT ", result);
+  // it("getDailiesMockupData", () => {
+  //   const result = getDailiesMockupData(
+  //     "ASYNC",
+  //     "DailiesDataAsync",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
   //   expect(typeof result).toBe("object");
   // });
+
+  // it("getSleepMockupData", () => {
+  //   const result = getSleepMockupData(
+  //     "ASYNC",
+  //     "SleepsDataAsync",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   console.log(result.sleeplevelsmap);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getPulseoxMockupData", () => {
+  //   const result = getPulseoxMockupData(
+  //     "ASYNC",
+  //     "PulseoxAsync",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getEpochsMockupData", () => {
+  //   const result = getEpochsMockupData(
+  //     "ASYNC",
+  //     "EpochsDataAsync",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getSleepMockupData", () => {
+  //   const result = getSleepMockupData(
+  //     "SYNC",
+  //     "SleepsDataObject",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   console.log(result.sleeplevelsmap);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getPulseoxMockupData", () => {
+  //   const result = getPulseoxMockupData(
+  //     "SYNC",
+  //     "PulseoxObject",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getEpochsMockupData", () => {
+  //   const result = getEpochsMockupData(
+  //     "SYNC",
+  //     "EpochsDataObject",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   expect(typeof result).toBe("object");
+  // });
+
+  // it("getDailiesMockupData", () => {
+  //   const result = getDailiesMockupData(
+  //     "SYNC",
+  //     "DailiesDataObject",
+  //     "2022-04-03"
+  //   );
+  //   console.log(result);
+  //   expect(typeof result).toBe("object");
+  // });
+
 });

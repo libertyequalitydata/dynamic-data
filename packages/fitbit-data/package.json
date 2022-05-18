@@ -26,7 +26,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c"
+    "build-mac": "rm -rf ./dist && rollup -c",
+    "build-windows": "rd /s /q dist && rollup -c",
+    "build": "rollup -c"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
