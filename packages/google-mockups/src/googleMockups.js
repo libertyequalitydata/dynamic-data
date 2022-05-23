@@ -270,11 +270,18 @@ export function getActivityMockupData(dataType, dataModel, dataDate) {
     mockupData = dataModels[dataModel].data;
   }
   if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const length = dataModels[dataModel].data.length
     const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
+    var final=[];
+    
+    for (var i = 1; i < length;i++){
+      var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+      mockupDataHeader.forEach((k, i) => {
+        mockupData[k] = mockupDataRow[i];
+      });
+      final.push(mockupData)
+    }
+    mockupData = final
   }
   mockupData.forEach((object)=>{
     [    
@@ -308,11 +315,18 @@ export function getLocationMockupData(dataType, dataModel, dataDate) {
     mockupData = dataModels[dataModel].data;
   }
   if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    const length = dataModels[dataModel].data.length
     const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
+    var final=[];
+    
+    for (var i = 1; i < length;i++){
+      var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+      mockupDataHeader.forEach((k, i) => {
+        mockupData[k] = mockupDataRow[i];
+      });
+      final.push(mockupData)
+    }
+    mockupData = final
   }
   mockupData.forEach((object)=>{
     [    
