@@ -48,7 +48,6 @@ const SleepSummaryModel = {
   },
 
   bedtime_start: (d, start, range) => {
-    console.log("BED TIME ", d, start, range);
     return getSleepDate(d, start, range);
   },
   bedtime_end: (d, sleepTimeRangeInMins) => {
@@ -195,8 +194,6 @@ export function getReadinessMockupData(dataType, dataModel, dataDate) {
 }
 
 export function getSleepMockupData(dataType, dataModel, dataDate) {
-  //console.log("MOCK 2 ", dataModel);
-  //console.log("MOCK 4 ", dataDate);
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
@@ -234,7 +231,6 @@ export function getSleepMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key]();
         break;
       case "bedtime_start":
-        console.log("SLEEP ", mockupData, Object.keys(mockupData));
         mockupData[key] = mockupModel[key](mockupData["summary_date"], 22, 3);
         break;
       case "bedtime_end":

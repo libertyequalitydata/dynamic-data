@@ -200,7 +200,6 @@ var SleepSummaryModel = {
     return getNewDate(d, i, "DATE");
   },
   bedtime_start: function bedtime_start(d, start, range) {
-    console.log("BED TIME ", d, start, range);
     return getSleepDate(d, start, range);
   },
   bedtime_end: function bedtime_end(d, sleepTimeRangeInMins) {
@@ -341,8 +340,6 @@ function getReadinessMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 function getSleepMockupData(dataType, dataModel, dataDate) {
-  //console.log("MOCK 2 ", dataModel);
-  //console.log("MOCK 4 ", dataDate);
   var mockupData = {};
   var mockupModel = dataModels[dataModel].mockup;
 
@@ -374,7 +371,6 @@ function getSleepMockupData(dataType, dataModel, dataDate) {
         break;
 
       case "bedtime_start":
-        console.log("SLEEP ", mockupData, Object.keys(mockupData));
         mockupData[key] = mockupModel[key](mockupData["summary_date"], 22, 3);
         break;
 

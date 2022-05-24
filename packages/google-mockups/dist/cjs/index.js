@@ -377,7 +377,7 @@ function getActivityMockupData(dataType, dataModel, dataDate) {
       mockupDataHeader.forEach(function (k, i) {
         mockupData[k] = mockupDataRow[i];
       });
-      final.push(mockupData);
+      final.push(Object.assign({}, mockupData));
     }
 
     mockupData = final;
@@ -418,12 +418,13 @@ function getLocationMockupData(dataType, dataModel, dataDate) {
       mockupDataHeader.forEach(function (k, i) {
         mockupData[k] = mockupDataRow[i];
       });
-      final.push(mockupData);
+      final.push(Object.assign({}, mockupData));
     }
 
     mockupData = final;
   }
 
+  console.log(mockupData);
   mockupData.forEach(function (object) {
     ["p_latitude", "p_longitude", "p_accuracy", "p_altitude", "p_verticalaccuracy", "p_heading", "p_datetime", "p_timestamp"].forEach(function (key, i) {
       switch (key) {

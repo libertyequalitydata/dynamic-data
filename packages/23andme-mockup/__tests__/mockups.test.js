@@ -12,7 +12,7 @@ const {
 
 describe("23andme", () => {
   //test.todo("needs tests");
-  it("getActivitiesMockupData", () => {
+  it("getRawData", () => {
     const result = getRawData (
       "SYNC",
       "RawData",

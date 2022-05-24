@@ -11,7 +11,7 @@ const {
 } = require("@dynamic-data/google-mockups");
 
 describe("Google", () => {
-  //test.todo("needs tests");
+  test.todo("needs tests");
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
       "SYNC",
@@ -21,13 +21,22 @@ describe("Google", () => {
     console.log(result);
     expect(typeof result).toBe("object");
   });
-  it("getLocationMockupData", () => {
-    const result = getLocationMockupData(
-      "SYNC",
-      "LocationObject",
+  it("getActivityMockupData", () => {
+    const result = getActivityMockupData(
+      "ASYNC",
+      "Activity",
       "2022-04-03"
     );
     console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getLocationMockupData", () => {
+    const result = getLocationMockupData(
+      "ASYNC",
+      "Location",
+      "2022-04-03"
+    );
+    console.log("a",result);
     expect(typeof result).toBe("object");
   });
   it("getPlacesMockupData", () => {

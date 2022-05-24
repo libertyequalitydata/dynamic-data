@@ -330,7 +330,7 @@ var ActivitiesDataModel = (_ActivitiesDataModel = {
   },
   activityName: function activityName() {
     var example = ["Walk", "Run", "Swimming", "Cycling"];
-    return example[getRandomInt(0, example.length - 1)];
+    return example[getRandomInt(0, example.length) - 1];
   },
   activityTypeId: function activityTypeId() {
     return getRandomInt(8000, 9999);
@@ -442,7 +442,7 @@ var ActivitiesDataModel = (_ActivitiesDataModel = {
     finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
     var timezones = ["-12:00", "-11:00", "-10:00", "-9:30", "-9:00", "-08:00", "-07:00", "-06:00", "-05:00", "-04:00", "-03:30", "-03:00", "-02:00", "-01:00", "+00:00", "+01:00", "+02:00", "+03:00", "+03:30", "+04:00", "+04:30", "+05:00", "+05:30", "+05:45", "+06:00", "+06:30", "+07:00", "+08:00", "+08:45", "+09:00", "+09:30", "+10:00", "+10:30", "+11:00", "+12:00", "+12:45", "+13:00", "+14:00"];
     var finalDateStr = finalDate.toISOString();
-    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0, timezones.length - 1)]; // return 0;
+    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0, timezones.length) - 1]; // return 0;
   },
   lastModified: function lastModified(originalStartTime) {
     var x;
@@ -462,7 +462,7 @@ var ActivitiesDataModel = (_ActivitiesDataModel = {
   },
   logType: function logType() {
     var values = ["auto_detected", "manual", "tracker", "mobile_run"];
-    return values[getRandomInt(0, values.length - 1)];
+    return values[getRandomInt(0, values.length) - 1];
   },
   steps: function steps(type, duration) {
     // const example = ["Walk", "Run", "Swimming", "Cycling"]
@@ -493,7 +493,7 @@ var ActivitiesDataModel = (_ActivitiesDataModel = {
   }
 }, _defineProperty(_ActivitiesDataModel, "logType", function logType() {
   var values = ["mobile_run", "example_2", "example_3"];
-  return values[getRandomInt(0, values.length - 1)];
+  return values[getRandomInt(0, values.length) - 1];
 }), _defineProperty(_ActivitiesDataModel, "logId", function logId() {
   return getRandomInt(10000000000, 99999999999);
 }), _defineProperty(_ActivitiesDataModel, "manualValuesSpecified", function manualValuesSpecified() {
@@ -817,7 +817,75 @@ var SleepQualityModel = {
   },
   p_level: function p_level() {
     var values = ['wake', 'example2', 'example3'];
-    return values[getRandomInt(0, values.length - 1)];
+    return values[getRandomInt(0, values.length) - 1];
+  }
+};
+var SleepDataModel = {
+  p_timestamp: function p_timestamp(date) {
+    var x = new Date(date);
+    return x.getTime();
+  },
+  p_datetime: function p_datetime() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
+    return finalDate.toISOString();
+  },
+  p_level: function p_level() {
+    var values = ['wake', 'example2', 'example3'];
+    return values[getRandomInt(0, values.length) - 1];
+  },
+  p_seconds: function p_seconds() {
+    return getRandomInt(0, 600);
+  }
+};
+var HeartRateDataModel = {
+  p_date: function p_date() {
+    var finalDate = new Date(0);
+    var maxMonthDate = new Date(0);
+    finalDate.setFullYear(getRandomInt(2020, 2050));
+    finalDate.setMonth(getRandomInt(0, 11));
+    finalDate.setDate(1);
+    maxMonthDate = finalDate;
+    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+    maxMonthDate.setDate(0);
+    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    return finalDate.getFullYear() + "-" + finalDate.getMonth() + "-" + finalDate.getDate();
+  },
+  p_time: function p_time() {
+    var hour = getRandomInt(0, 23);
+    var minute = getRandomInt(0, 59);
+    var second = getRandomInt(0, 59);
+    var string = "";
+
+    if (hour < 10) {
+      string += "0";
+    }
+
+    string += hour + ":";
+
+    if (minute < 10) {
+      string += "0";
+    }
+
+    string += minute + ":";
+
+    if (second < 10) {
+      string += "0";
+    }
+
+    string += second;
+    return string;
+  },
+  p_value: function p_value() {
+    return getRandomInt(30, 80);
   }
 };
 var dataModels = {
@@ -825,49 +893,58 @@ var dataModels = {
     data: Data.ActivitiesData,
     mockup: ActivitiesDataModel
   },
-  // ActivitiesDataAsync: {
-  //   data: MOCK.ActivitiesDataAsync,
-  //   mockup: ActivitiesDataAsyncModel
-  // },
+  ActivitiesDataAsync: {
+    data: Data.ActivitiesDataAsync,
+    mockup: ActivitiesDataModel
+  },
   ActivitiesSummary: {
     data: Data.ActivitiesSummary,
     mockup: ActivitiesSummaryModel
   },
-  // ActivitiesSummaryAsync: {
-  //   data: MOCK.ActivitiesSummaryAsync,
-  //   mockup: ActivitiesSummaryAsyncModel
-  // },
-  // HeartRateDataAsync: {
-  //   data: MOCK.HeartRateDataAsync,
-  //   mockup: HeartRateDataAsyncModel
-  // },
+  ActivitiesSummaryAsync: {
+    data: Data.ActivitiesSummaryAsync,
+    mockup: ActivitiesSummaryModel
+  },
+  HeartRateData: {
+    data: Data.HeartRateData,
+    mockup: HeartRateDataModel
+  },
+  HeartRateDataAsync: {
+    data: Data.HeartRateDataAsync,
+    mockup: HeartRateDataModel
+  },
   HeartRateSummary: {
     data: Data.HeartRateSummary,
     mockup: HeartRateSummaryModel
   },
-  // HeartRateSummaryAsync: {
-  //   data: MOCK.HeartRateSummaryAsync,
-  //   mockup: HeartRateSummaryAsyncModel
-  // },
-  // SleepDataAsync: {
-  //   data: MOCK.SleepDataAsync,
-  //   mockup: SleepDataAsyncModel
-  // },
+  HeartRateSummaryAsync: {
+    data: Data.HeartRateSummaryAsync,
+    mockup: HeartRateSummaryModel
+  },
+  SleepData: {
+    data: Data.SleepData,
+    mockup: SleepDataModel
+  },
+  SleepDataAsync: {
+    data: Data.SleepDataAsync,
+    mockup: SleepDataModel
+  },
   SleepSummary: {
     data: Data.SleepSummary,
     mockup: SleepSummaryModel
   },
-  // SleepSummaryAsync: {
-  //   data: MOCK.SleepSummaryAsync
-  // },
+  SleepSummaryAsync: {
+    data: Data.SleepSummary,
+    mockup: SleepSummaryModel
+  },
   SleepQuality: {
     data: Data.SleepQuality,
     mockup: SleepQualityModel
-  } // SleepQualityAsync: {
-  //   data: MOCK.SleepQualityAsync,
-  //   mockup: SleepQualityAsyncModel
-  // },
-
+  },
+  SleepQualityAsync: {
+    data: Data.SleepQualityAsync,
+    mockup: SleepQualityModel
+  }
 };
 function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
@@ -1067,7 +1144,7 @@ function getReadinessMockupData(dataType, dataModel, dataDate) {
   });
   return mockupData;
 }
-function getSleepMockupData(dataType, dataModel, dataDate) {
+function getSleepSummaryData(dataType, dataModel, dataDate) {
   var mockupData = {};
   var mockupModel = dataModels[dataModel].mockup;
 
@@ -1211,11 +1288,71 @@ function getSleepQualityData(dataType, dataModel, dataDate) {
   });
   return mockupData;
 }
+function getSleepDataData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
+
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["p_datetime", "p_level", "p_seconds", "p_timestamp"].forEach(function (key, i) {
+    switch (key) {
+      case "p_timestamp":
+        mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+        break;
+
+      case "p_level":
+      case "p_seconds":
+      case "p_datetime":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
+function getHeartRateDataData(dataType, dataModel, dataDate) {
+  var mockupData = {};
+  var mockupModel = dataModels[dataModel].mockup;
+
+  if (dataType === "SYNC") {
+    mockupData = dataModels[dataModel].data;
+  }
+
+  if (dataType === "ASYNC") {
+    var mockupDataRow = dataModels[dataModel].data[1].split("\t");
+    var mockupDataHeader = dataModels[dataModel].data[0].split("\t");
+    mockupDataHeader.forEach(function (k, i) {
+      mockupData[k] = mockupDataRow[i];
+    });
+  }
+
+  ["p_date", "p_time", "p_value"].forEach(function (key, i) {
+    switch (key) {
+      case "p_date":
+      case "p_time":
+      case "p_value":
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+  return mockupData;
+}
 
 exports.getActivitiesMockupData = getActivitiesMockupData;
 exports.getActivitiesSummaryData = getActivitiesSummaryData;
+exports.getHeartRateDataData = getHeartRateDataData;
 exports.getHeartRateSummary = getHeartRateSummary;
 exports.getModelCSVHeader = getModelCSVHeader;
 exports.getReadinessMockupData = getReadinessMockupData;
-exports.getSleepMockupData = getSleepMockupData;
+exports.getSleepDataData = getSleepDataData;
 exports.getSleepQualityData = getSleepQualityData;
+exports.getSleepSummaryData = getSleepSummaryData;

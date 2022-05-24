@@ -922,16 +922,10 @@ const AthleteModel = {
   },
   updated_at : (created_at)=>{
     let finalDate = new Date(0);
-    console.log("created_at", created_at)
     finalDate.setFullYear(created_at.split('-')[0]);
     finalDate.setMonth(created_at.split('-')[1]-1);
     finalDate.setDate(created_at.split('T')[0].split('-')[2])
-    console.log("time", created_at.split('T')[1])
-    console.log("hours", created_at.split('T')[1].split(':')[0])
-    console.log("minutes", created_at.split('T')[1].split(':')[1])
-    console.log("seconds", created_at.split('T')[1].split(':')[2].split("Z")[0])
     finalDate.setHours(created_at.split('T')[1].split(':')[0],created_at.split('T')[1].split(':')[1],created_at.split('T')[1].split(':')[2].split("Z")[0])
-    console.log("before",finalDate.getTime())
     finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
     return finalDate.toISOString().split('.')[0]+"Z"
   },
@@ -2010,16 +2004,10 @@ const RouteModel = {
   },
   updated_at : (created_at) => {
     let finalDate = new Date(0);
-    console.log("created_at", created_at)
     finalDate.setFullYear(created_at.split('-')[0]);
     finalDate.setMonth(created_at.split('-')[1]-1);
     finalDate.setDate(created_at.split('T')[0].split('-')[2])
-    console.log("time", created_at.split('T')[1])
-    console.log("hours", created_at.split('T')[1].split(':')[0])
-    console.log("minutes", created_at.split('T')[1].split(':')[1])
-    console.log("seconds", created_at.split('T')[1].split(':')[2].split("Z")[0])
     finalDate.setHours(created_at.split('T')[1].split(':')[0],created_at.split('T')[1].split(':')[1],created_at.split('T')[1].split(':')[2].split("Z")[0])
-    console.log("before",finalDate.getTime())
     finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
     return finalDate.toISOString().split('.')[0]+"Z"
   },
@@ -2224,34 +2212,6 @@ const dataModels = {
 export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
 }
-
-// export function getActivityMockupData(dataType, dataModel, dataDate) {
-//   let mockupData = {};
-//   const mockupModel = dataModels[dataModel].mockup;
-//   if (dataType === "SYNC") {
-//     mockupData = dataModels[dataModel].data;
-//   }
-//   if (dataType === "ASYNC") {
-//     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-//     const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-//     mockupDataHeader.forEach((k, i) => {
-//       mockupData[k] = mockupDataRow[i];
-//     });
-//   }
-
-//   [
-    
-//   ].forEach((key, i) => {
-//     switch (key) {
-      
-//       default :
-//         mockupData[key] = mockupModel[key]();
-//         break;
-//     }
-//   });
-
-//   return mockupData;
-// }
 
 export function getEquipmentMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
@@ -2782,7 +2742,6 @@ export function getActivityMockupData(dataType, dataModel, dataDate) {
         break;
       case "gear":
         
-        console.log(mockupData["gear"]["id"]);
         [
           "id",
           "primary",
@@ -3038,9 +2997,6 @@ export function getAthleteMockupData(dataType, dataModel, dataDate) {
     });
   }
   let dupelication = 0;
-  // for (var i =0; i<dupelication;i++){
-  //   mockupData.push(Object.assign( {} ,mockupData[0]) )
-  // }
     [
       "id",
       "resource_state",
@@ -3217,9 +3173,6 @@ export function getRouteMockupData(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  // for (var i =0; i<dupelication;i++){
-  //   mockupData.push(Object.assign( {} ,mockupData[0]) )
-  // }
     [
       "private",
       "distance",
@@ -3251,7 +3204,6 @@ export function getRouteMockupData(dataType, dataModel, dataDate) {
             break;
           case "segments":
             mockupData[key].forEach((segment)=>{
-              console.log(mockupData[key]);
               [
                 "country" ,
                 "private",
@@ -3307,14 +3259,12 @@ export function getRouteMockupData(dataType, dataModel, dataDate) {
                       break;
                     default:
                       
-          console.log(segment)
                       segment[key2] = SegmentModel[key2]();
                       break;
                   }
                 })
             })
           case "athlete":
-            console.log(mockupData[key]);
             [
               "id",
               "resource_state",
@@ -3345,7 +3295,6 @@ export function getRouteMockupData(dataType, dataModel, dataDate) {
                   mockupData[key][key2]= AthleteModel[key2](mockupData[key]["premium"]);
                   break
                 default:
-                  console.log(mockupData[key][key2])
                   mockupData[key][key2]= AthleteModel[key2]();
                   break;
               }

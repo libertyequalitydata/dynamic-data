@@ -409,7 +409,6 @@ const SleepsDataModel = {
     let max = 100;
     let min = 80;
     let runOn = getRandomInt(1,5);
-    // let number = Math.round((max + min)/2);
     let number = 93
     while (10740 + (counter*60)< 25080){
       counter += 1;
@@ -493,7 +492,6 @@ const PulseoxModel = {
       let max = 100;
       let min = 80;
       let runOn = getRandomInt(1,3);
-      // let number = Math.round((max + min)/2);
       let number = 93
       while (3600 + (counter*60)< 17940){
         counter += 1;
@@ -604,7 +602,6 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
     ordered.push(allValues[1]);
     ordered.push(allValues[0]);
   }
-  //orders = [Max, Min, 2ndMax, 2ndMin]
   let a = (ordered[1] - 1)/100;
   let b = (ordered[3] - ordered[1] - 1)/100;
   let c = (ordered[2] - ordered[3] - 1)/100;

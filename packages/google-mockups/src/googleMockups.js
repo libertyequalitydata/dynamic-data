@@ -279,7 +279,7 @@ export function getActivityMockupData(dataType, dataModel, dataDate) {
       mockupDataHeader.forEach((k, i) => {
         mockupData[k] = mockupDataRow[i];
       });
-      final.push(mockupData)
+      final.push(Object.assign({},mockupData))
     }
     mockupData = final
   }
@@ -318,16 +318,16 @@ export function getLocationMockupData(dataType, dataModel, dataDate) {
     const length = dataModels[dataModel].data.length
     const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
     var final=[];
-    
     for (var i = 1; i < length;i++){
       var mockupDataRow = dataModels[dataModel].data[1].split("\t");
       mockupDataHeader.forEach((k, i) => {
         mockupData[k] = mockupDataRow[i];
       });
-      final.push(mockupData)
+      final.push(Object.assign({},mockupData))
     }
     mockupData = final
   }
+  console.log(mockupData)
   mockupData.forEach((object)=>{
     [    
       "p_latitude",

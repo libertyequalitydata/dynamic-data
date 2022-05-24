@@ -26,7 +26,7 @@ var RawDataModel = {
 
     switch (letter) {
       case "omim":
-        string += "604611.0004";
+        string += " 604611.0004";
         break;
 
       case "myh":
@@ -136,40 +136,32 @@ function getRawData(dataType, dataModel, dataDate) {
 
   var exampleData = mockupData[0]; //https://genomapp.com/en/dna-raw-data-format/ - 600,000-3,000,000 sites
 
-  for (var i = 0; i < 600000; i++) {
+  for (var i = 0; i < 60000; i++) {
     mockupData.push(Object.assign({}, exampleData));
   }
 
   mockupData.forEach(function (object) {
     ["rsid", "chromosome", "position", "genotype"].forEach(function (key, i) {
       switch (key) {
-        case "rsid":
-        case "chromosome":
-        case "position":
-        case "genotype":
+        default:
           object[key] = mockupModel[key]();
           break;
       }
     });
-  });
-
-  function quicksort(array) {
-    if (array.length <= 1) {
-      return array;
-    }
-
-    var pivot = array[0];
-    var left = [];
-    var right = [];
-
-    for (var i = 1; i < array.length; i++) {
-      array[i].position < pivot.position ? left.push(array[i]) : right.push(array[i]);
-    }
-
-    return quicksort(left).concat(pivot, quicksort(right));
-  }
-
-  mockupData = quicksort(mockupData); // mockupData.sort((a,b)=>{
+  }); // function quicksort(array) {
+  //   if (array.length <= 1) {
+  //     return array;
+  //   }
+  //   var pivot = array[0];
+  //   var left = []; 
+  //   var right = [];
+  //   for (var i = 1; i < array.length; i++) {
+  //     array[i].position < pivot.position ? left.push(array[i]) : right.push(array[i]);
+  //   }
+  //   return quicksort(left).concat(pivot, quicksort(right));
+  // }
+  // mockupData = quicksort(mockupData)
+  // mockupData.sort((a,b)=>{
   //   return a.position - b.position;
   // })
 
