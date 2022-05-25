@@ -1,27 +1,49 @@
-# `google-data`
+# `strava-data`
 
-> Mockup datamodules for Google datasources
+> Mockup datamodules for Strava datasources
 
 ## Usage
 
 Dataobjects:
 
 - Activity
+- ActivityComments
+- ActivityKudoers 
+- ActivityLaps
+- ActivityStream
+- ActivityZone
+- AthleteActivities
+- AthleteClubs
+- AthleteRoute
+- AthleteStats
+- AuthenticatedAthlete
+- Club
+- ClubActivities
+- ClubAdministrators
+- ClubMembers
+- Equipment
+- Route
+- RouteStream
+- SegmentEfforts
+- SegmentEffortsStream
+- Segments
+- SegmentsStreams
+- StarredSegments
+- Upload
+- Zones
+
 
 ```
 // CJS/Node
 
-const {Activity} =require("@prifina/google-data/mockups");
-//const {Activity} =require("@prifina/google-data/mockups/Activity");
-const GOOGLE =require("@prifina/google-data"); // All objects...
+const { Activity,ActivityComments,ActivityKudoers, ActivityLaps,ActivityStream,ActivityZone,AthleteActivities,AthleteClubs,AthleteRoute,AthleteStats,AuthenticatedAthlete,Club,ClubActivities,ClubAdministrators,ClubMembers,Equipment,Route,RouteStream,SegmentEfforts,SegmentEffortsStream,Segments,SegmentsStreams,StarredSegments,Upload,Zones,} = require("@dynamic-data/strava-data");
+const STRAVA = require("@prifina/strava-data"); // All objects...
 
 ```
 
 ```
 // ESM/React
-
-import {ActivitySummary} from "@prifina/google-data/mockups";
-//import {Activity} from "@prifina/google-data/mockups/Activity";
-import GOOGLE from "@prifina/google-data"; // All objects...
+import { Activity,ActivityComments,ActivityKudoers, ActivityLaps,ActivityStream,ActivityZone,AthleteActivities,AthleteClubs,AthleteRoute,AthleteStats,AuthenticatedAthlete,Club,ClubActivities,ClubAdministrators,ClubMembers,Equipment,Route,RouteStream,SegmentEfforts,SegmentEffortsStream,Segments,SegmentsStreams,StarredSegments,Upload,Zones,} from "@prifina/strava-data";
+import STRAVA from "@prifina/google-data"; // All objects...
 
 ```

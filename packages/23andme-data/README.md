@@ -1,27 +1,25 @@
-# `fitbit-data`
+# `23andme-data`
 
-> Mockup datamodules for Google datasources
+> Mockup datamodules for 23andme datasources
 
 ## Usage
 
 Dataobjects:
 
-- Activity
+- RawDataObject
 
 ```
 // CJS/Node
 
-const {Activity} =require("@prifina/google-data/mockups");
-//const {Activity} =require("@prifina/google-data/mockups/Activity");
-const GOOGLE =require("@prifina/google-data"); // All objects...
+const {RawDataObject} =require("@prifina/23andme-data");
+const 23ANDME =require("@prifina/23andme-data"); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import {ActivitySummary} from "@prifina/google-data/mockups";
-//import {Activity} from "@prifina/google-data/mockups/Activity";
-import GOOGLE from "@prifina/google-data"; // All objects...
+import {RawDataObject} from "@prifina/23andme-data";
+import 23ANDME from "@prifina/23andme-data"; // All objects...
 
 ```
