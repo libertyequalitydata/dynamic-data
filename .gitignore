@@ -1,5 +1,6 @@
 node_modules
 lerna-debug.log
+dist/
 
 
 # dotenv environment variables file

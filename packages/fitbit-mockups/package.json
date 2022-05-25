@@ -18,9 +18,7 @@
     "access": "public"
   },
   "scripts": {
-    "build-mac": "rm -rf ./dist && rollup -c",
-    "build-windows": "rd /s /q dist && rollup -c",
-    "build": "rollup -c",
+    "build": "rm -rf ./dist && rollup -c",
     "test": "jest"
   },
   "devDependencies": {

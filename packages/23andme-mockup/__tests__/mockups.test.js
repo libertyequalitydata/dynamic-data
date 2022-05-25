@@ -1,12 +1,10 @@
 "use strict";
 
 
-const MOCK = require("@dynamic-data/fitbit-data");
+const MOCK = require("@dynamic-data/23andme-data");
 
 const {
   getRawData
-
-  
 } = require("@dynamic-data/23andme-mockups");
 
 

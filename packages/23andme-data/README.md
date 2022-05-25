@@ -1,4 +1,4 @@
-# `google-data`
+# `fitbit-data`
 
 > Mockup datamodules for Google datasources
 

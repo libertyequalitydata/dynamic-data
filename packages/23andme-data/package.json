@@ -26,9 +26,7 @@
     "access": "public"
   },
   "scripts": {
-    "build-mac": "rm -rf ./dist && rollup -c",
-    "build-windows": "rd /s /q dist && rollup -c",
-    "build": "rollup -c",
+    "build": "rm -rf ./dist && rollup -c",
     "test": "jest"
   },
   "devDependencies": {
@@ -42,5 +40,6 @@
     "cross-env": "^7.0.3",
     "jest": "^27.5.1"
   },
-  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c"
+  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c",
+  "dependencies": {}
 }
