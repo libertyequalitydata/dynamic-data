@@ -1,15 +1,12 @@
-// 'use strict';
+const { cardioActivity } = require("./cardioActivity");
 
-// module.exports = runkeeperData;
+console.log(cardioActivity);
 
-// function runkeeperData() {
-//     // TODO
-// }
+// // import { cardioActivity } from "./mockups";
 
-import { cardioActivity } from "./mockups";
+// const mockData = {
+//     cardioActivity
+// };
 
-const mockData = {
-    cardioActivity
-};
 
-export default mockData;
+// export default mockData;
