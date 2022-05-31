@@ -2,6 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+const moment = require('moment');
+
 function toIsoString(date) {
   var tzo = -date.getTimezoneOffset(),
       dif = tzo >= 0 ? "+" : "-",
@@ -43,9 +45,72 @@ function getSleepDate(sleepDate, startHour, rangeHour) {
   let sleepDateTime = new Date(sleepDate + "T" + startHour.toString().padStart(2, "0") + ":" + mins);
   console.log(sleepDateTime);
   return toIsoString(new Date(sleepDateTime.getTime() + hours * 60 * 1000));
+} // returns random integer within specified range
+// exports.getRandomInt = (max, min = 0) => {
+//   return Math.ceil(Math.random() * (max - min) + min);
+// }
+// picks a random value from list
+
+function pickRandomValue(items) {
+  return items[Math.floor(Math.random() * items.length)];
+} // returns true or false at random
+
+function getRandBool() {
+  return pickRandomValue([true, false]);
+} // returns random float value within specified range
+
+function getRandomFloat(min, max) {
+  var val = getRandomInt(min, max).toString();
+
+  if (getRandBool()) {
+    val += `.${getRandomInt(1, 99)}`;
+  }
+
+  return parseFloat(val);
+} // returns a random date
+
+function getRandomDateTime(formatString) {
+  const dt = new Date(+new Date() - Math.floor(Math.random() * 10000000000));
+  return moment(dt).format(formatString);
+} // returns a string
+
+function getRandomString(len) {
+  const possibleVal = "abcdefghijklmnopqrstuvwxyz0123456789";
+  var randomString = '';
+
+  for (var i = 0; i < len; i++) {
+    randomString += possibleVal.charAt(Math.floor(Math.random() * possibleVal.length));
+  }
+
+  return randomString;
+}
+function parseSecondsToString(val) {
+  var seconds = Math.round(val % 60);
+  var minutes = Math.floor(val / 60);
+  var hours = 0;
+  var outputString = '';
+
+  if (minutes > 59) {
+    hours = Math.floor(minutes / 60);
+    minutes = minutes % 60;
+  }
+
+  if (hours > 0) {
+    outputString = outputString + `${hours > 9 ? hours : `0${hours}`}:`;
+  }
+
+  outputString = outputString + `${minutes > 9 ? minutes : `0${minutes}`}:`;
+  outputString = outputString + `${seconds > 9 ? seconds : `0${seconds}`}`;
+  return outputString;
 }
 
 exports.getNewDate = getNewDate;
+exports.getRandBool = getRandBool;
+exports.getRandomDateTime = getRandomDateTime;
+exports.getRandomFloat = getRandomFloat;
 exports.getRandomInt = getRandomInt;
+exports.getRandomString = getRandomString;
 exports.getSleepDate = getSleepDate;
+exports.parseSecondsToString = parseSecondsToString;
+exports.pickRandomValue = pickRandomValue;
 exports.toIsoString = toIsoString;
