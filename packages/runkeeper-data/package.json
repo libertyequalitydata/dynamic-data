@@ -1,20 +1,16 @@
 {
   "name": "@dynamic-data/runkeeper-data",
   "version": "1.0.0",
-  "description": "Mockup Data for RunKeeper App",
+  "description": "Dynamic Data Generator for RunKeeper App",
   "author": "Jashaul <djashaul@gmail.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./mockups": {
-      "import": "./dist/esm/mockups/index.js",
-      "require": "./dist/cjs/mockups/index.js"
-    },
-    "./mockups/*": {
-      "import": "./dist/esm/mockups/*.js",
-      "require": "./dist/cjs/mockups/*.js"
+    "./*": {
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
     },
     "./package.json": "./package.json"
   },
@@ -27,7 +23,7 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && rollup -c",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
@@ -41,6 +37,6 @@
     "jest": "^27.5.1"
   },
   "dependencies": {
-    "moment": "^2.29.3"
+    "@dynamic-data/utils": "file:../utils"
   }
 }

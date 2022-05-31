@@ -1,7 +1,11 @@
 'use strict';
 
-const runkeeperData = require('@dynamic-data/runkeeper-data');
+const { cardioActivity } = require('@dynamic-data/runkeeper-data');
 
 describe('@dynamic-data/runkeeper-data', () => {
-    it('needs tests');
+  it('check if cardioActivity of type object', () => {
+    expect(typeof cardioActivity).toBe('object');
+    expect(!Array.isArray(cardioActivity)).toBeTruthy();
+    expect(Object.keys(cardioActivity).length).not.toBe(0);
+  });
 });

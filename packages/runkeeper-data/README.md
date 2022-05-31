@@ -1,11 +1,25 @@
-# `@dynamic-data/runkeeper-data`
+# `runkeeper-data`
 
-> TODO: description
+> Dynamic data faker modules for RunKeeper datasources
 
 ## Usage
 
-```
-const runkeeperData = require('@dynamic-data/runkeeper-data');
+Dataobjects:
 
-// TODO: DEMONSTRATE API
+- cardioActivity
+
+```
+// CJS/Node
+
+const { cardioActivity } = require('@dynamic-data/runkeeper-data');
+const runkeeperData = require('@dynamic-data/runkeeper-data'); // All objects...
+
+```
+
+```
+// ESM/React
+
+import { cardioActivity } from '@dynamic-data/runkeeper-data';
+import runkeeperData from '@dynamic-data/runkeeper-data'; // All objects...
+
 ```
