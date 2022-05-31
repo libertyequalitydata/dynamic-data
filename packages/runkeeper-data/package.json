@@ -37,6 +37,6 @@
     "jest": "^27.5.1"
   },
   "dependencies": {
-    "@dynamic-data/utils": "file:../utils"
+    "@dynamic-data/utils": "^0.0.5"
   }
 }
