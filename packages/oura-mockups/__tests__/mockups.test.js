@@ -21,12 +21,6 @@ describe("Oura", () => {
     expect(typeof data).toBe("object");
   });
 
-  it("RandomInt", () => {
-    const result = getRandomInt(1, 10);
-    //console.log(typeof result);
-    expect(typeof result).toEqual("number");
-  });
-
   it("getModelCSVHeader", () => {
     const result = getModelCSVHeader("ActivitySummaryAsync");
     //console.log(result);

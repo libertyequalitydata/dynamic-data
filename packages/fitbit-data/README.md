@@ -24,8 +24,20 @@ Dataobjects:
 ```
 // CJS/Node
 
-const {ActivitiesSummary} =require("@prifina/fitbit-data/mockups");
-const {ActivitiesSummaryAsync} =require("@prifina/fitbit-data/mockups/ActivitiesSummaryAsync");
+const {ActivitiesData,
+ActivitiesDataAsync,
+ActivitiesSummary,
+ActivitiesSummaryAsync,
+HeartRateData,
+HeartRateDataAsync,
+HeartRateSummary,
+HeartRateSummaryAsync,
+SleepData,
+SleepDataAsync,
+SleepQuality,
+SleepQualityAsync,
+SleepSummary,
+SleepSummaryAsync} =require("@prifina/fitbit-data");
 const FITBIT =require("@prifina/fitbit-data"); // All objects...
 
 ```
@@ -33,8 +45,20 @@ const FITBIT =require("@prifina/fitbit-data"); // All objects...
 ```
 // ESM/React
 
-import {ActivitiesSummary} from "@prifina/fitbit-data/mockups";
-import {ActivitiesSummaryAsync} from "@prifina/fitbit-data/mockups/ActivitiesSummaryAsync";
+import {ActivitiesData,
+ActivitiesDataAsync,
+ActivitiesSummary,
+ActivitiesSummaryAsync,
+HeartRateData,
+HeartRateDataAsync,
+HeartRateSummary,
+HeartRateSummaryAsync,
+SleepData,
+SleepDataAsync,
+SleepQuality,
+SleepQualityAsync,
+SleepSummary,
+SleepSummaryAsync} from "@prifina/fitbit-data";
 import FITBIT from "@prifina/oura-data"; // All objects...
 
 ```
