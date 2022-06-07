@@ -26,7 +26,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c"
+    "build": "rm -rf ./dist && rollup -c",
+    "test": "jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

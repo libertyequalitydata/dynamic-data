@@ -1,0 +1,12 @@
+export const RawDataObject =[
+  {
+    rsid: "rs12913832",
+    chromosome: 15,
+    position: 28365618,
+    allele1: "A",
+    allele2: "A",
+  }
+
+
+]
+
