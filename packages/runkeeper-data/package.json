@@ -1,0 +1,42 @@
+{
+  "name": "@dynamic-data/runkeeper-data",
+  "version": "1.0.0",
+  "description": "Dynamic Data Generator for RunKeeper App",
+  "author": "Jashaul <djashaul@gmail.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": "./dist/esm/index.js",
+    "./*": {
+      "import": "./dist/esm/*.js",
+      "require": "./dist/cjs/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && rollup -c",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.17.9",
+    "babel-jest": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "@dynamic-data/utils": "^0.0.5"
+  }
+}
