@@ -65,4 +65,22 @@ describe("utils", () => {
     expect(val.length).toBe(8);
     expect(val).toBe('03:25:45');
   });
+  it('address', () => {
+    const address = utils.getRandomAddress('NY', 'New York');
+
+    // checking if value is of type string
+    expect(typeof address).toBe('string');
+  });
+  it('getRandomName', () => {
+    // checking if value is of type string
+    expect(typeof utils.getRandomName()).toBe('string');
+  });
+  it('getRandomVehicle', () => {
+    const car = utils.getRandomCarDetails();
+
+    // checking if value is of type object
+    expect(typeof car).toBe('object');
+    expect(!Array.isArray(car)).toBeTruthy();
+    expect(Object.keys(car).length).not.toBe(0);
+  });
 });
