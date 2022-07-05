@@ -9,13 +9,13 @@
   "module": "dist/esm/index.js",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./mockups": {
-      "import": "./dist/esm/mockups/index.js",
-      "require": "./dist/cjs/mockups/index.js"
+    "./models": {
+      "import": "./dist/esm/models/index.js",
+      "require": "./dist/cjs/models/index.js"
     },
-    "./mockups/*": {
-      "import": "./dist/esm/mockups/*.js",
-      "require": "./dist/cjs/mockups/*.js"
+    "./models/*": {
+      "import": "./dist/esm/models/*.js",
+      "require": "./dist/cjs/models/*.js"
     },
     "./package.json": "./package.json"
   },
