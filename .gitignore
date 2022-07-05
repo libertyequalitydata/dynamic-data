@@ -5,5 +5,6 @@ lerna-debug.log
 # dotenv environment variables file
 .env
 .env.test
+./.vscode/
 
 dist/
