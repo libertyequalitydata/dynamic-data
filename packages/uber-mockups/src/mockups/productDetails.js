@@ -8,6 +8,6 @@
 // =========================================================================================================================
 
 const utils = require('@dynamic-data/utils');
-import { products } from "./products"
+import { products } from "./products";
 
 export const productDetails = utils.pickRandomValue(products.products);
