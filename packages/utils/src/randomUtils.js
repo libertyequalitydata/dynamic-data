@@ -133,3 +133,7 @@ export function getRandomCarDetails() {
     license: faker.vehicle.vrm()
   }
 }
+
+export function getRandomLatLng(est_lat, est_lng, radius) {
+  return faker.address.nearbyGPSCoordinate([est_lat, est_lng], radius, false);
+}
