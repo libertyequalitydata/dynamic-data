@@ -1,0 +1,2 @@
+//
+export * from "./stravaMockup.js";

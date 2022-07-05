@@ -6,16 +6,26 @@
 
 Dataobjects:
 
-- DailiesData
-- EpochsData
-- SleepsData
-- PulseoxData
+- DailiesData,
+- EpochsData,
+- SleepsData,
+- PulseoxData,
+- DailiesDataObject,
+- EpochsDataObject,
+- SleepsDataObject,
+- PulseoxObject,
 
 ```
 // CJS/Node
 
-const {DailiesData} =require("@prifina/garmin-data/mockups");
-const {EpochsData} =require("@prifina/garmin-data/mockups/ActivitySummaryAsync");
+const { DailiesData, 
+  DailiesDataObject,
+EpochsData,
+EpochsDataObject,
+PulseoxData,
+PulseoxObject,
+SleepsData,
+SleepsDataObject } =require("@prifina/garmin-data");
 const GARMIN =require("@prifina/garmin-data"); // All objects...
 
 ```
@@ -23,8 +33,14 @@ const GARMIN =require("@prifina/garmin-data"); // All objects...
 ```
 // ESM/React
 
-import {DailiesData} from "@prifina/garmin-data/mockups";
-import {EpochsData} from "@prifina/garmin-data/mockups/ActivitySummaryAsync";
+import { DailiesData, 
+    DailiesDataObject,
+    EpochsData,
+    EpochsDataObject,
+    PulseoxData,
+    PulseoxObject,
+    SleepsData,
+    SleepsDataObject } from "@prifina/garmin-data";
 import GARMIN from "@prifina/garmin-data"; // All objects...
 
 ```
