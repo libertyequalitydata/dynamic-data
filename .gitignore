@@ -1,7 +1,7 @@
 node_modules
 lerna-debug.log
-*-lock.json
 
+*-lock.json
 # dotenv environment variables file
 .env
 .env.test

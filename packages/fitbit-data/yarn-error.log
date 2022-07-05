@@ -1,0 +1,75 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js build
+
+PATH: 
+  C:\ProgramData\Oracle\Java\javapath;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Users\dylan\AppData\Local\Microsoft\WindowsApps;C:\adb;C:\Program Files\Calibre2\;C:\Program Files (x86)\GtkSharp\2.12\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\sqlite3;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Windows\SysWow64\;C:\Program Files\nodejs\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files (x86)\Yarn\bin;C:\Users\dylan\AppData\Local\Microsoft\WindowsApps;C:\Users\dylan\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\dylan\AppData\Local\atom\bin;C:\Users\dylan\AppData\Local\Microsoft\WindowsApps;C:\Users\dylan\AppData\Local\Programs\MiKTeX\miktex\bin\x64\;C:\Windows\SysWow64\;C:\Program Files\nodejs\node_modules\npm;C:\Users\dylan\AppData\Local\GitHubDesktop\bin;C:\Users\dylan\AppData\Roaming\npm;C:\Program Files (x86)\Yarn\bin;
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  16.15.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  SyntaxError: D:\prifina\dynamic-data\dynamic-data-main\dynamic-data\packages\fitbit-data\package.json: Unexpected token } in JSON at position 794
+      at JSON.parse (<anonymous>)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (C:\Program Files (x86)\Yarn\lib\cli.js:304:30)
+      at C:\Program Files (x86)\Yarn\lib\cli.js:315:13
+
+npm manifest: 
+  {
+    "name": "@dynamic-data/fitbit-data",
+    "version": "0.0.3",
+    "description": "Mockup Data for Fitbit connector",
+    "author": "tero <tero@prifina.com>",
+    "license": "MIT",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "exports": {
+      ".": "./dist/esm/index.js",
+      "./mockups": {
+        "import": "./dist/esm/mockups/index.js",
+        "require": "./dist/cjs/mockups/index.js"
+      },
+      "./mockups/*": {
+        "import": "./dist/esm/mockups/*.js",
+        "require": "./dist/cjs/mockups/*.js"
+      },
+      "./package.json": "./package.json"
+    },
+    "files": [
+      "dist",
+      "src"
+    ],
+    "publishConfig": {
+      "access": "public"
+    },
+    "scripts": {
+      "build-mac": "rm -rf ./dist && rollup -c",
+      "build-windows": "rd /s /q dist && rollup -c",
+      "build": "rollup -c",
+    },
+    "devDependencies": {
+      "@babel/cli": "^7.16.8",
+      "@babel/core": "^7.16.12",
+      "@babel/plugin-transform-runtime": "^7.17.0",
+      "@babel/preset-env": "^7.16.11",
+      "@babel/preset-react": "^7.16.7",
+      "@babel/runtime": "^7.17.9",
+      "babel-jest": "^27.5.1",
+      "cross-env": "^7.0.3",
+      "jest": "^27.5.1"
+    },
+    "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
