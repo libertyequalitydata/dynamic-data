@@ -1,6 +1,6 @@
-# `ski-boot-data`
+# `sensor-bno055-data`
 
-> Mockup datamodules for Ski-Boot datasources
+> Mockup datamodules for Sensor BNO055 datasources
 
 ## Usage
 
@@ -12,15 +12,15 @@ Dataobjects:
 ```
 // CJS/Node
 
-const {RawSync} =require("@dynamic-data/ski-boot-data");
-const MOCK =require("@dynamic-data/ski-boot-data"); // All objects...
+const {RawSync} =require("@dynamic-data/sensor-bno055-data");
+const MOCK =require("@dynamic-data/sensor-bno055-data"); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import {RawSync} from "@dynamic-data/ski-boot-data";
-import MOCK from "@dynamic-data/ski-boot-data"; // All objects...
+import {RawSync} from "@dynamic-data/sensor-bno055-data";
+import MOCK from "@dynamic-data/sensor-bno055-data"; // All objects...
 
 ```
