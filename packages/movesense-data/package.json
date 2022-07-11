@@ -1,0 +1,45 @@
+{
+  "name": "@dynamic-data/movesense-data",
+  "version": "0.0.6",
+  "description": "Mockup Data for Movesense connector",
+  "author": "tero <tero@prifina.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    ".": "./dist/esm/index.js",
+    "./mockups": {
+      "import": "./dist/esm/mockups/index.js",
+      "require": "./dist/cjs/mockups/index.js"
+    },
+    "./mockups/*": {
+      "import": "./dist/esm/mockups/*.js",
+      "require": "./dist/cjs/mockups/*.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && rollup -c",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/runtime": "^7.17.9",
+    "babel-jest": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^27.5.1"
+  },
+  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c",
+  "dependencies": {}
+}
