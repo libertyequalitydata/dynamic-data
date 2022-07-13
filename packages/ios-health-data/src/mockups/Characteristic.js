@@ -1,0 +1,23 @@
+export const Characteristics  = {
+  biologicalSex: "notSet",
+  bloodType: "notSet",
+  dateOfBirthComponents: {
+    era: 0,
+    year: 0,
+    yearForWeekOfYear: 0,
+    quarter: 0,
+    month: 0,
+    isLeapMonth: 0,
+    weekday: 0,
+    weekdayOrdinal: 0,
+    weekOfMonth: 0,
+    weekOfYear: 0,
+    day: 0,
+    hour: 0,
+    minute: 0,
+    second: 0,
+    nanosecond: 0,
+  },
+  fitzpatrickSkinType: "notSet",
+  wheelchairUse: "notSet",
+ }
