@@ -6240,6 +6240,12 @@ export function getBlockedTerms(dataType, dataModel, dataDate) {
       "expires_at"
     ].forEach((key, i) => {
       switch (key) {
+        case "updated_at":
+          subscription[key] = mockupModel[key](subscription["created_at"]);
+          break;
+        case "expires_at":
+          subscription[key] = mockupModel[key](subscription["updated_at"]);
+          break;
         default:
           subscription[key] = mockupModel[key]();
           break;
