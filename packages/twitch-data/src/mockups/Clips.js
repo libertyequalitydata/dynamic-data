@@ -15,7 +15,8 @@ export const Clips = {
       "view_count": 10,
       "created_at": "2017-11-30T22:34:18Z",
       "thumbnail_url": "https://clips-media-assets.twitch.tv/157589949-preview-480x272.jpg",
-      "duration": 60
+      "duration": 60,
+      "vod_offset": 480
     }
   ]
 }

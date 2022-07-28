@@ -25,7 +25,6 @@ export const ChannelEmotes =
         "dark"
       ]
     },
-    ...
     {
       "id": "emotesv2_4c3b4ed516de493bbcd2df2f5d450f49",
       "name": "twitchdevHyperPitchfork",
