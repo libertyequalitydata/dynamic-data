@@ -1,6 +1,6 @@
 # `twitch-data`
 
-> Mockup datamodules for Google datasources
+> Mockup datamodules for Twitch datasources
 
 ## Usage
 
