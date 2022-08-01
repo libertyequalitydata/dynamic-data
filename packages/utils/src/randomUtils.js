@@ -83,7 +83,11 @@ export function getRandomFloat(min, max) {
 // returns a random date
 export function getRandomDateTime(formatString) {
   const dt = new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
-  return moment(dt).format(formatString);
+  if(formatString) {
+    return moment(dt).format(formatString);
+  } else {
+    return dt.getTime()
+  }
 }
 
 // returns a string
@@ -122,7 +126,7 @@ export function getRandomAddress(state = false, city = false) {
 }
 
 export function getRandomName() {
-  return faker.name.firstName();
+  return [faker.name.firstName(), faker.name.lastName()];
 }
 
 export function getRandomCarDetails() {
@@ -136,4 +140,8 @@ export function getRandomCarDetails() {
 
 export function getRandomLatLng(est_lat, est_lng, radius) {
   return faker.address.nearbyGPSCoordinate([est_lat, est_lng], radius, false);
+}
+
+export function getRandomWord(len) {
+  return faker.random.words(len);
 }

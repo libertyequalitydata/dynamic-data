@@ -72,8 +72,10 @@ describe("utils", () => {
     expect(typeof address).toBe('string');
   });
   it('getRandomName', () => {
+    const name = utils.getRandomName();
     // checking if value is of type string
-    expect(typeof utils.getRandomName()).toBe('string');
+    expect(typeof name[0]).toBe('string');
+    expect(typeof name[1]).toBe('string');
   });
   it('getRandomVehicle', () => {
     const car = utils.getRandomCarDetails();

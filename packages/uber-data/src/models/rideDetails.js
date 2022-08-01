@@ -18,7 +18,7 @@ export const rideDetails = {
     sms_number: "+14155550000",
     rating: utils.getRandomFloat(3, 5),
     picture_url: "https://d1w2poirtb3as9.cloudfront.net/img.jpeg",
-    name: utils.getRandomName()
+    name: utils.getRandomName()[0]
   },
   vehicle: {
     make: car.make,
@@ -64,7 +64,7 @@ export const rideDetails = {
   riders: [
     {
       rider_id: `${utils.getRandomString(6)}_${utils.getRandomString(11)}`,
-      first_name: utils.getRandomName(),
+      first_name: utils.getRandomName()[0],
       me: true
     }
   ]
