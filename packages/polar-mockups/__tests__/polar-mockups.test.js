@@ -24,7 +24,7 @@ const {
     getNightlyRecharge
 } = require('@dynamic-data/polar-mockups');
 
-describe('@dynamic-data/uber-mockups', () => {
+describe('@dynamic-data/polar-mockups', () => {
   it('check if getUserInfo of type object', () => {
     expect(typeof getUserInfo).toBe('object');
     expect(!Array.isArray(getUserInfo)).toBeTruthy();
