@@ -1,8 +1,9 @@
 {
-  "name": "@dynamic-data/runkeeper-mockups",
+  "name": "@dynamic-data/foursquare-mockups",
   "version": "1.0.0",
-  "description": "Mockup Data for RunKeeper App",
+  "description": "Mockup Data for Foursquare",
   "author": "Jashaul <djashaul@gmail.com>",
+  "homepage": "https://github.com/Jashaul/dynamic-data#readme",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

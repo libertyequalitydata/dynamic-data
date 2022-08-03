@@ -1,20 +1,21 @@
 {
-  "name": "@dynamic-data/runkeeper-mockups",
+  "name": "@dynamic-data/foursquare-data",
   "version": "1.0.0",
-  "description": "Mockup Data for RunKeeper App",
+  "description": "Dynamic Data Faker for FourSquare",
   "author": "Jashaul <djashaul@gmail.com>",
+  "homepage": "https://github.com/Jashaul/dynamic-data#readme",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./mockups": {
-      "import": "./dist/esm/mockups/index.js",
-      "require": "./dist/cjs/mockups/index.js"
+    "./models": {
+      "import": "./dist/esm/models/index.js",
+      "require": "./dist/cjs/models/index.js"
     },
-    "./mockups/*": {
-      "import": "./dist/esm/mockups/*.js",
-      "require": "./dist/cjs/mockups/*.js"
+    "./models/*": {
+      "import": "./dist/esm/models/*.js",
+      "require": "./dist/cjs/models/*.js"
     },
     "./package.json": "./package.json"
   },

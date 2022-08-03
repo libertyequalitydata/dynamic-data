@@ -1,4 +1,5 @@
-const moment = require('moment')
+const { faker } = require('@faker-js/faker');
+const moment = require('moment');
 
 export function toIsoString(date) {
   var tzo = -date.getTimezoneOffset(),
@@ -82,7 +83,11 @@ export function getRandomFloat(min, max) {
 // returns a random date
 export function getRandomDateTime(formatString) {
   const dt = new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
-  return moment(dt).format(formatString);
+  if(formatString) {
+    return moment(dt).format(formatString);
+  } else {
+    return dt.getTime()
+  }
 }
 
 // returns a string
@@ -95,6 +100,7 @@ export function getRandomString(len) {
   return randomString;
 }
 
+// converts time in seconds to string HH:MM:SS
 export function parseSecondsToString(val) {
   var seconds = Math.round(val%60);
   var minutes = Math.floor(val/60);
@@ -110,4 +116,32 @@ export function parseSecondsToString(val) {
   outputString = outputString + `${(minutes > 9)? minutes : `0${minutes}`}:`;
   outputString = outputString + `${(seconds > 9)? seconds : `0${seconds}`}`;
   return outputString
+}
+
+export function getRandomAddress(state = false, city = false) {
+  const adr = faker.address;
+  const address_state = state? state : adr.stateAbbr();
+  const zip = adr.zipCodeByState(address_state).split('-')[0];
+  return `${adr.streetAddress()}, ${city? city : adr.cityName()}, ${address_state} ${zip}`
+}
+
+export function getRandomName() {
+  return [faker.name.firstName(), faker.name.lastName()];
+}
+
+export function getRandomCarDetails() {
+  const car = faker.vehicle.vehicle().split(' ');
+  return {
+    make: car[0],
+    model: car.slice(1, car.length).join(" "),
+    license: faker.vehicle.vrm()
+  }
+}
+
+export function getRandomLatLng(est_lat, est_lng, radius) {
+  return faker.address.nearbyGPSCoordinate([est_lat, est_lng], radius, false);
+}
+
+export function getRandomWord(len) {
+  return faker.random.words(len);
 }
