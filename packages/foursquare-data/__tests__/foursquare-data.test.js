@@ -6,7 +6,7 @@ const {
     Tips
   } = require('@dynamic-data/foursquare-data');
 
-describe('@dynamic-data/foursquare-mockups', () => {
+describe('@dynamic-data/foursquare-data', () => {
   it('check if venues_categories of type object', () => {
     expect(typeof  Venues.venues_categories).toBe('object');
     expect(!Array.isArray(Venues.venues_categories)).toBeTruthy();
