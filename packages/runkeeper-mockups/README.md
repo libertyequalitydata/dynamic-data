@@ -1,25 +1,25 @@
-# `runkeeper-mockups`
+# `runkeeper-data`
 
-> Mockup datamodules for RunKeeper datasources
+> Dynamic data faker modules for RunKeeper datasources
 
 ## Usage
 
 Dataobjects:
 
-- cardioActivityMockup
+- cardioActivity
 
 ```
 // CJS/Node
 
-const { cardioActivityMockup } = require('@dynamic-data/runkeeper-mockups');
-const runkeeperMockups = require('@dynamic-data/runkeeper-mockups'); // All objects...
+const { cardioActivity } = require('@dynamic-data/runkeeper-data');
+const runkeeperData = require('@dynamic-data/runkeeper-data'); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import { cardioActivityMockup } from '@dynamic-data/runkeeper-mockups';
-import runkeeperMockups from '@dynamic-data/runkeeper-mockups'; // All objects...
+import { cardioActivity } from '@dynamic-data/runkeeper-data';
+import runkeeperData from '@dynamic-data/runkeeper-data'; // All objects...
 
 ```

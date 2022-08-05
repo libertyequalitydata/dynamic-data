@@ -5,7 +5,7 @@
 const MOCK = require("@dynamic-data/huawei-data");
 const { ActivityRecord,
 DataCollector,
-HealthRecord } = require("@dynamic-data/huawei-data");
+HealthRecord } = require("@dynamic-data/huawei-data/mockups");
 
 
 describe("Huawei", () => {

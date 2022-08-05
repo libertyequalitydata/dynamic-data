@@ -3,28 +3,28 @@ import resolve from "@rollup/plugin-node-resolve";
 
 const extensions = [".js"];
 
-export default {
-  input: ["src/index.js", "src/mockups/index.js"],
-  output: [
-    {
-      exports: "auto",
-      dir: "dist/cjs",
-      format: "cjs",
-      preserveModules: true,
-    },
-    {
-      dir: "dist/esm",
-      format: "esm",
-      preserveModules: true,
-    },
-  ],
-  plugins: [
-    resolve({ extensions }),
-    babel({
-      babelHelpers: "bundled",
-      include: ["src/**/*.js"],
-      extensions,
-      exclude: "./node_modules/**",
-    }),
-  ],
-};
+export default [
+  {
+    input: "src/index.js",
+    output: [
+      {
+        exports: "auto",
+        dir: "dist/cjs",
+        format: "cjs",
+      },
+      {
+        dir: "dist/esm",
+        format: "esm",
+      },
+    ],
+    plugins: [
+      resolve({ extensions }),
+      babel({
+        babelHelpers: "bundled",
+        include: ["src/**/*.js"],
+        extensions,
+        exclude: "./node_modules/**",
+      }),
+    ],
+  },
+];

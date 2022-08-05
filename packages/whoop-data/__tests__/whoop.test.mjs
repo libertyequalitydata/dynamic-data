@@ -15,7 +15,7 @@ import {
   VoiceOfWhoop,
   VoiceOfWhoopCycle,
   Workout
- } from "@dynamic-data/whoop-data";
+ } from "@dynamic-data/whoop-data/mockups";
 
 describe("Whoop", () => {
   //test.todo("needs tests");

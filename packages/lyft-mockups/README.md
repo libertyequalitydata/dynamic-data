@@ -1,28 +1,11 @@
-# `lyft-mockups`
+# `lyft-data`
 
-> Mockup data modules for Lyft datasources
+> TODO: description
 
 ## Usage
 
-Dataobjects:
-
-- rideTypes
-- driverETA
-- rideEstimates
-- nearbyDrivers
-
 ```
-// CJS/Node
+const lyftData = require('lyft-data');
 
-const { rideTypes } = require('@dynamic-data/lyft-mockups');
-const lyftMockups = require('@dynamic-data/lyft-mockups'); // All objects...
-
-```
-
-```
-// ESM/React
-
-import { rideTypes } from '@dynamic-data/lyft-mockups';
-import lyftMockups from '@dynamic-data/lyft-mockups'; // All objects...
-
+// TODO: DEMONSTRATE API
 ```

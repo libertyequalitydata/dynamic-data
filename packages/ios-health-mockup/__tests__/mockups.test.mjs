@@ -15,7 +15,7 @@ import {
 } from "@dynamic-data/ios-health-mockups";
 
 describe("IOS Health", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
   it("getCharacteristics", () => {
     const result = getCharacteristics (
       "SYNC",

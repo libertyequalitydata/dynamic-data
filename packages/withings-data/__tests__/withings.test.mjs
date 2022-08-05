@@ -10,7 +10,7 @@ Sleep,
 SleepSummary,
 getDevice,
 getUser,
-getWorkout,} from "@dynamic-data/withings-data";
+getWorkout,} from "@dynamic-data/withings-data/mockups";
 
 describe("Withings", () => {
   //test.todo("needs tests");

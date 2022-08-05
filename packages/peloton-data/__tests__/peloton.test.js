@@ -15,7 +15,7 @@ const { AchievementTemplate,
   UserOverview,
   UserProfile,
   UserSettings,
-  WorkoutDetails } = require("@dynamic-data/peloton-data");
+  WorkoutDetails } = require("@dynamic-data/peloton-data/mockups");
 
 describe("Peloton", () => {
   //test.todo("needs tests");

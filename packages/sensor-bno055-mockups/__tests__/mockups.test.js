@@ -1,9 +1,5 @@
 "use strict";
 
-const { getRandomInt } = require("@dynamic-data/utils");
-
-const MOCK = require("@dynamic-data/sensor-bno055-data");
-
 const {
   getRawData
 } = require("@dynamic-data/sensor-bno055-mockups");

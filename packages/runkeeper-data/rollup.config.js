@@ -4,7 +4,7 @@ import resolve from "@rollup/plugin-node-resolve";
 const extensions = [".js"];
 
 export default {
-  input: ["src/index.js"],
+  input: ["src/index.js", "src/mockups/index.js"],
   output: [
     {
       exports: "auto",

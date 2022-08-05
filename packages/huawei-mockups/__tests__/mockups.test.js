@@ -10,7 +10,7 @@ const {
 } = require("@dynamic-data/huawei-mockups");
 
 describe("Huawei", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
   it("getHealthRecordMockupData", () => {
     const result = getHealthRecordMockupData(
       "SYNC",

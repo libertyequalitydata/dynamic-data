@@ -23,7 +23,7 @@ Segments,
 SegmentsStreams,
 StarredSegments,
 Upload,
-Zones,} from "@dynamic-data/strava-data";
+Zones,} from "@dynamic-data/strava-data/mockups";
 
 describe("Strava", () => {
   //test.todo("needs tests");

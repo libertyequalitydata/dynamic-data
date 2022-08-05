@@ -14,7 +14,7 @@ const {
 describe("Oura", () => {
   //test.todo("needs tests");
   it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummary;
+    const data = MOCK.default.ActivitySummary;
     //console.log("MOCK ", MOCK);
     //console.log("MOCK DATA", data);
 
@@ -23,7 +23,7 @@ describe("Oura", () => {
 
   it("getModelCSVHeader", () => {
     const result = getModelCSVHeader("ActivitySummaryAsync");
-    //console.log(result);
+    console.log(result);
     expect(Array.isArray(result)).toBe(true);
   });
   it("getActivityMockupData", () => {

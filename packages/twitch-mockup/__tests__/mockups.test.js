@@ -54,7 +54,7 @@ const {
 
 
 describe("Twitch", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
   it("getVideos", () => {
     const result = getVideos (
       "SYNC",
@@ -64,6 +64,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getUserSubscription", () => {
     const result = getUserSubscription (
       "SYNC",
@@ -118,6 +119,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getTopGames", () => {
     const result = getTopGames (
       "SYNC",
@@ -164,6 +166,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getSoundtrackPlaylists", () => {
     const result = getSoundtrackPlaylists (
       "SYNC",
@@ -218,6 +221,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getModerators", () => {
     const result = getModerators (
       "SYNC",
@@ -245,6 +249,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getGlobalChatBadges", () => {
     const result = getGlobalChatBadges (
       "SYNC",
@@ -263,6 +268,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getFollowedStreams", () => {
     const result = getStreams (
       "SYNC",
@@ -290,6 +296,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getGameAnalytics", () => {
     const result = getAnalytics (
       "SYNC",
@@ -299,6 +306,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getExtensionAnalytics", () => {
     const result = getAnalytics (
       "SYNC",
@@ -308,6 +316,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getEmoteSets", () => {
     const result = getEmoteSets (
       "SYNC",
@@ -317,6 +326,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getCustomRewardRedemption", () => {
     const result = getCustomRewardRedemption (
       "SYNC",
@@ -326,6 +336,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getCustomReward", () => {
     const result = getCustomReward (
       "SYNC",
@@ -353,6 +364,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
+  
   it("getCheermotes", () => {
     const result = getCheermotes (
       "SYNC",
@@ -389,6 +401,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getChannels", () => {
     const result = getChannels (
       "SYNC",
@@ -425,6 +438,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getChannelChatBadges", () => {
     const result = getChannelChatBadges (
       "SYNC",
@@ -452,6 +466,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getBlockedTerms", () => {
     const result = getBlockedTerms (
       "SYNC",
@@ -461,6 +476,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getBitsLeaderboard", () => {
     const result = getBitsLeaderboard (
       "SYNC",
@@ -470,6 +486,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getBannedUsers", () => {
     const result = getBannedUsers (
       "SYNC",
@@ -479,6 +496,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getAutoModSettings", () => {
     const result = getAutoModSettings (
       "SYNC",
@@ -488,6 +506,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getAllStreamTags", () => {
     const result = getStreamTags (
       "SYNC",
@@ -497,6 +516,7 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
   it("getStreamTags", () => {
     const result = getStreamTags (
       "SYNC",
@@ -506,4 +526,5 @@ describe("Twitch", () => {
     console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
+  
 });

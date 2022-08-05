@@ -32,6 +32,7 @@ describe("Peloton", () => {
     console.log("RideDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
   it("getUserSettings", () => {
     const result = getUserSettings (
       "SYNC",
@@ -50,6 +51,7 @@ describe("Peloton", () => {
     console.log("AchievementTemplate",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
   it("getUserProfile", () => {
     const result = getUserProfile (
       "SYNC",
@@ -149,4 +151,5 @@ describe("Peloton", () => {
     console.log("WorkoutDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
 });

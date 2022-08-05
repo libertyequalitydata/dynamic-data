@@ -1,7 +1,3 @@
-import { getRandomInt } from "@dynamic-data/utils";
-
-import MOCK from "@dynamic-data/twitch-data";
-
 import {
   getVideos,
   getUserSubscription,
@@ -49,10 +45,10 @@ import {
   getBannedUsers,
   getAutoModSettings,
   getStreamTags
-} from "@dynamic-data/twitch-mockup";
+} from "@dynamic-data/twitch-mockups";
 
 describe("Twitch", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
   it("getVideos", () => {
     const result = getVideos (
       "SYNC",

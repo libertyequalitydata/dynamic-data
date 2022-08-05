@@ -14,7 +14,7 @@ const {
   VoiceOfWhoop,
   VoiceOfWhoopCycle,
   Workout
- } = require("@dynamic-data/whoop-data");
+ } = require("@dynamic-data/whoop-data/mockups");
 
 describe("Whoop", () => {
   //test.todo("needs tests");

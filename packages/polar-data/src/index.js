@@ -20,7 +20,7 @@ import {
   getAvailableSleepTimes,
   listNightlyRecharge,
   getNightlyRecharge
-} from "./models";
+} from "./mockups";
   
 const Data = {
   getUserInfo,

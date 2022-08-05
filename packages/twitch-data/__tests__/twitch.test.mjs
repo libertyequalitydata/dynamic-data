@@ -53,7 +53,7 @@ import {
   Users,
   UsersFollows,
   Videos
- }from "@dynamic-data/twitch-data";
+ }from "@dynamic-data/twitch-data/mockups";
  
 describe("Twitch", () => {
    //test.todo("needs tests");

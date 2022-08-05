@@ -2,7 +2,7 @@
 
 const MOCK = require("@dynamic-data/sensor-bno055-data");
 
-const { RawAsync, RawSync } = require("@dynamic-data/sensor-bno055-data");
+const { RawAsync, RawSync } = require("@dynamic-data/sensor-bno055-data/mockups");
 
 describe("Sensor BNO055", () => {
   //test.todo("needs tests");

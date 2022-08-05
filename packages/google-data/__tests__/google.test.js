@@ -7,7 +7,7 @@ ActivityObject,
 Location,
 LocationObject,
 Places,
-Routes} = require("@dynamic-data/google-data");
+Routes} = require("@dynamic-data/google-data/mockups");
 
 describe("Google", () => {
   //test.todo("needs tests");

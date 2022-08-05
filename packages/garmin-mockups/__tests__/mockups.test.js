@@ -13,8 +13,9 @@ const {
 describe("Garmin", () => {
   //test.todo("needs tests");
   it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.SleepsDataObject;
-    console.log("MOCK ", data);
+    const data = MOCK.default.SleepsDataObject;
+   console.log("MOCK ", Object.keys(MOCK.default));
+    //console.log("MOCK ", data);
 
     expect(typeof data).toBe("object");
   });

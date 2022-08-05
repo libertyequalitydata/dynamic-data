@@ -2,7 +2,7 @@
 
 const MOCK = require("@dynamic-data/23andme-data");
 
-const { RawDataObject } = require("@dynamic-data/23andme-data");
+const { RawDataObject } = require("@dynamic-data/23andme-data/mockups");
 
 describe("23andme", () => {
   //test.todo("needs tests");

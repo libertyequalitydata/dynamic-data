@@ -21,7 +21,7 @@ const {
 describe("Fitbit", () => {
   //test.todo("needs tests");
   it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitiesData;
+    const data = MOCK.default.ActivitiesData;
     // console.log("MOCK ", MOCK);
     //console.log("MOCK DATA", data);
 

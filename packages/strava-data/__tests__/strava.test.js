@@ -27,7 +27,7 @@ SegmentsStreams,
 StarredSegments,
 Upload,
 Zones,
-} = require("@dynamic-data/strava-data");
+} = require("@dynamic-data/strava-data/mockups");
 
 
 describe("Strava", () => {

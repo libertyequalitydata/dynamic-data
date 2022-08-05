@@ -1,6 +1,6 @@
-# `polar-data`
+# `polar-mockups`
 
-> Dynamic data modules for Polar datasources
+> Mockup data modules for Polar datasources
 
 ## Usage
 
@@ -30,15 +30,15 @@ Dataobjects:
 ```
 // CJS/Node
 
-const { getUserInfo } = require('@dynamic-data/polar-data');
-const polarData = require('@dynamic-data/polar-data'); // All objects...
+const { getUserInfo } = require('@dynamic-data/polar-mockups');
+const polarMockups = require('@dynamic-data/polar-mockups'); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import { getUserInfo } from '@dynamic-data/polar-data';
-import polarData from '@dynamic-data/polar-data'; // All objects...
+import { getUserInfo } from '@dynamic-data/polar-mockups';
+import polarMockups from '@dynamic-data/polar-mockups'; // All objects...
 
 ```

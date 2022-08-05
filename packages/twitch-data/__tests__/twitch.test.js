@@ -53,7 +53,7 @@ const {
   Users,
   UsersFollows,
   Videos
- } = require("@dynamic-data/twitch-data");
+ } = require("@dynamic-data/twitch-data/mockups");
 
 describe("Twitch", () => {
   //test.todo("needs tests");

@@ -1,7 +1,7 @@
 {
   "name": "@dynamic-data/lyft-data",
   "version": "1.0.0",
-  "description": "Dynamic Data Faker for Lyft",
+  "description": "Mockup Data for Lyft",
   "author": "Jashaul <djashaul@gmail.com>",
   "homepage": "https://github.com/Jashaul/dynamic-data#readme",
   "license": "MIT",
@@ -9,13 +9,13 @@
   "module": "dist/esm/index.js",
   "exports": {
     ".": "./dist/esm/index.js",
-    "./models": {
-      "import": "./dist/esm/models/index.js",
-      "require": "./dist/cjs/models/index.js"
+    "./mockups": {
+      "import": "./dist/esm/mockups/index.js",
+      "require": "./dist/cjs/mockups/index.js"
     },
-    "./models/*": {
-      "import": "./dist/esm/models/*.js",
-      "require": "./dist/cjs/models/*.js"
+    "./mockups/*": {
+      "import": "./dist/esm/mockups/*.js",
+      "require": "./dist/cjs/mockups/*.js"
     },
     "./package.json": "./package.json"
   },
@@ -27,8 +27,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c",
-    "test": "jest"
+    "build": "rimraf dist && rollup -c",
+    "test": "./node_modules/.bin/jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
@@ -39,9 +39,7 @@
     "@babel/runtime": "^7.17.9",
     "babel-jest": "^27.5.1",
     "cross-env": "^7.0.3",
-    "jest": "^27.5.1"
-  },
-  "dependencies": {
-    "@dynamic-data/utils": "^0.0.5"
+    "jest": "^28.1.3",
+    "rimraf": "^3.0.2"
   }
 }

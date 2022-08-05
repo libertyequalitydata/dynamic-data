@@ -14,18 +14,16 @@ import { AchievementTemplate,
   UserOverview,
   UserProfile,
   UserSettings,
-  WorkoutDetails } from "@dynamic-data/peloton-data";
+  WorkoutDetails } from "@dynamic-data/peloton-data/mockups";
 
+  
 describe("Peloton", () => {
   //test.todo("needs tests");
   it("Mockup datamodels from default", () => {
     console.log("MOCK ", MOCK);
     expect(typeof MOCK).toBe("object");
   });
-  it("Expanded MOCK datamodel from default", () => {
-    console.log("MOCK ", JSON.stringify(RawDataObject, undefined, 2));
-    expect(typeof MOCK).toBe("object");
-  });
+  
   it("AchievementTemplate datamodel from default", () => {
     console.log("AchievementTemplate ", JSON.stringify(AchievementTemplate, undefined, 2));
     expect(typeof AchievementTemplate).toBe("object");

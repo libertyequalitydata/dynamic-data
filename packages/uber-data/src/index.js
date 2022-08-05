@@ -1,27 +1,27 @@
-import { 
+import {
   products,
   productDetails,
-  userInfo,
-  savedPlaces,
   priceEstimates,
   timeEstimates,
-  rideReceiptDetails,
-  rideMapDetails,
+  userInfo,
   userHistory,
-  rideDetails
-} from './models';
+  savedPlaces,
+  rideDetails,
+  rideMapDetails,
+  rideReceiptDetails
+} from "./mockups";
 
 const Data = {
   products,
-  productDetails: () => productDetails('a1111c8c-c720-46c3-8534-2fcdd730040d'),
-  userInfo,
-  savedPlaces,
+  productDetails,
   priceEstimates,
   timeEstimates,
-  rideReceiptDetails,
-  rideMapDetails,
+  userInfo,
   userHistory,
-  rideDetails
+  savedPlaces,
+  rideDetails,
+  rideMapDetails,
+  rideReceiptDetails
 };
 
 export default Data;

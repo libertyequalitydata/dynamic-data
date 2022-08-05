@@ -1,1 +1,3 @@
-export * from "./cardioActivity.js";
+import { cardioActivityMockup } from "./mockups";
+
+export { cardioActivityMockup };

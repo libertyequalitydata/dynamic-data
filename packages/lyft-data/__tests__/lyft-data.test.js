@@ -5,7 +5,7 @@ const {
     driverETA,
     rideEstimates,
     nearby_drivers
-} = require('@dynamic-data/lyft-data');
+} = require('@dynamic-data/lyft-data/mockups');
 
 describe('@dynamic-data/lyft-data', () => {
   it('check if rideTypes of type object', () => {

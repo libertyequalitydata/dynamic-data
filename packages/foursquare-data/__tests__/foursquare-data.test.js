@@ -4,14 +4,16 @@ const {
     Venues,
     Photos,
     Tips
-  } = require('@dynamic-data/foursquare-data');
+  } = require('@dynamic-data/foursquare-data/mockups');
 
 describe('@dynamic-data/foursquare-data', () => {
   it('check if venues_categories of type object', () => {
+    //console.log("TEST ",Venues)
     expect(typeof  Venues.venues_categories).toBe('object');
     expect(!Array.isArray(Venues.venues_categories)).toBeTruthy();
     expect(Object.keys(Venues.venues_categories).length).not.toBe(0);
   });
+  
   it('check if venues_details of type object', () => {
     expect(typeof Venues.venues_details).toBe('object');
     expect(!Array.isArray(Venues.venues_details)).toBeTruthy();
@@ -82,4 +84,5 @@ describe('@dynamic-data/foursquare-data', () => {
     expect(!Array.isArray(Photos.photos_details)).toBeTruthy();
     expect(Object.keys(Photos.photos_details).length).not.toBe(0);
   });
+  
 });

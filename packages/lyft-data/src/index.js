@@ -3,7 +3,7 @@ import {
     driverETA,
     rideEstimates,
     nearby_drivers
-  } from "./models";
+  } from "./mockups";
   
   const Data = {
     rideTypes,
@@ -13,3 +13,4 @@ import {
   };
   
   export default Data;
+  

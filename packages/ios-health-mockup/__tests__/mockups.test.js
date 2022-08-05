@@ -17,7 +17,7 @@ const {
 
 
 describe("IOS Health", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
   it("getCharacteristics", () => {
     const result = getCharacteristics (
       "SYNC",

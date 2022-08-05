@@ -9,6 +9,7 @@ const {
 
 describe('@dynamic-data/lyft-mockups', () => {
   it('check if rideTypes of type object', () => {
+     
     expect(typeof rideTypes).toBe('object');
     expect(!Array.isArray(rideTypes)).toBeTruthy();
     expect(Object.keys(rideTypes).length).not.toBe(0);

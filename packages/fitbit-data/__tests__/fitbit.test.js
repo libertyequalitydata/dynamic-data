@@ -15,7 +15,7 @@ SleepDataAsync,
 SleepQuality,
 SleepQualityAsync,
 SleepSummary,
-SleepSummaryAsync } = require("@dynamic-data/fitbit-data");
+SleepSummaryAsync } = require("@dynamic-data/fitbit-data/mockups");
 
 describe("FitBit", () => {
   //test.todo("needs tests");

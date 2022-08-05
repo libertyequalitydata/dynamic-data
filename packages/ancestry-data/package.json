@@ -26,8 +26,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c",
-    "test": "jest"
+    "build": "rimraf dist && rollup -c",
+    "test": "./node_modules/.bin/jest"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
@@ -38,7 +38,8 @@
     "@babel/runtime": "^7.17.9",
     "babel-jest": "^27.5.1",
     "cross-env": "^7.0.3",
-    "jest": "^27.5.1"
+    "jest": "^28.1.3",
+    "rimraf": "^3.0.2"
   },
   "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c",
   "dependencies": {}

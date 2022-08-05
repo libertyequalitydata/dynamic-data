@@ -1,7 +1,7 @@
 //import MOCK from "../src";
 //import { Activity } from "../src/mockups";
 import MOCK from "@dynamic-data/sensor-bno055-data";
-import { RawAsync, RawSync } from "@dynamic-data/sensor-bno055-data";
+import { RawAsync, RawSync } from "@dynamic-data/sensor-bno055-data/mockups";
 
 
 describe("Sensor BNO055", () => {

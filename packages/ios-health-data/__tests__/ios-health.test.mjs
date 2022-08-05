@@ -1,7 +1,7 @@
 //import MOCK from "../src";
 //import { Activity } from "../src/mockups";
 import MOCK from "@dynamic-data/ios-health-data";
-import {Characteristics,HKActivitySummary,HKAudiogramSample,HKClinicalRecord,HKElectrocardiogram,HKWorkout,HKWorkoutConfiguration,HKWorkoutRoute,HKWorkoutSession,} from "@dynamic-data/ios-health-data";
+import {Characteristics,HKActivitySummary,HKAudiogramSample,HKClinicalRecord,HKElectrocardiogram,HKWorkout,HKWorkoutConfiguration,HKWorkoutRoute,HKWorkoutSession,} from "@dynamic-data/ios-health-data/mockups";
 
 
 
@@ -11,10 +11,7 @@ describe("IOS Health", () => {
     console.log("MOCK ", MOCK);
     expect(typeof MOCK).toBe("object");
   });
-  it("Expanded MOCK datamodel from default", () => {
-    console.log("MOCK ", JSON.stringify(MOCK, undefined, 2));
-    expect(typeof MOCK).toBe("object");
-  });
+  
   it("Characteristics datamodel from default", () => {
     console.log("Characteristics ", JSON.stringify(Characteristics, undefined, 2));
     expect(typeof Characteristics).toBe("object");

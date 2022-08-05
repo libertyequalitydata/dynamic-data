@@ -1,7 +1,7 @@
 //import MOCK from "../src";
 //import { Activity } from "../src/mockups";
 import MOCK from "@dynamic-data/23andme-data";
-import { RawDataObject } from "@dynamic-data/23andme-data";
+import { RawDataObject } from "@dynamic-data/23andme-data/mockups";
 
 
 describe("23andme", () => {

@@ -4614,7 +4614,8 @@ export function getStreams(dataType, dataModel, dataDate) {
       switch (key) {
         case "is_mature":
           // Streams Data has "is_mature", whilst Followed_Streams does not
-          switch(Object.hasOwn(stream, 'is_mature')){
+          
+          switch(stream.hasOwnProperty("is_mature")){
             case false:
               break;
             case true:
@@ -5429,7 +5430,7 @@ export function getAnalytics(dataType, dataModel, dataDate) {
   }
 
   mockupData["data"].forEach((analytics)=>{
-    if (Object.hasOwn(analytics, 'game_id')) {
+    if (analytics.hasOwnProperty( 'game_id')) {
       [
         "game_id",
         "URL",
@@ -5457,7 +5458,7 @@ export function getAnalytics(dataType, dataModel, dataDate) {
             break;
         }
       });
-    } else if(Object.hasOwn(analytics, 'extension_id')){
+    } else if(analytics.hasOwnProperty('extension_id')){
       [
         "extension_id",
         "URL",
@@ -6271,9 +6272,11 @@ export function getBitsLeaderboard(dataType, dataModel, dataDate) {
   let length = getRandomInt(0,10)
   mockupData["total"] = length
   mockupData["data"] = [mockupData["data"][0]]
+  if (length>0) {
   for (var i = 0; i<length-1;i++){
     mockupData["data"].push(Object.assign({},mockupData["data"][0]))
   }
+}
   for (var index = mockupData["data"].length-1;index>=0;index--){
     [
       "user_id",

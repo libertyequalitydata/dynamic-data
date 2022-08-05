@@ -18,7 +18,7 @@ import {
   } from "@dynamic-data/whoop-mockups";
 
 describe("Whoop", () => {
-  test.todo("needs tests");
+  //test.todo("needs tests");
     it("getUserMockupData", () => {
     const result = getUserMockupData(
       "SYNC",

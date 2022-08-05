@@ -2,7 +2,7 @@
 
 const MOCK = require("@dynamic-data/ios-health-data");
 
-const {Characteristics,HKActivitySummary,HKAudiogramSample,HKClinicalRecord,HKElectrocardiogram,HKWorkout,HKWorkoutConfiguration,HKWorkoutRoute,HKWorkoutSession,} = require("@dynamic-data/ios-health-data"); 
+const {Characteristics,HKActivitySummary,HKAudiogramSample,HKClinicalRecord,HKElectrocardiogram,HKWorkout,HKWorkoutConfiguration,HKWorkoutRoute,HKWorkoutSession,} = require("@dynamic-data/ios-health-data/mockups"); 
 
 
 describe("IOS Health", () => {
@@ -11,10 +11,7 @@ describe("IOS Health", () => {
     console.log("MOCK ", MOCK);
     expect(typeof MOCK).toBe("object");
   });
-  it("Expanded MOCK datamodel from default", () => {
-    console.log("MOCK ", JSON.stringify(MOCK, undefined, 2));
-    expect(typeof MOCK).toBe("object");
-  });
+  
   it("Characteristics datamodel from default", () => {
     console.log("Characteristics ", JSON.stringify(Characteristics, undefined, 2));
     expect(typeof Characteristics).toBe("object");

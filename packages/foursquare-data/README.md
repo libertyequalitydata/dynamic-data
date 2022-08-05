@@ -1,6 +1,6 @@
-# `foursquare-data`
+# `foursquare-mockups`
 
-> FourSquare data modules for API datasources
+> Mockup data modules for FourSquare datasources
 
 ## Usage
 
@@ -25,15 +25,15 @@ Dataobjects:
 ```
 // CJS/Node
 
-const { Venues } = require('@dynamic-data/foursquare-data');
-const fourSquareData = require('@dynamic-data/foursquare-data'); // All objects...
+const { Venues } = require('@dynamic-data/foursquare-mockups');
+const fourSquareData = require('@dynamic-data/foursquare-mockups'); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import { Venues } from '@dynamic-data/foursquare-data';
-import fourSquareData from '@dynamic-data/foursquare-data'; // All objects...
+import { Venues } from '@dynamic-data/foursquare-mockups';
+import fourSquareData from '@dynamic-data/foursquare-mockups'; // All objects...
 
 ```

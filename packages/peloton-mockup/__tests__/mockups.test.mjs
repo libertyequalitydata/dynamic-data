@@ -1,9 +1,4 @@
-import { getRandomInt } from "@dynamic-data/utils";
-
-import MOCK from "@dynamic-data/peloton-mockups";
-
-import {
-  getRideDetails,
+import {getRideDetails,
   getUserSettings,
   getAchievementTemplate,
   getUserProfile,
@@ -16,8 +11,7 @@ import {
   getRideFilter,
   getRideSorts,
   getUserOverview,
-  getWorkoutDetails
-} from ("@dynamic-data/peloton-mockups");
+  getWorkoutDetails} from "@dynamic-data/peloton-mockups";
 
 describe("Peloton", () => {
   //test.todo("needs tests");
@@ -30,6 +24,7 @@ describe("Peloton", () => {
     console.log("RideDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
   it("getUserSettings", () => {
     const result = getUserSettings (
       "SYNC",
@@ -147,4 +142,5 @@ describe("Peloton", () => {
     console.log("WorkoutDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
 });

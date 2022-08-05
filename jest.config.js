@@ -90,6 +90,7 @@ module.exports = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: {},
+  /*
   moduleNameMapper: {
     "^@dynamic-data/oura-data/mockups(.*)$":
       "@dynamic-data/oura-data/dist/cjs/mockups/$1",
@@ -97,10 +98,15 @@ module.exports = {
       "@dynamic-data/google-data/dist/cjs/mockups/$1",
     "^@dynamic-data/garmin-data/mockups(.*)$":
       "@dynamic-data/garmin-data/dist/cjs/mockups/$1",
-    "^@dynamic-data/fitbit-data/mockups(.*)$":
+      "^@dynamic-data/fitbit-data/mockups(.*)$":
       "@dynamic-data/fitbit-data/dist/cjs/mockups/$1",
-  },
 
+      "^@dynamic-data/23andme-data/mockups(.*)$": "@dynamic-data/23andme-data/dist/cjs/mockups/$1",
+                                                    
+      "^@dynamic-data/ancestry-data/mockups(.*)$": "@dynamic-data/ancestry-data/dist/cjs/mockups/$1",
+      
+    },
+*/
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 

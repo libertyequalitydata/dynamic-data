@@ -1,7 +1,7 @@
 //import MOCK from "../src";
 //import { Activity } from "../src/mockups";
 import MOCK from "@dynamic-data/ancestry-data";
-import { RawDataObject } from "@dynamic-data/ancestry-data";
+import { RawDataObject } from "@dynamic-data/ancestry-data/mockups";
 
 
 describe("Ancestry", () => {

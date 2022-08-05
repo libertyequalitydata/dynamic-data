@@ -12,15 +12,19 @@ SleepsDataObject } from "@dynamic-data/garmin-data/mockups";
 describe("Garmin", () => {
   //test.todo("needs tests");
   it("Mockup datamodels from default", () => {
-    console.log("MOCK ", MOCK);
+    //console.log("MOCK ", MOCK);
     expect(typeof MOCK).toBe("object");
   });
+  /*
   it("Expanded Mockup datamodels from default", () => {
     console.log("MOCK ", JSON.stringify(MOCK, undefined, 2));
     expect(typeof MOCK).toBe("object");
   });
+  */
   it("Expanded DailiesData datamodel from default", () => {
+    
     console.log("DailiesData ", JSON.stringify(DailiesData, undefined, 2));
+
     expect(typeof DailiesData).toBe("object");
   });
   it("Expanded DailiesDataObject datamodel from default", () => {

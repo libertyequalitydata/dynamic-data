@@ -2,7 +2,7 @@ import MOCK from "@dynamic-data/huawei-data";
 
 import { ActivityRecord,
   DataCollector,
-  HealthRecord } from "@dynamic-data/huawei-data";
+  HealthRecord } from "@dynamic-data/huawei-data/mockups";
 
 describe("Huawei", () => {
   //test.todo("needs tests");

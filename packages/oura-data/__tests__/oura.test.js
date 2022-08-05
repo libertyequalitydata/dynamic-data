@@ -11,14 +11,14 @@ const { ActivitySummary } = require("@dynamic-data/oura-data/mockups");
 describe("oura", () => {
   //test.todo("needs tests");
   it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummary;
+    const data = MOCK.default.ActivitySummary;
     //console.log("MOCK ", MOCK);
     //console.log("MOCK DATA", data);
 
     expect(typeof data).toBe("object");
   });
   it("ActivitySummaryAsync mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummaryAsync;
+    const data = MOCK.default.ActivitySummaryAsync;
     //console.log("MOCK ", MOCK);
     //console.log("MOCK ASYNC DATA", data);
 

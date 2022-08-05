@@ -2,7 +2,7 @@
 
 const MOCK = require("@dynamic-data/ancestry-data");
 
-const { RawDataObject } = require("@dynamic-data/ancestry-data");
+const { RawDataObject } = require("@dynamic-data/ancestry-data/mockups");
 
 describe("Ancestry", () => {
   //test.todo("needs tests");
@@ -11,6 +11,7 @@ describe("Ancestry", () => {
     expect(typeof MOCK).toBe("object");
   });
   it("Expanded RawDataObject datamodel from default", () => {
+    console.log("MOCK ", RawDataObject);
     console.log("MOCK ", JSON.stringify(RawDataObject, undefined, 2));
     expect(typeof MOCK).toBe("object");
   });

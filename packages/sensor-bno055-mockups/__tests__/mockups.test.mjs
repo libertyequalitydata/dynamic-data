@@ -1,6 +1,3 @@
-import { getRandomInt } from "@dynamic-data/utils";
-
-import MOCK from "@dynamic-data/sensor-bno055-data";
 
 import {
   getRawData,
