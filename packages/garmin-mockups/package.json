@@ -1,0 +1,38 @@
+{
+  "name": "@dynamic-data/garmin-mockups",
+  "version": "0.0.6",
+  "description": "Garmin Mockup Data Generators",
+  "author": "tero <tero@prifina.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rm -rf ./dist && rollup -c",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "babel-jest": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "rollup": "^2.70.1"
+  },
+  "dependencies": {
+    "@dynamic-data/oura-data": "^0.0.6",
+    "@dynamic-data/utils": "^0.0.5"
+  }
+}

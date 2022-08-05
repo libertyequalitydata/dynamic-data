@@ -1,0 +1,43 @@
+export const Workout =[
+  {
+    cycle_id: 0,
+    created_at: "2022-05-24T11:24:15.241Z",
+    updated_at: "2022-05-24T11:24:15.241Z",
+    sport_id: 1,
+    activity_id: 156030936,
+    gps_enabled: true,
+    intensity_score: 0,
+    max_heart_rate: 152,
+    average_heart_rate: 140,
+    distance: 0,
+    performance: "string",
+    energy: "string",
+    rpe: "string",
+    raw_intensity_score: 0.005378655454516813,
+    altitude_gain: "string",
+    altitude_change: "string",
+    cumulative_workout_intensity: 0,
+    zone_durations: [
+      0,
+      0,
+      212488,
+      1861085,
+      410473,
+      0
+    ],
+    projected_score: 0,
+    confidence: "string",
+    wac_prediction: "string",
+    kilojoules: 0,
+    user_id: 0,
+    during: "['2020-12-21T10:04:12.278Z','2020-12-21T10:45:36.285Z')",
+    timezone_offset: "+0200",
+    survey_response_id: 0,
+    percent_recorded: 0,
+    auto_detected: true,
+    state: "complete",
+    responded: true,
+    team_act_id: 0,
+    source: "auto"
+  }
+]
