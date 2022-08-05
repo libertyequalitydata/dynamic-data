@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/sensor-bno055-data",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mockup Data for Sensor BNO055 connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
@@ -41,6 +41,5 @@
     "jest": "^28.1.3",
     "rimraf": "^3.0.2"
   },
-  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c",
-  "dependencies": {}
+  "gitHead": "d2610652c5e0e310f3c92828a57df35a8ecdcc5c"
 }

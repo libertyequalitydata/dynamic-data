@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/huawei-data",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mockup DataModel for Huawei connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",

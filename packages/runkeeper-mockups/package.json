@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/runkeeper-mockups",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dynamic Data Generator for RunKeeper App",
   "author": "Jashaul <djashaul@gmail.com>",
   "license": "MIT",
@@ -34,6 +34,6 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.5"
+    "@dynamic-data/utils": "^0.0.6"
   }
 }
