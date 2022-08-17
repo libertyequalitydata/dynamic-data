@@ -1,6 +1,5 @@
 // Mockup of the cardio activity on RunKeeper
-// TODO: take a call on adding geo location data and user weight data
-export const cardioActivityMockup = {
+export const cardioActivity = {
   activityId: 'f21d7044-9c37-4acb-82ee-7ae6d322375f',
   date: '2022-05-26 08:45:07',
   type: 'Running',
