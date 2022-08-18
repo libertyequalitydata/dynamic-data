@@ -11,7 +11,7 @@ describe("Sensor BNO055", () => {
       "RawDataSync",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getRawDataAsync", () => {
@@ -20,7 +20,7 @@ describe("Sensor BNO055", () => {
       "RawDataAsync",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 

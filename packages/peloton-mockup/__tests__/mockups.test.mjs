@@ -1,4 +1,10 @@
-import {getRideDetails,
+"use strict";
+
+
+import MOCK from "@dynamic-data/peloton-data";
+
+import {
+  getRideDetails,
   getUserSettings,
   getAchievementTemplate,
   getUserProfile,
@@ -11,7 +17,9 @@ import {getRideDetails,
   getRideFilter,
   getRideSorts,
   getUserOverview,
-  getWorkoutDetails} from "@dynamic-data/peloton-mockups";
+  getWorkoutDetails
+} from "@dynamic-data/peloton-mockups";
+
 
 describe("Peloton", () => {
   //test.todo("needs tests");
@@ -21,7 +29,7 @@ describe("Peloton", () => {
       "RideDetails",
       "2022-04-03"
     );
-    console.log("RideDetails",JSON.stringify(result, undefined, 2));
+    // console.log("RideDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   
@@ -31,7 +39,7 @@ describe("Peloton", () => {
       "UserSettings",
       "2022-04-03"
     );
-    console.log("UserSettings",JSON.stringify(result, undefined, 2));
+    // console.log("UserSettings",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getAchievementTemplate", () => {
@@ -40,16 +48,17 @@ describe("Peloton", () => {
       "AchievementTemplate",
       "2022-04-03"
     );
-    console.log("AchievementTemplate",JSON.stringify(result, undefined, 2));
+    // console.log("AchievementTemplate",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
+  
   it("getUserProfile", () => {
     const result = getUserProfile (
       "SYNC",
       "UserProfile",
       "2022-04-03"
     );
-    console.log("UserProfile",JSON.stringify(result, undefined, 2));
+    // console.log("UserProfile",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getUserData", () => {
@@ -58,7 +67,7 @@ describe("Peloton", () => {
       "UserData",
       "2022-04-03"
     );
-    console.log("UserData",JSON.stringify(result, undefined, 2));
+    // console.log("UserData",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getAuthDetails", () => {
@@ -67,7 +76,7 @@ describe("Peloton", () => {
       "AuthDetails",
       "2022-04-03"
     );
-    console.log("AuthDetails",JSON.stringify(result, undefined, 2));
+    // console.log("AuthDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getFacebookUserProfile", () => {
@@ -76,7 +85,7 @@ describe("Peloton", () => {
       "FacebookUserProfile",
       "2022-04-03"
     );
-    console.log("FacebookUserProfile",JSON.stringify(result, undefined, 2));
+    // console.log("FacebookUserProfile",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getInstructor", () => {
@@ -85,7 +94,7 @@ describe("Peloton", () => {
       "Instructor",
       "2022-04-03"
     );
-    console.log("Instructor",JSON.stringify(result, undefined, 2));
+    // console.log("Instructor",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getRelationship", () => {
@@ -94,7 +103,7 @@ describe("Peloton", () => {
       "Relationship",
       "2022-04-03"
     );
-    console.log("Relationship",JSON.stringify(result, undefined, 2));
+    // console.log("Relationship",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getReservation", () => {
@@ -103,7 +112,7 @@ describe("Peloton", () => {
       "Reservation",
       "2022-04-03"
     );
-    console.log("Reservation",JSON.stringify(result, undefined, 2));
+    // console.log("Reservation",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getRideFilter", () => {
@@ -112,7 +121,7 @@ describe("Peloton", () => {
       "RideFilter",
       "2022-04-03"
     );
-    console.log("RideFilter",JSON.stringify(result, undefined, 2));
+    // console.log("RideFilter",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getRideSorts", () => {
@@ -121,7 +130,7 @@ describe("Peloton", () => {
       "RideSorts",
       "2022-04-03"
     );
-    console.log("RideSorts",JSON.stringify(result, undefined, 2));
+    // console.log("RideSorts",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getUserOverview", () => {
@@ -130,7 +139,7 @@ describe("Peloton", () => {
       "UserOverview",
       "2022-04-03"
     );
-    console.log("UserOverview",JSON.stringify(result, undefined, 2));
+    // console.log("UserOverview",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getWorkoutDetails", () => {
@@ -139,7 +148,7 @@ describe("Peloton", () => {
       "WorkoutDetails",
       "2022-04-03"
     );
-    console.log("WorkoutDetails",JSON.stringify(result, undefined, 2));
+    // console.log("WorkoutDetails",JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   

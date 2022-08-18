@@ -1,62 +1,79 @@
-import { getRandomInt } from "@dynamic-data/utils";
-
-import MOCK from "@dynamic-data/oura-data";
-
 import {
   getModelCSVHeader,
-  getActivityMockupData,
-  getReadinessMockupData,
-  getSleepMockupData,
-} from "@dynamic-data/oura-mockups";
+  getActivitiesMockupData,
+  getSleepSummaryData,
+  getHeartRateSummary,
+  getActivitiesSummaryData,
+  getSleepQualityData,
+  getHeartRateDataData,
+  getSleepDataData,
+} from "@dynamic-data/fitbit-mockups";
 
-describe("Oura", () => {
+describe("Fitbit", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummary;
-    //console.log("MOCK ", MOCK);
-    //console.log("MOCK DATA", data);
-
-    expect(typeof data).toBe("object");
-  });
-
-  it("RandomInt", () => {
-    const result = getRandomInt(1, 10);
-    //console.log(typeof result);
-    expect(typeof result).toEqual("number");
-  });
-
-  it("getModelCSVHeader", () => {
-    const result = getModelCSVHeader("ActivitySummaryAsync");
-    //console.log(result);
-    expect(Array.isArray(result)).toBe(true);
-  });
-  it("getActivityMockupData", () => {
-    const result = getActivityMockupData(
+  it("getActivitiesMockupData", () => {
+    const result = getActivitiesMockupData(
       "SYNC",
-      "ActivitySummary",
-      "2022-04-03T04:00:00+03:00"
+      "ActivitiesData",
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
-
-  it("getReadinessMockupData", () => {
-    const result = getReadinessMockupData(
+  it("getActivitiesSummaryData", () => {
+    const result = getActivitiesSummaryData(
       "SYNC",
-      "ReadinessSummary",
-      "2022-04-03T04:00:00+03:00"
+      "ActivitiesSummary",
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
-
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
+  it("getHeartRateDataData", () => {
+    const result = getHeartRateDataData(
+      "SYNC",
+      "HeartRateData",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getHeartRateSummary", () => {
+    const result = getHeartRateSummary(
+      "SYNC",
+      "HeartRateSummary",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSleepDataData", () => {
+    const result = getSleepDataData(
+      "SYNC",
+      "SleepData",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSleepQualityData", () => {
+    const result = getSleepQualityData(
+      "SYNC",
+      "SleepQuality",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSleepSummaryData", () => {
+    const result = getSleepSummaryData(
       "SYNC",
       "SleepSummary",
-      "2022-04-03T04:00:00+03:00"
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
+
+  
 });

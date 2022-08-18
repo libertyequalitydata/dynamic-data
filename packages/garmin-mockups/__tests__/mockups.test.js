@@ -12,20 +12,13 @@ const {
 
 describe("Garmin", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.default.SleepsDataObject;
-   console.log("MOCK ", Object.keys(MOCK.default));
-    //console.log("MOCK ", data);
-
-    expect(typeof data).toBe("object");
-  });
   it("getDailiesMockupData", () => {
     const result = getDailiesMockupData(
       "ASYNC",
       "DailiesDataAsync",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -35,8 +28,8 @@ describe("Garmin", () => {
       "SleepsDataAsync",
       "2022-04-03"
     );
-    console.log(result);
-    console.log(result.sleeplevelsmap);
+    // console.log(result);
+    // console.log(result.sleeplevelsmap);
     expect(typeof result).toBe("object");
   });
 
@@ -46,7 +39,7 @@ describe("Garmin", () => {
       "PulseoxAsync",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -56,7 +49,7 @@ describe("Garmin", () => {
       "EpochsDataAsync",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -66,8 +59,7 @@ describe("Garmin", () => {
       "SleepsDataObject",
       "2022-04-03"
     );
-    console.log(result);
-    console.log(result.sleeplevelsmap);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -77,7 +69,7 @@ describe("Garmin", () => {
       "PulseoxObject",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -87,7 +79,7 @@ describe("Garmin", () => {
       "EpochsDataObject",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
@@ -97,7 +89,7 @@ describe("Garmin", () => {
       "DailiesDataObject",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 

@@ -22,7 +22,7 @@ describe("IOS Health", () => {
       "Characteristics",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKActivitySummary", () => {
@@ -31,7 +31,7 @@ describe("IOS Health", () => {
       "HKActivitySummary",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKAudiogramSample", () => {
@@ -40,7 +40,7 @@ describe("IOS Health", () => {
       "HKAudiogramSample",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKClinicalRecord", () => {
@@ -49,7 +49,7 @@ describe("IOS Health", () => {
       "HKClinicalRecord",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKElectrocardiogram", () => {
@@ -58,7 +58,7 @@ describe("IOS Health", () => {
       "HKElectrocardiogram",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKWorkoutConfiguration", () => {
@@ -67,7 +67,7 @@ describe("IOS Health", () => {
       "HKWorkoutConfiguration",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKWorkoutSession", () => {
@@ -76,7 +76,7 @@ describe("IOS Health", () => {
       "HKWorkoutSession",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKWorkoutRoute", () => {
@@ -85,7 +85,7 @@ describe("IOS Health", () => {
       "HKWorkoutRoute",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
   it("getHKWorkout", () => {
@@ -94,7 +94,7 @@ describe("IOS Health", () => {
       "HKWorkout",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2));
+    // console.log(JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 });
