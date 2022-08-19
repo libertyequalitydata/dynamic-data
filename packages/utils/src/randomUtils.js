@@ -82,7 +82,7 @@ export function getRandomFloat(min, max) {
 export function getRandomDateTime(formatString) {
   const dt = new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
   if(formatString) {
-    return moment(dt).format(formatString);
+    return dt.getTime()
   } else {
     return dt.getTime()
   }
