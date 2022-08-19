@@ -1,5 +1,3 @@
-const { faker } = require('@faker-js/faker');
-const moment = require('moment');
 
 export function toIsoString(date) {
   var tzo = -date.getTimezoneOffset(),
@@ -118,30 +116,97 @@ export function parseSecondsToString(val) {
   return outputString
 }
 
-export function getRandomAddress(state = false, city = false) {
-  const adr = faker.address;
-  const address_state = state? state : adr.stateAbbr();
-  const zip = adr.zipCodeByState(address_state).split('-')[0];
-  return `${adr.streetAddress()}, ${city? city : adr.cityName()}, ${address_state} ${zip}`
+export function getRandomAddress() {
+  const zipCode = () => {
+    let characters = "0123456789"
+    let string = ""
+    for (var i = 0; i<5; i++){
+      string += characters.charAt(Math.floor(Math.random() * 
+      characters.length));
+    }
+    return string
+  }
+
+
+  let array =  [getRandomString(getRandomInt(15,20))]
+  array.push(zipCode)
+
+  return array
 }
 
 export function getRandomName() {
-  return [faker.name.firstName(), faker.name.lastName()];
+  let string = ""
+  let characters = "abcdefghijklmnopqrstuvwxyz"
+  let length = getRandomInt(7,15)
+  string += characters.charAt(Math.floor(Math.random() * 
+    characters.length)).toUpperCase();
+  for (var i = 1; i<length; i++){
+    string += characters.charAt(Math.floor(Math.random() * 
+    characters.length));
+  }
+  return string
 }
 
 export function getRandomCarDetails() {
-  const car = faker.vehicle.vehicle().split(' ');
+  const car = [
+    {
+      "make": "BMW",
+      "models": [
+        "X1 xDrive28i",
+        "X3 M",
+        "X4 M40i",
+        "530i xDrive Sedan",
+        "330i Sedan",
+        "330e Sedan",
+        "840i xDrive Coupe",
+        "M4 Competition Coupe",
+        "430i xDrive Convertible"
+      ]
+    }, {
+      "make": "Ferrari",
+      "models": [
+        "812 GTS",
+        "296 GTB",
+        "SF90 Stradale",
+        "SF90 Spider",
+        "F8 Tributo",
+        "F8 Spider",
+        "Roma",
+        "Portofino M"
+      ]
+    }, {
+      "make": "Lamborghini",
+      "models": [
+        "Aventador",
+        "Huracan",
+        "Urus"
+      ]
+    }
+  ]
+  let index = getRandomInt(0,car.length)-1
+  let license = ""
+  let characters = "0123456789ABCDEFGHJKLMNPRSTUVWXYZ"
+  for (var i = 0; i<7; i++){
+    license += characters.charAt(Math.floor(Math.random() * 
+    characters.length));
+  }
   return {
-    make: car[0],
-    model: car.slice(1, car.length).join(" "),
-    license: faker.vehicle.vrm()
+    make: car[index]["make"],
+    model: car[index]["models"][getRandomInt(0,car[index]["models"].length)-1],
+    license: license
   }
 }
 
-export function getRandomLatLng(est_lat, est_lng, radius) {
-  return faker.address.nearbyGPSCoordinate([est_lat, est_lng], radius, false);
+export function getRandomLatLng() {
+  return [(((getRandomInt(0,1800001)-1)/10000)-90),(((getRandomInt(0,3600001)-1)/10000)-180)]
 }
 
 export function getRandomWord(len) {
-  return faker.random.words(len);
+  let string = ""
+  let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  for (var i = 0; i<len; i++){
+    string += characters.charAt(Math.floor(Math.random() * 
+    characters.length));
+  }
+  return string
 }
