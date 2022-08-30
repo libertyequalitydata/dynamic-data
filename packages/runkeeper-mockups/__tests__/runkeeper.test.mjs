@@ -1,17 +1,15 @@
-'use strict';
+import MOCK from "@dynamic-data/runkeeper-data";
 
-const MOCK = require("@dynamic-data/runkeeper-data");
-
-const {
+import {
   getCardioActivityMockupData
-} = require("../../runkeeper-mockups/src");
+} from "../../runkeeper-mockups/src";
 
 describe('runkeeper-data', () => {
   it('getCardioActivityMockupData', () => {
     const result = getCardioActivityMockupData(
       "SYNC",
       "CardioActivity",
-      "2022-04-03"
+      "2022-04-03" //YYYY-MM-DD
     );
     console.log(result);
     expect(typeof result).toBe('object');

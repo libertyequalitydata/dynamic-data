@@ -1,1 +1,1 @@
-export * from "./cardioActivityMockup.js";
+export * from "./cardioActivity";

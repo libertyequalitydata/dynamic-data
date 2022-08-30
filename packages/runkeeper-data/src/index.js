@@ -1,3 +1,7 @@
-import { cardioActivityMockup } from "./mockups";
+import { cardioActivity } from "./mockups";
 
-export { cardioActivityMockup };
+const Data = {
+    cardioActivity,
+};
+
+export default Data;
