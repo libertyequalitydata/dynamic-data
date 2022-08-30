@@ -69,7 +69,7 @@ describe("utils", () => {
     const address = utils.getRandomAddress('NY', 'New York');
 
     // checking if value is of type string
-    expect(typeof address).toBe('string');
+    expect(typeof address).toBe('array');
   });
   it('getRandomName', () => {
     const name = utils.getRandomName();
