@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/23andme-data",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Mockup Data for 23andme connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",

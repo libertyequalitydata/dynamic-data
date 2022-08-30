@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/sensor-bno055-mockups",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Ski Boot Sensor BNO055 Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/sensor-bno055-data": "^0.0.7",
-    "@dynamic-data/utils": "^0.0.6"
+    "@dynamic-data/sensor-bno055-data": "^0.0.8",
+    "@dynamic-data/utils": "^0.0.7"
   }
 }

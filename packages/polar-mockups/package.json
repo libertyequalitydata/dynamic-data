@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/polar-mockups",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Dynamic Data Faker for Polar",
   "author": "Jashaul <djashaul@gmail.com>",
   "homepage": "https://github.com/Jashaul/dynamic-data#readme",
@@ -35,6 +35,6 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.6"
+    "@dynamic-data/utils": "^0.0.7"
   }
 }
