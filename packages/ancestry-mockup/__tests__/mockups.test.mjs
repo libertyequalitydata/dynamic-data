@@ -14,7 +14,7 @@ describe("Ancestry", () => {
       "RawData",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 

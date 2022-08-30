@@ -23,7 +23,7 @@ const {
 describe("Strava", () => {
   //test.todo("needs tests");
   it("MOCK datamodel", () => {
-    console.log(JSON.stringify(MOCK, undefined, 2));
+    // console.log(JSON.stringify(MOCK, undefined, 2));
     expect(typeof MOCK).toBe("object");
   });
   it("getEquipmentMockupData", () => {
@@ -32,7 +32,7 @@ describe("Strava", () => {
       "Equipment",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getClubMockupData", () => {
@@ -41,7 +41,7 @@ describe("Strava", () => {
       "Club",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getSegmentEffortMockupData", () => {
@@ -50,7 +50,7 @@ describe("Strava", () => {
       "SegmentEfforts",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getActivityMockupData", () => {
@@ -59,7 +59,7 @@ describe("Strava", () => {
       "Activity",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getAthleteStatsMockupData", () => {
@@ -68,7 +68,7 @@ describe("Strava", () => {
       "AthleteStats",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getActivityZoneMockupData", () => {
@@ -77,7 +77,7 @@ describe("Strava", () => {
       "ActivityZone",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getActivityCommentsMockupData", () => {
@@ -86,7 +86,7 @@ describe("Strava", () => {
       "ActivityComments",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getSegmentsMockupData", () => {
@@ -95,7 +95,7 @@ describe("Strava", () => {
       "Segments",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getActivityLapMockupData", () => {
@@ -104,7 +104,7 @@ describe("Strava", () => {
       "ActivityLap",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getAthleteMockupData", () => {
@@ -113,7 +113,7 @@ describe("Strava", () => {
       "Athlete",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getActivityStreamData", () => {
@@ -122,7 +122,7 @@ describe("Strava", () => {
       "ActivityStream",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getRouteMockupData", () => {
@@ -131,7 +131,7 @@ describe("Strava", () => {
       "Route",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getAthleteActivitesData", () => {
@@ -140,7 +140,7 @@ describe("Strava", () => {
       "AthleteActivities",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getAthleteActivitesData", () => {
@@ -149,7 +149,7 @@ describe("Strava", () => {
       "AthleteActivities",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 });

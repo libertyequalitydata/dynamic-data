@@ -1,0 +1,40 @@
+{
+  "name": "@dynamic-data/homekit-mockups",
+  "version": "0.0.7",
+  "description": "iOS Homekit Mockup Data Generators",
+  "author": "tero <tero@prifina.com>",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "test": "./node_modules/.bin/jest"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "babel-jest": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1"
+  },
+  "dependencies": {
+    "@dynamic-data/23andme-data": "^0.0.7",
+    "@dynamic-data/utils": "^0.0.6"
+  }
+}

@@ -13,7 +13,17 @@ export const Predictions = {
           "title": "Yes",
           "users": 0,
           "channel_points": 0,
-          "top_predictors": null,
+          "top_predictors": [
+            {
+              "user": {
+                "id": "141981764",
+                "name": "twitchdev",
+                "login": "twitchdev",
+                "channel_points_used": 20000,
+                "channel_points_won": null,
+              }
+            }
+          ],
           "color": "BLUE"
         },
         {

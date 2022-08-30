@@ -69,7 +69,7 @@ const CharacteristicsModel = {
     }
     function getQuarter(){
       let x = finalDate.getMonth()/4
-      console.log(x)
+      // console.log(x)
       return (Math.ceil(finalDate.getMonth()/4));
     }
     return {

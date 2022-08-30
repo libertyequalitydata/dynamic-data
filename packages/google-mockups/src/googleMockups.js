@@ -327,7 +327,6 @@ export function getLocationMockupData(dataType, dataModel, dataDate) {
     }
     mockupData = final
   }
-  console.log(mockupData)
   mockupData.forEach((object)=>{
     [    
       "p_latitude",

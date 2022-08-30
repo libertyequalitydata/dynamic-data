@@ -18,7 +18,7 @@ describe("Google", () => {
       "ActivityObject",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getActivityMockupData", () => {
@@ -27,7 +27,7 @@ describe("Google", () => {
       "Activity",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getLocationMockupData", () => {
@@ -36,7 +36,7 @@ describe("Google", () => {
       "Location",
       "2022-04-03"
     );
-    console.log("a",result);
+    // console.log("a",result);
     expect(typeof result).toBe("object");
   });
   it("getPlacesMockupData", () => {
@@ -45,7 +45,7 @@ describe("Google", () => {
       "Places",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getRoutesMockupData", () => {
@@ -54,7 +54,7 @@ describe("Google", () => {
       "Routes",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 

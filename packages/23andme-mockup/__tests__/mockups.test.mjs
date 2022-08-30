@@ -1,4 +1,3 @@
-import { getRandomInt } from "@dynamic-data/utils";
 
 import MOCK from "@dynamic-data/23andme-data";
 
@@ -14,7 +13,7 @@ describe("23andme", () => {
       "RawData",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 

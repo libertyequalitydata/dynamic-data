@@ -1519,7 +1519,6 @@ export function getAggregateDataMockupData(dataType, dataModel, dataDate) {
           }
         })
       });
-      console.log("a");
       [
         "during",
         "id",

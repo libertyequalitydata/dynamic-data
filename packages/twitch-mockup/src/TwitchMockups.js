@@ -116,7 +116,6 @@ const VideosModel = {
     if ((time % 3600)%60 > 1){
       string += Math.floor((time % 3600)%60) + "s"
     } 
-    console.log(time)
     return string
   },
   muted_segments: (duration) => {
@@ -124,8 +123,6 @@ const VideosModel = {
     let finalReturn =[]
     let numOfSegments = getRandomInt(0,6)-1
     let durationInSeconds = 0;
-    console.log("duration",duration)
-    console.log("duration split",duration.split("h"))
 
     let durationLeftover = duration
     if (durationLeftover.includes("h")){
@@ -140,9 +137,6 @@ const VideosModel = {
       durationInSeconds += parseInt(duration.split("s")[0])
       durationLeftover = durationLeftover.split("s")[1]
     }
-    console.log("Segments",numOfSegments)
-    console.log("duration",duration)
-    console.log("duration",durationInSeconds)
     for (let i = 0; i<numOfSegments;){
       var random = getRandomInt(0,durationInSeconds)-1
       if (!array.includes(random)){
@@ -151,19 +145,15 @@ const VideosModel = {
       }
     }
     array.sort(function(a, b){return a - b})
-    console.log("a", array.length)
-    console.log(array)
     for (let i = 0; i<array.length;i++){
       let durationSeg = 0
       if (i===array.length-1){
-          console.log("First", durationSeg)
           if (array[i]+durationSeg+300>durationInSeconds){
             durationSeg = getRandomInt(0,durationInSeconds-array[i])
           } else {
             durationSeg = getRandomInt(0,300)
           }
       } else {
-        console.log("Second")
         durationSeg = getRandomInt(0,300)
         if (array[i] + durationSeg > array[i+1]) {
           durationSeg = getRandomInt(0,array[i+1] - array[i])        
@@ -1562,11 +1552,8 @@ const HypeTrainEventDataModel = {
     return cooldown_end_time.toISOString()
   },
   expires_at: (started_at) => {
-    console.log("started_at",started_at)
     let expires_at = new Date(started_at)
-    console.log("expires_at",expires_at)
     expires_at.setTime(expires_at.getTime()+getRandomInt(0,9999))
-    console.log("expires_at",expires_at)
     return expires_at.toISOString()
   },
   goal: () => {
@@ -4066,130 +4053,94 @@ export function getUsersFollows(dataType, dataModel, dataDate) {
   switch(getRandomInt(0,3)){
     case 1:
       // Who is Following X?=> to_id stays the same
-      switch (getRandomInt(0,100)){
-        case 1:
-          mockupData = {
-            "total": 0,
-            "data": []
+      mockupData["total"] = 1
+      let to_id = mockupModel["to_id"]();
+      let to_login = mockupModel["to_login"]();
+      let to_name = mockupModel["to_name"]();
+      mockupData["data"] =  [mockupData["data"][0]]
+      mockupData["data"].forEach((follow)=> {
+        [
+          "from_id",
+          "from_login",
+          "from_name",
+          "to_id",
+          "to_name",
+          "to_login",
+          "followed_at",
+        ].forEach((key, i) => {
+          switch (key) {
+            case "to_id":
+              follow[key] = to_id
+              break;
+            case "to_login":
+              follow[key] = to_login
+              break;
+            case "to_name":
+              follow[key] = to_name
+              break;
+            default:
+              follow[key] = mockupModel[key]();
+              break;
           }
-          break;
-        default:
-          mockupData["total"] = getRandomInt(0,3000000)
-          while (mockupData["data"].length < mockupData["total"]){
-            mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-          }
-          let to_id = mockupModel["to_id"]();
-          let to_login = mockupModel["to_login"]();
-          let to_name = mockupModel["to_name"]();
-          mockupData["data"].forEach((follow)=> {
-            [
-              "from_id",
-              "from_login",
-              "from_name",
-              "to_id",
-              "to_name",
-              "to_login",
-              "followed_at",
-            ].forEach((key, i) => {
-              switch (key) {
-                case "to_id":
-                  follow[key] = to_id
-                  break;
-                case "to_login":
-                  follow[key] = to_login
-                  break;
-                case "to_name":
-                  follow[key] = to_name
-                  break;
-                default:
-                  follow[key] = mockupModel[key]();
-                  break;
-              }
-            });
-          }) 
-
-      }
-      console.log("1",mockupData)
+        });
+      }) 
       break;
       
     case 2:
       // Who is X Following?. => From_id stays the same
-      switch (getRandomInt(0,100)){
-        case 1:
-          mockupData = {
-            "total": 0,
-            "data": []
+      mockupData["total"] = 1
+      mockupData["data"] = [mockupData["data"][0]]
+      let from_id = mockupModel["from_id"]();
+      let from_login = mockupModel["from_login"]();
+      let from_name = mockupModel["from_name"]();
+      mockupData["data"].forEach((follow)=> {
+        [
+          "from_id",
+          "from_login",
+          "from_name",
+          "to_id",
+          "to_name",
+          "to_login",
+          "followed_at",
+        ].forEach((key, i) => {
+          switch (key) {
+            case "from_id":
+              follow[key] = from_id
+              break;
+            case "from_login":
+              follow[key] = from_login
+              break;
+            case "from_name":
+              follow[key] = from_name
+              break;
+            default:
+              follow[key] = mockupModel[key]();
+              break;
           }
-          break;
-        default:
-          mockupData["total"] = getRandomInt(0,200)
-          while (mockupData["data"].length < mockupData["total"]){
-            mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-          }
-          let from_id = mockupModel["from_id"]();
-          let from_login = mockupModel["from_login"]();
-          let from_name = mockupModel["from_name"]();
-          mockupData["data"].forEach((follow)=> {
-            [
-              "from_id",
-              "from_login",
-              "from_name",
-              "to_id",
-              "to_name",
-              "to_login",
-              "followed_at",
-            ].forEach((key, i) => {
-              switch (key) {
-                case "from_id":
-                  follow[key] = from_id
-                  break;
-                case "from_login":
-                  follow[key] = from_login
-                  break;
-                case "from_name":
-                  follow[key] = from_name
-                  break;
-                default:
-                  follow[key] = mockupModel[key]();
-                  break;
-              }
-            });
-          }) 
-
-      }
-      console.log("2",mockupData)
+        });
+      }) 
       break;
     case 3:
       // Is X following Y?
-      switch (getRandomInt(0,2)){
-        case 1:
-          mockupData = {
-            "total": 0,
-            "data": []
+      mockupData["total"] = 1
+      mockupData["data"] = [mockupData["data"][0]]
+      mockupData["data"].forEach((follow)=> {
+        [
+          "from_id",
+          "from_login",
+          "from_name",
+          "to_id",
+          "to_name",
+          "to_login",
+          "followed_at",
+        ].forEach((key, i) => {
+          switch (key) {
+            default:
+              follow[key] = mockupModel[key]();
+              break;
           }
-          break;
-        case 2:
-          mockupData["total"] = 1
-          mockupData["data"].forEach((follow)=> {
-            [
-              "from_id",
-              "from_login",
-              "from_name",
-              "to_id",
-              "to_name",
-              "to_login",
-              "followed_at",
-            ].forEach((key, i) => {
-              switch (key) {
-                default:
-                  follow[key] = mockupModel[key]();
-                  break;
-              }
-            });
-          }) 
-
-      }
-      console.log("3",mockupData)
+        });
+      }) 
       break;
   }
   
@@ -4385,9 +4336,6 @@ export function getTopGames(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  for (var i = 0; i < 20; i++){
-    mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-  }
 
   mockupData["data"].forEach((game)=>{
     [
@@ -4439,11 +4387,7 @@ export function getTeams(dataType, dataModel, dataDate) {
         ].forEach((key, i) => {
           switch (key) {
             case "users":
-              let numOfUsers = getRandomInt(0,50)
-              numOfUsers -= team[key].length
-              for (var i = 0; i < numOfUsers; i++){
-                team[key].push(Object.assign({},team[key][0]))
-              }
+              team[key] = [team[key][0]]
               team[key].forEach((user, i) => {
                 [
                   "user_id",
@@ -4514,9 +4458,6 @@ export function getStreamsMarkers(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  // for (var i = 0; i < 20; i++){
-  //   mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-  // }
 
   mockupData["data"].forEach((data)=>{
     [
@@ -4537,12 +4478,6 @@ export function getStreamsMarkers(dataType, dataModel, dataDate) {
                   video[key2] = mockupModel[key2]()
                   break;
                 case "markers":
-                  let numOfMarkers = getRandomInt(0,10); 
-                  for (var i = 0; i < numOfMarkers-1; i++){
-                    video[key2].push(Object.assign({},video[key2][0]))
-                  }
-                  console.log("video",video)
-                  console.log("video[markers]",video[key2])
                   video[key2].forEach((marker)=>{
                     [
                       "id",
@@ -4567,8 +4502,6 @@ export function getStreamsMarkers(dataType, dataModel, dataDate) {
           })
           break;
         default:
-          console.log("[key]",[key])
-          console.log("data[key]",data[key])
           data[key] = mockupModel[key]();
           break;
       }
@@ -4683,10 +4616,6 @@ export function getSoundtrackPlaylists(dataType, dataModel, dataDate) {
     });
   }
   mockupData["data"] = [mockupData["data"][0]]
-  let numOfSongs = getRandomInt(0,15)
-  for (var i = 0; i<numOfSongs; i++){
-    mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-  }
   
   mockupData["data"].forEach((playlist)=>{
     [
@@ -4735,10 +4664,6 @@ export function getSoundtrackPlaylist(dataType, dataModel, dataDate) {
     ].forEach((key, i) => {
       switch (key){
         case "artists":
-          let numOfArtists = getRandomInt(0,4)
-          for (var i = 0; i<numOfArtists-1; i++){
-            playlist[key].push(Object.assign({},playlist[key][0]))
-          }
           playlist[key].forEach((artist)=>{
             [
               "id",
@@ -4813,10 +4738,6 @@ export function getSoundtrackCurrentTrack(dataType, dataModel, dataDate) {
             ].forEach((key2, i) => {
               switch (key2){
                 case "artists":
-                  let numOfArtists = getRandomInt(0,4)
-                  for (var i = 0; i<numOfArtists-1; i++){
-                    currentTrack[key][key2].push(Object.assign({},currentTrack[key][key2][0]))
-                  }
                   currentTrack[key][key2].forEach((artist)=>{
                     [
                       "id",
@@ -4990,48 +4911,29 @@ export function getPrediction(dataType, dataModel, dataDate) {
                   outcome[key2] = PredictionsOutcomeModel[key2](numberOfOutcomes, indexOfOutcome);
                   break;
                 case "top_predictors":
-                  let numberOfTopPredictors = getRandomInt(0,10)-1
-                  switch (numberOfOutcomes){
-                    case 0:
-                      outcome[key2] = null
-                      break;
-                    default:
-                      outcome[key2] = []
-                      for (var i = 0; i<numberOfTopPredictors; i++){
-                        outcome[key2].push(Object.assign({},{
-                          "user": {
-                            "id": "",
-                            "name": "",
-                            "login": "",
-                            "channel_points_used": "",
-                            "channel_points_won": "",
-                          }
-                        }))
+                  let channelPointsUsed = getRandomInt(0,999999999)
+                  let channelPointsWon = Math.round(channelPointsUsed * (getRandomInt(0,500)/100))
+                  outcome[key2].forEach((predictor)=>{
+                    [
+                      "id",
+                      "name",
+                      "login",
+                      "channel_points_used",
+                      "channel_points_won",
+                    ].forEach((key3, i) => {
+                      switch(key3){
+                        case "channel_points_used":
+                          predictor["user"][key3] = TopPredictorModel[key3](channelPointsUsed);
+                          break;
+                        case "channel_points_won":
+                          predictor["user"][key3] = TopPredictorModel[key3](prediction["status"], channelPointsWon);
+                          break;
+                        default:
+                          predictor["user"][key3] = TopPredictorModel[key3]();
+                          break;
                       }
-                      let channelPointsUsed = getRandomInt(0,999999999)
-                      let channelPointsWon = Math.round(channelPointsUsed * (getRandomInt(0,500)/100))
-                      outcome[key2].forEach((predictor)=>{
-                        [
-                          "id",
-                          "name",
-                          "login",
-                          "channel_points_used",
-                          "channel_points_won",
-                        ].forEach((key3, i) => {
-                          switch(key3){
-                            case "channel_points_used":
-                              predictor["user"][key3] = TopPredictorModel[key3](channelPointsUsed);
-                              break;
-                            case "channel_points_won":
-                              predictor["user"][key3] = TopPredictorModel[key3](prediction["status"], channelPointsWon);
-                              break;
-                            default:
-                              predictor["user"][key3] = TopPredictorModel[key3]();
-                              break;
-                          }
-                        })
-                      })
-                  }
+                    })
+                  })
                   break;
                 default:
                   outcome[key2] = PredictionsOutcomeModel[key2]();
@@ -5227,10 +5129,10 @@ export function getHypeTrainEvent(dataType, dataModel, dataDate) {
                 })
                 break;
               case "top_contributions":
-                let numOfTopContri = getRandomInt(0,2)
-                for (var i = 0; i<numOfTopContri-1; i++){
-                  event[key][key2].push(Object.assign({},event[key][key2][0]))
-                }
+                // let numOfTopContri = getRandomInt(0,2)
+                // for (var i = 0; i<numOfTopContri-1; i++){
+                //   event[key][key2].push(Object.assign({},event[key][key2][0]))
+                // }
                 event[key][key2].forEach((contribution, indexContribution) => {
                   [
                     "type",
@@ -6269,14 +6171,11 @@ export function getBitsLeaderboard(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  let length = getRandomInt(0,10)
-  mockupData["total"] = length
+
+  mockupData["total"] = 1
   mockupData["data"] = [mockupData["data"][0]]
-  if (length>0) {
-  for (var i = 0; i<length-1;i++){
-    mockupData["data"].push(Object.assign({},mockupData["data"][0]))
-  }
-}
+
+
   for (var index = mockupData["data"].length-1;index>=0;index--){
     [
       "user_id",

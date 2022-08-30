@@ -1,8 +1,5 @@
 "use strict";
 
-
-const MOCK = require("@dynamic-data/twitch-data");
-
 const {
   getVideos,
   getUserSubscription,
@@ -61,7 +58,7 @@ describe("Twitch", () => {
       "Videos",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -71,7 +68,7 @@ describe("Twitch", () => {
       "UserSubscription",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getUsersFollows", () => {
@@ -80,7 +77,7 @@ describe("Twitch", () => {
       "UsersFollows",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getUsers", () => {
@@ -89,7 +86,7 @@ describe("Twitch", () => {
       "Users",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getUserExtensions", () => {
@@ -98,7 +95,7 @@ describe("Twitch", () => {
       "UserExtensions",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getUserBlockList", () => {
@@ -107,7 +104,7 @@ describe("Twitch", () => {
       "UserBlockList",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getUserActiveExtensions", () => {
@@ -116,7 +113,7 @@ describe("Twitch", () => {
       "UserActiveExtensions",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -126,7 +123,7 @@ describe("Twitch", () => {
       "TopGames",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 
@@ -136,7 +133,7 @@ describe("Twitch", () => {
       "Teams",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getStreamsMarkers", () => {
@@ -145,7 +142,7 @@ describe("Twitch", () => {
       "StreamsMarkers",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getStreams", () => {
@@ -154,7 +151,7 @@ describe("Twitch", () => {
       "Streams",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getStreamKey", () => {
@@ -163,7 +160,7 @@ describe("Twitch", () => {
       "StreamKey",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -173,7 +170,7 @@ describe("Twitch", () => {
       "SoundtrackPlaylists",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getSoundtrackPlaylist", () => {
@@ -182,7 +179,7 @@ describe("Twitch", () => {
       "SoundtrackPlaylist",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getSoundtrackCurrentTrack", () => {
@@ -191,7 +188,7 @@ describe("Twitch", () => {
       "SoundtrackCurrentTrack",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getReleasedExtensions", () => {
@@ -200,7 +197,7 @@ describe("Twitch", () => {
       "ReleasedExtensions",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getPrediction", () => {
@@ -209,7 +206,7 @@ describe("Twitch", () => {
       "Prediction",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getPolls", () => {
@@ -218,7 +215,7 @@ describe("Twitch", () => {
       "Polls",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -228,7 +225,7 @@ describe("Twitch", () => {
       "Moderators",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getHypeTrainEvent", () => {
@@ -237,7 +234,7 @@ describe("Twitch", () => {
       "HypeTrainEvents",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getGlobalEmotes", () => {
@@ -246,7 +243,7 @@ describe("Twitch", () => {
       "GlobalEmotes",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -256,7 +253,7 @@ describe("Twitch", () => {
       "GlobalChatBadges",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getGames", () => {
@@ -265,7 +262,7 @@ describe("Twitch", () => {
       "Games",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -275,7 +272,7 @@ describe("Twitch", () => {
       "FollowedStreams",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getExtensionTransactions", () => {
@@ -284,7 +281,7 @@ describe("Twitch", () => {
       "ExtensionTransactions",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getExtensionLiveChannels", () => {
@@ -293,7 +290,7 @@ describe("Twitch", () => {
       "ExtensionLiveChannels",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -303,7 +300,7 @@ describe("Twitch", () => {
       "GameAnalytics",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -313,7 +310,7 @@ describe("Twitch", () => {
       "ExtensionAnalytics",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -323,7 +320,7 @@ describe("Twitch", () => {
       "EmoteSets",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -333,7 +330,7 @@ describe("Twitch", () => {
       "CustomRewardRedemption",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -343,7 +340,7 @@ describe("Twitch", () => {
       "CustomReward",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getCreatorGoals", () => {
@@ -352,7 +349,7 @@ describe("Twitch", () => {
       "CreatorGoals",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getClips", () => {
@@ -361,7 +358,7 @@ describe("Twitch", () => {
       "Clips",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   
@@ -371,7 +368,7 @@ describe("Twitch", () => {
       "Cheermotes",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getChatSettings", () => {
@@ -380,7 +377,7 @@ describe("Twitch", () => {
       "ChatSettings",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   })
   it("getChannelTeams", () => {
@@ -389,7 +386,7 @@ describe("Twitch", () => {
       "ChannelTeams",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getChannelStreamSchedule", () => {
@@ -398,7 +395,7 @@ describe("Twitch", () => {
       "ChannelStreamSchedule",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -408,7 +405,7 @@ describe("Twitch", () => {
       "Channels",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getChannelInformation", () => {
@@ -417,7 +414,7 @@ describe("Twitch", () => {
       "ChannelInformation",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getChannelEmotes", () => {
@@ -426,7 +423,7 @@ describe("Twitch", () => {
       "ChannelEmotes",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getChannelEditors", () => {
@@ -435,7 +432,7 @@ describe("Twitch", () => {
       "ChannelEditors",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -445,7 +442,7 @@ describe("Twitch", () => {
       "ChannelChatBadges",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getCategories", () => {
@@ -454,7 +451,7 @@ describe("Twitch", () => {
       "Categories",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getBroadcasterSubscriptions", () => {
@@ -463,7 +460,7 @@ describe("Twitch", () => {
       "BroadcasterSubscriptions",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -473,7 +470,7 @@ describe("Twitch", () => {
       "BlockedTerms",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -483,7 +480,7 @@ describe("Twitch", () => {
       "BitsLeaderboard",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -493,7 +490,7 @@ describe("Twitch", () => {
       "BannedUsers",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -503,7 +500,7 @@ describe("Twitch", () => {
       "AutoModSettings",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -513,7 +510,7 @@ describe("Twitch", () => {
       "AllStreamTags",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   
@@ -523,7 +520,7 @@ describe("Twitch", () => {
       "StreamTags",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   

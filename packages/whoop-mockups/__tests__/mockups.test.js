@@ -27,7 +27,7 @@ describe("Whoop", () => {
       "User",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getWorkoutMockupData", () => {
@@ -36,7 +36,7 @@ describe("Whoop", () => {
       "Workout",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getActivityTypeMockupData", () => {
@@ -45,7 +45,7 @@ describe("Whoop", () => {
       "ActivityType",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getAggregateDataMockupData", () => {
@@ -54,7 +54,7 @@ describe("Whoop", () => {
       "AggregateData",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 
@@ -64,7 +64,7 @@ describe("Whoop", () => {
       "Membership",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getMembershipMockupData", () => {
@@ -73,7 +73,7 @@ describe("Whoop", () => {
       "Membership",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getEventMockupData", () => {
@@ -82,7 +82,7 @@ describe("Whoop", () => {
       "Event",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getReportMockupData", () => {
@@ -91,7 +91,7 @@ describe("Whoop", () => {
       "Report",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getSleepDetailsMockupData", () => {
@@ -100,7 +100,7 @@ describe("Whoop", () => {
       "SleepDetails",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getSurveryResponseMockupData", () => {
@@ -109,7 +109,7 @@ describe("Whoop", () => {
       "SurveryResponse",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getVoiceOfWhoopMockupData", () => {
@@ -118,7 +118,7 @@ describe("Whoop", () => {
       "VoiceOfWhoop",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getVoiceOfWhoopCycleMockupData", () => {
@@ -127,7 +127,7 @@ describe("Whoop", () => {
       "VoiceOfWhoopCycle",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
   it("getMetricMockupData", () => {
@@ -136,7 +136,7 @@ describe("Whoop", () => {
       "Metric",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 });

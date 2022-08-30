@@ -20,22 +20,13 @@ const {
 
 describe("Fitbit", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.default.ActivitiesData;
-    // console.log("MOCK ", MOCK);
-    //console.log("MOCK DATA", data);
-
-
-    expect(typeof data).toBe("object");
-  });
-
   it("getActivitiesMockupData", () => {
     const result = getActivitiesMockupData(
       "SYNC",
       "ActivitiesData",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getActivitiesSummaryData", () => {
@@ -44,7 +35,7 @@ describe("Fitbit", () => {
       "ActivitiesSummary",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getHeartRateDataData", () => {
@@ -53,7 +44,7 @@ describe("Fitbit", () => {
       "HeartRateData",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getHeartRateSummary", () => {
@@ -62,7 +53,7 @@ describe("Fitbit", () => {
       "HeartRateSummary",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getSleepDataData", () => {
@@ -71,7 +62,7 @@ describe("Fitbit", () => {
       "SleepData",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getSleepQualityData", () => {
@@ -80,7 +71,7 @@ describe("Fitbit", () => {
       "SleepQuality",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
   it("getSleepSummaryData", () => {
@@ -89,7 +80,7 @@ describe("Fitbit", () => {
       "SleepSummary",
       "2022-04-03"
     );
-    console.log(result);
+    // console.log(result);
     expect(typeof result).toBe("object");
   });
 
