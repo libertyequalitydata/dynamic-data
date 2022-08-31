@@ -6,7 +6,7 @@ const {
   priceEstimates,
   timeEstimates,
   userInfo,
-  userHistory,
+  paymentMethods,
   savedPlaces,
   rideDetails,
   rideMapDetails,
@@ -39,10 +39,10 @@ describe('@dynamic-data/uber-mockups', () => {
     expect(!Array.isArray(userInfo)).toBeTruthy();
     expect(Object.keys(userInfo).length).not.toBe(0);
   });
-  it('check if userHistory of type object', () => {
-    expect(typeof userHistory).toBe('object');
-    expect(!Array.isArray(userHistory)).toBeTruthy();
-    expect(Object.keys(userHistory).length).not.toBe(0);
+  it('check if paymentMethods of type object', () => {
+    expect(typeof paymentMethods).toBe('object');
+    expect(!Array.isArray(paymentMethods)).toBeTruthy();
+    expect(Object.keys(paymentMethods).length).not.toBe(0);
   });
   it('check if savedPlaces of type object', () => {
     expect(typeof savedPlaces).toBe('object');

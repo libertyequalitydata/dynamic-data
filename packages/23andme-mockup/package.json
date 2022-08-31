@@ -1,7 +1,7 @@
 {
   "name": "@dynamic-data/23andme-mockups",
   "version": "0.0.8",
-  "description": "Fitbit Mockup Data Generators",
+  "description": "23andme Mockup Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
   "main": "dist/cjs/index.js",
