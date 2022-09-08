@@ -22,7 +22,7 @@ const {
     getAvailableSleepTimes,
     listNightlyRecharge,
     getNightlyRecharge
-} = require('@dynamic-data/polar-data');
+} = require('@dynamic-data/polar-data/mockups');
 
 describe('@dynamic-data/polar-data', () => {
   it('check if getUserInfo of type object', () => {

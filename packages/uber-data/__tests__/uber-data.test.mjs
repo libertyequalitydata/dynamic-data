@@ -1,6 +1,6 @@
 'use strict';
 
-const {
+import {
   products,
   productDetails,
   priceEstimates,
@@ -11,9 +11,9 @@ const {
   rideDetails,
   rideMapDetails,
   rideReceiptDetails
-} = require('@dynamic-data/uber-data/mockups');
+} from '@dynamic-data/uber-data/mockups';
 
-describe('@dynamic-data/uber-mockups', () => {
+describe('@dynamic-data/uber-data', () => {
   it('check if products of type object', () => {
     expect(typeof products).toBe('object');
     expect(!Array.isArray(products)).toBeTruthy();

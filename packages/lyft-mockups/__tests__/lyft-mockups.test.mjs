@@ -1,11 +1,11 @@
 'use strict';
 
-const {
+import {
     getDriverETAMockupData,
     getNearbyDriversMockupData,
     getRideEstimatesMockupData,
     getRideTypesMockupData
-} = require('@dynamic-data/lyft-mockups');
+} from '@dynamic-data/lyft-mockups';
 
 describe('@dynamic-data/lyft-mockups', () => {
   it("getDriverETAMockupData", () => {

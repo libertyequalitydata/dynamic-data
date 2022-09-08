@@ -1,6 +1,6 @@
 'use strict';
 
-const {
+import {
   photos_details,
   tips_details,
   venues_categories,
@@ -16,7 +16,7 @@ const {
   venues_suggestSearch,
   venues_tips,
   venues_trending,
-  } = require('@dynamic-data/foursquare-data/mockups');
+  } from '@dynamic-data/foursquare-data/mockups';
 
 describe('@dynamic-data/foursquare-data', () => {
   it('check if venues_categories of type object', () => {

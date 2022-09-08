@@ -1,6 +1,6 @@
 'use strict';
 
-const {
+import {
     getUserInfo,
     listNotifications,
     listActivities,
@@ -22,9 +22,9 @@ const {
     getAvailableSleepTimes,
     listNightlyRecharge,
     getNightlyRecharge
-} = require('@dynamic-data/polar-data/mockups');
+} from '@dynamic-data/polar-data/mockups';
 
-describe('@dynamic-data/polar-mockups', () => {
+describe('@dynamic-data/polar-data', () => {
   it('check if getUserInfo of type object', () => {
     expect(typeof getUserInfo).toBe('object');
     expect(!Array.isArray(getUserInfo)).toBeTruthy();

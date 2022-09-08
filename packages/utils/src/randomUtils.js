@@ -79,12 +79,58 @@ export function getRandomFloat(min, max) {
 }
 
 // returns a random date
-export function getRandomDateTime(formatString) {
-  const dt = new Date(+(new Date()) - Math.floor(Math.random() * 10000000000));
-  if(formatString) {
-    return dt.getTime()
-  } else {
-    return dt.getTime()
+export function getRandomDateTime(formatString = null) {
+  let finalDate = new Date(0);
+  let maxMonthDate = new Date(0);
+  finalDate.setFullYear(getRandomInt(2020,2050));
+  finalDate.setMonth(getRandomInt(0,11));
+  finalDate.setDate(1)
+  maxMonthDate = finalDate
+  maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
+  maxMonthDate.setDate(0)
+  finalDate.setDate(getRandomInt(1,maxMonthDate.getDate()));
+  finalDate.setHours(getRandomInt(0,23),getRandomInt(0,59),getRandomInt(0,59),getRandomInt(0,999))
+  var hours = finalDate.getHours()
+  var minutes = finalDate.getMinutes()
+  var seconds = finalDate.getSeconds()
+  if (hours<10) hours = `0${hours}`
+  if (minutes<10) minutes = `0${hours}`
+  if (seconds<10) seconds = `0${hours}`
+
+  switch(formatString){
+    case "YYYY-MM-DD":
+      return  `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}`
+    case "YYYY-MM-DDThh:mm:ss.000Z":
+      return `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
+    case "YYYY-MM-DDThh:mm:ss":
+      return `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}T${hours}:${minutes}:${seconds}`
+    default:
+      return finalDate.getTime()
+  }
+}
+
+export function getFurtherDateTime(date, formatString = null){
+  var modifiedDate = new Date(date.split("T")[0])
+  modifiedDate.setHours(date.split("T")[1].split(":")[0])
+  modifiedDate.setMinutes(date.split("T")[1].split(":")[1])
+  modifiedDate.setSeconds(date.split("T")[1].split(":")[2])
+  modifiedDate.setTime(modifiedDate.getTime() + 99999999)
+  var hours = modifiedDate.getHours()
+  var minutes = modifiedDate.getMinutes()
+  var seconds = modifiedDate.getSeconds()
+  if (hours<10) hours = `0${hours}`
+  if (minutes<10) minutes = `0${hours}`
+  if (seconds<10) seconds = `0${hours}`
+
+  switch(formatString){
+    case "YYYY-MM-DD":
+      return  `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}`
+    case "YYYY-MM-DDThh:mm:ss.000Z":
+      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
+    case "YYYY-MM-DDThh:mm:ss":
+      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}`
+    default:
+      return modifiedDate.getTime()
   }
 }
 
@@ -138,13 +184,20 @@ export function getRandomAddress() {
   }
 
 }
-
-export function randomCountry(opts = {
-  full : false,
-  alpha: 2
-}) {
+/**
+ * Gets a random country
+ * @param {Object} [opts = {full:false, alpha:2}] - The optional parameters for the fetching of the random country.
+ * @param {boolean} [opts.full = false] - Whether the country code (US) or full name (United States of America), or both are returned.
+ * @param {number} [opts.alpha = 2] - Whether ISO 3166-1 Alpha-2 (2 character code) or ISO 3166-1 Alpha-3 (3 character code is returned). ISO 3166-1 Alpha-3 allows for the representation of more places.
+ * @return A random country code, full name or both.
+ */ 
+export function randomCountry(opts = {}) {
+  const params = Object.assign({
+    full : false,
+    alpha: 2
+  }, opts);
   let country = {}
-  switch(opts.alpha){
+  switch(params.alpha){
     case 3:
       let countries3 = [
         {
@@ -157,7 +210,7 @@ export function randomCountry(opts = {
         },
       ]
       country = countries3[getRandomInt(0,countries3.length)-1]
-      switch(opts.full){
+      switch(params.full){
         case false:
           return country["code"]
         case true:
@@ -177,7 +230,7 @@ export function randomCountry(opts = {
         },
       ]
       country = countries2[getRandomInt(0,countries2.length)-1]
-      switch(opts.full){
+      switch(params.full){
         case false:
           return country["code"]
         case true:
@@ -253,6 +306,7 @@ export function getRandomCarDetails() {
 }
 
 export function getRandomLatLng() {
+  // [Latitude, Longnitude]
   return [(((getRandomInt(0,1800001)-1)/10000)-90),(((getRandomInt(0,3600001)-1)/10000)-180)]
 }
 
@@ -546,3 +600,110 @@ export function randomIntPhone(country = null){
       return numbers.get(country)
   }
 }
+export function randomHexString(opts = {
+  len,
+  upperCase: false
+}){
+  let string = ""
+  let characters = "0123456789abcdef"
+  for (var i = 0; i<opts.len; i++){
+    switch(opts.upperCase){
+      case true:
+        string += characters.charAt(Math.floor(Math.random() * 
+        characters.length)).toUpperCase();
+        break
+      case false:
+        string += characters.charAt(Math.floor(Math.random() * 
+        characters.length));
+        break
+    }
+  }
+  return string
+}
+
+export function randomLanguage(opts){
+  const params = Object.assign({
+    full : false,
+    code: "ISO 639-1"
+  }, opts);
+  let languages = [
+    {
+      "ISO 639-1": "en",
+      "name": "English"
+    },
+    {
+      "ISO 639-1": "es",
+      "name": "Spanish"
+    },
+    {
+      "ISO 639-1": "de",
+      "name": "German"
+    },
+    {
+      "ISO 639-1": "fr",
+      "name": "French"
+    },
+  ]
+  let language = languages[getRandomInt(0,languages.length)-1]
+  let final = {}
+  if (params.full) {
+    final["name"] = language["name"]
+    switch(params.code){
+      default:
+        final["code"] = language["ISO 639-1"]
+        break
+    }
+  } else {
+    switch(params.code){
+      default:
+        final = language["ISO 639-1"]
+        break
+    }
+  }
+
+
+  return final
+}
+
+export function getRandomTimeZone(){
+  const timeZones = [
+    {
+      "TZ_NAME": "America/New_York",
+      "STD": "-05:00",
+      "DST": "-04:00",
+      "OFFSET": {
+        "STD": -300,
+        "DST": -240
+      },
+      "CC": "US",
+      "ABBRV": {
+        "STD": "EST",
+        "DST": "EDT"
+      }
+    },
+    {
+      "TZ_NAME": "Europe/London",
+      "STD": "±00:00",
+      "DST": "+01:00",
+      "OFFSET": 0,
+      "CC": ["GB", "GG", "IM", "JE"],
+      "ABBRV": {
+        "STD": "GMT",
+        "DST": "BST"
+      }
+    },
+    {
+      "TZ_NAME": "Japan",
+      "STD": "+09:00",
+      "DST": null,
+      "OFFSET": +540,
+      "CC": "JP",
+      "ABBRV": {
+        "STD": "JST",
+        "DST": null
+      }
+    },
+  ]
+  return timeZones[getRandomInt(0, timeZones.length)-1]
+
+} 
