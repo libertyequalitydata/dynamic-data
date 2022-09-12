@@ -5,6 +5,7 @@
     "packages/*"
   ],
   "devDependencies": {
+    "faker": "^5.5.3",
     "lerna": "^4.0.0"
   },
   "scripts": {
