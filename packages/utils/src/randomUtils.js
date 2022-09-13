@@ -48,13 +48,13 @@ export function getNewDate(dStr, days, format) {
 export function getSleepDate(sleepDate, startHour, rangeHour) {
   const mins = getRandomInt(0, 59).toString().padStart(2, "0");
   const hours = getRandomInt(0, rangeHour);
-  console.log(sleepDate, startHour, hours, mins);
+  // console.log(sleepDate, startHour, hours, mins);
   //const sleepDateTime=new Date(sleepDate+"T"+(startHour+hours).toString().padStart(2,"0")+":"+mins);
   let sleepDateTime = new Date(
     sleepDate + "T" + startHour.toString().padStart(2, "0") + ":" + mins
   );
 
-  console.log(sleepDateTime);
+  // console.log(sleepDateTime);
 
   return toIsoString(new Date(sleepDateTime.getTime() + hours * 60 * 1000));
 }
@@ -96,14 +96,19 @@ export function getRandomDateTime(formatString = null) {
   if (hours<10) hours = `0${hours}`
   if (minutes<10) minutes = `0${hours}`
   if (seconds<10) seconds = `0${hours}`
+  var date =   finalDate.getDate()
+  if (date<10) date = `0${date}`
+  var month =   finalDate.getMonth()+1
+  if (month<10) month = `0${month}`
+
 
   switch(formatString){
     case "YYYY-MM-DD":
-      return  `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}`
+      return  `${finalDate.getFullYear()}-${month}-${date}`
     case "YYYY-MM-DDThh:mm:ss.000Z":
-      return `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
+      return `${finalDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}.000Z`
     case "YYYY-MM-DDThh:mm:ss":
-      return `${finalDate.getFullYear()}-${finalDate.getMonth()+1}-${finalDate.getDate()}T${hours}:${minutes}:${seconds}`
+      return `${finalDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}`
     default:
       return finalDate.getTime()
   }
@@ -685,7 +690,10 @@ export function getRandomTimeZone(){
       "TZ_NAME": "Europe/London",
       "STD": "±00:00",
       "DST": "+01:00",
-      "OFFSET": 0,
+      "OFFSET": {
+        "STD": 0,
+        "DST": 60
+      },
       "CC": ["GB", "GG", "IM", "JE"],
       "ABBRV": {
         "STD": "GMT",
