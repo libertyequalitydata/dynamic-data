@@ -80,7 +80,7 @@ describe("Fitbit", () => {
       "SleepSummary",
       "2022-04-03"
     );
-    // console.log(result);
+    // console.log("getSleepSummaryData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 

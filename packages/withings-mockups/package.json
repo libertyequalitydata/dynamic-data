@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "test": "./node_modules/.bin/jest"
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage -c ../../jest.config.js  --selectProjects=@dynamic-data/withings-mockups"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
