@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/ancestry-mockups",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Ancestry Mockup Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
@@ -34,7 +34,7 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/ancestry-data": "^0.0.8",
-    "@dynamic-data/utils": "^0.0.7"
+    "@dynamic-data/ancestry-data": "^0.0.9",
+    "@dynamic-data/utils": "^0.0.8"
   }
 }
