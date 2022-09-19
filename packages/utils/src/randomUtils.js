@@ -724,3 +724,7 @@ export function getRandomTimeZone() {
   return timeZones[getRandomInt(0, timeZones.length) - 1]
 
 } 
+
+export function getAverage (array){
+  return array.reduce((a, b) => a + b) / array.length;
+} 
