@@ -464,7 +464,9 @@ const SleepSummaryModel = {
     }
 
   },
-  startTimeTS: () => {
+  startTimeTS: (ddate) => {
+    let finalDate = new Date(ddate);
+    /*
     let finalDate = new Date(0);
     let maxMonthDate = new Date(0);
     finalDate.setFullYear(getRandomInt(2020, 2050));
@@ -474,6 +476,8 @@ const SleepSummaryModel = {
     maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
     maxMonthDate.setDate(0)
     finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+    */
+
     if (getRandomInt(1, 2) === 1) {
       finalDate.setHours(getRandomInt(20, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999))
     } else {
@@ -560,6 +564,7 @@ const SleepQualityModel = {
     return x.getTime();
   },
   p_datetime: () => {
+
     let finalDate = new Date(0);
     let maxMonthDate = new Date(0);
     finalDate.setFullYear(getRandomInt(2020, 2050));
@@ -719,7 +724,24 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
+    // dataDate is not used?
     mockupData = dataModels[dataModel].data;
+    ['originalStartTime', 'startTime', 'lastModified'].forEach(key => {
+      switch (key) {
+        case "originalStartTime":
+          const randomDateTime = mockupModel[key]();
+          const timePart = randomDateTime.split("T")[1];
+          mockupData[key] = dataDate + "T" + timePart;
+          break;
+        case "startTime":
+          mockupData[key] = mockupData["originalStartTime"];
+          break;
+        case "lastModified":
+          mockupData[key] = mockupModel[key](mockupData["originalStartTime"]);
+          break;
+      }
+    });
+
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -763,6 +785,12 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
       case "originalDuration":
         mockupData[key] = mockupData["duration"];
         break;
+
+      case "originalStartTime":
+        const randomDateTime = mockupModel[key]();
+        const timePart = randomDateTime.split("T")[1];
+        mockupData[key] = dataDate + "T" + timePart;
+        break;
       case "startTime":
         mockupData[key] = mockupData["originalStartTime"];
         break;
@@ -787,7 +815,7 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
       case "activeDuration":
       case "activityName":
       case "averageHeartRate":
-      case "originalStartTime":
+
       case "logType":
       case "calories":
       case "hasActiveZoneMinutes":
@@ -830,6 +858,7 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
+// TRO Date is missing on datamodel
 export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
@@ -921,6 +950,27 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
+    [
+      "startTimeTS",
+      "endTimeTS",
+      "startTime",
+      "endTime",
+    ].forEach(key => {
+      switch (key) {
+        case "startTimeTS":
+          mockupData[key] = mockupModel[key](dataDate);
+          break;
+        case "endTimeTS":
+          mockupData[key] = mockupModel[key](mockupData["startTimeTS"], mockupData["timeInBed"]);
+          break;
+        case "startTime":
+          mockupData[key] = mockupModel[key](mockupData["startTimeTS"]);
+          break;
+        case "endTime":
+          mockupData[key] = mockupModel[key](mockupData["endTimeTS"]);
+          break;
+      }
+    })
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -981,6 +1031,9 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
       case "rem":
         mockupData[key] = mockupModel[key](mockupData["minutesAsleep"], middle);
         break;
+      case "startTimeTS":
+        mockupData[key] = mockupModel[key](dataDate);
+        break;
       case "endTimeTS":
         mockupData[key] = mockupModel[key](mockupData["startTimeTS"], mockupData["timeInBed"]);
         break;
@@ -994,7 +1047,6 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
       case "minutesAwake":
       case "minutesAfterWakeup":
       case "minutesToFallAsleep":
-      case "startTimeTS":
         mockupData[key] = mockupModel[key]();
         break;
     }
@@ -1005,6 +1057,7 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
+// TRO Date is missing on datamodel
 export function getHeartRateSummary(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
@@ -1043,6 +1096,21 @@ export function getSleepQualityData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
+    [
+      "p_datetime",
+      "p_timestamp",
+    ].forEach((key, i) => {
+      switch (key) {
+        case "p_datetime":
+          mockupData[key] = getSleepDate(dataDate, 22, 3)
+          break;
+
+        case "p_timestamp":
+          mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+          break;
+
+      }
+    });
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1059,12 +1127,16 @@ export function getSleepQualityData(dataType, dataModel, dataDate) {
     "p_timestamp",
   ].forEach((key, i) => {
     switch (key) {
+      case "p_datetime":
+        mockupData[key] = getSleepDate(dataDate, 22, 3)
+        break;
+
       case "p_timestamp":
         mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
         break;
       case "p_level":
       case "p_value":
-      case "p_datetime":
+
         mockupData[key] = mockupModel[key]();
         break;
     }
@@ -1078,6 +1150,21 @@ export function getSleepData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
+    [
+      "p_datetime",
+      "p_timestamp",
+    ].forEach((key, i) => {
+      switch (key) {
+        case "p_datetime":
+          mockupData[key] = getSleepDate(dataDate, 22, 3)
+          break;
+
+        case "p_timestamp":
+          mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
+          break;
+
+      }
+    });
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1094,12 +1181,15 @@ export function getSleepData(dataType, dataModel, dataDate) {
     "p_timestamp",
   ].forEach((key, i) => {
     switch (key) {
+      case "p_datetime":
+        mockupData[key] = getSleepDate(dataDate, 22, 3)
+        break;
       case "p_timestamp":
         mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
         break;
       case "p_level":
       case "p_seconds":
-      case "p_datetime":
+
         mockupData[key] = mockupModel[key]();
         break;
     }
@@ -1113,6 +1203,7 @@ export function getHeartRateData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
+    mockupData["p_date"] = dataDate;
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1129,6 +1220,8 @@ export function getHeartRateData(dataType, dataModel, dataDate) {
   ].forEach((key, i) => {
     switch (key) {
       case "p_date":
+        mockupData[key] = dataDate;
+        break;
       case "p_time":
       case "p_value":
         mockupData[key] = mockupModel[key]();
