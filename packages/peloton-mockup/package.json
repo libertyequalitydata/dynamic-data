@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/peloton-mockups",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Peloton Mockup Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "@dynamic-data/peloton-data": "^0.0.9",
-    "@dynamic-data/utils": "^0.0.9"
+    "@dynamic-data/utils": "^0.0.10"
   }
 }
