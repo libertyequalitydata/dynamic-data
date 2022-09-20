@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/lyft-mockups",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Dynamic Data Faker for Lyft",
   "author": "Jashaul <djashaul@gmail.com>",
   "homepage": "https://github.com/Jashaul/dynamic-data#readme",
@@ -35,6 +35,6 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.8"
+    "@dynamic-data/utils": "^0.0.9"
   }
 }
