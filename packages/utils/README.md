@@ -2,6 +2,24 @@
 
 > Utility functions that provide generic faker functions for all packages
 
+## Usage
+```
+// CJS/Node
+
+const {getRandomTimeZone} =require("@dynamic-data/utils");
+const UTILS =require("@dynamic-data/utils"); // All objects...
+
+```
+
+```
+// ESM/React
+
+import {getRandomTimeZone} from "@dynamic-data/utils";
+import UTILS from "@dynamic-data/utils"; // All objects...
+
+```
+lib
+
 ## Functions
 ### toIsoString
 ### getRandomInt
@@ -15,17 +33,72 @@
 ### getRandomString
 ### parseSecondsToString
 ### getRandomAddress
+desc: **Generates a random address**
+params: 
+- NONE
+
+example return: 
+```
+{
+    "streetNumber": "15",
+    "streetName": "sjcuiuashd",
+    "area": "jfjhklafds",
+    "city": "pofdsios",
+    "county": "jkfdshjdf",
+    "postalCode": "79854",
+    "country": {
+    "code": "GB",
+    "full": "United Kingdom of Great Britain and Northern Ireland"
+    }
+  }
+```
+
 ### randomCountry
+desc: **Fetches a random country and country code**
+params: 
+- opts 
+    -   full (bool) - whether the full name of the country is returned
+    -   alpha (int) - which alpha code of ISO-3166 is watned
+
+example return: 
+```
+{
+    "code": "GBR",
+    "full": "United Kingdom of Great Britain and Northern Ireland"
+}
+```
+
 ### getRandomName
-### getRandomCarDetails
-### getRandomLatLng
-desc: **Gets a random UUID(Universally unique identifier)**
+desc: **Generates a random Name**
 params: 
 - NONE 
 
 example return: 
 ```
-E621E1F8-C36C-495A-93FC-0C247A3E6E5F
+Alex
+```
+
+### getRandomCarDetails
+desc: **Gets some random car details (make and model)**
+params: 
+- NONE 
+
+example return: 
+```
+{
+    "make": "Ferrari"
+    "model": "812 GTS"
+}
+```
+
+### getRandomLatLng
+desc: **Gets a random pair of Latitude Longitude values**
+params: 
+- NONE 
+
+example return: 
+```
+[36.5168, 84.9176]
 ```
 
 ### getRandomWord
@@ -137,21 +210,3 @@ example return:
 }
 ```
 
-## Usage
-```
-// CJS/Node
-
-const {ActivitySummary} =require("@prifina/oura-data/mockups");
-const {ActivitySummaryAsync} =require("@prifina/oura-data/mockups/ActivitySummaryAsync");
-const OURA =require("@prifina/oura-data"); // All objects...
-
-```
-
-```
-// ESM/React
-
-import {ActivitySummary} from "@prifina/oura-data/mockups";
-import {ActivitySummaryAsync} from "@prifina/oura-data/mockups/ActivitySummaryAsync";
-import OURA from "@prifina/oura-data"; // All objects...
-
-```
