@@ -27,7 +27,7 @@ export function toIsoString(date) {
 }
 
 export function getRandomInt(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
+  return Math.ceil(Math.random() * (max - min + 1) + min);
 }
 
 export function getNewDate(dStr, days, format) {
