@@ -9,6 +9,7 @@ import {
 import MOCK from "@dynamic-data/garmin-data";
 
 const DailiesDataModel = {
+
   summaryid: () => {
     function makeid(length) {
       var result = 'x';
@@ -28,6 +29,8 @@ const DailiesDataModel = {
     return makeid(21)
 
   },
+
+  /*
   starttimeinseconds: () => {
     let finalDate = new Date(0);
     let maxMonthDate = new Date(0);
@@ -46,11 +49,13 @@ const DailiesDataModel = {
     let finalDate = new Date(timestamp * 1000);
     return (finalDate.getFullYear() + "-" + (finalDate.getMonth() + 1) + "-" + finalDate.getDate())
   },
+  */
 
   reststressdurationinseconds: () => {
 
-    return getRandomInt(20000, 35000);
+    return getRandomInt(20, 35) * 1000;
   },
+
   restingheartrateinbeatsperminute: () => {
     return getRandomInt(49, 82);
   },
@@ -92,7 +97,7 @@ const DailiesDataModel = {
 
   },
   durationinseconds: () => {
-    return getRandomInt(43200, 72000)
+    return getRandomInt(432, 720) * 100;
   },
   distanceinmeters: (steps) => {
     let avgDist = ((3410) + getRandomInt(-200, 200)) / 6200
@@ -106,7 +111,7 @@ const DailiesDataModel = {
   },
 
   steps: () => {
-    return getRandomInt(2000, 13000)
+    return getRandomInt(20, 130) * 100;
   },
 
   starttimeoffsetinseconds: () => {
@@ -114,7 +119,7 @@ const DailiesDataModel = {
     return timezones[getRandomInt(0, timezones.length) - 1] * 60 * 60;
   },
   bmrkilocalories: () => {
-    return getRandomInt(700, 2500)
+    return getRandomInt(7, 25) * 100;
   },
   activitytype: () => {
     let text = ["WALKING", "RUNNING", "CYCLING", "SWIMMING", "HIKING", "BMX"]
@@ -129,11 +134,11 @@ const DailiesDataModel = {
   },
 
   stepsgoal: () => {
-    return getRandomInt(2000, 13000)
+    return getRandomInt(2, 13) * 1000;
   },
 
   intensitydurationgoalinseconds: (steps) => {
-    const ratio = Math.round((6200 + getRandomInt(-1000, 1000)) / 9000)
+    const ratio = Math.round((6200 + getRandomInt(-10, 10) * 100) / 9000)
     return ratio * steps
   },
   maxstresslevel: () => {
@@ -150,10 +155,10 @@ const DailiesDataModel = {
   },
 
   vigorousintensitydurationinseconds: () => {
-    return getRandomInt(1200, 5000)
+    return getRandomInt(12, 50) * 100;
   },
   moderateintensitydurationinseconds: () => {
-    return getRandomInt(1200, 5000)
+    return getRandomInt(12, 50) * 100;
   },
 
 
@@ -568,24 +573,10 @@ export function getModelCSVHeader(dataModel) {
 
 export function getDailiesMockupData(dataType, dataModel, dataDate) {
   let mockupData = {};
+
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    [
-
-      "calendardate",
-      "starttimeinseconds",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "calendardate":
-          mockupData[key] = dataDate;
-          break;
-        case "starttimeinseconds":
-          mockupData[key] = new Date(dataDate).getTime() / 1000;
-          break;
-
-      }
-    });
 
   }
   if (dataType === "ASYNC") {
@@ -595,6 +586,7 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
+  /*
   let n1 = null;
   let n2 = null;
   let n3 = null;
@@ -611,6 +603,7 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
   }
   let allValues = [n1, n2, n3, n4]
   let ordered = [Math.max(n1, n2, n3, n4), Math.min(n1, n2, n3, n4)]
+
   allValues = allValues.filter(x => !ordered.includes(x))
   if (allValues[0] > allValues[1]) {
     ordered.push(allValues[0]);
@@ -624,6 +617,14 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
   let c = (ordered[2] - ordered[3] - 1) / 100;
   let d = (ordered[0] - ordered[2] - 1) / 100;
   let e = (104 - ordered[0]) / 100;
+*/
+
+  let a = getRandomInt(80, 90) / 100;
+  let b = getRandomInt(41, 79) / 100;
+  let c = getRandomInt(21, 40) / 100;
+  let d = getRandomInt(11, 20) / 100;
+  let e = getRandomInt(0, 10) / 100;
+
   [
     "summaryid",
     "calendardate",
@@ -685,7 +686,7 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key](mockupData["restingheartrateinbeatsperminute"]);
         break;
       case "timeoffsetheartratesamples":
-        mockupData[key] = mockupModel[key](mockupData["minheartrateinbeatsperminute"], mockupData["maxheartrateinbeatsperminute"]);
+        // mockupData[key] = mockupModel[key](mockupData["minheartrateinbeatsperminute"], mockupData["maxheartrateinbeatsperminute"]);
         break;
       case "distanceinmeters":
       case "activekilocalories":
@@ -713,7 +714,6 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
         break;
     }
   });
-
 
   return mockupData;
 }
@@ -798,19 +798,7 @@ export function getPulseoxMockupData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    [
-      "calendardate",
-      "starttimeinseconds",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "calendardate":
-          mockupData[key] = dataDate;
-          break;
-        case "starttimeinseconds":
-          mockupData[key] = new Date(dataDate).getTime() / 1000;
-          break;
-      }
-    });
+
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");

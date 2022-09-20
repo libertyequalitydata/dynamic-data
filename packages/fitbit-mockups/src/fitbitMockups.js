@@ -581,7 +581,7 @@ const SleepQualityModel = {
     return getRandomInt(0, 100)
   },
   p_level: () => {
-    let values = ['wake', 'example2', 'example3']
+    let values = ['wake', 'light', 'rem', 'deep']
     return values[getRandomInt(0, values.length) - 1]
   }
 }

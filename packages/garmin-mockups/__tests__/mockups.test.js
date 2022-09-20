@@ -3,8 +3,9 @@
 const { getRandomInt } = require("@dynamic-data/utils");
 
 const MOCK = require("@dynamic-data/garmin-data");
+
 const {
-  getDailiesMockupData,  
+  getDailiesMockupData,
   getSleepMockupData,
   getPulseoxMockupData,
   getEpochsMockupData
@@ -83,7 +84,7 @@ describe("Garmin", () => {
     expect(typeof result).toBe("object");
   });
 
-  it("getDailiesMockupData", () => {
+  it.only("getDailiesMockupData", () => {
     const result = getDailiesMockupData(
       "SYNC",
       "DailiesDataObject",
