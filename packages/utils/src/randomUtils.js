@@ -45,6 +45,15 @@ export function getNewDate(dStr, days, format) {
   }
   return null;
 }
+
+export function getRandomTime(startHour, rangeHour) {
+  const secs = getRandomInt(0, 59).toString().padStart(2, "0");
+  const mins = getRandomInt(0, 59).toString().padStart(2, "0");
+  const endHour = min(startHour + rangeHour, 24);
+  const hours = getRandomInt(startHour, endHour).padStart(2, "0");
+  return hours + ":" + mins + ":" + secs;
+}
+
 export function getSleepDate(sleepDate, startHour, rangeHour) {
   const mins = getRandomInt(0, 59).toString().padStart(2, "0");
   const hours = getRandomInt(0, rangeHour);
@@ -82,29 +91,29 @@ export function getRandomFloat(min, max) {
 export function getRandomDateTime(formatString = null) {
   let finalDate = new Date(0);
   let maxMonthDate = new Date(0);
-  finalDate.setFullYear(getRandomInt(2020,2050));
-  finalDate.setMonth(getRandomInt(0,11));
+  finalDate.setFullYear(getRandomInt(2020, 2050));
+  finalDate.setMonth(getRandomInt(0, 11));
   finalDate.setDate(1)
   maxMonthDate = finalDate
   maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
   maxMonthDate.setDate(0)
-  finalDate.setDate(getRandomInt(1,maxMonthDate.getDate()));
-  finalDate.setHours(getRandomInt(0,23),getRandomInt(0,59),getRandomInt(0,59),getRandomInt(0,999))
+  finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
+  finalDate.setHours(getRandomInt(0, 23), getRandomInt(0, 59), getRandomInt(0, 59), getRandomInt(0, 999))
   var hours = finalDate.getHours()
   var minutes = finalDate.getMinutes()
   var seconds = finalDate.getSeconds()
-  if (hours<10) hours = `0${hours}`
-  if (minutes<10) minutes = `0${hours}`
-  if (seconds<10) seconds = `0${hours}`
-  var date =   finalDate.getDate()
-  if (date<10) date = `0${date}`
-  var month =   finalDate.getMonth()+1
-  if (month<10) month = `0${month}`
+  if (hours < 10) hours = `0${hours}`
+  if (minutes < 10) minutes = `0${hours}`
+  if (seconds < 10) seconds = `0${hours}`
+  var date = finalDate.getDate()
+  if (date < 10) date = `0${date}`
+  var month = finalDate.getMonth() + 1
+  if (month < 10) month = `0${month}`
 
 
-  switch(formatString){
+  switch (formatString) {
     case "YYYY-MM-DD":
-      return  `${finalDate.getFullYear()}-${month}-${date}`
+      return `${finalDate.getFullYear()}-${month}-${date}`
     case "YYYY-MM-DDThh:mm:ss.000Z":
       return `${finalDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}.000Z`
     case "YYYY-MM-DDThh:mm:ss":
@@ -114,7 +123,7 @@ export function getRandomDateTime(formatString = null) {
   }
 }
 
-export function getFurtherDateTime(date, formatString = null){
+export function getFurtherDateTime(date, formatString = null) {
   var modifiedDate = new Date(date.split("T")[0])
   modifiedDate.setHours(date.split("T")[1].split(":")[0])
   modifiedDate.setMinutes(date.split("T")[1].split(":")[1])
@@ -123,17 +132,17 @@ export function getFurtherDateTime(date, formatString = null){
   var hours = modifiedDate.getHours()
   var minutes = modifiedDate.getMinutes()
   var seconds = modifiedDate.getSeconds()
-  if (hours<10) hours = `0${hours}`
-  if (minutes<10) minutes = `0${hours}`
-  if (seconds<10) seconds = `0${hours}`
+  if (hours < 10) hours = `0${hours}`
+  if (minutes < 10) minutes = `0${hours}`
+  if (seconds < 10) seconds = `0${hours}`
 
-  switch(formatString){
+  switch (formatString) {
     case "YYYY-MM-DD":
-      return  `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}`
+      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}`
     case "YYYY-MM-DDThh:mm:ss.000Z":
-      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
+      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
     case "YYYY-MM-DDThh:mm:ss":
-      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth()+1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}`
+      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}`
     default:
       return modifiedDate.getTime()
   }
@@ -143,7 +152,7 @@ export function getFurtherDateTime(date, formatString = null){
 export function getRandomString(len) {
   const possibleVal = "abcdefghijklmnopqrstuvwxyz0123456789";
   var randomString = '';
-  for(var i = 0; i < len; i++) {
+  for (var i = 0; i < len; i++) {
     randomString += possibleVal.charAt(Math.floor(Math.random() * possibleVal.length))
   }
   return randomString;
@@ -151,19 +160,19 @@ export function getRandomString(len) {
 
 // converts time in seconds to string HH:MM:SS
 export function parseSecondsToString(val) {
-  var seconds = Math.round(val%60);
-  var minutes = Math.floor(val/60);
+  var seconds = Math.round(val % 60);
+  var minutes = Math.floor(val / 60);
   var hours = 0;
   var outputString = '';
-  if(minutes > 59) {
-    hours = Math.floor(minutes/60);
-    minutes = minutes%60;
+  if (minutes > 59) {
+    hours = Math.floor(minutes / 60);
+    minutes = minutes % 60;
   }
-  if(hours > 0) {
-    outputString = outputString + `${(hours > 9)? hours : `0${hours}`}:`;
+  if (hours > 0) {
+    outputString = outputString + `${(hours > 9) ? hours : `0${hours}`}:`;
   }
-  outputString = outputString + `${(minutes > 9)? minutes : `0${minutes}`}:`;
-  outputString = outputString + `${(seconds > 9)? seconds : `0${seconds}`}`;
+  outputString = outputString + `${(minutes > 9) ? minutes : `0${minutes}`}:`;
+  outputString = outputString + `${(seconds > 9) ? seconds : `0${seconds}`}`;
   return outputString
 }
 
@@ -171,21 +180,21 @@ export function getRandomAddress() {
   const postalCode = () => {
     let characters = "0123456789"
     let string = ""
-    for (var i = 0; i<5; i++){
-      string += characters.charAt(Math.floor(Math.random() * 
-      characters.length));
+    for (var i = 0; i < 5; i++) {
+      string += characters.charAt(Math.floor(Math.random() *
+        characters.length));
     }
     return string
   }
 
   return {
-    streetNumber: getRandomInt(0,99).toString(),
-    streetName: getRandomString(getRandomInt(5,10)),
-    area: getRandomString(getRandomInt(5,10)),
-    city: getRandomString(getRandomInt(5,10)),
-    county: getRandomString(getRandomInt(5,10)),
+    streetNumber: getRandomInt(0, 99).toString(),
+    streetName: getRandomString(getRandomInt(5, 10)),
+    area: getRandomString(getRandomInt(5, 10)),
+    city: getRandomString(getRandomInt(5, 10)),
+    county: getRandomString(getRandomInt(5, 10)),
     postalCode: postalCode(),
-    country: randomCountry({full: true, alpha: 2}),
+    country: randomCountry({ full: true, alpha: 2 }),
   }
 
 }
@@ -195,14 +204,14 @@ export function getRandomAddress() {
  * @param {boolean} [opts.full = false] - Whether the country code (US) or full name (United States of America), or both are returned.
  * @param {number} [opts.alpha = 2] - Whether ISO 3166-1 Alpha-2 (2 character code) or ISO 3166-1 Alpha-3 (3 character code is returned). ISO 3166-1 Alpha-3 allows for the representation of more places.
  * @return A random country code, full name or both.
- */ 
+ */
 export function randomCountry(opts = {}) {
   const params = Object.assign({
-    full : false,
+    full: false,
     alpha: 2
   }, opts);
   let country = {}
-  switch(params.alpha){
+  switch (params.alpha) {
     case 3:
       let countries3 = [
         {
@@ -214,8 +223,8 @@ export function randomCountry(opts = {}) {
           full: "United States of America"
         },
       ]
-      country = countries3[getRandomInt(0,countries3.length)-1]
-      switch(params.full){
+      country = countries3[getRandomInt(0, countries3.length) - 1]
+      switch (params.full) {
         case false:
           return country["code"]
         case true:
@@ -234,8 +243,8 @@ export function randomCountry(opts = {}) {
           full: "United States of America"
         },
       ]
-      country = countries2[getRandomInt(0,countries2.length)-1]
-      switch(params.full){
+      country = countries2[getRandomInt(0, countries2.length) - 1]
+      switch (params.full) {
         case false:
           return country["code"]
         case true:
@@ -250,12 +259,12 @@ export function randomCountry(opts = {}) {
 export function getRandomName() {
   let string = ""
   let characters = "abcdefghijklmnopqrstuvwxyz"
-  let length = getRandomInt(7,15)
-  string += characters.charAt(Math.floor(Math.random() * 
+  let length = getRandomInt(7, 15)
+  string += characters.charAt(Math.floor(Math.random() *
     characters.length)).toUpperCase();
-  for (var i = 1; i<length; i++){
-    string += characters.charAt(Math.floor(Math.random() * 
-    characters.length));
+  for (var i = 1; i < length; i++) {
+    string += characters.charAt(Math.floor(Math.random() *
+      characters.length));
   }
   return string
 }
@@ -296,50 +305,50 @@ export function getRandomCarDetails() {
       ]
     }
   ]
-  let index = getRandomInt(0,car.length)-1
+  let index = getRandomInt(0, car.length) - 1
   let license = ""
   let characters = "0123456789ABCDEFGHJKLMNPRSTUVWXYZ"
-  for (var i = 0; i<7; i++){
-    license += characters.charAt(Math.floor(Math.random() * 
-    characters.length));
+  for (var i = 0; i < 7; i++) {
+    license += characters.charAt(Math.floor(Math.random() *
+      characters.length));
   }
   return {
     make: car[index]["make"],
-    model: car[index]["models"][getRandomInt(0,car[index]["models"].length)-1],
+    model: car[index]["models"][getRandomInt(0, car[index]["models"].length) - 1],
     license: license
   }
 }
 
 export function getRandomLatLng() {
   // [Latitude, Longnitude]
-  return [(((getRandomInt(0,1800001)-1)/10000)-90),(((getRandomInt(0,3600001)-1)/10000)-180)]
+  return [(((getRandomInt(0, 1800001) - 1) / 10000) - 90), (((getRandomInt(0, 3600001) - 1) / 10000) - 180)]
 }
 
 export function getRandomWord(len) {
   let string = ""
   let characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  for (var i = 0; i<len; i++){
-    string += characters.charAt(Math.floor(Math.random() * 
-    characters.length));
+  for (var i = 0; i < len; i++) {
+    string += characters.charAt(Math.floor(Math.random() *
+      characters.length));
   }
   return string
 }
 
 export function randomUUID() {
   let string = ""
-    let characters = "0123456789abcdef"
-    for (var i = 0; i<32; i++){
-      string += characters.charAt(Math.floor(Math.random() * 
+  let characters = "0123456789abcdef"
+  for (var i = 0; i < 32; i++) {
+    string += characters.charAt(Math.floor(Math.random() *
       characters.length));
-      switch (i){
-        case 7:
-        case 11:
-        case 15:
-        case 19:
-          string+="-"
-      }
+    switch (i) {
+      case 7:
+      case 11:
+      case 15:
+      case 19:
+        string += "-"
     }
-    return string
+  }
+  return string
 }
 
 export function randomCurrency(type, find = null) {
@@ -541,27 +550,27 @@ export function randomCurrency(type, find = null) {
     "ZMW",
     "ZWL"
   ]
-  switch (find){
+  switch (find) {
     case null:
       break
     default:
-      if (find.hasOwnProperty('code')){
-        for (var i = 0; i <allCurrencies.length; i++){
-          if (allCurrencies[i].code === find.code){
+      if (find.hasOwnProperty('code')) {
+        for (var i = 0; i < allCurrencies.length; i++) {
+          if (allCurrencies[i].code === find.code) {
             return allCurrencies[i]
           }
         }
         return null
-      } else if (find.hasOwnProperty('symbol')){
-        for (var i = 0; i <allCurrencies.length; i++){
-          if (allCurrencies[i].symbol === find.symbol){
+      } else if (find.hasOwnProperty('symbol')) {
+        for (var i = 0; i < allCurrencies.length; i++) {
+          if (allCurrencies[i].symbol === find.symbol) {
             return allCurrencies[i]
           }
         }
         return null
       }
   }
-  switch(type){
+  switch (type) {
 
     case "SIMPLE WEST ISO-4217":
       let simepleWestcurrencies = [
@@ -581,21 +590,21 @@ export function randomCurrency(type, find = null) {
           end: false
         },
       ]
-      return simepleWestcurrencies[getRandomInt(0,simepleWestcurrencies.length)-1]
+      return simepleWestcurrencies[getRandomInt(0, simepleWestcurrencies.length) - 1]
     case "ISO-4217":
-      return allCurrencies[getRandomInt(0,allCurrencies.length)-1]
+      return allCurrencies[getRandomInt(0, allCurrencies.length) - 1]
     default:
       return "USD"
   }
 }
 
-export function randomIntPhone(country = null){
-  switch(country){
+export function randomIntPhone(country = null) {
+  switch (country) {
     case null:
       let string = "+"
 
-      for (var i = 0; i<15; i++){
-        string += (getRandomInt(0,10)-1).toString()
+      for (var i = 0; i < 15; i++) {
+        string += (getRandomInt(0, 10) - 1).toString()
       }
       return string
     default:
@@ -608,27 +617,27 @@ export function randomIntPhone(country = null){
 export function randomHexString(opts = {
   len,
   upperCase: false
-}){
+}) {
   let string = ""
   let characters = "0123456789abcdef"
-  for (var i = 0; i<opts.len; i++){
-    switch(opts.upperCase){
+  for (var i = 0; i < opts.len; i++) {
+    switch (opts.upperCase) {
       case true:
-        string += characters.charAt(Math.floor(Math.random() * 
-        characters.length)).toUpperCase();
+        string += characters.charAt(Math.floor(Math.random() *
+          characters.length)).toUpperCase();
         break
       case false:
-        string += characters.charAt(Math.floor(Math.random() * 
-        characters.length));
+        string += characters.charAt(Math.floor(Math.random() *
+          characters.length));
         break
     }
   }
   return string
 }
 
-export function randomLanguage(opts){
+export function randomLanguage(opts) {
   const params = Object.assign({
-    full : false,
+    full: false,
     code: "ISO 639-1"
   }, opts);
   let languages = [
@@ -649,17 +658,17 @@ export function randomLanguage(opts){
       "name": "French"
     },
   ]
-  let language = languages[getRandomInt(0,languages.length)-1]
+  let language = languages[getRandomInt(0, languages.length) - 1]
   let final = {}
   if (params.full) {
     final["name"] = language["name"]
-    switch(params.code){
+    switch (params.code) {
       default:
         final["code"] = language["ISO 639-1"]
         break
     }
   } else {
-    switch(params.code){
+    switch (params.code) {
       default:
         final = language["ISO 639-1"]
         break
@@ -670,7 +679,7 @@ export function randomLanguage(opts){
   return final
 }
 
-export function getRandomTimeZone(){
+export function getRandomTimeZone() {
   const timeZones = [
     {
       "TZ_NAME": "America/New_York",
@@ -712,6 +721,6 @@ export function getRandomTimeZone(){
       }
     },
   ]
-  return timeZones[getRandomInt(0, timeZones.length)-1]
+  return timeZones[getRandomInt(0, timeZones.length) - 1]
 
 } 
