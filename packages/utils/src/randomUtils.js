@@ -50,7 +50,7 @@ export function getRandomTime(startHour, rangeHour) {
   const secs = getRandomInt(0, 59).toString().padStart(2, "0");
   const mins = getRandomInt(0, 59).toString().padStart(2, "0");
   const endHour = Math.min(startHour + rangeHour, 24);
-  const hours = getRandomInt(startHour, endHour).padStart(2, "0");
+  const hours = getRandomInt(startHour, endHour).toString().padStart(2, "0");
   return hours + ":" + mins + ":" + secs;
 }
 
