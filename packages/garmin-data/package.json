@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/garmin-data",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Mockup Data for Garmin connector",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
