@@ -586,38 +586,6 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  /*
-  let n1 = null;
-  let n2 = null;
-  let n3 = null;
-  let n4 = null;
-  n1 = getRandomInt(1, 104);
-  while (n2 === null || n2 === n1) {
-    n2 = getRandomInt(1, 104);
-  }
-  while (n3 === null || n3 === n1 || n3 === n2) {
-    n3 = getRandomInt(1, 104);
-  }
-  while (n4 === null || n4 === n1 || n4 === n2 || n4 === n3) {
-    n4 = getRandomInt(1, 104);
-  }
-  let allValues = [n1, n2, n3, n4]
-  let ordered = [Math.max(n1, n2, n3, n4), Math.min(n1, n2, n3, n4)]
-
-  allValues = allValues.filter(x => !ordered.includes(x))
-  if (allValues[0] > allValues[1]) {
-    ordered.push(allValues[0]);
-    ordered.push(allValues[1]);
-  } else {
-    ordered.push(allValues[1]);
-    ordered.push(allValues[0]);
-  }
-  let a = (ordered[1] - 1) / 100;
-  let b = (ordered[3] - ordered[1] - 1) / 100;
-  let c = (ordered[2] - ordered[3] - 1) / 100;
-  let d = (ordered[0] - ordered[2] - 1) / 100;
-  let e = (104 - ordered[0]) / 100;
-*/
 
   let a = getRandomInt(80, 90) / 100;
   let b = getRandomInt(41, 79) / 100;
