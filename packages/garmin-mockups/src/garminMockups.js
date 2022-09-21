@@ -71,12 +71,10 @@ const DailiesDataModel = {
     return resting + getRandomInt(-10, 10);
   },
   timeoffsetheartratesamples: (min, max) => {
-    let finalReturn = {}
-    let counter = 0;
+    let arr = []
     let runOn = getRandomInt(1, 5);
     let number = Math.round((max + min) / 2);
-    while ((counter * 15) < 55920) {
-      counter += 1;
+    for (var i = 0; i < 3728; i++) {
       if (runOn === 0) {
         runOn = getRandomInt(1, 10);
         let x = getRandomInt(-10, 10)
@@ -84,16 +82,18 @@ const DailiesDataModel = {
           x = getRandomInt(-10, 10)
         }
         number = (number + x)
-
-
       }
-      finalReturn = {
-        ...finalReturn,
-        [counter * 15]: number
-      }
-      runOn -= 1;
+      arr.push(number)
+
+      runOn -= 1
     }
-    return finalReturn;
+    const obj = {}
+    arr.forEach((elem, i) => {
+      obj[i * 15] = elem
+    })
+
+    // let finalReturn = {}
+    return obj;
 
   },
   durationinseconds: () => {
@@ -587,11 +587,18 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
     });
   }
 
-  let a = getRandomInt(80, 90) / 100;
-  let b = getRandomInt(41, 79) / 100;
-  let c = getRandomInt(21, 40) / 100;
-  let d = getRandomInt(11, 20) / 100;
-  let e = getRandomInt(0, 10) / 100;
+
+  let values = []
+  for (var i = 0; i < 5; i++) {
+    values.push(getRandomInt(1, 100))
+  }
+  var sum = values.reduce((a, b) => a + b);
+  let a = values[0] / sum;
+  let b = values[1] / sum;
+  let c = values[2] / sum;
+  let d = values[3] / sum;
+  let e = values[4] / sum;
+
 
   [
     "summaryid",
@@ -654,7 +661,7 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key](mockupData["restingheartrateinbeatsperminute"]);
         break;
       case "timeoffsetheartratesamples":
-        // mockupData[key] = mockupModel[key](mockupData["minheartrateinbeatsperminute"], mockupData["maxheartrateinbeatsperminute"]);
+        mockupData[key] = mockupModel[key](mockupData["minheartrateinbeatsperminute"], mockupData["maxheartrateinbeatsperminute"]);
         break;
       case "distanceinmeters":
       case "activekilocalories":

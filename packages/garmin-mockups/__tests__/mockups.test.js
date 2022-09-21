@@ -19,7 +19,7 @@ describe("Garmin", () => {
       "DailiesDataAsync",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getDailiesMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
@@ -29,7 +29,7 @@ describe("Garmin", () => {
       "SleepsDataAsync",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getSleepMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(result.sleeplevelsmap);
     expect(typeof result).toBe("object");
   });
@@ -40,7 +40,7 @@ describe("Garmin", () => {
       "PulseoxAsync",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getPulseoxMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
@@ -50,7 +50,7 @@ describe("Garmin", () => {
       "EpochsDataAsync",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getEpochsMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
@@ -60,7 +60,7 @@ describe("Garmin", () => {
       "SleepsDataObject",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getSleepMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
@@ -70,7 +70,7 @@ describe("Garmin", () => {
       "PulseoxObject",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getPulseoxMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
@@ -80,17 +80,17 @@ describe("Garmin", () => {
       "EpochsDataObject",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getEpochsMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
-  it.only("getDailiesMockupData", () => {
+  it("getDailiesMockupData", () => {
     const result = getDailiesMockupData(
       "SYNC",
       "DailiesDataObject",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getDailiesMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 

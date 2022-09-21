@@ -32,7 +32,7 @@ describe("Oura", () => {
       "ActivitySummary",
       "2022-04-03"
     );
-    //console.log(result);
+    console.log("ActivitySummary ", result);
     expect(typeof result).toBe("object");
   });
 
@@ -42,7 +42,7 @@ describe("Oura", () => {
       "ReadinessSummary",
       "2022-04-03"
     );
-    //console.log(result);
+    console.log("ReadinessSummary ", result);
     expect(typeof result).toBe("object");
   });
 

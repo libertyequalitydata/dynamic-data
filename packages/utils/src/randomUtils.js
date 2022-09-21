@@ -27,7 +27,10 @@ export function toIsoString(date) {
 }
 
 export function getRandomInt(min, max) {
-  return Math.ceil(Math.random() * (max - min) + min);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+  /*
+  Math.ceil((Math.random() * (max - min)) + min); // Whole number between min + 1 and max
+  */
 }
 
 export function getNewDate(dStr, days, format) {
@@ -723,4 +726,8 @@ export function getRandomTimeZone() {
   ]
   return timeZones[getRandomInt(0, timeZones.length) - 1]
 
+}
+
+export function getAverage(array) {
+  return array.reduce((a, b) => a + b) / array.length;
 } 
