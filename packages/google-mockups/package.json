@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/google-mockups",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Google Mockup Data Generators",
   "author": "tero <tero@prifina.com>",
   "license": "MIT",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@dynamic-data/google-data": "^0.0.9",
-    "@dynamic-data/utils": "^0.0.10",
+    "@dynamic-data/utils": "^0.0.11",
     "jest": "^28.1.3"
   }
 }
