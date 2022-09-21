@@ -1,17 +1,17 @@
 export const HeartRateSummary = {
-  OUT_OF_ZONE: {
+  out_of_zone: {
     cals: 1960,
     mins: 1420,
   },
-  FAT_BURN: {
+  fat_burn: {
     cals: 156,
     mins: 20,
   },
-  CARDIO: {
+  cardio: {
     cals: 0,
     mins: 0,
   },
-  PEAK: {
+  peak: {
     cals: 0,
     mins: 0,
   },

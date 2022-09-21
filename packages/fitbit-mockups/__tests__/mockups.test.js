@@ -11,10 +11,10 @@ const {
   getHeartRateSummary,
   getActivitiesSummaryData,
   getSleepQualityData,
-  getHeartRateDataData,
-  getSleepDataData,
+  getHeartRateData,
+  getSleepData,
 
-  
+
 } = require("@dynamic-data/fitbit-mockups");
 
 
@@ -38,8 +38,8 @@ describe("Fitbit", () => {
     // console.log(result);
     expect(typeof result).toBe("object");
   });
-  it("getHeartRateDataData", () => {
-    const result = getHeartRateDataData(
+  it("getHeartRateData", () => {
+    const result = getHeartRateData(
       "SYNC",
       "HeartRateData",
       "2022-04-03"
@@ -56,8 +56,8 @@ describe("Fitbit", () => {
     // console.log(result);
     expect(typeof result).toBe("object");
   });
-  it("getSleepDataData", () => {
-    const result = getSleepDataData(
+  it("getSleepData", () => {
+    const result = getSleepData(
       "SYNC",
       "SleepData",
       "2022-04-03"
@@ -84,5 +84,5 @@ describe("Fitbit", () => {
     expect(typeof result).toBe("object");
   });
 
-  
+
 });

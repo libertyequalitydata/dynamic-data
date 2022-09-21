@@ -520,7 +520,7 @@ const SleepSummaryModel = {
 }
 
 const HeartRateSummaryModel = {
-  OUT_OF_ZONE: () => {
+  out_of_zone: () => {
     const calPerMin = 1960 / 1420;
     const minutes = getRandomInt(0, 2000);
 
@@ -529,7 +529,7 @@ const HeartRateSummaryModel = {
       mins: minutes,
     }
   },
-  FAT_BURN: () => {
+  fat_burn: () => {
     const calPerMin = 156 / 20;
     const minutes = getRandomInt(0, 2000);
 
@@ -538,7 +538,7 @@ const HeartRateSummaryModel = {
       mins: minutes,
     }
   },
-  CARDIO: () => {
+  cardio: () => {
     const calPerMin = 10;
     const minutes = getRandomInt(0, 2000);
 
@@ -547,7 +547,7 @@ const HeartRateSummaryModel = {
       mins: minutes,
     }
   },
-  PEAK: () => {
+  peak: () => {
     const calPerMin = 15;
     const minutes = getRandomInt(0, 2000);
 
@@ -858,7 +858,6 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-// TRO Date is missing on datamodel
 export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
@@ -874,6 +873,7 @@ export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
   }
 
   [
+    "day",
     "activeScore",
     "activityCalories",
     "caloriesBMR",
@@ -891,6 +891,9 @@ export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
     "veryActiveMinutes",
   ].forEach((key, i) => {
     switch (key) {
+      case "day":
+        mockupData[key] = dataDate;
+        break;
       case "caloriesOut":
         mockupData[key] = mockupModel[key](mockupData["heartRateZones"]);
         break;
@@ -912,33 +915,6 @@ export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key]();
         break;
 
-      // case "summary_date":
-      //   mockupData[key] = dataDate;
-      //   break;
-      // case "daily_movement":
-      //   mockupData[key] = mockupModel[key]();
-      //   break;
-      // case "cal_total":
-      //   mockupData[key] = mockupModel[key]();
-      //   break;
-
-      // case "day_start":
-      //   const dayStartTime = mockupData[key].split("T")[1];
-      //   mockupData[key] = mockupData["summary_date"] + "T" + dayStartTime;
-      //   break;
-      // case "day_end":
-      //   const dayEndTime = mockupData[key].split("T")[1];
-      //   const dayEndDate = mockupModel[key](mockupData["summary_date"], 1);
-      //   mockupData[key] = dayEndDate + "T" + dayEndTime;
-      //   break;
-
-      // case "steps":
-      //   mockupData[key] = mockupModel[key](mockupData["daily_movement"]);
-      //   break;
-
-      // case "cal_active":
-      //   mockupData[key] = mockupModel[key](mockupData["cal_total"]);
-      //   break;
     }
   });
 
@@ -950,27 +926,7 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    [
-      "startTimeTS",
-      "endTimeTS",
-      "startTime",
-      "endTime",
-    ].forEach(key => {
-      switch (key) {
-        case "startTimeTS":
-          mockupData[key] = mockupModel[key](dataDate);
-          break;
-        case "endTimeTS":
-          mockupData[key] = mockupModel[key](mockupData["startTimeTS"], mockupData["timeInBed"]);
-          break;
-        case "startTime":
-          mockupData[key] = mockupModel[key](mockupData["startTimeTS"]);
-          break;
-        case "endTime":
-          mockupData[key] = mockupModel[key](mockupData["endTimeTS"]);
-          break;
-      }
-    })
+
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1057,7 +1013,7 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-// TRO Date is missing on datamodel
+
 export function getHeartRateSummary(dataType, dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
@@ -1073,16 +1029,20 @@ export function getHeartRateSummary(dataType, dataModel, dataDate) {
   }
 
   [
-    "OUT_OF_ZONE",
-    "FAT_BURN",
-    "CARDIO",
-    "PEAK"
+    "day",
+    "out_of_zone",
+    "fat_burn",
+    "cardio",
+    "peak"
   ].forEach((key, i) => {
     switch (key) {
-      case "OUT_OF_ZONE":
-      case "FAT_BURN":
-      case "CARDIO":
-      case "PEAK":
+      case "day":
+        mockupData[key] = dataDate;
+        break;
+      case "out_of_zone":
+      case "fat_burn":
+      case "cardio":
+      case "peak":
         mockupData[key] = mockupModel[key]();
         break;
     }
@@ -1096,21 +1056,7 @@ export function getSleepQualityData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    [
-      "p_datetime",
-      "p_timestamp",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "p_datetime":
-          mockupData[key] = getSleepDate(dataDate, 22, 3)
-          break;
 
-        case "p_timestamp":
-          mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
-          break;
-
-      }
-    });
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1150,21 +1096,7 @@ export function getSleepData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    [
-      "p_datetime",
-      "p_timestamp",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "p_datetime":
-          mockupData[key] = getSleepDate(dataDate, 22, 3)
-          break;
 
-        case "p_timestamp":
-          mockupData[key] = mockupModel[key](mockupData["p_datetime"]);
-          break;
-
-      }
-    });
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
@@ -1203,7 +1135,6 @@ export function getHeartRateData(dataType, dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   if (dataType === "SYNC") {
     mockupData = dataModels[dataModel].data;
-    mockupData["p_date"] = dataDate;
   }
   if (dataType === "ASYNC") {
     const mockupDataRow = dataModels[dataModel].data[1].split("\t");
