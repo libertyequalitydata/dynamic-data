@@ -546,7 +546,7 @@ const dataModels = {
     mockup: EpochsDataModel
   },
   EpochsDataAsync: {
-    data: MOCK.EpochsData,
+    data: MOCK.EpochsDataAsync,
     mockup: EpochsDataModel
   },
   SleepsData: {
@@ -554,7 +554,7 @@ const dataModels = {
     mockup: SleepsDataModel
   },
   SleepsDataAsync: {
-    data: MOCK.SleepsData,
+    data: MOCK.SleepsDataAsync,
     mockup: SleepsDataModel
   },
   PulseoxData: {
@@ -562,7 +562,7 @@ const dataModels = {
     mockup: PulseoxModel
   },
   PulseoxDataAsync: {
-    data: MOCK.PulseoxData,
+    data: MOCK.PulseoxDataAsync,
     mockup: PulseoxModel
   },
 };
