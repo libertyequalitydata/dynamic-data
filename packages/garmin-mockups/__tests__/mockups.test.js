@@ -15,8 +15,8 @@ describe("Garmin", () => {
   //test.todo("needs tests");
   it("getDailiesMockupData", () => {
     const result = getDailiesMockupData(
-      "ASYNC",
-      "DailiesDataAsync",
+
+      "DailiesData",
       "2022-04-03"
     );
     console.log("getDailiesMockupData ", JSON.stringify(result, undefined, 2));
@@ -25,8 +25,8 @@ describe("Garmin", () => {
 
   it("getSleepMockupData", () => {
     const result = getSleepMockupData(
-      "ASYNC",
-      "SleepsDataAsync",
+
+      "SleepsData",
       "2022-04-03"
     );
     console.log("getSleepMockupData ", JSON.stringify(result, undefined, 2));
@@ -36,8 +36,8 @@ describe("Garmin", () => {
 
   it("getPulseoxMockupData", () => {
     const result = getPulseoxMockupData(
-      "ASYNC",
-      "PulseoxAsync",
+
+      "PulseoxData",
       "2022-04-03"
     );
     console.log("getPulseoxMockupData ", JSON.stringify(result, undefined, 2));
@@ -46,52 +46,13 @@ describe("Garmin", () => {
 
   it("getEpochsMockupData", () => {
     const result = getEpochsMockupData(
-      "ASYNC",
-      "EpochsDataAsync",
+
+      "EpochsData",
       "2022-04-03"
     );
     console.log("getEpochsMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
-      "SYNC",
-      "SleepsDataObject",
-      "2022-04-03"
-    );
-    console.log("getSleepMockupData ", JSON.stringify(result, undefined, 2));
-    expect(typeof result).toBe("object");
-  });
-
-  it("getPulseoxMockupData", () => {
-    const result = getPulseoxMockupData(
-      "SYNC",
-      "PulseoxObject",
-      "2022-04-03"
-    );
-    console.log("getPulseoxMockupData ", JSON.stringify(result, undefined, 2));
-    expect(typeof result).toBe("object");
-  });
-
-  it("getEpochsMockupData", () => {
-    const result = getEpochsMockupData(
-      "SYNC",
-      "EpochsDataObject",
-      "2022-04-03"
-    );
-    console.log("getEpochsMockupData ", JSON.stringify(result, undefined, 2));
-    expect(typeof result).toBe("object");
-  });
-
-  it("getDailiesMockupData", () => {
-    const result = getDailiesMockupData(
-      "SYNC",
-      "DailiesDataObject",
-      "2022-04-03"
-    );
-    console.log("getDailiesMockupData ", JSON.stringify(result, undefined, 2));
-    expect(typeof result).toBe("object");
-  });
 
 });

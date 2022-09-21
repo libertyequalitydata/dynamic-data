@@ -533,35 +533,35 @@ const PulseoxModel = {
 }
 
 const dataModels = {
-  DailiesDataObject: {
-    data: MOCK.DailiesDataObject,
+  DailiesData: {
+    data: MOCK.DailiesData,
     mockup: DailiesDataModel
   },
   DailiesDataAsync: {
     data: MOCK.DailiesData,
     mockup: DailiesDataModel
   },
-  EpochsDataObject: {
-    data: MOCK.EpochsDataObject,
+  EpochsData: {
+    data: MOCK.EpochsData,
     mockup: EpochsDataModel
   },
   EpochsDataAsync: {
     data: MOCK.EpochsData,
     mockup: EpochsDataModel
   },
-  SleepsDataObject: {
-    data: MOCK.SleepsDataObject,
+  SleepsData: {
+    data: MOCK.SleepsData,
     mockup: SleepsDataModel
   },
   SleepsDataAsync: {
     data: MOCK.SleepsData,
     mockup: SleepsDataModel
   },
-  PulseoxObject: {
-    data: MOCK.PulseoxObject,
+  PulseoxData: {
+    data: MOCK.PulseoxData,
     mockup: PulseoxModel
   },
-  PulseoxAsync: {
+  PulseoxDataAsync: {
     data: MOCK.PulseoxData,
     mockup: PulseoxModel
   },
@@ -571,21 +571,11 @@ export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
 }
 
-export function getDailiesMockupData(dataType, dataModel, dataDate) {
+export function getDailiesMockupData(dataModel, dataDate) {
   let mockupData = {};
 
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
 
   let values = []
@@ -693,19 +683,11 @@ export function getDailiesMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepMockupData(dataType, dataModel, dataDate) {
+export function getSleepMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
+
   [
     "calendardate",
     "starttimeinseconds",
@@ -768,20 +750,11 @@ export function getSleepMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getPulseoxMockupData(dataType, dataModel, dataDate) {
+export function getPulseoxMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
+  mockupData = dataModels[dataModel].data;
 
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
   [
     "calendardate",
     "starttimeinseconds",
@@ -813,19 +786,11 @@ export function getPulseoxMockupData(dataType, dataModel, dataDate) {
 
   return mockupData;
 }
-export function getEpochsMockupData(dataType, dataModel, dataDate) {
+export function getEpochsMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
+
   [
     "starttimeinseconds",
     "summaryid",

@@ -1,4 +1,4 @@
-export const SleepsDataObject =   {
+export const SleepsData = {
   summaryid: "x3a9c8fe-61c8ca74-8340",
   calendardate: "2021-12-27",
   durationinseconds: 33600,
@@ -11,41 +11,75 @@ export const SleepsDataObject =   {
   awakedurationinseconds: 60,
   sleeplevelsmap: {
     deep: null,
- light: [
-   {starttimeinseconds: 1640548980,
- endtimeinseconds: 1640554560},
- {starttimeinseconds: 1640557080,
- endtimeinseconds: 1640559720},
- {starttimeinseconds: 1640559960,
- endtimeinseconds: 1640560560},
- {starttimeinseconds: 1640561700,
- endtimeinseconds: 1640561880},
- {starttimeinseconds: 1640562120,
- endtimeinseconds: 1640566260},
- {starttimeinseconds: 1640566320,
- endtimeinseconds: 1640574840},
- {starttimeinseconds: 1640575020,
- endtimeinseconds: 1640575200},
- {starttimeinseconds: 1640575500,
- endtimeinseconds: 1640579640},
- {starttimeinseconds: 1640580360,
- endtimeinseconds: 1640582640}],
- rem: [{starttimeinseconds: 1640554560,
- endtimeinseconds: 1640557080},
- {starttimeinseconds: 1640559720,
- endtimeinseconds: 1640559960},
- {starttimeinseconds: 1640560560,
- endtimeinseconds: 1640561700},
- {starttimeinseconds: 1640561880,
- endtimeinseconds: 1640562120},
- {starttimeinseconds: 1640574840,
- endtimeinseconds: 1640575020},
- {starttimeinseconds: 1640575200,
- endtimeinseconds: 1640575500},
- {starttimeinseconds: 1640579640,
- endtimeinseconds: 1640580360}],
- awake: [{starttimeinseconds: 1640566260,
- endtimeinseconds: 1640566320}]
+    light: [
+      {
+        starttimeinseconds: 1640548980,
+        endtimeinseconds: 1640554560
+      },
+      {
+        starttimeinseconds: 1640557080,
+        endtimeinseconds: 1640559720
+      },
+      {
+        starttimeinseconds: 1640559960,
+        endtimeinseconds: 1640560560
+      },
+      {
+        starttimeinseconds: 1640561700,
+        endtimeinseconds: 1640561880
+      },
+      {
+        starttimeinseconds: 1640562120,
+        endtimeinseconds: 1640566260
+      },
+      {
+        starttimeinseconds: 1640566320,
+        endtimeinseconds: 1640574840
+      },
+      {
+        starttimeinseconds: 1640575020,
+        endtimeinseconds: 1640575200
+      },
+      {
+        starttimeinseconds: 1640575500,
+        endtimeinseconds: 1640579640
+      },
+      {
+        starttimeinseconds: 1640580360,
+        endtimeinseconds: 1640582640
+      }],
+    rem: [{
+      starttimeinseconds: 1640554560,
+      endtimeinseconds: 1640557080
+    },
+    {
+      starttimeinseconds: 1640559720,
+      endtimeinseconds: 1640559960
+    },
+    {
+      starttimeinseconds: 1640560560,
+      endtimeinseconds: 1640561700
+    },
+    {
+      starttimeinseconds: 1640561880,
+      endtimeinseconds: 1640562120
+    },
+    {
+      starttimeinseconds: 1640574840,
+      endtimeinseconds: 1640575020
+    },
+    {
+      starttimeinseconds: 1640575200,
+      endtimeinseconds: 1640575500
+    },
+    {
+      starttimeinseconds: 1640579640,
+      endtimeinseconds: 1640580360
+    }],
+    awake: [{
+      starttimeinseconds: 1640566260,
+      endtimeinseconds: 1640566320
+    }]
   },
   validation: "ENHANCED_TENTATIVE",
   timeoffsetsleepspo2: {
@@ -236,5 +270,4 @@ export const SleepsDataObject =   {
     12540: 93,
     24060: 92
   }
-  };
- 
+};

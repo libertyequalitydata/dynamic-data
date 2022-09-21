@@ -1,4 +1,4 @@
-export const EpochsDataObject =  {
+export const EpochsData = {
   summaryid: "x3a9c8fe-61c90200-8",
   activitytype: "SEDENTARY",
   activekilocalories: 0,
@@ -12,4 +12,4 @@ export const EpochsDataObject =  {
   intensity: "SEDENTARY",
   meanmotionintensity: 0.0,
   maxmotionintensity: 0.0,
-  };
+};

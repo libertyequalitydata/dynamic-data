@@ -1,4 +1,4 @@
-export const PulseoxObject =   {
+export const PulseoxData = {
   summaryid: "x3a9c8fe-61c8e5e0",
   calendardate: "2021-12-27",
   starttimeinseconds: 1640556000,
@@ -193,7 +193,7 @@ export const PulseoxObject =   {
     16380: 98
   },
   ondemand: false,
-  user: undefined, 
+  user: undefined,
   day: undefined,
-  period:undefined,
-  };
+  period: undefined,
+};

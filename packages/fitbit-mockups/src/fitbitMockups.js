@@ -138,12 +138,12 @@ const ActivitiesDataModel = {
         totalMinutes: peak + outOfZone + fatBurn + cardio
       }
     } else {
-      return undefined
+      return {}
     }
   },
 
   hasActiveZoneMinutes: () => {
-    let x = getRandomInt(0, 2);
+    let x = getRandomInt(1, 2);
     switch (x) {
       case 1:
         return true;
@@ -720,36 +720,10 @@ export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
 }
 
-export function getActivitiesMockupData(dataType, dataModel, dataDate) {
+export function getActivitiesMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    // dataDate is not used?
-    mockupData = dataModels[dataModel].data;
-    ['originalStartTime', 'startTime', 'lastModified'].forEach(key => {
-      switch (key) {
-        case "originalStartTime":
-          const randomDateTime = mockupModel[key]();
-          const timePart = randomDateTime.split("T")[1];
-          mockupData[key] = dataDate + "T" + timePart;
-          break;
-        case "startTime":
-          mockupData[key] = mockupData["originalStartTime"];
-          break;
-        case "lastModified":
-          mockupData[key] = mockupModel[key](mockupData["originalStartTime"]);
-          break;
-      }
-    });
-
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "hasActiveZoneMinutes",
@@ -825,52 +799,17 @@ export function getActivitiesMockupData(dataType, dataModel, dataDate) {
         mockupData[key] = mockupModel[key]();
         break;
 
-      // case "summary_date":
-      //   mockupData[key] = dataDate;
-      //   break;
-      // case "daily_movement":
-      //   mockupData[key] = mockupModel[key]();
-      //   break;
-      // case "cal_total":
-      //   mockupData[key] = mockupModel[key]();
-      //   break;
-
-      // case "day_start":
-      //   const dayStartTime = mockupData[key].split("T")[1];
-      //   mockupData[key] = mockupData["summary_date"] + "T" + dayStartTime;
-      //   break;
-      // case "day_end":
-      //   const dayEndTime = mockupData[key].split("T")[1];
-      //   const dayEndDate = mockupModel[key](mockupData["summary_date"], 1);
-      //   mockupData[key] = dayEndDate + "T" + dayEndTime;
-      //   break;
-
-      // case "steps":
-      //   mockupData[key] = mockupModel[key](mockupData["daily_movement"]);
-      //   break;
-
-      // case "cal_active":
-      //   mockupData[key] = mockupModel[key](mockupData["cal_total"]);
-      //   break;
     }
   });
+
 
   return mockupData;
 }
 
-export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
+export function getActivitiesSummaryData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "day",
@@ -921,20 +860,11 @@ export function getActivitiesSummaryData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepSummaryData(dataType, dataModel, dataDate) {
+export function getSleepSummaryData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
+  mockupData = dataModels[dataModel].data;
 
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
   let n1 = null;
   let n2 = null;
   n1 = getRandomInt(1, 102);
@@ -1014,19 +944,10 @@ export function getSleepSummaryData(dataType, dataModel, dataDate) {
 }
 
 
-export function getHeartRateSummary(dataType, dataModel, dataDate) {
+export function getHeartRateSummary(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "day",
@@ -1051,20 +972,10 @@ export function getHeartRateSummary(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepQualityData(dataType, dataModel, dataDate) {
+export function getSleepQualityData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "p_datetime",
@@ -1091,20 +1002,10 @@ export function getSleepQualityData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepData(dataType, dataModel, dataDate) {
+export function getSleepData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "p_datetime",
@@ -1130,19 +1031,10 @@ export function getSleepData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getHeartRateData(dataType, dataModel, dataDate) {
+export function getHeartRateData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
+  mockupData = dataModels[dataModel].data;
 
   [
     "p_date",

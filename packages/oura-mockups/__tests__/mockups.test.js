@@ -28,7 +28,7 @@ describe("Oura", () => {
   });
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
-      "SYNC",
+
       "ActivitySummary",
       "2022-04-03"
     );
@@ -38,7 +38,7 @@ describe("Oura", () => {
 
   it("getReadinessMockupData", () => {
     const result = getReadinessMockupData(
-      "SYNC",
+
       "ReadinessSummary",
       "2022-04-03"
     );
@@ -47,7 +47,7 @@ describe("Oura", () => {
   });
 
   it("getSleepMockupData", () => {
-    const result = getSleepMockupData("SYNC", "SleepSummary", "2022-04-03");
+    const result = getSleepMockupData("SleepSummary", "2022-04-03");
     console.log("SLEEP RESULT ", result);
     expect(typeof result).toBe("object");
   });
