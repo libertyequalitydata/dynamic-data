@@ -538,7 +538,7 @@ const dataModels = {
     mockup: DailiesDataModel
   },
   DailiesDataAsync: {
-    data: MOCK.DailiesData,
+    data: MOCK.DailiesDataAsync,
     mockup: DailiesDataModel
   },
   EpochsData: {
