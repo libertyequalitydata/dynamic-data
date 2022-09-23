@@ -46,8 +46,13 @@ describe("Oura", () => {
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
+  it("getSleepSummaryMockupData", () => {
     const result = getSleepMockupData("SleepSummary", "2022-04-03");
+    console.log("SLEEP RESULT ", result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSleepDataMockupData", () => {
+    const result = getSleepMockupData("SleepData", "2022-04-03");
     console.log("SLEEP RESULT ", result);
     expect(typeof result).toBe("object");
   });

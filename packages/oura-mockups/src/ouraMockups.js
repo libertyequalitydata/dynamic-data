@@ -216,6 +216,11 @@ const dataModels = {
     data: MOCK.SleepSummaryAsync,
     mockup: SleepSummaryModel,
   },
+  SleepData: { data: MOCK.SleepData, mockup: SleepSummaryModel },
+  SleepDataAsync: {
+    data: MOCK.SleepDataAsync,
+    mockup: SleepSummaryModel,
+  },
 };
 
 export function getModelCSVHeader(dataModel) {
@@ -308,10 +313,10 @@ export function getSleepMockupData(dataModel, dataDate) {
   const mockupModel = dataModels[dataModel].mockup;
   mockupData = dataModels[dataModel].data;
 
-
   [
     "summary_date",
     "bedtime_start",
+    "timestamp",
     "timezone",
     "bedtime_end",
     "duration",
@@ -337,6 +342,10 @@ export function getSleepMockupData(dataModel, dataDate) {
         break;
       case "bedtime_start":
         mockupData[key] = mockupModel[key](mockupData["summary_date"], 22, 3);
+        break;
+      // sleepData model has this attribute...   
+      case "timestamp":
+        mockupData[key] = mockupData["bedtime_start"];
         break;
       case "bedtime_end":
         // sleep time 5-9h
