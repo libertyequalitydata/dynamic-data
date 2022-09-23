@@ -34,7 +34,6 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/oura-data": "^0.0.8",
     "@dynamic-data/utils": "^0.0.11"
   }
 }
