@@ -1,6 +1,6 @@
 import {
   getDailiesMockupData,
-  getSleepMockupData,
+  getSleepsMockupData,
   getPulseoxMockupData,
   getEpochsMockupData
 } from "@dynamic-data/garmin-mockups";
@@ -9,7 +9,7 @@ describe("Garmin", () => {
   //test.todo("needs tests");
 
   it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
+    const result = getSleepsMockupData(
       "SleepsData",
       "2022-04-03"
     );

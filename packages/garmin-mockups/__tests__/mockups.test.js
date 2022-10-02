@@ -6,7 +6,7 @@ const MOCK = require("@dynamic-data/garmin-data");
 
 const {
   getDailiesMockupData,
-  getSleepMockupData,
+  getSleepsMockupData,
   getPulseoxMockupData,
   getEpochsMockupData
 } = require("@dynamic-data/garmin-mockups");
@@ -23,8 +23,8 @@ describe("Garmin", () => {
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
+  it.only("getSleepMockupData", () => {
+    const result = getSleepsMockupData(
 
       "SleepsData",
       "2022-04-03"

@@ -692,7 +692,6 @@ export function getSleepsMockupData(dataModel, dataDate) {
     "calendardate",
     "starttimeinseconds",
 
-    "sleeplevelsmap",
     "starttimeoffsetinseconds",
 
     "lightsleepdurationinseconds",
@@ -704,6 +703,8 @@ export function getSleepsMockupData(dataModel, dataDate) {
     "durationinseconds",
 
     "timeoffsetsleepspo2",
+
+    "sleeplevelsmap",
     "summaryid",
     "validation"
 
@@ -730,7 +731,8 @@ export function getSleepsMockupData(dataModel, dataDate) {
       case "unmeasurablesleepinseconds":
       case "deepsleepdurationinseconds":
       case "awakedurationinseconds":
-        mockupData[key] = mockupData["sleeplevelsmap"][key];
+
+        mockupData[key] = mockupModel[key]();
         break;
       case "starttimeoffsetinseconds":
       //case "lightsleepdurationinseconds":
