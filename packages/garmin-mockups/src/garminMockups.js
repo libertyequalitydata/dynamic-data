@@ -683,7 +683,7 @@ export function getDailiesMockupData(dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepMockupData(dataModel, dataDate) {
+export function getSleepsMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   mockupData = dataModels[dataModel].data;
