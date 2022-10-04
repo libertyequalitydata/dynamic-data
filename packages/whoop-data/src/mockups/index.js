@@ -1,12 +1,7 @@
-export * from "./activityTypes";
-export * from "./aggregateData";
-export * from "./event";
-export * from "./membership";
-export * from "./metric";
-export * from "./report";
-export * from "./sleepDetails";
-export * from "./surveryResponse";
-export * from "./user";
-export * from "./VoiceOfWhoop";
-export * from "./VoiceOfWhoopCycle";
-export * from "./workout";
+export * from "./Cycle"
+export * from "./Recovery"
+export * from "./Sleep"
+export * from "./User"
+export * from "./Workout"
+
+

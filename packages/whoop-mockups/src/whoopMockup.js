@@ -3,1295 +3,799 @@ import {
   getRandomInt,
   getNewDate,
   getSleepDate,
+  pickRandomValue,
+  getRandomTimeZone,
+  getFurtherDateTime,
+  getRandomDateTime,
+  getRandomName,
+  getRandBool
 } from "@dynamic-data/utils";
 
 import MOCK from "@dynamic-data/whoop-data";
 // https://app.swaggerhub.com/apis/DovOps/whoop-unofficial-api/2.0.1#/auth
 
-const UserModel = {
-  id: () => {
-    return getRandomInt(0,2147483648)-1
+const SportsIDs = [
+  {
+    id: -1,
+    sport: "Activity"
   },
-  avatarUrl: () => {
-    return ""
+  {
+    id: 0,
+    sport: "Running"
   },
-  createdAt: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
+  {
+    id: 1,
+    sport: "Cycling"
   },
-  updatedAt : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
+  {
+    id: 16,
+    sport: "Baseball"
   },
-  firstName: () => {
-    let firstName = ""
-    let letters = "abcdefghijklmnopqrstuvwxyz"
-    let length = getRandomInt(3, 15)
-    firstName += letters.charAt(Math.floor(Math.random() * 
-    letters.length)).toUpperCase();
-    for (var i = 0; i<length; i++){
-      firstName += letters.charAt(Math.floor(Math.random() * 
-      letters.length));
-    }
-    return firstName
+  {
+    id: 17,
+    sport: "Basketball"
   },
-  lastName: () => {
-    let lastName = ""
-    let letters = "abcdefghijklmnopqrstuvwxyz"
-    let length = getRandomInt(3, 15)
-    lastName += letters.charAt(Math.floor(Math.random() * 
-    letters.length)).toUpperCase();
-    for (var i = 0; i<length; i++){
-      lastName += letters.charAt(Math.floor(Math.random() * 
-      letters.length));
-    }
-    return lastName
+  {
+    id: 18,
+    sport: "Rowing"
   },
-  city: () => {
-    return ""
+  {
+    id: 19,
+    sport: "Fencing"
   },
-  country: () => {
-    let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  {
+    id: 20,
+    sport: "Field Hockey"
+  },
+  {
+    id: 21,
+    sport: "Football"
+  },
+  {
+    id: 22,
+    sport: "Golf"
+  },
+  {
+    id: 24,
+    sport: "Ice Hockey"
+  },
+  {
+    id: 25,
+    sport: "Lacrosse"
+  },
+  {
+    id: 27,
+    sport: "Rugby"
+  },
+  {
+    id: 28,
+    sport: "Sailing"
+  },
+  {
+    id: 29,
+    sport: "Skiing"
+  },
+  {
+    id: 30,
+    sport: "Soccer"
+  },
+  {
+    id: 31,
+    sport: "Softball"
+  },
+  {
+    id: 32,
+    sport: "Squash"
+  },
+  {
+    id: 33,
+    sport: "Swimming"
+  },
+  {
+    id: 34,
+    sport: "Tennis"
+  },
+  {
+    id: 35,
+    sport: "Track & Field"
+  },
+  {
+    id: 36,
+    sport: "Volleyball"
+  },
+  {
+    id: 37,
+    sport: "Water Polo"
+  },
+  {
+    id: 38,
+    sport: "Wrestling"
+  },
+  {
+    id: 39,
+    sport: "Boxing"
+  },
+  {
+    id: 42,
+    sport: "Dance"
+  },
+  {
+    id: 43,
+    sport: "Pilates"
+  },
+  {
+    id: 44,
+    sport: "Yoga"
+  },
+  {
+    id: 45,
+    sport: "Weightlifting"
+  },
+  {
+    id: 47,
+    sport: "Cross Country Skiing"
+  },
+  {
+    id: 48,
+    sport: "Functional Fitness"
+  },
+  {
+    id: 49,
+    sport: "Duathlon"
+  },
+  {
+    id: 51,
+    sport: "Gymnastics"
+  },
+  {
+    id: 52,
+    sport: "Hiking/Rucking"
+  },
+  {
+    id: 53,
+    sport: "Horseback Riding"
+  },
+  {
+    id: 55,
+    sport: "Kayaking"
+  },
+  {
+    id: 56,
+    sport: "Martial Arts"
+  },
+  {
+    id: 57,
+    sport: "Mountain Biking"
+  },
+  {
+    id: 59,
+    sport: "Powerlifting"
+  },
+  {
+    id: 60,
+    sport: "Rock Climbing"
+  },
+  {
+    id: 61,
+    sport: "Paddleboarding"
+  },
+  {
+    id: 62,
+    sport: "Triathlon"
+  },
+  {
+    id: 63,
+    sport: "Walking"
+  },
+  {
+    id: 64,
+    sport: "Surfing"
+  },
+  {
+    id: 65,
+    sport: "Elliptical"
+  },
+  {
+    id: 66,
+    sport: "Stairmaster"
+  },
+  {
+    id: 70,
+    sport: "Meditation"
+  },
+  {
+    id: 71,
+    sport: "Other"
+  },
+  {
+    id: 73,
+    sport: "Diving"
+  },
+  {
+    id: 74,
+    sport: "Operations - Tactical"
+  },
+  {
+    id: 75,
+    sport: "Operations - Medical"
+  },
+  {
+    id: 76,
+    sport: "Operations - Flying"
+  },
+  {
+    id: 77,
+    sport: "Operations - Water"
+  },
+  {
+    id: 82,
+    sport: "Ultimate"
+  },
+  {
+    id: 83,
+    sport: "Climber"
+  },
+  {
+    id: 84,
+    sport: "Jumping Rope"
+  },
+  {
+    id: 85,
+    sport: "Australian Football"
+  },
+  {
+    id: 86,
+    sport: "Skateboarding"
+  },
+  {
+    id: 87,
+    sport: "Coaching"
+  },
+  {
+    id: 88,
+    sport: "Ice Bath"
+  },
+  {
+    id: 89,
+    sport: "Commuting"
+  },
+  {
+    id: 90,
+    sport: "Gaming"
+  },
+  {
+    id: 91,
+    sport: "Snowboarding"
+  },
+  {
+    id: 92,
+    sport: "Motocross"
+  },
+  {
+    id: 93,
+    sport: "Caddying"
+  },
+  {
+    id: 94,
+    sport: "Obstacle Course Racing"
+  },
+  {
+    id: 95,
+    sport: "Motor Racing"
+  },
+  {
+    id: 96,
+    sport: "HIIT"
+  },
+  {
+    id: 97,
+    sport: "Spin"
+  },
+  {
+    id: 98,
+    sport: "Jiu Jitsu"
+  },
+  {
+    id: 99,
+    sport: "Manual Labor"
+  },
+  {
+    id: 100,
+    sport: "Cricket"
+  },
+  {
+    id: 101,
+    sport: "Pickleball"
+  },
+  {
+    id: 102,
+    sport: "Inline Skating"
+  },
+  {
+    id: 103,
+    sport: "Box Fitness"
+  },
+  {
+    id: 104,
+    sport: "Spikeball"
+  },
+  {
+    id: 105,
+    sport: "Wheelchair Pushing"
+  },
+  {
+    id: 106,
+    sport: "Paddle Tennis"
+  },
+  {
+    id: 107,
+    sport: "Barre"
+  },
+  {
+    id: 108,
+    sport: "Stage Performance"
+  },
+  {
+    id: 109,
+    sport: "High Stress Work"
+  },
+  {
+    id: 110,
+    sport: "Parkour"
+  },
+  {
+    id: 111,
+    sport: "Gaelic Football"
+  },
+  {
+    id: 112,
+    sport: "Hurling/Camogie"
+  },
+  {
+    id: 113,
+    sport: "Circus Arts"
+  },
+  {
+    id: 121,
+    sport: "Massage Therapy"
+  },
+  {
+    id: 125,
+    sport: "Watching Sports"
+  },
+  {
+    id: 126,
+    sport: "Assault Bike"
+  },
+  {
+    id: 127,
+    sport: "Kickboxing"
+  },
+  {
+    id: 128,
+    sport: "Stretching"
+  },
+  
+]
+
+const CycleModel = {
+  "id": () => {
+    return getRandomInt(0,9999)
+  },
+  "user_id": () => {
+    return getRandomInt(0,9999)
+
+  },
+  "created_at": (end) => {
+    return getFurtherDateTime(end,"YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "updated_at": (created_at) => {
+    return getFurtherDateTime(created_at,"YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "start": () => {
+    return getRandomDateTime("YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "end":(start) => {
+    return getFurtherDateTime(start,"YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "timezone_offset": () => {
+    return getRandomTimeZone().STD
+  },
+  "score_state": () => {
+    return pickRandomValue(["SCORED","PENDING_SCORE","UNSCORABLE"])
+  },
+  "strain": () => {
+    return (getRandomInt(0,210000)/1000).toFixed(4)
+  },
+  "kilojoule": () => {
     let string = ""
-    string += letters.charAt(Math.floor(Math.random() * letters.length));
-    string += letters.charAt(Math.floor(Math.random() * letters.length));
-    return string
+    let number = getRandomInt(0,4)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
+    }
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
+    }
+    return parseFloat(string)
   },
-  adminDivision: () => {
-    return ""
+  "average_heart_rate": () => {
+    return 123 + getRandomInt(-10,10)
   },
-  fullName: (firstname, lastname) => {
-    return firstname + " " + lastname
+  "max_heart_rate": () => {
+    return 146 + getRandomInt(-10,10)
+  }
+}
+
+const RecoveryModel = {
+  "cycle_id": () => {
+    return getRandomInt(0,99999)
   },
-  preferences: () => {
-    return {}
+  "sleep_id": () => {
+    return getRandomInt(0,99999)
   },
-  email: () => {
+  "user_id": () => {
+    return getRandomInt(0,99999)
+  },
+  "created_at": () => {
+    return getRandomDateTime("YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "updated_at": (created_at) => {
+    return getFurtherDateTime(created_at,"YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "score_state": () => {
+    return pickRandomValue(["SCORED","PENDING_SCORE","UNSCORABLE"])
+  },
+  "user_calibrating": () => {
+    return getRandBool()
+  },
+  "recovery_score": () => {
+    return getRandomInt(0,100)
+  },
+  "resting_heart_rate": () => {
+    return getRandomInt(50,80)
+  },
+  "hrv_rmssd_milli": () => {
     let string = ""
-    let letters = "abcdefghijklmnopqrstuvwxyz"
-    let ends = [".com", ".co.uk"]
-    let length = getRandomInt(3, 10)
-    for (var i = 0; i<length; i++){
-      string += letters.charAt(Math.floor(Math.random() * 
-      letters.length));
+    let number = 2
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-    switch(getRandomInt(0,2)){
-      case 1:
-        string += "."
-        length = getRandomInt(3, 10)
-        for (var i = 0; i<length; i++){
-          string += letters.charAt(Math.floor(Math.random() * 
-          letters.length));
-        }
-      default:
-        string += "@"
-        length = getRandomInt(3, 10)
-        for (var i = 0; i<length; i++){
-          string += letters.charAt(Math.floor(Math.random() * 
-          letters.length));
-        }
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
-    string+= ends[getRandomInt(0,ends.length)-1]
-    return string
+    return parseFloat(string)
   },
-  concealed: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+  "spo2_percentage": () => {
+    let string = ""
+    let number = 2
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
+    }
+    return parseFloat(string)
   },
-  membershipStatus: () => {
-    return ""
-  },
-  privacyProfile: () => {
-    return {}
+  "skin_temp_celsius": () => {
+    return getRandomInt(2700000,3500000)/100000
   },
 }
 
-const ProfileModel = {
-  userID: () => {
-    return getRandomInt(0,2147483648)-1
+const SleepModel = {
+  "id": () => {
+    return getRandomInt(0,9999)
   },
-  bioDataId: () => {
-    return getRandomInt(0,2147483648)-1
+  "user_id": () => {
+    return getRandomInt(0,9999)
+
   },
-  height: () => {
-    return 0.0
+  "created_at": (end) => {
+    return getFurtherDateTime(end,"YYYY-MM-DDThh:mm:ss.000Z")
   },
-  weight: () => { 
-    return 0.0
+  "updated_at": (created_at) => {
+    return getFurtherDateTime(created_at,"YYYY-MM-DDThh:mm:ss.000Z")
   },
-  birthday: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
+  "start": () => {
+    return getRandomDateTime("YYYY-MM-DDThh:mm:ss.000Z")
   },
-  gender: () => {
-    return ""
+  "end":(start) => {
+    return getFurtherDateTime(start,"YYYY-MM-DDThh:mm:ss.000Z")
   },
-  unitSystem: () => {
-    let units = ["imperial", "metric"]
-    return units[getRandomInt(0,units.length)-1]
+  "timezone_offset": () => {
+    return getRandomTimeZone().STD
   },
-  fitnessLevel: () => {
-    return ""
+  "nap": () => {
+    return getRandBool()
   },
-  createdAt: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
+  "score_state": () => {
+    return pickRandomValue(["SCORED","PENDING_SCORE","UNSCORABLE"])
   },
-  updatedAt : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
+  "total_in_bed_time_milli": () => {
+    return getRandomInt(0,99999999)
   },
-  timezoneOffset: () => {
-    let offsets = ["-1200","-1100","-1000","-0930","-0900","-0800","-0700","-0600","-0500","-0400","-0330","-0300","-0200","-0100","±0000","+0100","+0200","+0300","+0330","+0400","+0430","+0500","+0530","+0545","+0600","+0630","+0700","+0800","+0845","+0900","+0930","+1000","+1030","+1100","+1200","+1245","+1300","+1400"]
-    return offsets[getRandomInt(0,offsets.length)-1]
+  "total_awake_time_milli": () => {
+    return getRandomInt(0,99999999)
   },
-  id: () => {
-    return getRandomInt(0,2147483648)-1
+  "total_no_data_time_milli": () => {
+    return getRandomInt(0,99999999)
   },
-  maxHeartRate: () => {
-    return getRandomInt(150,201)-1
+  "total_light_sleep_time_milli": () => {
+    return getRandomInt(0,99999999)
   },
-  minHeartRate: () => {
-    return getRandomInt(60,100)-1
+  "total_slow_wave_sleep_time_milli": () => {
+    return getRandomInt(0,99999999)
   },
-  avgHeartRate: (maxHeartRate,minHeartRate) => {
-    let value = ((maxHeartRate + minHeartRate)/2)
-    if (Number.isInteger(value)){
-      return value.toFixed(1)
-    } else {
-      return value
+  "total_rem_sleep_time_milli": () => {
+    return getRandomInt(0,99999999)
+  },
+  "sleep_cycle_count": () => {
+    return getRandomInt(1,5)
+  },
+  "disturbance_count": () => {
+    return getRandomInt(0,20)
+  },
+  "baseline_milli": () => {
+    return getRandomInt(0,99999999)
+  },
+  "need_from_sleep_debt_milli": () => {
+    return getRandomInt(0,99999999)
+  },
+  "need_from_recent_strain_milli": () => {
+    return getRandomInt(0,99999999)
+  },
+  "need_from_recent_nap_milli": () => {
+    return -getRandomInt(0,99999999)
+  },
+  "respiratory_rate": () => {
+    let string = ""
+    let number = getRandomInt(1,2)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-    
-  },
-  kilojoules: () => {
-    return 0.0
-  },
-  canUploadData: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
+    return parseFloat(string)
   },
+  "sleep_performance_percentage": () => {
+    return getRandomInt(0,100)
+  },
+  "sleep_consistency_percentage": () => {
+    return getRandomInt(0,100)
+  },
+  "sleep_efficiency_percentage": () => {
+    return getRandomInt(0,100)
+  },
+}
+
+const UserModel = {
+  "user_id": () => {
+    return getRandomInt(0,9999)
+  },
+  "email": () => {
+    let string = ""
+    let characters = "0123456789abcdefghijklmnopqrstuvwxyz"
+    let alphabet = "abcdefghijklmnopqrstuvwxyz"
+    let length1 = getRandomInt(5,12)
+    let length2 = getRandomInt(5,12)
+    let endings = [".com", ".co.uk"]
+    for (var i = 0; i<length1; i++){
+      string += characters.charAt(Math.floor(Math.random() * 
+      characters.length));
+    }
+    string+="@"
+    for (var i = 0; i<length2; i++){
+      string += alphabet.charAt(Math.floor(Math.random() * 
+      alphabet.length));
+    }
+    string+=endings[getRandomInt(0,endings.length)-1]
+    return string
+  },
+  "first_name": () => {
+    return getRandomName()
+  },
+  "last_name": () => {
+    return getRandomName()
+  }
 }
 
 const WorkoutModel = {
-    cycle_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    created_at: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      return finalDate.toISOString();
-    },
-    updated_at : (createdAt) => {
-      let finalDate = new Date(0);
-      finalDate.setFullYear(createdAt.split('-')[0]);
-      finalDate.setMonth(createdAt.split('-')[1]-1);
-      finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-      finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-      finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-      return finalDate.toISOString().split('.')[0]+"Z"
-    },
-    sport_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    activity_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    gps_enabled: () => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    intensity_score: () => {
-      return 0.0
-    },
-    max_heart_rate: () => {
-      return getRandomInt(150,201)-1
-    },
-    average_heart_rate: () => {
-      return getRandomInt(120,160)-1
-    },
-    distance: () => {
-      return getRandomInt(0,100)
-    },
-    performance: () => {
-      return {}
-    },
-    energy: () => {
-      return {}
-    },
-    rpe: () => {
-      return {}
-    },
-    raw_intensity_score: () => {
-      return 0.005378655454516813
-    },
-    altitude_gain: () => {
-      return {}
-    },
-    altitude_change: () => {
-      return {}
-    },
-    cumulative_workout_intensity: () => {
-      return 0.00000000
-    },
-    zone_durations: () => {
-      return [
-        0,
-        0,
-        212488,
-        1861085,
-        410473,
-        0
-      ]
-    },
-    projected_score: () => {
-      return 0.005378655454516813
-    },
-    confidence: () => {
-      return {}
-    },
-    wac_prediction: () => {
-      return {}
-    },
-    kilojoules: () => {
-      return 0.005378655454516813
-    },
-    user_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    during: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      var date2 = new Date(finalDate.getTime());
-      date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-      return [finalDate.toISOString(),date2.toISOString()]
+  "id": () => {
+    return getRandomInt(0,9999)
+  },
+  "user_id": () => {
+    return getRandomInt(0,9999)
 
-    },
-    timezone_offset: () => {
-      let offsets = ["-1200","-1100","-1000","-0930","-0900","-0800","-0700","-0600","-0500","-0400","-0330","-0300","-0200","-0100","±0000","+0100","+0200","+0300","+0330","+0400","+0430","+0500","+0530","+0545","+0600","+0630","+0700","+0800","+0845","+0900","+0930","+1000","+1030","+1100","+1200","+1245","+1300","+1400"]
-      return offsets[getRandomInt(0,offsets.length)-1]
-    },
-    survey_response_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    percent_recorded: () => {
-      return getRandomInt(0,101)-1
-    },
-    auto_detected: () => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    state: () => {
-      return "complete"
-    },
-    responded: () => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    team_act_id: () => {
-      return getRandomInt(0,2147483648)-1
-    },
-    source: () => {
-      return "auto"
-    },
-}
-
-const ActivityType = {
-  id: () => {
-    return getRandomInt(0,2147483648)-1
   },
-  name: () => {
-    return "Jumping Rope"
+  "created_at": (end) => {
+    return getFurtherDateTime(end,"YYYY-MM-DDThh:mm:ss.000Z")
   },
-  created_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
+  "updated_at": (created_at) => {
+    return getFurtherDateTime(created_at,"YYYY-MM-DDThh:mm:ss.000Z")
   },
-  updated_at : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
+  "start": () => {
+    return getRandomDateTime("YYYY-MM-DDThh:mm:ss.000Z")
   },
-  has_gps: () => {
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+  "end":(start) => {
+    return getFurtherDateTime(start,"YYYY-MM-DDThh:mm:ss.000Z")
+  },
+  "timezone_offset": () => {
+    return getRandomTimeZone().STD
+  },
+  "sport_id": () => {
+    return pickRandomValue(SportsIDs)["id"]
+  },
+  "score_state": () => {
+    return pickRandomValue(["SCORED","PENDING_SCORE","UNSCORABLE"])
+  },
+  "strain": () => {
+    return (getRandomInt(0,210000)/1000).toFixed(4)
+  },
+  "average_heart_rate": () => {
+    return 123 + getRandomInt(-10,10)
+  },
+  "max_heart_rate": () => {
+    return 146 + getRandomInt(-10,10)
+  },
+  "kilojoule": () => {
+    let string = ""
+    let number = getRandomInt(0,4)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-  },
-  icon_url: () => {
-    return "https://s3-us-west-2.amazonaws.com/icons.whoop.com/mobile/activities/jumping_rope.png"
-  },
-  is_current: () => {
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
+    return parseFloat(string)
   },
-  has_survey: () => {
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+  "percent_recorded": () => {
+    return getRandomInt(0,100)
+  },
+  "distance_meter": () => {
+    let string = ""
+    let number = getRandomInt(0,4)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-  },
-  category: () => {
-    return "cardiovascular|non-cardiovascular"
-  },
-}
-
-const AggregateData = {
-  total_count: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  offset: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  // records: () => {
-
-  // },
-}
-
-const CycleRecords = {
-  id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  created_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
-  },
-  updated_at : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
-  },
-  scaled_strain: () => {
-    return 0.0
-  },
-  during: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    var date2 = new Date(finalDate.getTime());
-    date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-    return [finalDate.toISOString(),date2.toISOString()]
-
-  },
-  user_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  sleep_need: () => {
-    return null
-  },
-  predicted_end: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
-  },
-  timezone_offset: () => {
-    let offsets = ["-1200","-1100","-1000","-0930","-0900","-0800","-0700","-0600","-0500","-0400","-0330","-0300","-0200","-0100","±0000","+0100","+0200","+0300","+0330","+0400","+0430","+0500","+0530","+0545","+0600","+0630","+0700","+0800","+0845","+0900","+0930","+1000","+1030","+1100","+1200","+1245","+1300","+1400"]
-    return offsets[getRandomInt(0,offsets.length)-1]
-  },
-  intensity_score: () => {
-    return null
-  },
-  data_state: () => {
-    return ""
-  },
-  day_strain: () => {
-    return 0.0
-  },
-  day_kilojoules: () => {
-    return 0.0
-  },
-  day_avg_heart_rate: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  day_max_heart_rate: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-}
-const SleepModel = {
-  cycle_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  created_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
-  },
-  updated_at : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
-  },
-  activity_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  during: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    var date2 = new Date(finalDate.getTime());
-    date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-    return [finalDate.toISOString(),date2.toISOString()]
-
-  },
-  score: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  quality_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  latency: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  max_heart_rate: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  average_heart_rate: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  debt_pre: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  debt_post: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  need_from_strain: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  sleep_need: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  habitual_sleep_need: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  disturbances: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  time_in_bed: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  light_sleep_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  slow_wave_sleep_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  rem_sleep_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  cycles_count: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  wake_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  arousal_time: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  no_data_duration: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  in_sleep_efficiency: () => {
-    return 0.0
-  },
-  credit_from_naps: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  hr_baseline: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  respiratory_rate: () => {
-    return 0.0
-  },
-  sleep_consistency: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  algo_version: () => {
-    return "4.2.0"
-  },
-  projected_score: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  projected_sleep: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  optimal_sleep_times: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    var date2 = new Date(finalDate.getTime());
-    date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-    return [finalDate.toISOString(),date2.toISOString()]
-
-  },
-  kilojoules: () => {
-    return null
-  },
-  user_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  timezone_offset: () => {
-    let offsets = ["-1200","-1100","-1000","-0930","-0900","-0800","-0700","-0600","-0500","-0400","-0330","-0300","-0200","-0100","±0000","+0100","+0200","+0300","+0330","+0400","+0430","+0500","+0530","+0545","+0600","+0630","+0700","+0800","+0845","+0900","+0930","+1000","+1030","+1100","+1200","+1245","+1300","+1400"]
-    return offsets[getRandomInt(0,offsets.length)-1]
-  },
-  percent_recorded: () => {
-    return getRandomInt(0,101)-1
-  },
-  auto_detected: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
+    return parseFloat(string)
   },
-  state: () => {
-    return "complete"
-  },
-  responded: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+  "altitude_gain_meter": () => {
+    let string = ""
+    let number = getRandomInt(0,4)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-  },
-  team_act_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  source: () => {
-    return "auto+user"
-  },
-  is_normal: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
+    return parseFloat(string)
   },
-  is_significant: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+  "altitude_change_meter": () => {
+    let string = ""
+    let number = getRandomInt(0,4)
+    let decimal = getRandomInt(0,11)
+    for (var x = 0; x<number; x++){
+      string += getRandomInt(0,9).toString()
     }
-  },
-  is_nap: () => {
-    switch (getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
+    string+="."
+    for (var x = 0; x<decimal; x++){
+      string += getRandomInt(0,9).toString()
     }
+    return parseFloat(string)
   },
-}
-const RecoveryRecords = {
-  during: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    var date2 = new Date(finalDate.getTime());
-    date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-    return "["+finalDate.toISOString()+","+date2.toISOString()+"]"
-  },
-  id: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  date: ()=>{
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    let offsets = ["-12:00","-11:00","-10:00","-09:30","-09:00","-08:00","-07:00","-06:00","-05:00","-04:00","-03:30","-03:00","-02:00","-01:00","±00:00","+01:00","+02:00","+03:00","+03:30","+04:00","+04:30","+05:00","+05:30","+05:45","+06:00","+06:30","+07:00","+08:00","+08:45","+09:00","+09:30","+10:00","+10:30","+11:00","+12:00","+12:45","+13:00","+14:00"]
-    return finalDate.toISOString().split("Z")[0] + offsets[getRandomInt(0,offsets.length)-1];
+  "zone_duration": () => {
+    let values = []
+    for (var i = 0; i < 6; i++) {
+      values.push(getRandomInt(1, 100))
+    }
+    var sum = values.reduce((a, b) => a + b);
+    let a = values[0] / sum;
+    let b = values[1] / sum;
+    let c = values[2] / sum;
+    let d = values[3] / sum;
+    let e = values[4] / sum;
+    let f = values[5] / sum;
+    let total = getRandomInt(100000,999999)
+    return {
+      "zone_zero_milli": Math.round(total*a),
+      "zone_one_milli": Math.round(total*b),
+      "zone_two_milli": Math.round(total*c),
+      "zone_three_milli": Math.round(total*d),
+      "zone_four_milli": Math.round(total*e),
+      "zone_five_milli": Math.round(total*f)
+    }
 
-  },
-  calibrating: ()=>{
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
-    }
-  },
-  created_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString();
-  },
-  updated_at : (createdAt) => {
-    let finalDate = new Date(0);
-    finalDate.setFullYear(createdAt.split('-')[0]);
-    finalDate.setMonth(createdAt.split('-')[1]-1);
-    finalDate.setDate(createdAt.split('T')[0].split('-')[2])
-    finalDate.setHours(createdAt.split('T')[1].split(':')[0],createdAt.split('T')[1].split(':')[1],createdAt.split('T')[1].split(':')[2].split("Z")[0])
-    finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-    return finalDate.toISOString().split('.')[0]+"Z"
-  },
-  user_id: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  sleep_id: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  survey_response_id: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  cycle_id: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  responded: ()=>{
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
-    }
-  },
-  recovery_score: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  resting_heart_rate: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  hrv_rmssd: ()=>{
-    return 0.057343356
-  },
-  state: ()=>{
-    return "complete"
-  },
-  prob_covid: ()=>{
-    return 0.057343356
-  },
-  hr_baseline: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  skin_temp_celsius: ()=>{
-    return 32.4
-  },
-  spo2: ()=>{
-    return 93.25
-  },
-  algo_version: ()=>{
-    return "4.0.0"
-  },
-  rhr_component: ()=>{
-    return 0.5811901
-  },
-  hrv_component: ()=>{
-    return 0.30885226
-  },
-  history_size: ()=>{
-    return getRandomInt(0,2147483648)-1
-  },
-  from_sws: ()=>{
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
-    }
-  },
-  recovery_rate: ()=>{
-    return 0.0
-  },
-  is_normal: ()=>{
-    switch(getRandomInt(0,2)){
-      case 1:
-        return true
-      case 2:
-        return false
-    }
-  },
-}
-
-const MembershipModel = {
-  affiliate: () => {
-    return {}
-  },
-    balance:() => {
-      return getRandomInt(0,100000)
-    },
-    canUpgrade: () => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    cancelAtPeriodEnd:() => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    canceledAt: () => {
-      return ""
-    },
-    cancellationOffer: () => {
-      let eligible = false;
-      switch (getRandomInt(0,2)){
-        case 1:
-          eligible =  true
-        case 2:
-          eligible =  false
-      }
-      return {
-        eligible: eligible,
-        coupon50: "CANCEL50",
-        coupon100: "FREEMONTH01302020",
-        couponOneMonth50: "CANCEL50ONEMONTH"
-      }
-    },
-    cardDigits: () => {
-      return 444
-    },
-    cardType: () => {
-      let types = ["MasterCard"]
-      return types[getRandomInt(0,types.length)-1]
-    },
-    checkoutOrigin: () => {
-      let origins = ["international"]
-      return origins[getRandomInt(0,origins.length)-1]
-    },
-    commitmentEnd: (commitmentStart) => {
-      let finalDate = new Date(0);
-      finalDate.setFullYear(commitmentStart.split('-')[0]);
-      finalDate.setMonth(commitmentStart.split('-')[1]-1);
-      finalDate.setDate(commitmentStart.split('T')[0].split('-')[2])
-      finalDate.setHours(commitmentStart.split('T')[1].split(':')[0],commitmentStart.split('T')[1].split(':')[1],commitmentStart.split('T')[1].split(':')[2].split("Z")[0])
-      finalDate.setTime(finalDate.getTime()+getRandomInt(1000,94672800000))
-      return finalDate.toISOString().split('.')[0]+"Z"
-    },
-    commitmentStart: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      return finalDate.toISOString();
-    },
-    coupon: () => {
-      return {
-        amount_off: 0,
-        currency: "string",
-        duration: "string",
-        duration_in_months: 0,
-        id: "string",
-        metadata: {},
-        name: "string",
-        percent_off: 0
-      }
-    },
-    expirationDate: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      return finalDate.toISOString();
-    },
-    membershipStatus: () => {
-      return ""
-    },
-    nextBillAmount: () => {
-      return 0.0
-    },
-    nextBillDate: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      return finalDate.toISOString();
-    },
-    promotion: () => {
-      return ""
-    },
-    retentionPromo: () => {
-      switch (getRandomInt(0,2)){
-        case 1:
-          return true
-        case 2:
-          return false
-      }
-    },
-    scheduledCancelDate: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      return finalDate.toISOString();
-    },
-    strapSerial: () => {
-      return "4X123567"
-    },
-    userId: () => {
-      return 123456
-    },
-}
-const EventModel = {
-  activity_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  during: () => {
-      var finalDate = new Date(0);
-      var maxMonthDate = new Date(0);
-      finalDate.setFullYear(getRandomInt(2020, 2050));
-      finalDate.setMonth(getRandomInt(0, 11));
-      finalDate.setDate(1);
-      maxMonthDate = finalDate;
-      maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-      maxMonthDate.setDate(0);
-      finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-      finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-      var date2 = new Date(finalDate.getTime());
-      date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-      return "["+finalDate.toISOString()+","+date2.toISOString()+"]"
-      
-  },
-  type: () => {
-    let types = ["rem"]
-    return types[getRandomInt(0,types.length)-1]
-  },
-}
-const ReportModel = {
-  total_count: () => {
-    return 0
-  },
-  offset: () => {
-    return 0
-  },
-}
-
-const ReportRecordModel = {
-  id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  user_id: () => {
-    return getRandomInt(0,2147483648)-1
-  },
-  report_type: () => {
-    let types = ["WEEK", "MONTH"]
-    return types[getRandomInt(0,types.length)-1]
-  },
-  report_during: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    var date2 = new Date(finalDate.getTime());
-    date2.setTime(date2.getTime() + getRandomInt(5000,7200000))
-    return "["+finalDate.toISOString()+","+date2.toISOString()+"]"
-  },
-  view_datetime: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString()
-  },  
-  created_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString()
-  },
-  updated_at: () => {
-    var finalDate = new Date(0);
-    var maxMonthDate = new Date(0);
-    finalDate.setFullYear(getRandomInt(2020, 2050));
-    finalDate.setMonth(getRandomInt(0, 11));
-    finalDate.setDate(1);
-    maxMonthDate = finalDate;
-    maxMonthDate.setMonth(maxMonthDate.getMonth() + 1);
-    maxMonthDate.setDate(0);
-    finalDate.setDate(getRandomInt(1, maxMonthDate.getDate()));
-    finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999));
-    return finalDate.toISOString()
-  },
-}
-
-const SurveryResponseModel = {
-  questionId: () => {
-    return 0
-  },
-  answer: () => {
-    return 0
-  },
-  label: () => {
-    return ""
-  },
-}
-
-const VoiceOfWhoopModel = {
-  text: () => {
-    return ""
-  },
-  header: () => {
-    return ""
-  },
-  key: () => {
-    return ""
-  },
-}
-
-const MetricModel = {
-  name: () => {
-    return "heart_rate"
-  },
-  start: () => {
-    return 0
-  },
-  values: () => {
-    return [
-      {
-        data: 0,
-        time: 0
-      }
-    ]
-  },
+  }
 }
 
 const dataModels = {
+  Cycle: {
+    data: MOCK.Cycle,
+    mockup: CycleModel,
+  },
+  Sleep: {
+    data: MOCK.Sleep,
+    mockup: SleepModel,
+  },
+  Recovery: {
+    data: MOCK.Recovery,
+    mockup: RecoveryModel,
+  },
+  Workout: {
+    data: MOCK.Workout,
+    mockup: WorkoutModel,
+  },
   User: {
     data: MOCK.User,
     mockup: UserModel,
   },
-  Workout: {
-    data: MOCK.Workout,
-    mockup: WorkoutModel
-  },
-  ActivityType: {
-    data: MOCK.ActivityType,
-    mockup: ActivityType
-  },
-  AggregateData: {
-    data: MOCK.AggregateData,
-    mockup: AggregateData
-  },
-  Membership: {
-    data: MOCK.Membership,
-    mockup: MembershipModel
-  },
-  Event: {
-    data: MOCK.Event,
-    mockup: EventModel
-  },
-  Report: {
-    data: MOCK.Report,
-    mockup: ReportModel
-  },
-  SleepDetails: {
-    data: MOCK.SleepDetails,
-    mockup: SleepModel
-  },
-  SurveryResponse: {
-    data: MOCK.SurveryResponse,
-    mockup: SurveryResponseModel
-  },
-  VoiceOfWhoop: {
-    data: MOCK.VoiceOfWhoop,
-    mockup: VoiceOfWhoopModel
-  },
-  VoiceOfWhoopCycle: {
-    data: MOCK.VoiceOfWhoopCycle,
-    mockup: VoiceOfWhoopModel
-  },
-  Metric: {
-    data: MOCK.Metric,
-    mockup: MetricModel
-  },
-
 };
 
 export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
 }
 
-export function getUserMockupData(dataType, dataModel, dataDate) {
+export function getWorkoutMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-
+  mockupData = dataModels[dataModel].data;
   [
     "id",
-    "avatarUrl",
-    "createdAt",
-    "updatedAt",
-    "firstName",
-    "lastName",
-    "city",
-    "country",
-    "adminDivision",
-    "fullName",
-    "preferences",
-    "email",
-    "concealed",
-    "membershipStatus",
-    "privacyProfile",
-    "profile"
+    "user_id",
+    "start",
+    "end",
+    "created_at",
+    "updated_at",
+    "timezone_offset",
+    "sport_id",
+    "score_state",
+    "score",
   ].forEach((key, i) => {
     switch (key) {
-      case "profile":
+      case "score":
         [
-          "userID",
-          "bioDataId",
-          "height",
-          "weight",
-          "birthday",
-          "gender",
-          "unitSystem",
-          "fitnessLevel",
-          "createdAt",
-          "updatedAt",
-          "timezoneOffset",
-          "id",
-          "maxHeartRate",
-          "minHeartRate",
-          "avgHeartRate",
-          "kilojoules",
-          "canUploadData"
+          "strain",
+          "average_heart_rate",
+          "max_heart_rate",
+          "kilojoule",
+          "percent_recorded",
+          "distance_meter",
+          "altitude_gain_meter",
+          "altitude_change_meter",
+          "zone_duration"
         ].forEach((key2, i) => {
           switch(key2){
-            case "avgHeartRate":
-              mockupData[key][key2] = ProfileModel[key2](mockupData[key]["maxHeartRate"], mockupData[key]["minHeartRate"]);
-              break;
-            case "updatedAt":
-              mockupData[key][key2] = ProfileModel[key2](mockupData[key]["createdAt"]);
-              break;
             default:
-              mockupData[key][key2] = ProfileModel[key2]();
-              break;
+              mockupData[key][key2] = mockupModel[key2]();
+              break
           }
         })
+        break
+      case "end":
+        mockupData[key] = mockupModel[key](mockupData["start"]);
         break;
-      case "updatedAt":
-        mockupData[key] = mockupModel[key](mockupData["createdAt"]);
+      case "created_at":
+        mockupData[key] = mockupModel[key](mockupData["end"]);
         break;
-      case "fullName":
-        mockupData[key] = mockupModel[key](mockupData["firstName"], mockupData["lastName"]);
+      case "updated_at":
+        mockupData[key] = mockupModel[key](mockupData["created_at"]);
         break;
       default:
         mockupData[key] = mockupModel[key]();
@@ -1304,657 +808,203 @@ export function getUserMockupData(dataType, dataModel, dataDate) {
   return mockupData;
 }
 
-export function getWorkoutMockupData(dataType, dataModel, dataDate) {
+export function getUserMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-  mockupData.forEach((object)=>{
-    [
-      "cycle_id",
-      "created_at",
-      "updated_at",
-      "sport_id",
-      "activity_id",
-      "gps_enabled",
-      "intensity_score",
-      "max_heart_rate",
-      "average_heart_rate",
-      "distance",
-      "performance",
-      "energy",
-      "rpe",
-      "raw_intensity_score",
-      "altitude_gain",
-      "altitude_change",
-      "cumulative_workout_intensity",
-      "zone_durations",
-      "projected_score",
-      "confidence",
-      "wac_prediction",
-      "kilojoules",
-      "user_id",
-      "during",
-      "timezone_offset",
-      "survey_response_id",
-      "percent_recorded",
-      "auto_detected",
-      "state",
-      "responded",
-      "team_act_id",
-      "source"
-    ].forEach((key, i) => {
-      switch (key) {
-        case "updated_at":
-          object[key] = mockupModel[key](object["created_at"]);
-          break;
-        default:
-          object[key] = mockupModel[key]();
-          break;
-      }
-    });
-  
-  })
-  
+  mockupData = dataModels[dataModel].data;
+  [
+    "user_id",
+    "email",
+    "first_name",
+    "last_name"
+  ].forEach((key, i) => {
+    switch (key) {
+      default:
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
+
  
 
   return mockupData;
 }
 
-export function getActivityTypeMockupData(dataType, dataModel, dataDate) {
+export function getSleepMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-  mockupData.forEach((object)=>{
-    [
-      "id",
-      "name",
-      "created_at",
-      "updated_at",
-      "has_gps",
-      "icon_url",
-      "is_current",
-      "has_survey",
-      "category",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "updated_at":
-          object[key] = mockupModel[key](object["created_at"]);
-          break;
-        default:
-          object[key] = mockupModel[key]();
-          break;
-      }
-    });
-  
-  })
-  
- 
-
-  return mockupData;
-}
-
-export function getAggregateDataMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-    [
-      "total_count",
-      "offset",
-    ].forEach((key, i) => {
-      switch (key) {
-        default:
-          mockupData[key] = mockupModel[key]();
-          break;
-      }
-    });
-    mockupData["records"].forEach((object)=>{
-      [
-        "id",
-        "created_at",
-        "updated_at",
-        "scaled_strain",
-        "during",
-        "user_id",
-        "sleep_need",
-        "predicted_end",
-        "timezone_offset",
-        "intensity_score",
-        "data_state",
-        "day_strain",
-        "day_kilojoules",
-        "day_avg_heart_rate",
-        "day_max_heart_rate"
-      ].forEach((key, i) => {
-        switch(key){
-          case "updated_at":
-            object["cycle"][key] = CycleRecords[key](object["cycle"]["created_at"])
-            break
-          default:
-            object["cycle"][key] = CycleRecords[key]()
-        }
-      });
-      object["sleeps"].forEach((sleep)=>{
-        
+  mockupData = dataModels[dataModel].data;
+  [
+    "id",
+    "user_id",
+    "start",
+    "end",
+    "created_at",
+    "updated_at",
+    "timezone_offset",
+    "nap",
+    "score_state",
+    "score",
+  ].forEach((key, i) => {
+    switch (key) {
+      case "score":
         [
-          "cycle_id",
-          "created_at",
-          "updated_at",
-          "activity_id",
-          "during",
-          "score",
-          "quality_duration",
-          "latency",
-          "max_heart_rate",
-          "average_heart_rate",
-          "debt_pre",
-          "debt_post",
-          "need_from_strain",
-          "sleep_need",
-          "habitual_sleep_need",
-          "disturbances",
-          "time_in_bed",
-          "light_sleep_duration",
-          "slow_wave_sleep_duration",
-          "rem_sleep_duration",
-          "cycles_count",
-          "wake_duration",
-          "arousal_time",
-          "no_data_duration",
-          "in_sleep_efficiency",
-          "credit_from_naps",
-          "hr_baseline",
+          "stage_summary",
+          "sleep_needed",
           "respiratory_rate",
-          "sleep_consistency",
-          "algo_version",
-          "projected_score",
-          "projected_sleep",
-          "optimal_sleep_times",
-          "kilojoules",
-          "user_id",
-          "timezone_offset",
-          "percent_recorded",
-          "auto_detected",
-          "state",
-          "responded",
-          "team_act_id",
-          "source",
-          "is_normal",
-          "is_significant",
-          "is_nap"
-        ].forEach((key, i) => {
-          switch(key){
-            case "updated_at":
-              sleep[key] =  SleepModel[key](sleep["created_at"])
-              break;
+          "sleep_performance_percentage",
+          "sleep_consistency_percentage",
+          "sleep_efficiency_percentage"
+        ].forEach((key2, i) => {
+          switch(key2){
+            case "stage_summary":
+              [
+                "total_in_bed_time_milli",
+                "total_awake_time_milli",
+                "total_no_data_time_milli",
+                "total_light_sleep_time_milli",
+                "total_slow_wave_sleep_time_milli",
+                "total_rem_sleep_time_milli",
+                "sleep_cycle_count",
+                "disturbance_count"
+              ].forEach((key3, i) => {
+                switch(key3){
+                  default:
+                    mockupData[key][key2][key3] = mockupModel[key3]();
+                    break
+                }
+              })
+              break
+            case "sleep_needed":
+              [
+                "baseline_milli",
+                "need_from_sleep_debt_milli",
+                "need_from_recent_strain_milli",
+                "need_from_recent_nap_milli"
+              ].forEach((key3, i) => {
+                switch(key3){
+                  default:
+                    mockupData[key][key2][key3] = mockupModel[key3]();
+                    break
+                }
+              })
+              break
             default:
-              sleep[key] =  SleepModel[key]()
-              break;
-          }
-        })
-      });
-      [
-        "during",
-        "id",
-        "date",
-        "calibrating",
-        "created_at",
-        "updated_at",
-        "user_id",
-        "sleep_id",
-        "survey_response_id",
-        "cycle_id",
-        "responded",
-        "recovery_score",
-        "resting_heart_rate",
-        "hrv_rmssd",
-        "state",
-        "prob_covid",
-        "hr_baseline",
-        "skin_temp_celsius",
-        "spo2",
-        "algo_version",
-        "rhr_component",
-        "hrv_component",
-        "history_size",
-        "from_sws",
-        "recovery_rate",
-        "is_normal"
-      ].forEach((key, i) => {
-        switch(key){
-          case "updated_at":
-              object["recovery"][key] =  RecoveryRecords[key](object["recovery"]["created_at"])
-              break;
-          default:
-            object["recovery"][key] = RecoveryRecords[key]()
-        }
-      })
-      object["workouts"].forEach((workout)=>{
-        [
-          "cycle_id",
-          "created_at",
-          "updated_at",
-          "sport_id",
-          "activity_id",
-          "gps_enabled",
-          "intensity_score",
-          "max_heart_rate",
-          "average_heart_rate",
-          "distance",
-          "performance",
-          "energy",
-          "rpe",
-          "raw_intensity_score",
-          "altitude_gain",
-          "altitude_change",
-          "cumulative_workout_intensity",
-          "zone_durations",
-          "projected_score",
-          "confidence",
-          "wac_prediction",
-          "kilojoules",
-          "user_id",
-          "during",
-          "timezone_offset",
-          "survey_response_id",
-          "percent_recorded",
-          "auto_detected",
-          "state",
-          "responded",
-          "team_act_id",
-          "source"
-        ].forEach((key, i) => {
-          switch(key){
-            case "updated_at":
-              workout[key] =  WorkoutModel[key](workout["created_at"])
-              break;
-            default:
-              workout[key] =  WorkoutModel[key]()
-              break;
-          }
-        })
-      })
-      
-    })
-  
-  
- 
-
-  return mockupData;
-}
-
-export function getMembershipMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-    [
-      "affiliate",
-      "balance",
-      "canUpgrade",
-      "cancelAtPeriodEnd",
-      "canceledAt",
-      "cancellationOffer",
-      "cardDigits",
-      "cardType",
-      "checkoutOrigin",
-      "commitmentStart",
-      "commitmentEnd",
-      "coupon",
-      "expirationDate",
-      "membershipStatus",
-      "nextBillAmount",
-      "nextBillDate",
-      "promotion",
-      "retentionPromo",
-      "scheduledCancelDate",
-      "strapSerial",
-      "userId"
-    ].forEach((key, i) => {
-      switch (key) {
-        case "commitmentEnd":
-          mockupData[key] = mockupModel[key](mockupData["commitmentStart"]);
-          break;
-        default:
-          mockupData[key] = mockupModel[key]();
-          break;
-      }
-    });
-    
-      
-  
-  
- 
-
-  return mockupData;
-}
-
-export function getEventMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-  mockupData.forEach((object)=>{
-    [
-      "activity_id",
-      "during",
-      "type",
-    ].forEach((key, i) => {
-      switch (key) {
-        default:
-          object[key] = mockupModel[key]();
-          break;
-      }
-    });
-  })
-    
-
-  return mockupData;
-}
-
-export function getReportMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-    [
-      "total_count",
-      "offset",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "records":
-          mockupData[key].forEach((object)=>{
-            [
-              "id",
-              "user_id",
-              "report_type",
-              "report_during",
-              "view_datetime",
-              "created_at",
-              "updated_at"
-            ].forEach((key2, i) => {
-              object[key2] = ReportRecordModel[key2]()
-            })
-          })
-        default:
-          mockupData[key] = mockupModel[key]();
-          break;
-      }
-    });
-
-    
-
-  return mockupData;
-}
-
-export function getSleepDetailsMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-    [
-      "cycle_id",
-      "created_at",
-      "updated_at",
-      "activity_id",
-      "during",
-      "score",
-      "quality_duration",
-      "latency",
-      "max_heart_rate",
-      "average_heart_rate",
-      "debt_pre",
-      "debt_post",
-      "need_from_strain",
-      "sleep_need",
-      "habitual_sleep_need",
-      "disturbances",
-      "time_in_bed",
-      "light_sleep_duration",
-      "slow_wave_sleep_duration",
-      "rem_sleep_duration",
-      "cycles_count",
-      "wake_duration",
-      "arousal_time",
-      "no_data_duration",
-      "in_sleep_efficiency",
-      "credit_from_naps",
-      "hr_baseline",
-      "respiratory_rate",
-      "sleep_consistency",
-      "algo_version",
-      "projected_score",
-      "projected_sleep",
-      "optimal_sleep_times",
-      "kilojoules",
-      "user_id",
-      "timezone_offset",
-      "percent_recorded",
-      "auto_detected",
-      "state",
-      "responded",
-      "team_act_id",
-      "source",
-      "is_normal",
-      "is_significant",
-      "is_nap",
-    ].forEach((key, i) => {
-      switch (key) {
-        case "updated_at":
-          mockupData[key] = mockupModel[key](mockupData["created_at"]);
-          break;
-        default:
-          mockupData[key] = mockupModel[key]();
-          break;
-      }
-    });
-
-    
-
-  return mockupData;
-}
-
-export function getSurveryResponseMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-    mockupData.forEach((object)=>{
-      [
-        "questionId",
-        "answer",
-        "label",
-      ].forEach((key, i) => {
-        switch (key) {
-          default:
-            object[key] = mockupModel[key]();
-            break;
-        }
-      });
-    })
-    
-
-    
-
-  return mockupData;
-}
-
-export function getVoiceOfWhoopMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-      [
-        "text",
-        "header",
-        "key",
-      ].forEach((key, i) => {
-        switch (key) {
-          default:
-            mockupData[key] = mockupModel[key]();
-            break;
-        }
-      });
-
-    
-
-    
-
-  return mockupData;
-}
-
-export function getVoiceOfWhoopCycleMockupData(dataType, dataModel, dataDate) {
-  let mockupData = {};
-  const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-      [
-        "flags",
-        "baseline",
-        "hoursOfSleep",
-        "naps",
-        "recentStrain",
-        "sleepDebt",
-        "sleepDisturbances",
-        "sleepLatency",
-        "sleepNeed",
-        "sleepPerformanceScore",
-        "timeInBed",
-      ].forEach((key, i) => {
-        switch (key) {
-          case "flags":
-            break;
-          default:
-            [
-              "text",
-              "header",
-              "key",
-            ].forEach((key2)=>{
               mockupData[key][key2] = mockupModel[key2]();
-            })
-            break;
-        }
-      });
+              break
+          }
+        })
+        break
+      case "end":
+        mockupData[key] = mockupModel[key](mockupData["start"]);
+        break;
+      case "created_at":
+        mockupData[key] = mockupModel[key](mockupData["end"]);
+        break;
+      case "updated_at":
+        mockupData[key] = mockupModel[key](mockupData["created_at"]);
+        break;
+      default:
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
 
-    
-
-    
+ 
 
   return mockupData;
 }
 
-export function getMetricMockupData(dataType, dataModel, dataDate) {
+export function getRecoveryMockupData(dataModel, dataDate) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
-  if (dataType === "SYNC") {
-    mockupData = dataModels[dataModel].data;
-  }
-  if (dataType === "ASYNC") {
-    const mockupDataRow = dataModels[dataModel].data[1].split("\t");
-    const mockupDataHeader = dataModels[dataModel].data[0].split("\t");
-    mockupDataHeader.forEach((k, i) => {
-      mockupData[k] = mockupDataRow[i];
-    });
-  }
-      [
-        "name",
-        "start",
-        "values",
-      ].forEach((key, i) => {
-        switch (key) {
-          default:
-            mockupData[key] = mockupModel[key]();
-            break;
-        }
-      });
+  mockupData = dataModels[dataModel].data;
+  [
+    "cycle_id",
+    "sleep_id",
+    "user_id",
+    "created_at",
+    "updated_at",
+    "score_state",
+    "score"
+  ].forEach((key, i) => {
+    switch (key) {
+      case "score":
+        [
+          "user_calibrating",
+          "recovery_score",
+          "resting_heart_rate",
+          "hrv_rmssd_milli",
+          "spo2_percentage",
+          "skin_temp_celsius"
+        ].forEach((key2, i) => {
+          switch(key2){
+            default:
+              mockupData[key][key2] = mockupModel[key2]();
+              break
+          }
+        })
+        break
+      case "updated_at":
+        mockupData[key] = mockupModel[key](mockupData["created_at"]);
+        break;
+      default:
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
 
-    
-
-    
+ 
 
   return mockupData;
 }
 
+export function getCycleMockupData(dataModel, dataDate) {
+  let mockupData = {};
+  const mockupModel = dataModels[dataModel].mockup;
+  mockupData = dataModels[dataModel].data;
+  [
+    "id",
+    "user_id",
+    "start",
+    "end",
+    "created_at",
+    "updated_at",
+    "timezone_offset",
+    "score_state",
+    "score"
+  ].forEach((key, i) => {
+    switch (key) {
+      case "score":
+        [
+          "strain",
+          "kilojoule",
+          "average_heart_rate",
+          "max_heart_rate"
+        ].forEach((key2, i) => {
+          switch(key2){
+            default:
+              mockupData[key][key2] = mockupModel[key2]();
+              break
+          }
+        })
+        break
+      case "end":
+        mockupData[key] = mockupModel[key](mockupData["start"]);
+        break;
+      case "created_at":
+        mockupData[key] = mockupModel[key](mockupData["end"]);
+        break;
+      case "updated_at":
+        mockupData[key] = mockupModel[key](mockupData["created_at"]);
+        break;
+      default:
+        mockupData[key] = mockupModel[key]();
+        break;
+    }
+  });
 
+ 
+
+  return mockupData;
+}
