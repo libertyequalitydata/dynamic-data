@@ -286,36 +286,16 @@ const ActivitiesSummaryModel = {
     return Math.round(calories + getRandomInt(0, 100));
   },
   distances: () => {
-    return [
-      {
-        activity: "total",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "tracker",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "loggedActivities",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "veryActive",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "moderatelyActive",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "lightlyActive",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-      {
-        activity: "sedentaryActive",
-        distance: getRandomInt(0, 1000) / 100,
-      },
-    ]
+    return {
+      "total": getRandomInt(0, 1000) / 100,
+      "tracker": getRandomInt(0, 1000) / 100,
+      "loggedActivities": getRandomInt(0, 1000) / 100,
+      "veryActive": getRandomInt(0, 1000) / 100,
+      "moderatelyActive": getRandomInt(0, 1000) / 100,
+      "lightlyActive": getRandomInt(0, 1000) / 100,
+      "sedentaryActive": getRandomInt(0, 1000) / 100,
+    }
+
   },
   elevation: () => {
     return getRandomInt(0, 1000) / 100;
