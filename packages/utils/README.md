@@ -5,35 +5,139 @@
 ## Usage
 ```
 // CJS/Node
-
 const {getRandomTimeZone} =require("@dynamic-data/utils");
 const UTILS =require("@dynamic-data/utils"); // All objects...
-
+const timezone = getRandomTimeZone()
+const timezone2 = UTILS.getRandomTimeZone()
 ```
 
 ```
 // ESM/React
-
 import {getRandomTimeZone} from "@dynamic-data/utils";
 import UTILS from "@dynamic-data/utils"; // All objects...
-
+const timezone = getRandomTimeZone()
+const timezone2 = UTILS.getRandomTimeZone()
 ```
-lib
-
 ## Functions
 ### toIsoString
+desc: **returns a given date in an ISO format**
+params: 
+- date - the date to return as an ISO string
+
+example return: 
+```
+2022-04-21T12:42:51+5:00
+```
+
 ### getRandomInt
+desc: **returns a random Integer between 2 values**
+params: 
+- min - minimum integer to be returned
+- max - maximum integer to be returned
+
+example return: 
+```
+4562
+```
+
 ### getNewDate
+desc: **returns a date a set amount of days into the future**
+params: 
+- dStr - Base date to find a date in the future from
+- days - amount of days to be added to the date
+- format - the format to return the date as
+
+example return: 
+```
+2022-04-21T12:42:51+5:00
+```
+
 ### getSleepDate
+desc: **returns a date-time a couple of hours ahead to represent the end of a sleep period**
+params: 
+- sleepDate - date of the beginning of the sleep period
+- startHour - start hour of the sleep period
+- rangeHour - maximum amount of hours the sleep period could last for
+
+example return: 
+```
+2022-04-21T12:42:51+5:00
+```
+
 ### pickRandomValue
+desc: **returns a random value from an array**
+params: 
+- items - the array of items to pick a random value from
+
+example return: 
+```
+item1
+```
+
 ### getRandBool
+desc: **returns a random boolean value**
+params: 
+- NONE
+
+example return: 
+```
+true
+```
+
 ### getRandomFloat
+desc: **returns a random float number with 1-2 decimal places**
+params: 
+- min - minimum number in the range
+- max - maximum number in the range
+
+example return: 
+```
+12.5
+```
+
 ### getRandomDateTime
+desc: **returns a random date-time**
+params: 
+- formatString - string format for the data to be returned as, e.g. YYYY-MM-DDThh:mm:ss
+
+example return: 
+```
+2022-04-21T12:42:51
+```
+
 ### getFurtherDateTime
+desc: **returns a date-time further than the one provided**
+params: 
+- date - original date to get a new date further from
+- formatString - string format for the data to be returned as, e.g. YYYY-MM-DDThh:mm:ss
+
+example return: 
+```
+2022-04-21T12:42:51
+```
+
 ### getRandomString
+desc: **returns a random string**
+params: 
+- len - length of the string to be returned, e.g. SIMPLE WEST ISO-4217
+
+example return: 
+```
+sdaf6789dafs9678adfs
+```
+
 ### parseSecondsToString
+desc: **converts time in seconds to string HH:MM:SS**
+params: 
+- val - the length of time (in seconds) to be converted into HH:MM:SS format 
+
+example return: 
+```
+12:05:35
+```
+
 ### getRandomAddress
-desc: **Generates a random address**
+desc: **Generates a random address**<br/>
 params: 
 - NONE
 
@@ -69,7 +173,7 @@ example return:
 ```
 
 ### getRandomName
-desc: **Generates a random Name**
+desc: **Generates a random Name**<br/>
 params: 
 - NONE 
 
