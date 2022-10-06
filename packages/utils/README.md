@@ -21,6 +21,7 @@ const timezone2 = UTILS.getRandomTimeZone()
 ## Functions
 ### toIsoString
 desc: **returns a given date in an ISO format**
+
 params: 
 - date - the date to return as an ISO string
 
@@ -31,6 +32,7 @@ example return:
 
 ### getRandomInt
 desc: **returns a random Integer between 2 values**
+
 params: 
 - min - minimum integer to be returned
 - max - maximum integer to be returned
@@ -42,6 +44,7 @@ example return:
 
 ### getNewDate
 desc: **returns a date a set amount of days into the future**
+
 params: 
 - dStr - Base date to find a date in the future from
 - days - amount of days to be added to the date
@@ -54,6 +57,7 @@ example return:
 
 ### getSleepDate
 desc: **returns a date-time a couple of hours ahead to represent the end of a sleep period**
+
 params: 
 - sleepDate - date of the beginning of the sleep period
 - startHour - start hour of the sleep period
@@ -66,6 +70,7 @@ example return:
 
 ### pickRandomValue
 desc: **returns a random value from an array**
+
 params: 
 - items - the array of items to pick a random value from
 
@@ -76,6 +81,7 @@ item1
 
 ### getRandBool
 desc: **returns a random boolean value**
+
 params: 
 - NONE
 
@@ -86,6 +92,7 @@ true
 
 ### getRandomFloat
 desc: **returns a random float number with 1-2 decimal places**
+
 params: 
 - min - minimum number in the range
 - max - maximum number in the range
@@ -97,6 +104,7 @@ example return:
 
 ### getRandomDateTime
 desc: **returns a random date-time**
+
 params: 
 - formatString - string format for the data to be returned as, e.g. YYYY-MM-DDThh:mm:ss
 
@@ -107,6 +115,7 @@ example return:
 
 ### getFurtherDateTime
 desc: **returns a date-time further than the one provided**
+
 params: 
 - date - original date to get a new date further from
 - formatString - string format for the data to be returned as, e.g. YYYY-MM-DDThh:mm:ss
@@ -118,6 +127,7 @@ example return:
 
 ### getRandomString
 desc: **returns a random string**
+
 params: 
 - len - length of the string to be returned, e.g. SIMPLE WEST ISO-4217
 
@@ -128,6 +138,7 @@ sdaf6789dafs9678adfs
 
 ### parseSecondsToString
 desc: **converts time in seconds to string HH:MM:SS**
+
 params: 
 - val - the length of time (in seconds) to be converted into HH:MM:SS format 
 
@@ -137,7 +148,8 @@ example return:
 ```
 
 ### getRandomAddress
-desc: **Generates a random address**<br/>
+desc: **Generates a random address**
+
 params: 
 - NONE
 
@@ -159,6 +171,7 @@ example return:
 
 ### randomCountry
 desc: **Fetches a random country and country code**
+
 params: 
 - opts 
     -   full (bool) - whether the full name of the country is returned
@@ -173,7 +186,8 @@ example return:
 ```
 
 ### getRandomName
-desc: **Generates a random Name**<br/>
+desc: **Generates a random Name**
+
 params: 
 - NONE 
 
@@ -184,6 +198,7 @@ Alex
 
 ### getRandomCarDetails
 desc: **Gets some random car details (make and model)**
+
 params: 
 - NONE 
 
@@ -197,6 +212,7 @@ example return:
 
 ### getRandomLatLng
 desc: **Gets a random pair of Latitude Longitude values**
+
 params: 
 - NONE 
 
@@ -218,6 +234,7 @@ aBUSUgsuasSk
 
 ### randomUUID
 desc: **Gets a random UUID(Universally unique identifier)**
+
 params: 
 - NONE 
 
@@ -231,6 +248,7 @@ desc: **Gets a random international country**
 - code - ISO code of currency
 - symbol - symbol for the currency 
 - end - whether the symbol appeared at the end or beginning of string
+
 params: 
 -   type  (string) - desired subset of currencies to search, e.g. SIMPLE WEST ISO-4217
 -   find  (bool) - whether the entire data object is returned
