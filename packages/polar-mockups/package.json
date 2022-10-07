@@ -3,7 +3,13 @@
   "version": "1.0.6",
   "description": "Dynamic Data Faker for Polar",
   "author": "Jashaul <djashaul@gmail.com>",
-  "homepage": "https://github.com/Jashaul/dynamic-data#readme",
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Polar", "Health", "Fitness", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

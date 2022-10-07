@@ -3,6 +3,13 @@
   "version": "0.0.9",
   "description": "Mockup Data for IOS-Health connector",
   "author": "tero <tero@prifina.com>",
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Apple", "iOS", "Health", "iOS Health", "Fitness", "Data", "Data Model", "Model", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
