@@ -2,7 +2,8 @@
   "name": "@dynamic-data/lyft-mockups",
   "version": "1.0.6",
   "description": "Dynamic Data Faker for Lyft",
-  "author": "Jashaul <djashaul@gmail.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>","Jashaul <djashaul@gmail.com>"],
   "repository": {
     "type" : "git",
     "url" : "git@github.com:libertyequalitydata/dynamic-data.git"

@@ -2,7 +2,8 @@
   "name": "@dynamic-data/peloton-mockups",
   "version": "0.0.12",
   "description": "Peloton Mockup Data Generators",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
   "repository": {
     "type" : "git",
     "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
