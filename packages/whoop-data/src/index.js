@@ -1,31 +1,17 @@
 //
 import { 
-  ActivityType,
-  AggregateData,
-  Event,
-  Membership,
-  Metric,
-  Report,
-  SleepDetails,
-  SurveryResponse,
+  Cycle,
+  Recovery,
+  Sleep,
   User,
-  VoiceOfWhoop,
-  VoiceOfWhoopCycle,
-  Workout
+  Workout,
  } from "./mockups";
 
 const Data = {
-  ActivityType,
-  AggregateData,
-  Event,
-  Membership,
-  Metric,
-  Report,
-  SleepDetails,
-  SurveryResponse,
+  Cycle,
+  Recovery,
+  Sleep,
   User,
-  VoiceOfWhoop,
-  VoiceOfWhoopCycle,
   Workout
 };
 

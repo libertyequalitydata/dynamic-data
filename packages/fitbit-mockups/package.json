@@ -2,7 +2,15 @@
   "name": "@dynamic-data/fitbit-mockups",
   "version": "0.0.15",
   "description": "Fitbit Mockup Data Generators",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Fitbit", "Health", "Fitness", "Fitness Tracker", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

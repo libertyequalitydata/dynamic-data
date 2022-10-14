@@ -2,8 +2,15 @@
   "name": "@dynamic-data/lyft-data",
   "version": "1.0.2",
   "description": "Mockup Data for Lyft",
-  "author": "Jashaul <djashaul@gmail.com>",
-  "homepage": "https://github.com/Jashaul/dynamic-data#readme",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>","Jashaul <djashaul@gmail.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Lyft", "Travel", "Data", "Data Model", "Model", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

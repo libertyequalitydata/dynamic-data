@@ -2,7 +2,15 @@
   "name": "@dynamic-data/strava-data",
   "version": "0.0.9",
   "description": "Mockup Data for Strava connector",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Strava", "Health", "Fitness", "Route", "Data", "Data Model", "Model", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

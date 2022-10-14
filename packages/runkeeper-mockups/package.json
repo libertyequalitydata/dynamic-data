@@ -2,7 +2,15 @@
   "name": "@dynamic-data/runkeeper-mockups",
   "version": "1.0.7",
   "description": "Dynamic Data Generator for RunKeeper App",
-  "author": "Jashaul <djashaul@gmail.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>","Jashaul <djashaul@gmail.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Runkeeper", "Health", "Fitness", "Route", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",

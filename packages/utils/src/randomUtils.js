@@ -119,6 +119,8 @@ export function getRandomDateTime(formatString = null) {
       return `${finalDate.getFullYear()}-${month}-${date}`
     case "YYYY-MM-DDThh:mm:ss.000Z":
       return `${finalDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}.000Z`
+    case "YYYY-DD-MMThh:mm:ss.000Z":
+      return `${finalDate.getFullYear()}-${date}-${month}T${hours}:${minutes}:${seconds}.000Z`
     case "YYYY-MM-DDThh:mm:ss":
       return `${finalDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}`
     default:
@@ -128,24 +130,30 @@ export function getRandomDateTime(formatString = null) {
 
 export function getFurtherDateTime(date, formatString = null) {
   var modifiedDate = new Date(date.split("T")[0])
+
   modifiedDate.setHours(date.split("T")[1].split(":")[0])
   modifiedDate.setMinutes(date.split("T")[1].split(":")[1])
-  modifiedDate.setSeconds(date.split("T")[1].split(":")[2])
-  modifiedDate.setTime(modifiedDate.getTime() + 99999999)
+  modifiedDate.setSeconds(date.split("T")[1].split(":")[2].split(".")[0])
+  modifiedDate.setTime(modifiedDate.getTime() + getRandomInt(0,999999))
+  
   var hours = modifiedDate.getHours()
   var minutes = modifiedDate.getMinutes()
   var seconds = modifiedDate.getSeconds()
   if (hours < 10) hours = `0${hours}`
   if (minutes < 10) minutes = `0${hours}`
   if (seconds < 10) seconds = `0${hours}`
+  var date = modifiedDate.getDate()
+  if (date < 10) date = `0${date}`
+  var month = modifiedDate.getMonth() + 1
+  if (month < 10) month = `0${month}`
 
   switch (formatString) {
     case "YYYY-MM-DD":
-      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}`
+      return `${modifiedDate.getFullYear()}-${month}-${date}`
     case "YYYY-MM-DDThh:mm:ss.000Z":
-      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}.000Z`
+      return `${modifiedDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}.000Z`
     case "YYYY-MM-DDThh:mm:ss":
-      return `${modifiedDate.getFullYear()}-${modifiedDate.getMonth() + 1}-${modifiedDate.getDate()}T${hours}:${minutes}:${seconds}`
+      return `${modifiedDate.getFullYear()}-${month}-${date}T${hours}:${minutes}:${seconds}`
     default:
       return modifiedDate.getTime()
   }
@@ -724,7 +732,7 @@ export function getRandomTimeZone() {
       }
     },
   ]
-  return timeZones[getRandomInt(0, timeZones.length) - 1]
+  return pickRandomValue(timeZones)
 
 }
 
