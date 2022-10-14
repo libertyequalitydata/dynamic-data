@@ -2,7 +2,7 @@
    ![Amount of Contributors to the Repo](https://img.shields.io/github/contributors/libertyequalitydata/dynamic-data?style=for-the-badge) ![Amount of Stars for the Repo](https://img.shields.io/github/stars/libertyequalitydata/dynamic-data?style=for-the-badge) ![Amount of Forks for the Repo](https://img.shields.io/github/forks/libertyequalitydata/dynamic-data?style=for-the-badge) ![Amount of Open Issues for the Repo](https://img.shields.io/github/issues/libertyequalitydata/dynamic-data?style=for-the-badge)
 <div align="center">
 <p float="left">
-	<a href="https://www.prifina.com/"><img src="https://www.prifina.com/uploads/1/0/1/4/101493144/prifina-new-logo-big-black_orig.png" alt="Prifina Inc Logo" height="80"><img src="https://www.prifina.com/uploads/1/0/1/4/101493144/prifina-new-logo-big-white_orig.png" alt="Prifina Inc Logo" height="80"></a>
+	<a href="https://www.prifina.com/"><img src="docs/Prifina_Logo.png" alt="Prifina Inc Logo" height="80"></a>
 </p>
 <h1> Dynamic Data Fakers</h1>
 </div>
@@ -98,4 +98,4 @@ We welcome contributions and forks to this data set, and look forward to seeing 
 6. Push Commit to Original Repo `git push origin main`
 7. Open a Pull Request
 
-For a more thorough step-by-step guide, please visit [this document](https://docs.google.com/document/d/e/2PACX-1vSW7MvmM0KldCtDeSYbSPgSVkn38mSiPJXk_ge6vP6FKJkRvU4wFnhR-w59IFDhIuNo-bmZ2cfMUqzE/pub)
+For a more thorough step-by-step guide, please visit [this document](https://prifina.notion.site/Creating-and-Improving-Data-Fakers-7fec940f15a64b5aa378d84eaa9b278e)
