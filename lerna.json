@@ -7,9 +7,13 @@
   "version": "independent",
   "ignoreChanges": [
     "**/CHANGELOG.md",
+    "**/README.md",
     "**/node_modules/**",
     "**/package.json",
     "**/*.md",
-    "**/perf/**"
+    "**/perf/**",
+    "**/babel.config.js",
+    "**/jest.config.js",
+    "**/__tests__/**"
   ]
 }

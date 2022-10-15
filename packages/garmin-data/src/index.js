@@ -1,14 +1,14 @@
-import { DailiesData, EpochsData, SleepsData, PulseoxData, DailiesDataObject, EpochsDataObject, SleepsDataObject, PulseoxObject } from "./mockups";
+import { DailiesData, EpochsData, SleepsData, PulseoxData, DailiesDataAsync, EpochsDataAsync, SleepsDataAsync, PulseoxDataAsync } from "./mockups";
 
 const Data = {
   DailiesData,
   EpochsData,
   SleepsData,
   PulseoxData,
-  DailiesDataObject,
-  EpochsDataObject,
-  SleepsDataObject,
-  PulseoxObject,
+  DailiesDataAsync,
+  EpochsDataAsync,
+  SleepsDataAsync,
+  PulseoxDataAsync,
 };
 
 export default Data;

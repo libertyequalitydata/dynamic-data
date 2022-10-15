@@ -17,7 +17,7 @@ describe("utils", () => {
   });
   it("getSleepDate", () => {
     const result = utils.getSleepDate("2022-04-03", 22, 3);
-    console.log(typeof result);
+    // console.log(typeof result);
     //expect(typeof result).toEqual("number");
   });
   it("pickRandomValue", () => {
@@ -66,10 +66,10 @@ describe("utils", () => {
     expect(val).toBe('03:25:45');
   });
   it('address', () => {
-    const address = utils.getRandomAddress('NY', 'New York');
+    const address = utils.getRandomAddress();
 
     // checking if value is of type string
-    expect(typeof address).toBe('array');
+    expect(typeof address).toBe('object');
   });
   it('getRandomName', () => {
     const name = utils.getRandomName();

@@ -1,5 +1,7 @@
 //
 import {
+  SleepData,
+  SleepDataAsync,
   SleepSummary,
   SleepSummaryAsync,
   ActivitySummary,
@@ -9,6 +11,8 @@ import {
 } from "./mockups";
 
 const Data = {
+  SleepData,
+  SleepDataAsync,
   SleepSummary,
   SleepSummaryAsync,
   ActivitySummary,

@@ -10,6 +10,6 @@
   },
   "scripts": {
     "build": "lerna run build",
-    "test": "lerna run --parallel test"
+    "test": "lerna run test --parallel --no-sort"
   }
 }

@@ -3,36 +3,17 @@ export const ActivitiesSummary = {
   activityCalories: 1101,
   caloriesBMR: 1099,
   caloriesOut: 2030,
-  distances: [
-    {
-      activity: "total",
-      distance: 4.63,
-    },
-    {
-      activity: "tracker",
-      distance: 4.63,
-    },
-    {
-      activity: "loggedActivities",
-      distance: 0,
-    },
-    {
-      activity: "veryActive",
-      distance: 1.1,
-    },
-    {
-      activity: "moderatelyActive",
-      distance: 0.63,
-    },
-    {
-      activity: "lightlyActive",
-      distance: 2.88,
-    },
-    {
-      activity: "sedentaryActive",
-      distance: 0,
-    },
-  ],
+
+  distances: {
+    "total": 4.63,
+    "tracker": 4.63,
+    "loggedActivities": 0,
+    "veryActive": 1.1,
+    "moderatelyActive": 0.63,
+    "lightlyActive": 2.88,
+    "sedentaryActive": 0,
+  },
+
   elevation: 0,
   fairlyActiveMinutes: 23,
   floors: 0,

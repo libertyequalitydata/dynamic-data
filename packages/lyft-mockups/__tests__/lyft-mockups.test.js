@@ -1,32 +1,55 @@
 'use strict';
 
 const {
-    rideTypes,
-    driverETA,
-    rideEstimates,
-    nearby_drivers
+    getDriverETAMockupData,
+    getNearbyDriversMockupData,
+    getRideEstimatesMockupData,
+    getRideTypesMockupData
 } = require('@dynamic-data/lyft-mockups');
 
 describe('@dynamic-data/lyft-mockups', () => {
-  it('check if rideTypes of type object', () => {
-     
-    expect(typeof rideTypes).toBe('object');
-    expect(!Array.isArray(rideTypes)).toBeTruthy();
-    expect(Object.keys(rideTypes).length).not.toBe(0);
+  it("getDriverETAMockupData", () => {
+    const result = getDriverETAMockupData (
+      "SYNC",
+      "DriverETA",
+      "2022-04-03"
+    );
+    console.log("getDriverETAMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log(MOCK)
+    // const result = {}
+    expect(typeof result).toBe("object");
   });
-  it('check if driverETA of type object', () => {
-    expect(typeof driverETA).toBe('object');
-    expect(!Array.isArray(driverETA)).toBeTruthy();
-    expect(Object.keys(driverETA).length).not.toBe(0);
+  it("getNearbyDriversMockupData", () => {
+    const result = getNearbyDriversMockupData (
+      "SYNC",
+      "NearbyDrivers",
+      "2022-04-03"
+    );
+    console.log("getNearbyDriversMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log(MOCK)
+    // const result = {}
+    expect(typeof result).toBe("object");
   });
-  it('check if rideEstimates of type object', () => {
-    expect(typeof rideEstimates).toBe('object');
-    expect(!Array.isArray(rideEstimates)).toBeTruthy();
-    expect(Object.keys(rideEstimates).length).not.toBe(0);
+  it("getRideEstimatesMockupData", () => {
+    const result = getRideEstimatesMockupData (
+      "SYNC",
+      "RideEstimates",
+      "2022-04-03"
+    );
+    console.log("getRideEstimatesMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log(MOCK)
+    // const result = {}
+    expect(typeof result).toBe("object");
   });
-  it('check if nearby_drivers of type object', () => {
-    expect(typeof nearby_drivers).toBe('object');
-    expect(!Array.isArray(nearby_drivers)).toBeTruthy();
-    expect(Object.keys(nearby_drivers).length).not.toBe(0);
+  it("getRideTypesMockupData", () => {
+    const result = getRideTypesMockupData (
+      "SYNC",
+      "RideTypes",
+      "2022-04-03"
+    );
+    console.log("getRideTypesMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log(MOCK)
+    // const result = {}
+    expect(typeof result).toBe("object");
   });
 });

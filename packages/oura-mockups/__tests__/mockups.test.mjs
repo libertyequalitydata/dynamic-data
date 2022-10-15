@@ -32,7 +32,7 @@ describe("Oura", () => {
   });
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
-      "SYNC",
+
       "ActivitySummary",
       "2022-04-03T04:00:00+03:00"
     );
@@ -42,7 +42,7 @@ describe("Oura", () => {
 
   it("getReadinessMockupData", () => {
     const result = getReadinessMockupData(
-      "SYNC",
+
       "ReadinessSummary",
       "2022-04-03T04:00:00+03:00"
     );
@@ -52,7 +52,7 @@ describe("Oura", () => {
 
   it("getSleepMockupData", () => {
     const result = getSleepMockupData(
-      "SYNC",
+
       "SleepSummary",
       "2022-04-03T04:00:00+03:00"
     );

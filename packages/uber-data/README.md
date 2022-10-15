@@ -6,12 +6,12 @@
 
 Dataobjects:
 
+- paymentHistory
 - products
 - productDetails
 - priceEstimates
 - timeEstimates
 - userInfo
-- userHistory
 - savedPlaces
 - rideDetails
 - rideMapDetails
