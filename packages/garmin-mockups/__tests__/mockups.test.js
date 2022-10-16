@@ -3,9 +3,10 @@
 const { getRandomInt } = require("@dynamic-data/utils");
 
 const MOCK = require("@dynamic-data/garmin-data");
+
 const {
-  getDailiesMockupData,  
-  getSleepMockupData,
+  getDailiesMockupData,
+  getSleepsMockupData,
   getPulseoxMockupData,
   getEpochsMockupData
 } = require("@dynamic-data/garmin-mockups");
@@ -14,83 +15,44 @@ describe("Garmin", () => {
   //test.todo("needs tests");
   it("getDailiesMockupData", () => {
     const result = getDailiesMockupData(
-      "ASYNC",
-      "DailiesDataAsync",
+
+      "DailiesData",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getDailiesMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
-      "ASYNC",
-      "SleepsDataAsync",
+  it.only("getSleepMockupData", () => {
+    const result = getSleepsMockupData(
+
+      "SleepsData",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getSleepMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(result.sleeplevelsmap);
     expect(typeof result).toBe("object");
   });
 
   it("getPulseoxMockupData", () => {
     const result = getPulseoxMockupData(
-      "ASYNC",
-      "PulseoxAsync",
+
+      "PulseoxData",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getPulseoxMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
   it("getEpochsMockupData", () => {
     const result = getEpochsMockupData(
-      "ASYNC",
-      "EpochsDataAsync",
+
+      "EpochsData",
       "2022-04-03"
     );
-    // console.log(result);
+    console.log("getEpochsMockupData ", JSON.stringify(result, undefined, 2));
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
-      "SYNC",
-      "SleepsDataObject",
-      "2022-04-03"
-    );
-    // console.log(result);
-    expect(typeof result).toBe("object");
-  });
-
-  it("getPulseoxMockupData", () => {
-    const result = getPulseoxMockupData(
-      "SYNC",
-      "PulseoxObject",
-      "2022-04-03"
-    );
-    // console.log(result);
-    expect(typeof result).toBe("object");
-  });
-
-  it("getEpochsMockupData", () => {
-    const result = getEpochsMockupData(
-      "SYNC",
-      "EpochsDataObject",
-      "2022-04-03"
-    );
-    // console.log(result);
-    expect(typeof result).toBe("object");
-  });
-
-  it("getDailiesMockupData", () => {
-    const result = getDailiesMockupData(
-      "SYNC",
-      "DailiesDataObject",
-      "2022-04-03"
-    );
-    // console.log(result);
-    expect(typeof result).toBe("object");
-  });
 
 });

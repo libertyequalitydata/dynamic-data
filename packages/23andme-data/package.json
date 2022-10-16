@@ -1,8 +1,16 @@
 {
   "name": "@dynamic-data/23andme-data",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Mockup Data for 23andme connector",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["23andMe", "Genetic", "DNA", "Data", "Data Model", "Model", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,7 +35,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "test": "./node_modules/.bin/jest"
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage -c ../../jest.config.js  --selectProjects=@dynamic-data/23andme-data"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

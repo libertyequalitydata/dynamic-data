@@ -2,14 +2,14 @@
 
 const MOCK = require("@dynamic-data/garmin-data");
 
-const { DailiesData, 
-  DailiesDataObject,
-EpochsData,
-EpochsDataObject,
-PulseoxData,
-PulseoxObject,
-SleepsData,
-SleepsDataObject } = require("@dynamic-data/garmin-data/mockups");
+const { DailiesData,
+  DailiesDataAsync,
+  EpochsData,
+  EpochsDataAsync,
+  PulseoxData,
+  PulseoxDataAsync,
+  SleepsData,
+  SleepsDataAsync } = require("@dynamic-data/garmin-data/mockups");
 
 describe("Garmin", () => {
   //test.todo("needs tests");
@@ -24,37 +24,37 @@ describe("Garmin", () => {
   });
   */
   it("Expanded DailiesData datamodel from default", () => {
-    
+
     // console.log("DailiesData ", JSON.stringify(DailiesData, undefined, 2));
     expect(typeof DailiesData).toBe("object");
   });
-  it("Expanded DailiesDataObject datamodel from default", () => {
+  it("Expanded DailiesDataAsync datamodel from default", () => {
     // console.log("DailiesDataObject ", JSON.stringify(DailiesDataObject, undefined, 2));
-    expect(typeof DailiesDataObject).toBe("object");
+    expect(typeof DailiesDataAsync).toBe("object");
   });
   it("Expanded EpochsData datamodel from default", () => {
     // console.log("EpochsData ", JSON.stringify(EpochsData, undefined, 2));
     expect(typeof EpochsData).toBe("object");
   });
-  it("Expanded EpochsDataObject datamodel from default", () => {
+  it("Expanded EpochsDataAsync datamodel from default", () => {
     // console.log("EpochsDataObject ", JSON.stringify(EpochsDataObject, undefined, 2));
-    expect(typeof EpochsDataObject).toBe("object");
+    expect(typeof EpochsDataAsync).toBe("object");
   });
   it("Expanded PulseoxData datamodel from default", () => {
     // console.log("PulseoxData ", JSON.stringify(PulseoxData, undefined, 2));
     expect(typeof PulseoxData).toBe("object");
   });
-  it("Expanded PulseoxObject datamodel from default", () => {
+  it("Expanded PulseoxDataAsync datamodel from default", () => {
     // console.log("PulseoxObject ", JSON.stringify(PulseoxObject, undefined, 2));
-    expect(typeof PulseoxObject).toBe("object");
+    expect(typeof PulseoxDataAsync).toBe("object");
   });
   it("Expanded SleepsData datamodel from default", () => {
     // console.log("SleepsData ", JSON.stringify(SleepsData, undefined, 2));
     expect(typeof SleepsData).toBe("object");
   });
-  it("Expanded SleepsDataObject datamodel from default", () => {
+  it("Expanded SleepsDataAsync datamodel from default", () => {
     // console.log("SleepsDataObject ", JSON.stringify(SleepsDataObject, undefined, 2));
-    expect(typeof SleepsDataObject).toBe("object");
-  }); 
+    expect(typeof SleepsDataAsync).toBe("object");
+  });
 });
 

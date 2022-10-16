@@ -1,8 +1,16 @@
 {
   "name": "@dynamic-data/google-mockups",
-  "version": "0.0.8",
+  "version": "0.0.12",
   "description": "Google Mockup Data Generators",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Google", "Location", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -19,7 +27,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "test": "./node_modules/.bin/jest"
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage -c ../../jest.config.js  --selectProjects=@dynamic-data/google-mockups"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
@@ -33,8 +41,8 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/google-data": "^0.0.8",
-    "@dynamic-data/utils": "^0.0.7",
+    "@dynamic-data/google-data": "^0.0.9",
+    "@dynamic-data/utils": "^0.0.11",
     "jest": "^28.1.3"
   }
 }

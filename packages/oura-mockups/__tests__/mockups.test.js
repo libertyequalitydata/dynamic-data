@@ -28,26 +28,31 @@ describe("Oura", () => {
   });
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
-      "SYNC",
+
       "ActivitySummary",
       "2022-04-03"
     );
-    //console.log(result);
+    console.log("ActivitySummary ", result);
     expect(typeof result).toBe("object");
   });
 
   it("getReadinessMockupData", () => {
     const result = getReadinessMockupData(
-      "SYNC",
+
       "ReadinessSummary",
       "2022-04-03"
     );
-    //console.log(result);
+    console.log("ReadinessSummary ", result);
     expect(typeof result).toBe("object");
   });
 
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData("SYNC", "SleepSummary", "2022-04-03");
+  it("getSleepSummaryMockupData", () => {
+    const result = getSleepMockupData("SleepSummary", "2022-04-03");
+    console.log("SLEEP RESULT ", result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSleepDataMockupData", () => {
+    const result = getSleepMockupData("SleepData", "2022-04-03");
     console.log("SLEEP RESULT ", result);
     expect(typeof result).toBe("object");
   });

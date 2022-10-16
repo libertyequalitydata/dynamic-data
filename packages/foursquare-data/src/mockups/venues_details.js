@@ -86,8 +86,8 @@ export const venues_details = {
         count: 26681,
         groups: [
           {
-            type: "venue",
-            name: "Venue photos",
+            type: "others",
+            name: "All tips",
             count: 26681,
             items: [
               {

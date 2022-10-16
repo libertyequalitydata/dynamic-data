@@ -1,8 +1,16 @@
 {
   "name": "@dynamic-data/fitbit-data",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "Mockup Data for Fitbit connector",
-  "author": "tero <tero@prifina.com>",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": ["Fitbit", "Health", "Fitness", "Fitness Tracker", "Data", "Data Model", "Model", "Prifina"],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,7 +35,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "test": "./node_modules/.bin/jest"
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage -c ../../jest.config.js  --selectProjects=@dynamic-data/fitbit-data"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",

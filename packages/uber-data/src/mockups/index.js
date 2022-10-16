@@ -3,7 +3,7 @@ export * from "./productDetails.js";
 export * from "./priceEstimates.js";
 export * from "./timeEstimates.js";
 export * from "./userInfo.js";
-export * from "./userHistory.js";
+export * from "./paymentMethods";
 export * from "./savedPlaces.js";
 export * from "./rideDetails.js";
 export * from "./rideMapDetails.js";

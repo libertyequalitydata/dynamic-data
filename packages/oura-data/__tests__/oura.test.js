@@ -6,7 +6,7 @@
 
 const MOCK = require("@dynamic-data/oura-data");
 
-const { ActivitySummary } = require("@dynamic-data/oura-data/mockups");
+const { ActivitySummary, SleepData } = require("@dynamic-data/oura-data/mockups");
 
 describe("oura", () => {
   //test.todo("needs tests");
@@ -28,6 +28,21 @@ describe("oura", () => {
   });
   it("ActivitySummary mockup datamodel only", () => {
     const data = ActivitySummary;
+    //console.log("MOCK DATA", data);
+
+    expect(typeof data).toBe("object");
+  });
+  it("SleepDataAsync mockup datamodel from default", () => {
+    const data = MOCK.default.SleepDataAsync;
+    //console.log("MOCK ", MOCK);
+    //console.log("MOCK ASYNC DATA", data);
+
+    //expect(typeof data).toBe("object");
+    expect(Array.isArray(data)).toBe(true);
+    expect(data.length).toBe(2);
+  });
+  it("SleepData mockup datamodel only", () => {
+    const data = SleepData;
     //console.log("MOCK DATA", data);
 
     expect(typeof data).toBe("object");

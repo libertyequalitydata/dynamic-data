@@ -2,206 +2,536 @@
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
  */
+const twentyThreeandMeData = require("./packages/23andme-data/package.json") 
+const twentyThreeandMeMockup = require("./packages/23andme-mockup/package.json")
+const ancestryData = require("./packages/ancestry-data/package.json") 
+const ancestryMockup = require("./packages/ancestry-mockup/package.json") 
+const fitbitData = require("./packages/fitbit-data/package.json") 
+const fitbitMockup = require("./packages/fitbit-mockups/package.json") 
+const foursquareData = require("./packages/foursquare-data/package.json") 
+const foursquareMockup = require("./packages/foursquare-mockups/package.json") 
+const garminData = require("./packages/garmin-data/package.json") 
+const garminMockup = require("./packages/garmin-mockups/package.json") 
+const googleData = require("./packages/google-data/package.json") 
+const googleMockup = require("./packages/google-mockups/package.json") 
+const homekitData = require("./packages/homekit-data/package.json") 
+const homekitMockup = require("./packages/homekit-mockup/package.json") 
+const huaweiData = require("./packages/huawei-data/package.json") 
+const huaweiMockup = require("./packages/huawei-mockups/package.json") 
+const iosHealthData = require("./packages/ios-health-data/package.json") 
+const iosHealthMockup = require("./packages/ios-health-mockup/package.json") 
+const lyftData = require("./packages/lyft-data/package.json") 
+const lyftMockup = require("./packages/lyft-mockups/package.json") 
+const movesenseData = require("./packages/movesense-data/package.json") 
+const movesenseMockup = require("./packages/movesense-mockup/package.json") 
+const ouraData = require("./packages/oura-data/package.json") 
+const ouraMockup = require("./packages/oura-mockups/package.json") 
+const pelotonData = require("./packages/peloton-data/package.json") 
+const pelotonMockup = require("./packages/peloton-mockup/package.json") 
+const polarData = require("./packages/polar-data/package.json") 
+const polarMockup = require("./packages/polar-mockups/package.json") 
+const runkeeperData = require("./packages/runkeeper-data/package.json") 
+const runkeeperMockup = require("./packages/runkeeper-mockups/package.json") 
+const sensorBNO055Data = require("./packages/sensor-bno055-data/package.json") 
+const sensorBNO055Mockup = require("./packages/sensor-bno055-mockups/package.json") 
+const stravaData = require("./packages/strava-data/package.json") 
+const stravaMockup = require("./packages/strava-mockups/package.json") 
+const twitchData = require("./packages/twitch-data/package.json") 
+const twitchMockup = require("./packages/twitch-mockup/package.json") 
+const uberData = require("./packages/uber-data/package.json") 
+const uberMockup = require("./packages/uber-mockups/package.json") 
+const whoopData = require("./packages/whoop-data/package.json") 
+const whoopMockup = require("./packages/whoop-mockups/package.json") 
+const withingsData = require("./packages/withings-data/package.json") 
+const withingsMockup = require("./packages/withings-mockups/package.json") 
+const utils = require("./packages/utils/package.json") 
 
-module.exports = {
-  // All imported modules in your tests should be mocked automatically
-  // automock: false,
 
-  // Stop running tests after `n` failures
-  // bail: 0,
 
-  // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/fw/9n6q8vln3h71gwnk3yg9lqr00000gn/T/jest_dx",
 
-  // Automatically clear mock calls and instances between every test
+
+const base = {
   clearMocks: true,
 
-  // Indicates whether the coverage information should be collected while executing the test
   collectCoverage: false,
 
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
-  //collectCoverageFrom: ["beta/user/user-s3/getS3Object/handler.js"],
-  //collectCoverageFrom: [
-  //  "beta/user/**/*.{js,jsx,ts,tsx}",
-  //  "!beta/user/**/aws.js",
-  //],
-  //"src/**/*.{js,jsx,ts,tsx}"
-  // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
-  // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
-  //**/__tests__/**/*.[jt]s?(x)",
   coveragePathIgnorePatterns: ["/node_modules/", "/__tests__/"],
-  // Indicates which provider should be used to instrument code for coverage
-  //coverageProvider: "v8",  // istanbul ignore not working..
+  
   coverageProvider: "babel",
-  // A list of reporter names that Jest uses when writing coverage reports
-  // coverageReporters: [
-  //   "json",
-  //   "text",
-  //   "lcov",
-  //   "clover"
-  // ],
 
-  // An object that configures minimum threshold enforcement for coverage results
-  // coverageThreshold: undefined,
-
-  // A path to a custom dependency extractor
-  // dependencyExtractor: undefined,
-
-  // Make calling deprecated APIs throw helpful error messages
-  // errorOnDeprecated: false,
-
-  // Force coverage collection from ignored files using an array of glob patterns
-  // forceCoverageMatch: [],
-
-  // A path to a module which exports an async function that is triggered once before all test suites
-  // globalSetup: undefined,
-
-  // A path to a module which exports an async function that is triggered once after all test suites
-  // globalTeardown: undefined,
-
-  // A set of global variables that need to be available in all test environments
-  // globals: {},
-
-  // The maximum amount of workers used to run your tests. Can be specified as % or a number. E.g. maxWorkers: 10% will use 10% of your CPU amount + 1 as the maximum worker number. maxWorkers: 2 will use a maximum of 2 workers.
-  // maxWorkers: "50%",
-
-  // An array of directory names to be searched recursively up from the requiring module's location
-  // moduleDirectories: [
-  //   "node_modules"
-  // ],
   moduleDirectories: ["node_modules"],
 
   moduleFileExtensions: ["js", "mjs"],
-  // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
 
-  // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
-  /*
-  moduleNameMapper: {
-    "^@dynamic-data/oura-data/mockups(.*)$":
-      "@dynamic-data/oura-data/dist/cjs/mockups/$1",
-    "^@dynamic-data/google-data/mockups(.*)$":
-      "@dynamic-data/google-data/dist/cjs/mockups/$1",
-    "^@dynamic-data/garmin-data/mockups(.*)$":
-      "@dynamic-data/garmin-data/dist/cjs/mockups/$1",
-      "^@dynamic-data/fitbit-data/mockups(.*)$":
-      "@dynamic-data/fitbit-data/dist/cjs/mockups/$1",
-
-      "^@dynamic-data/23andme-data/mockups(.*)$": "@dynamic-data/23andme-data/dist/cjs/mockups/$1",
-                                                    
-      "^@dynamic-data/ancestry-data/mockups(.*)$": "@dynamic-data/ancestry-data/dist/cjs/mockups/$1",
-      
-    },
-*/
-  // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
-  // modulePathIgnorePatterns: [],
-
-  // Activates notifications for test results
-  // notify: false,
-
-  // An enum that specifies notification mode. Requires { notify: true }
-  // notifyMode: "failure-change",
-
-  // A preset that is used as a base for Jest's configuration
-  // preset: undefined,
-
-  // Run tests from one or more projects
-  // projects: undefined,
-
-  // Use this configuration option to add custom reporters to Jest
-  // reporters: undefined,
-
-  // Automatically reset mock state between every test
-  // resetMocks: false,
-
-  // Reset the module registry before running each individual test
-  // resetModules: false,
-
-  // A path to a custom resolver
-  // resolver: undefined,
-
-  // Automatically restore mock state between every test
-  // restoreMocks: false,
-
-  // The root directory that Jest should scan for tests and modules within
-  //rootDir: "__tests__",
-
-  // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
-
-  // Allows you to use a custom runner instead of Jest's default test runner
-  // runner: "jest-runner",
-
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  // setupFiles: [],
-
-  // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
-
-  // The number of seconds after which a test is considered as slow and reported as such in the results.
-  // slowTestThreshold: 5,
-
-  // A list of paths to snapshot serializer modules Jest should use for snapshot testing
-  // snapshotSerializers: [],
-
-  // The test environment that will be used for testing
-  // testEnvironment: "jest-environment-node",
-
-  // Options that will be passed to the testEnvironment
-  // testEnvironmentOptions: {},
-
-  // Adds a location field to test results
-  // testLocationInResults: false,
-
-  // The glob patterns Jest uses to detect test files
   testMatch: [
     "**/__tests__/*.test.js",
     "**/__tests__/*.test.mjs",
-    //"**/__tests__/**/*.[jt]s?(x)",
-    //   "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
+  testEnvironment: 'node',
 
-  // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
+
   testPathIgnorePatterns: ["/node_modules/"],
-
-  // The regexp pattern or array of patterns that Jest uses to detect test files
-  // testRegex: [],
-
-  // This option allows the use of a custom results processor
-  // testResultsProcessor: undefined,
-
-  // This option allows use of a custom test runner
-  // testRunner: "jest-circus/runner",
-
-  // This option sets the URL for the jsdom environment. It is reflected in properties such as location.href
-  // testURL: "http://localhost",
-
-  // Setting this value to "fake" allows the use of fake timers for functions such as "setTimeout"
-  // timers: "real",
-
-  // A map from regular expressions to paths to transformers
-  // transform: undefined,
 
   transform: {
     "^.+\\.jsx?$": "babel-jest",
     "^.+\\.mjs$": "babel-jest",
-  },
+  }
+}
+module.exports = {
+  ...base,
+  projects: [
+    {
+      ...base,
+      displayName: twentyThreeandMeData.name,
+
+      testMatch: [
+        "<rootDir>/packages/23andme-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/23andme-data/**/__tests__/*.test.mjs",
+      ],
+    },{
+      ...base,
+
+      displayName: twentyThreeandMeMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/23andme-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/23andme-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: ancestryData.name,
+
+      testMatch: [
+        "<rootDir>/packages/ancestry-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/ancestry-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: ancestryMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/ancestry-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/ancestry-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: fitbitData.name,
+
+      testMatch: [
+        "<rootDir>/packages/fitbit-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/fitbit-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: fitbitMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/fitbit-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/fitbit-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: foursquareData.name,
+
+      testMatch: [
+        "<rootDir>/packages/foursquare-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/foursquare-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: foursquareMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/foursquare-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/foursquare-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: garminData.name,
+
+      testMatch: [
+        "<rootDir>/packages/garmin-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/garmin-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: garminMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/garmin-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/garmin-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: googleData.name,
+
+      testMatch: [
+        "<rootDir>/packages/google-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/google-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: googleMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/google-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/google-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: homekitData.name,
+
+      testMatch: [
+        "<rootDir>/packages/homekit-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/homekit-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: homekitMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/homekit-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/homekit-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: huaweiData.name,
+
+      testMatch: [
+        "<rootDir>/packages/huawei-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/huawei-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: huaweiMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/huawei-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/huawei-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: iosHealthData.name,
+
+      testMatch: [
+        "<rootDir>/packages/ios-health-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/ios-health-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: iosHealthMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/ios-health-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/ios-health-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: lyftData.name,
+
+      testMatch: [
+        "<rootDir>/packages/lyft-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/lyft-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: lyftMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/lyft-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/lyft-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: movesenseData.name,
+
+      testMatch: [
+        "<rootDir>/packages/movesense-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/movesense-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: movesenseMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/movesense-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/movesense-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: ouraData.name,
+
+      testMatch: [
+        "<rootDir>/packages/oura-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/oura-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: ouraMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/oura-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/oura-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: pelotonData.name,
+
+      testMatch: [
+        "<rootDir>/packages/peloton-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/peloton-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: pelotonMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/peloton-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/peloton-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: polarData.name,
+
+      testMatch: [
+        "<rootDir>/packages/polar-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/polar-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: polarMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/polar-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/polar-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: polarData.name,
+
+      testMatch: [
+        "<rootDir>/packages/polar-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/polar-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: polarMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/polar-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/polar-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: runkeeperData.name,
+
+      testMatch: [
+        "<rootDir>/packages/runkeeper-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/runkeeper-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: runkeeperMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/runkeeper-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/runkeeper-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: sensorBNO055Data.name,
+
+      testMatch: [
+        "<rootDir>/packages/sensor-bno055-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/sensor-bno055-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: sensorBNO055Mockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/sensor-bno055-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/sensor-bno055-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: stravaData.name,
+
+      testMatch: [
+        "<rootDir>/packages/strava-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/strava-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: stravaMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/strava-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/strava-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: twitchData.name,
+
+      testMatch: [
+        "<rootDir>/packages/twitch-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/twitch-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: twitchMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/twitch-mockup/**/__tests__/*.test.js",
+        "<rootDir>/packages/twitch-mockup/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: uberData.name,
+
+      testMatch: [
+        "<rootDir>/packages/uber-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/uber-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: uberMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/uber-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/uber-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: whoopData.name,
+
+      testMatch: [
+        "<rootDir>/packages/whoop-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/whoop-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: whoopMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/whoop-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/whoop-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: withingsData.name,
+
+      testMatch: [
+        "<rootDir>/packages/withings-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/withings-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: withingsMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/withings-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/withings-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: utils.name,
+
+      testMatch: [
+        "<rootDir>/packages/utils/**/__tests__/*.test.js",
+        "<rootDir>/packages/utils/**/__tests__/*.test.mjs",
+      ],
+
+    }
+  ]
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
@@ -221,3 +551,7 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 };
+// module.exports = {
+//   ...base
+// }
+
