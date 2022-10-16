@@ -1,1 +1,1 @@
-export * from "./veriMockups.js";
+export * from "./VeriMockups.js";

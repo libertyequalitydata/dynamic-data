@@ -1,7 +1,7 @@
-// 'use strict';
+'use strict';
 
-// module.exports = veriMockups;
+module.exports = veriMockups;
 
-// function veriMockups() {
-//     return "Hello from veriMockups";
-// }
+function veriMockups() {
+    return "Hello from veriMockups";
+}
