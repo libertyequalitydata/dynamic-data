@@ -40,6 +40,8 @@ const twitchData = require("./packages/twitch-data/package.json")
 const twitchMockup = require("./packages/twitch-mockup/package.json") 
 const uberData = require("./packages/uber-data/package.json") 
 const uberMockup = require("./packages/uber-mockups/package.json") 
+const veriData = require("./packages/veri-data/package.json") 
+const veriMockup = require("./packages/veri-mockups/package.json") 
 const whoopData = require("./packages/whoop-data/package.json") 
 const whoopMockup = require("./packages/whoop-mockups/package.json") 
 const withingsData = require("./packages/withings-data/package.json") 
@@ -478,6 +480,26 @@ module.exports = {
       testMatch: [
         "<rootDir>/packages/uber-mockups/**/__tests__/*.test.js",
         "<rootDir>/packages/uber-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: veriData.name,
+
+      testMatch: [
+        "<rootDir>/packages/veri-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/veri-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: veriMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/veri-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/veri-mockups/**/__tests__/*.test.mjs",
       ],
 
     },{
