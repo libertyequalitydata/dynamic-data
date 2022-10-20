@@ -111,6 +111,7 @@ export function getRawData(dataType, dataModel, dataDate) {
     });
   }
   let exampleData = mockupData[0]
+  mockupData = [mockupData[0]]
   //https://genomapp.com/en/dna-raw-data-format/ - 600,000-3,000,000 sites
   for (var i = 0; i<10000; i++){
     mockupData.push(Object.assign({}, exampleData))
