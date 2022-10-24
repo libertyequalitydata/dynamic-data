@@ -596,7 +596,7 @@ const UserModel = {
       string += alphabet.charAt(Math.floor(Math.random() * 
       alphabet.length));
     }
-    string+=endings[getRandomInt(0,endings.length)-1]
+    string+=endings[getRandomInt(0,endings.length-1)]
     return string
   },
   "first_name": () => {

@@ -116,7 +116,7 @@ const DailiesDataModel = {
 
   starttimeoffsetinseconds: () => {
     let timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14]
-    return timezones[getRandomInt(0, timezones.length) - 1] * 60 * 60;
+    return timezones[getRandomInt(0, timezones.length-1)] * 60 * 60;
   },
   bmrkilocalories: () => {
     return getRandomInt(7, 25) * 100;
@@ -147,7 +147,7 @@ const DailiesDataModel = {
 
   stressqualifier: () => {
     let qualifier = ["unknown", "high", "low", "medium"]; //NB: high, low and medium are not offical values (just placeholder). Please replace as neccessary.
-    return qualifier[getRandomInt(0, qualifier.length) - 1]
+    return qualifier[getRandomInt(0, qualifier.length-1)]
   },
 
   averagestresslevel: () => {
@@ -184,7 +184,7 @@ const EpochsDataModel = {
   },
   activitytype: () => {
     let activities = ["SEDENTARY", "EXAMPLE2", "EXAMPLE3", "EXAMPLE4"];
-    return activities[getRandomInt(0, activities.length) - 1]
+    return activities[getRandomInt(0, activities.length-1)]
   },
   activekilocalories: () => {
     return getRandomInt(0, 999)
@@ -216,7 +216,7 @@ const EpochsDataModel = {
   },
   starttimeoffsetinseconds: () => {
     let timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14]
-    return timezones[getRandomInt(0, timezones.length) - 1] * 60 * 60;
+    return timezones[getRandomInt(0, timezones.length-1)] * 60 * 60;
   },
   met: () => {
     //https://golf.procon.org/met-values-for-800-activities/
@@ -225,7 +225,7 @@ const EpochsDataModel = {
   },
   intensity: () => {
     let intensities = ["SEDENTARY", "EXAMPLE2", "EXAMPLE3", "EXAMPLE4"];
-    return intensities[getRandomInt(0, intensities.length) - 1]
+    return intensities[getRandomInt(0, intensities.length-1)]
 
   },
   meanmotionintensity: () => {
@@ -281,7 +281,7 @@ const SleepsDataModel = {
   },
   starttimeoffsetinseconds: () => {
     let timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14]
-    return timezones[getRandomInt(0, timezones.length) - 1] * 60 * 60;
+    return timezones[getRandomInt(0, timezones.length-1)] * 60 * 60;
   },
   lightsleepdurationinseconds: () => {
     return (3140 + getRandomInt(-500, 500)) * lightNum
@@ -443,7 +443,7 @@ const SleepsDataModel = {
 
   validation: () => {
     let values = ["ENHANCED_TENTATIVE", "EXAMPLE2", "EXAMPLE3"]
-    return values[getRandomInt(0, values.length) - 1]
+    return values[getRandomInt(0, values.length-1)]
   }
 
 }
@@ -486,7 +486,7 @@ const PulseoxModel = {
   },
   starttimeoffsetinseconds: () => {
     let timezones = [-12, -11, -10, -9.5, -9, -8, -7, -6, -5, -4, -3.5, -3, -2, -1, 0, 1, 2, 3, 3.5, 4, 4.5, 5, 5.5, 5.75, 6, 6.5, 7, 8, 8.75, 9, 9.5, 10, 10.5, 11, 12, 12.75, 13, 14]
-    return timezones[getRandomInt(0, timezones.length) - 1] * 60 * 60;
+    return timezones[getRandomInt(0, timezones.length-1)] * 60 * 60;
   },
   durationinseconds: () => {
     return getRandomInt(15000, 25000)

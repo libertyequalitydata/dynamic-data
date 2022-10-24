@@ -58,7 +58,7 @@ const ActivitiesDataModel = {
   },
   activityName: () => {
     const example = ["Walk", "Run", "Swimming", "Cycling"]
-    return example[getRandomInt(0, example.length) - 1];
+    return example[getRandomInt(0, example.length - 1)];
   },
   activityTypeId: () => {
     return getRandomInt(8000, 9999)
@@ -178,7 +178,7 @@ const ActivitiesDataModel = {
     finalDate.setHours(getRandomInt(1, 23), getRandomInt(1, 59), getRandomInt(1, 59), getRandomInt(1, 999))
     const timezones = ["-12:00", "-11:00", "-10:00", "-9:30", "-9:00", "-08:00", "-07:00", "-06:00", "-05:00", "-04:00", "-03:30", "-03:00", "-02:00", "-01:00", "+00:00", "+01:00", "+02:00", "+03:00", "+03:30", "+04:00", "+04:30", "+05:00", "+05:30", "+05:45", "+06:00", "+06:30", "+07:00", "+08:00", "+08:45", "+09:00", "+09:30", "+10:00", "+10:30", "+11:00", "+12:00", "+12:45", "+13:00", "+14:00"]
     let finalDateStr = finalDate.toISOString();
-    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0, timezones.length) - 1];
+    return finalDateStr.split("Z")[0] + timezones[getRandomInt(0, timezones.length-1)];
     // return 0;
   },
   lastModified: (originalStartTime) => {
@@ -200,7 +200,7 @@ const ActivitiesDataModel = {
   },
   logType: () => {
     const values = ["auto_detected", "manual", "tracker", "mobile_run"]
-    return values[getRandomInt(0, values.length) - 1]
+    return values[getRandomInt(0, values.length - 1)]
   },
 
   steps: (type, duration) => {
@@ -230,7 +230,7 @@ const ActivitiesDataModel = {
 
   logType: () => {
     let values = ["mobile_run", "example_2", "example_3"]
-    return values[getRandomInt(0, values.length) - 1]
+    return values[getRandomInt(0, values.length - 1)]
   },
   logId: () => {
     return getRandomInt(10000000000, 99999999999)
@@ -562,7 +562,7 @@ const SleepQualityModel = {
   },
   p_level: () => {
     let values = ['wake', 'light', 'rem', 'deep']
-    return values[getRandomInt(0, values.length) - 1]
+    return values[getRandomInt(0, values.length - 1)]
   }
 }
 
@@ -586,7 +586,7 @@ const SleepDataModel = {
   },
   p_level: () => {
     let values = ['wake', 'example2', 'example3']
-    return values[getRandomInt(0, values.length) - 1]
+    return values[getRandomInt(0, values.length - 1)]
   },
   p_seconds: () => {
     return getRandomInt(0, 600)

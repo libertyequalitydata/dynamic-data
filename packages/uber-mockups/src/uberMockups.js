@@ -62,7 +62,7 @@ const PriceEstimatesModel = {
             default:
                 let currency = randomCurrency("SIMPLE WEST ISO-4217",{code : currency_code})
                 
-                switch(getRandomInt(0,2)){
+                switch(getRandomInt(1,2)){
                     case 1:
                         let float = getRandomInt(1000,5000)/100
                         return currency.symbol + float.toString()
@@ -75,7 +75,7 @@ const PriceEstimatesModel = {
         }
     },
     currency_code: () => {
-        switch(getRandomInt(0,100)){
+        switch(getRandomInt(1,100)){
             case 1:
                 return null
             default:
@@ -132,7 +132,7 @@ const ProductDetailsModel = {
     },
     distance_unit: () => {
         let units = ["mile", "km"]
-        return units[getRandomInt(0,units.length)-1]
+        return units[getRandomInt(0,units.length-1)]
     },
     minimum: () => {
         return getRandomInt(0, 1000)/100
@@ -160,7 +160,7 @@ const RideDetailsModel = {
     },
     status: () => {
         let statuses = ["processing", "no_drivers_available", "accepted", "arriving", "in_progress", "driver_canceled", "rider_canceled", "completed"]
-        return statuses[getRandomInt(0,statuses.length)-1]
+        return statuses[getRandomInt(0,statuses.length-1)]
     },
     surge_multiplier: () => {
         return getRandomInt(0,200)/100
@@ -206,7 +206,7 @@ const RideDetailsModel = {
         }
         let alias = ["work", "home", null]
         return {
-            "alias": alias[getRandomInt(0, alias.length)-1],
+            "alias": alias[getRandomInt(0, alias.length-1)],
             "latitude": location[0],
             "longitude": location[1],
             "name": `${address["streetNumber"]} ${address["streetName"]}`,
@@ -224,7 +224,7 @@ const RideDetailsModel = {
         }
         let alias = ["work", "home", null]
         return {
-            "alias": alias[getRandomInt(0, alias.length)-1],
+            "alias": alias[getRandomInt(0, alias.length-1)],
             "latitude": location[0],
             "longitude": location[1],
             "name": `${address["streetNumber"]} ${address["streetName"]}`,
@@ -238,7 +238,7 @@ const RideDetailsModel = {
         return {
             "rider_id":rider_id,
             "latitude":location[0],
-            "type":types[getRandomInt(0,types.length)-1],
+            "type":types[getRandomInt(0,types.length-1)],
             "longitude":location[1],
          }
     },
@@ -246,7 +246,7 @@ const RideDetailsModel = {
         let riderID = getRandomString(18)
         switch(me){
             case false:
-                switch(getRandomInt(0,10)){
+                switch(getRandomInt(1,10)){
                     case 1:
                         riderID = null
                 }
@@ -316,7 +316,7 @@ const RideReceiptDetailsModel = {
     },
     distance_label: () => {
         let labels = ["miles"]
-        return labels[getRandomInt(0,labels.length)-1]
+        return labels[getRandomInt(0,labels.length-1)]
     },
     
 }
@@ -433,7 +433,7 @@ const PaymentMethodsModel ={
                 format: null
             }
         ]
-        let method = types[getRandomInt(0,types.length)-1]
+        let method = types[getRandomInt(0,types.length-1)]
         let format = ""
         switch(method.format){
             case null:
@@ -609,7 +609,7 @@ const UserInfoModel = {
         ].forEach((key, i) => {
         switch (key) {
             case "price_details":
-                switch(getRandomInt(0,100)){
+                switch(getRandomInt(1,100)){
                     case 1:
                         mockupData[key] = null;
                         break
@@ -675,7 +675,7 @@ const UserInfoModel = {
             ].forEach((key, i) => {
             switch (key) {
                 case "price_details":
-                    switch(getRandomInt(0,100)){
+                    switch(getRandomInt(1,100)){
                         case 1:
                             product[key] = null;
                             break
@@ -768,7 +768,7 @@ const UserInfoModel = {
                     default:
                         mockupData[key] = [mockupData[key][0]]
                         for (var index = 0; index<mockupData[key].length;index++){
-                            mockupData[key][index] = mockupModel[key](mockupData["riders"][getRandomInt(0,mockupData["riders"].length)-1]["rider_id"]);
+                            mockupData[key][index] = mockupModel[key](mockupData["riders"][getRandomInt(0,mockupData["riders"].length-1)]["rider_id"]);
                         }
                         break
                         
@@ -976,7 +976,7 @@ const UserInfoModel = {
     for (var i = 0; i<mockupData["payment_methods"].length;i++){
         mockupData["payment_methods"][i] = mockupModel["payment_methods"]()
     }
-    mockupData["last_used"] = mockupData["payment_methods"][getRandomInt(0,mockupData["payment_methods"].length)-1]["payment_method_id"]
+    mockupData["last_used"] = mockupData["payment_methods"][getRandomInt(0,mockupData["payment_methods"].length-1)]["payment_method_id"]
     return mockupData;
   }
   export function getUserInfo(dataType, dataModel, dataDate) {

@@ -25,11 +25,11 @@ const RoutesModel = {
   },
   confidence: () => {
     let categories = ["LOW", "MEDIUM", "HIGH"]
-    return categories[getRandomInt(0,categories.length)-1]
+    return categories[getRandomInt(0,categories.length-1)]
   },
   activityType: () => {
     let types = ["IN_PASSENGER_VEHICLE", "IN_BUS", "IN_TRAIN"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   startTimestamp: () => {
     let finalDate = new Date(0);
@@ -133,14 +133,14 @@ const PlacesModel = {
   },
   placeConfidence: () => {
     let confidence = ['HIGH_CONFIDENCE', "MEDIUM_CONFIDENCE", "LOW_CONFIDENCE"]
-    return confidence[getRandomInt(0, confidence.length)-1]
+    return confidence[getRandomInt(0, confidence.length-1)]
   },
   visitConfidence: () => {
     return getRandomInt(0,100)
   },
   placeVisitType: () => {
     let types = ['SINGLE_PLACE', "TYPE_PLACE_2", "TYPE_PLACE_3"]
-    return types[getRandomInt(0, types.length)-1]
+    return types[getRandomInt(0, types.length-1)]
   },
   placeVisitImportance: () => {
     let importance = ['MAIN', "PLACE_IMPORTANCE_2", "PLACE_IMPORTANCE_3"]
@@ -225,7 +225,7 @@ const ActivityModel = {
   },
   p_type: () => {
     let types = ["STILL", "TYPE_2", "TYPE_3"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   p_confidence: ()=> {
     return getRandomInt(0,100)

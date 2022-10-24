@@ -702,11 +702,11 @@ const InstructorModel = {
 const RelationshipModel = {
   me_to_user: () => {
     let values = ["following","follow_pending", "none"]
-    return values[getRandomInt(0,values.length)-1]
+    return values[getRandomInt(0,values.length-1)]
   },
   user_to_me: () => {
     let values = ["following","follow_pending", "none"]
-    return values[getRandomInt(0,values.length)-1]
+    return values[getRandomInt(0,values.length-1)]
   },
 }
 

@@ -234,7 +234,7 @@ export function randomCountry(opts = {}) {
           full: "United States of America"
         },
       ]
-      country = countries3[getRandomInt(0, countries3.length) - 1]
+      country = countries3[getRandomInt(0, countries3.length-1)]
       switch (params.full) {
         case false:
           return country["code"]
@@ -254,7 +254,7 @@ export function randomCountry(opts = {}) {
           full: "United States of America"
         },
       ]
-      country = countries2[getRandomInt(0, countries2.length) - 1]
+      country = countries2[getRandomInt(0, countries2.length-1)]
       switch (params.full) {
         case false:
           return country["code"]
@@ -316,7 +316,7 @@ export function getRandomCarDetails() {
       ]
     }
   ]
-  let index = getRandomInt(0, car.length) - 1
+  let index = getRandomInt(0, car.length-1)
   let license = ""
   let characters = "0123456789ABCDEFGHJKLMNPRSTUVWXYZ"
   for (var i = 0; i < 7; i++) {
@@ -325,7 +325,7 @@ export function getRandomCarDetails() {
   }
   return {
     make: car[index]["make"],
-    model: car[index]["models"][getRandomInt(0, car[index]["models"].length) - 1],
+    model: car[index]["models"][getRandomInt(0, car[index]["models"].length-1)],
     license: license
   }
 }
@@ -601,9 +601,9 @@ export function randomCurrency(type, find = null) {
           end: false
         },
       ]
-      return simepleWestcurrencies[getRandomInt(0, simepleWestcurrencies.length) - 1]
+      return simepleWestcurrencies[getRandomInt(0, simepleWestcurrencies.length-1)]
     case "ISO-4217":
-      return allCurrencies[getRandomInt(0, allCurrencies.length) - 1]
+      return allCurrencies[getRandomInt(0, allCurrencies.length-1)]
     default:
       return "USD"
   }
@@ -669,7 +669,7 @@ export function randomLanguage(opts) {
       "name": "French"
     },
   ]
-  let language = languages[getRandomInt(0, languages.length) - 1]
+  let language = languages[getRandomInt(0, languages.length-1)]
   let final = {}
   if (params.full) {
     final["name"] = language["name"]

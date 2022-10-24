@@ -358,7 +358,7 @@ const randomTimezone = () => {
     'Pacific/Apia',
     'Africa/Johannesburg'
   ];
-  return aryIannaTimeZones[getRandomInt(0, aryIannaTimeZones.length)-1]
+  return aryIannaTimeZones[getRandomInt(0, aryIannaTimeZones.length-1)]
 }
 
 const SleepSummaryModel = {
@@ -367,7 +367,7 @@ const SleepSummaryModel = {
     return randomTimezone()
   },
   model: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return 16
       case 2:
@@ -376,7 +376,7 @@ const SleepSummaryModel = {
   },
   model_id: () => {
     let models = [60,61,63,51,52,53,54,55,59,58,90,91,92,93]
-    return models[getRandomInt(0,models.length)-1]
+    return models[getRandomInt(0,models.length-1)]
   },
   startdate: () => {
     let finalDate = new Date(0);
@@ -555,7 +555,7 @@ const SleepGetModel = {
   },
   model_id: () => {
     let ids = [60,61,63,51,52,53,54,55,59,58,90,91,92,93]
-    return ids[getRandomInt(0,ids.length)-1]
+    return ids[getRandomInt(0,ids.length-1)]
   },
   hr: () => {
     return {
@@ -651,14 +651,14 @@ const HeartGetModel = {
 const WorkoutModel = {
   category: () => {
     let categories = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,128,187,188,191,192,193,194,195,196,272,306,307,308]
-    return categories[getRandomInt(0,categories.length)-1]
+    return categories[getRandomInt(0,categories.length-1)]
   },
   timezone: () => {
     return randomTimezone()
   },
   model: () => {
     let models = [1,2,3,4,5,6,13,21,22,41,42,43,44,45,51,52,53,54,55,58,59,60,61,62,63,70,91,92,1051,1052,1053,1054,1055,1056,1057,1058,1059]
-    return models[getRandomInt(0,models.length)-1]
+    return models[getRandomInt(0,models.length-1)]
   },
   attrib: () => {
     return getRandomInt(0,9)-1
@@ -772,11 +772,11 @@ const IntradayActivityModel = {
   },
   model: () => {
     let models = ["Withings WBS01","WS30","Kid Scale","Smart Body Analyzer","Body+","Body Cardio","Body","WBS08","Body Pro","WBS10","WBS11","Smart Baby Monitor","Withings Home","Withings Blood Pressure Monitor V1","Withings Blood Pressure Monitor V2","Withings Blood Pressure Monitor V3","BPM Core","BPM Connect","BPM Connect Pro","Pulse","Activite","Activite (Pop, Steel)","Withings Go","Activite Steel HR","Activite Steel HR Sport Edition","Pulse HR","Move","Move ECG","ScanWatch","Aura Dock","Aura Sensor","Aura Sensor V2","Thermo","WUP01"]
-    return models[getRandomInt(0,models.length)-1]
+    return models[getRandomInt(0,models.length-1)]
   },
   model_id: () => {
     let ids = [1,2,3,4,5,6,7,10,9,11,12,21,22,41,42,43,44,45,46,51,52,53,54,55,59,58,90,91,92,93,60,61,63,70,100]
-    return ids[getRandomInt(0,ids.length)-1]
+    return ids[getRandomInt(0,ids.length-1)]
   },
   steps: () => {
     return 0
@@ -845,7 +845,7 @@ const ActivityModel = {
     return result
   },
   brand: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return 1
       case 2: 
@@ -853,7 +853,7 @@ const ActivityModel = {
     }
   },
   is_tracker: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2: 
@@ -955,7 +955,7 @@ const MeasurementModel = {
 
     return [{
       value: 65750,
-      type: types[getRandomInt(0,types.length)-1],
+      type: types[getRandomInt(0,types.length-1)],
       unit: getRandomInt(-5,5),
       algo: 3425,
       fm: 1,

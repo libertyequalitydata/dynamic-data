@@ -13,7 +13,7 @@ const VideosModel = {
     return id.toString()
   },
   stream_id: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return null
       case 2:
@@ -91,18 +91,18 @@ const VideosModel = {
   },
   viewable: () => {
     let types = ["public","private"]
-    return types[getRandomInt(0, types.length)-1]
+    return types[getRandomInt(0, types.length-1)]
   },
   view_count: () => {
     return getRandomInt(0,9999999999)
   },
   language: () => {
     let languages = ["en", "id", "ca", "da", "de", "es", "fr", "it", "hu", "nl", "no","pl", "pt", "ro", "sk", "fi", "sv", "tl", "vi", "tr", "cs", "el", "bg", "ru", "uk", "ar", "ms", "hi", "th", "zh", "ja", "zh-hk", "ko", "asl", "other"]
-    return languages[getRandomInt(0, languages.length)-1]
+    return languages[getRandomInt(0, languages.length-1)]
   },
   type: () => {
     let types = ["upload", "archive", "highlight"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   duration: () => {
     let time = getRandomInt(0,36000)
@@ -205,7 +205,7 @@ const UserSubscriptionModel = {
     return string
   },
   is_gift: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -327,11 +327,11 @@ const UsersModel = {
   },
   type: ()=>{
     let types = ["staff", "admin", "global_mod", ""]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   broadcaster_type: ()=>{
     let types = ["partner", "affiliate", ""]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   description: ()=>{
     let string = ""
@@ -368,7 +368,7 @@ const UsersModel = {
       string += alphabet.charAt(Math.floor(Math.random() * 
       alphabet.length));
     }
-    string+=endings[getRandomInt(0,endings.length)-1]
+    string+=endings[getRandomInt(0,endings.length-1)]
     return string
     
   },
@@ -411,7 +411,7 @@ const ExtensionModel = {
     return string
   },
   can_activate: ()=>{
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -423,7 +423,7 @@ const ExtensionModel = {
     let amount = getRandomInt(0,types.length)
     let final = []
     for (var i = 0; i<amount;){
-      let random = getRandomInt(0,types.length)-1
+      let random = getRandomInt(0,types.length-1)
       if (!final.includes(types[random])){
         final.push(types[random])
         i++
@@ -462,7 +462,7 @@ const UserBlockListModel = {
 
 const UserActiveExtensionsModel = {
   active: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -751,7 +751,7 @@ const StreamsModel = {
   },
   language: ()=>{
     let languages = ["en", "id", "ca", "da", "de", "es", "fr", "it", "hu", "nl", "no","pl", "pt", "ro", "sk", "fi", "sv", "tl", "vi", "tr", "cs", "el", "bg", "ru", "uk", "ar", "ms", "hi", "th", "zh", "ja", "zh-hk", "ko", "asl", "other"]
-    return languages[getRandomInt(0, languages.length)-1]
+    return languages[getRandomInt(0, languages.length-1)]
   },
   thumbnail_url: ()=>{
     return "https://static-cdn.jtvnw.net/previews-ttv/live_user_amar-{width}x{height}.jpg"
@@ -856,7 +856,7 @@ const SoundtrackArtistModel = {
     return string
   },
   creator_channel_id: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return getRandomInt(0,999999999).toString()
       case 2:
@@ -923,7 +923,7 @@ const SoundtrackTrackModel = {
       string += characters.charAt(Math.floor(Math.random() * 
       characters.length));
     }
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         string += " [Explicit]"
     }
@@ -943,7 +943,7 @@ const SoundtrackTrackSourceModel = {
   },
   content_type: () => {
     let types = ["PLAYLIST", "STATION"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   title: () => {
     let string = ""
@@ -978,7 +978,7 @@ const ReleasedExtensionsModel = {
     return string
   },
   bits_enabled : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -986,7 +986,7 @@ const ReleasedExtensionsModel = {
     }
   },
   can_install : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -995,7 +995,7 @@ const ReleasedExtensionsModel = {
   },
   configuration_location : () => {
     let locations = ["hosted"]
-    return locations[getRandomInt(0,locations.length)-1]
+    return locations[getRandomInt(0,locations.length-1)]
   },
   description : () => {
     let string = ""
@@ -1011,7 +1011,7 @@ const ReleasedExtensionsModel = {
     return ""
   },
   has_chat_support : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -1052,7 +1052,7 @@ const ReleasedExtensionsModel = {
     return ""
   },
   request_identity_link : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -1069,11 +1069,11 @@ const ReleasedExtensionsModel = {
   },
   state : () => {
     let types = ["InTest", "InReview", "Rejected", "Approved", "Released", "Deprecated", "PendingAction", "AssetsUploaded", "Deleted"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   subscriptions_support_level : () => {
     let levels = ["optional"]
-    return levels[getRandomInt(0, levels.length)-1]
+    return levels[getRandomInt(0, levels.length-1)]
   },
   summary : () => {
     let string = ""
@@ -1101,7 +1101,7 @@ const ReleasedExtensionsModel = {
       string += alphabet.charAt(Math.floor(Math.random() * 
       alphabet.length));
     }
-    string+=endings[getRandomInt(0,endings.length)-1]
+    string+=endings[getRandomInt(0,endings.length-1)]
 
     return string
   },
@@ -1205,7 +1205,7 @@ const PredictionsModel = {
   },
   status: () => {
     let status = ["RESOLVED","ACTIVE","CANCELED","LOCKED"]
-    return status[getRandomInt(0,status.length)-1]
+    return status[getRandomInt(0,status.length-1)]
   },
   created_at: () => {
     let finalDate = new Date(0);
@@ -1422,7 +1422,7 @@ const PollModel = {
   },
   status: () => {
     let statuses = ["ACTIVE","COMPLETED","TERMINATED","ARCHIVED","MODERATED","INVALID"]
-    return statuses[getRandomInt(0, statuses.length)-1]
+    return statuses[getRandomInt(0, statuses.length-1)]
   },
   duration: () => {
     return getRandomInt(0,99999999)
@@ -1530,7 +1530,7 @@ const HypeTrainEventsModel = {
   event_type: () => {
     let types = ["progression"]
     let string = "hypetrain."
-    return string + types[getRandomInt(0,types.length)-1]
+    return string + types[getRandomInt(0,types.length-1)]
   },
   event_timestamp: (started_at) => {
     let event_timestamp = new Date(started_at)
@@ -1605,12 +1605,12 @@ const HypeTrainEventContributionModel = {
         let subTotal = [500,1000,2500]
         switch (getRandomInt(0,3)){
           case 1:
-            return subTotal[getRandomInt(0,subTotal.length)-1]
+            return subTotal[getRandomInt(0,subTotal.length-1)]
           case 2:
-            let num1 = subTotal[getRandomInt(0,subTotal.length)-1]
+            let num1 = subTotal[getRandomInt(0,subTotal.length-1)]
             let num2 = num1
             do {
-              num2 = subTotal[getRandomInt(0,subTotal.length)-1]
+              num2 = subTotal[getRandomInt(0,subTotal.length-1)]
             } while (num2 === num1)
             return num1 + num2
           case 3:
@@ -1621,7 +1621,7 @@ const HypeTrainEventContributionModel = {
   },
   type: () => {
     let types = ["BITS", "SUBS"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   user: () => {
     return getRandomInt(0,999999999).toString()
@@ -1644,9 +1644,9 @@ const GlobalEmotesModel = {
   },
   format: () => {
     let formats = ["static", "animated"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [formats[getRandomInt(0,formats.length)-1]]
+        return [formats[getRandomInt(0,formats.length-1)]]
       case 2:
         return formats
     }
@@ -1668,14 +1668,14 @@ const GlobalEmotesModel = {
   scale: () => {
     let scales = ["1.0", "2.0", "3.0"]
     let array = []
-    switch(getRandomInt(0,3)){
+    switch(getRandomInt(1,3)){
       case 1:
-        return [scales[getRandomInt(0,scales.length)-1]]
+        return [scales[getRandomInt(0,scales.length-1)]]
       case 2:
-        array.push(scales[getRandomInt(0,scales.length)-1])
+        array.push(scales[getRandomInt(0,scales.length-1)])
         let newScale;
         do {
-          newScale = scales[getRandomInt(0,scales.length)-1]
+          newScale = scales[getRandomInt(0,scales.length-1)]
         } while (array.includes(newScale))
         array.push(newScale)
         return array
@@ -1685,9 +1685,9 @@ const GlobalEmotesModel = {
   },
   theme_mode: () => {
     let themes = ["light", "dark"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [themes[getRandomInt(0,themes.length)-1]]
+        return [themes[getRandomInt(0,themes.length-1)]]
       case 2:
         return themes
     }
@@ -1697,7 +1697,7 @@ const GlobalEmotesModel = {
 const GlobalChatBadgesModel = {
   set_id: () => {
     const sets = ["vip"]
-    return sets[getRandomInt(0,sets.length)-1]
+    return sets[getRandomInt(0,sets.length-1)]
   },
   id: () => {
     return getRandomInt(0,9999999999).toString()
@@ -1751,7 +1751,7 @@ const AnalyticsModel = {
   },
   type: () => {
     const types = ["overview_v2"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   started_at: () => {
     let finalDate = new Date(0);
@@ -1879,7 +1879,7 @@ const ExtensionTransactionsModel = {
     return "bits"
   },
   inDevelopment: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
          return true
       case 2:
@@ -1900,7 +1900,7 @@ const ExtensionTransactionsModel = {
     return ""
   },
   broadcast: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
          return true
       case 2:
@@ -1971,7 +1971,7 @@ const EmoteSetsModel =  {
   },
   emote_type: () => {
     let types = ["bitstier","follower","subscriptions"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   emote_set_id: () => {
     return getRandomInt(0,999999999).toString()
@@ -1981,9 +1981,9 @@ const EmoteSetsModel =  {
   },
   format: () => {
     let formats = ["static", "animated"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [formats[getRandomInt(0,formats.length)-1]]
+        return [formats[getRandomInt(0,formats.length-1)]]
       case 2:
         return formats
     }
@@ -1991,14 +1991,14 @@ const EmoteSetsModel =  {
   scale: () => {
     let scales = ["1.0", "2.0", "3.0"]
     let array = []
-    switch(getRandomInt(0,3)){
+    switch(getRandomInt(1,3)){
       case 1:
-        return [scales[getRandomInt(0,scales.length)-1]]
+        return [scales[getRandomInt(0,scales.length-1)]]
       case 2:
-        array.push(scales[getRandomInt(0,scales.length)-1])
+        array.push(scales[getRandomInt(0,scales.length-1)])
         let newScale;
         do {
-          newScale = scales[getRandomInt(0,scales.length)-1]
+          newScale = scales[getRandomInt(0,scales.length-1)]
         } while (array.includes(newScale))
         array.push(newScale)
         return array
@@ -2008,9 +2008,9 @@ const EmoteSetsModel =  {
   },
   theme_mode: () => {
     let themes = ["light", "dark"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [themes[getRandomInt(0,themes.length)-1]]
+        return [themes[getRandomInt(0,themes.length-1)]]
       case 2:
         return themes
     }
@@ -2178,7 +2178,7 @@ const CustomRewardModel = {
     return string
   },
   image: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return null
       case 2:
@@ -2198,7 +2198,7 @@ const CustomRewardModel = {
     return string
   },
   is_enabled: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2222,7 +2222,7 @@ const CustomRewardModel = {
     return ""
   },
   is_user_input_required: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2232,7 +2232,7 @@ const CustomRewardModel = {
   max_per_stream_setting: () => {
     let bool = false
     let val = 0
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         bool = true
         val = getRandomInt(0,9999999)
@@ -2250,7 +2250,7 @@ const CustomRewardModel = {
   max_per_user_per_stream_setting: () => {
     let bool = false
     let val = 0
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         bool = true
         val = getRandomInt(0,9999999)
@@ -2268,7 +2268,7 @@ const CustomRewardModel = {
   global_cooldown_setting: () => {
     let bool = false
     let val = 0
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         bool = true
         val = getRandomInt(0,9999999)
@@ -2284,7 +2284,7 @@ const CustomRewardModel = {
     }
   },
   is_paused: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2292,7 +2292,7 @@ const CustomRewardModel = {
     }
   },
   is_in_stock: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2307,7 +2307,7 @@ const CustomRewardModel = {
     }
   },
   should_redemptions_skip_request_queue: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2315,7 +2315,7 @@ const CustomRewardModel = {
     }
   },
   redemptions_redeemed_current_stream: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return getRandomInt(0,999999)
       case 2:
@@ -2323,7 +2323,7 @@ const CustomRewardModel = {
     }
   },
   cooldown_expires_at: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         let finalDate = new Date(0);
         let maxMonthDate = new Date(0);
@@ -2385,7 +2385,7 @@ const CreatorGoalsModel = {
   },
   type: () => {
     let types = ["follower","subscription","subscription_count","new_subscription","new_subscription_count"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   description: () => {
     let string = ""
@@ -2469,7 +2469,7 @@ const ClipsModel = {
   },
   language: () => {
     let languages = ["en", "id", "ca", "da", "de", "es", "fr", "it", "hu", "nl", "no","pl", "pt", "ro", "sk", "fi", "sv", "tl", "vi", "tr", "cs", "el", "bg", "ru", "uk", "ar", "ms", "hi", "th", "zh", "ja", "zh-hk", "ko", "asl", "other"]
-    return languages[getRandomInt(0, languages.length)-1]
+    return languages[getRandomInt(0, languages.length-1)]
   },
   title: () => {
     let string = ""
@@ -2524,19 +2524,19 @@ const CheermotesModel = {
   },
   id: () => {
     let tiers = ["1","100","500","1000","5000","10k", "100k"]
-    return tiers[getRandomInt(0,tiers.length)-1]
+    return tiers[getRandomInt(0,tiers.length-1)]
   },
   color: () => {
 
     //Grey, Purple, Teal, Blue, or Red
     //NOTE: All Hex Colors except Grey are guessed
     let colors = ["#979797","#800080", "#008080", "#0000ff"]
-    return colors[getRandomInt(0,colors.length)-1]
+    return colors[getRandomInt(0,colors.length-1)]
   },
   images: () => {
-    switch(getRandomInt(0,3)){
+    switch(getRandomInt(1,3)){
       case 1: //Light
-        switch(getRandomInt(0,3)){ 
+        switch(getRandomInt(1,3)){ 
           case 1: //Static
             return {
               "light": {
@@ -2582,7 +2582,7 @@ const CheermotesModel = {
             }
         }
       case 2://Dark
-      switch(getRandomInt(0,3)){ 
+      switch(getRandomInt(1,3)){ 
         case 1: //Static
           return {
             "dark": {
@@ -2628,7 +2628,7 @@ const CheermotesModel = {
           }
       }
       case 3: //Light & Dark
-      switch(getRandomInt(0,3)){ 
+      switch(getRandomInt(1,3)){ 
         case 1: //Static
           return {
             "light": {
@@ -2710,7 +2710,7 @@ const CheermotesModel = {
     }
   },
   can_cheer: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2718,7 +2718,7 @@ const CheermotesModel = {
     }
   },
   show_in_bits_card: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2727,7 +2727,7 @@ const CheermotesModel = {
   },
   type: () => {
     let types = ["global_first_party","global_third_party","channel_custom","display_only","sponsored"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   order: () => {
     return getRandomInt(0,100)
@@ -2746,7 +2746,7 @@ const CheermotesModel = {
     return finalDate.toISOString();
   },
   is_charitable: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2761,7 +2761,7 @@ const ChatSettingsModel = {
     return getRandomInt(0,999999999).toString()
   },
   slow_mode: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2777,7 +2777,7 @@ const ChatSettingsModel = {
     }
   },
   follower_mode: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2793,7 +2793,7 @@ const ChatSettingsModel = {
     }
   },
   subscriber_mode: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2801,7 +2801,7 @@ const ChatSettingsModel = {
     }
   },
   emote_mode: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2809,7 +2809,7 @@ const ChatSettingsModel = {
     }
   },
   unique_chat_mode: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2817,7 +2817,7 @@ const ChatSettingsModel = {
     }
   },
   non_moderator_chat_delay: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2875,7 +2875,7 @@ const ChannelStreamScheduleModel = {
     return string
   },
   canceled_until: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         let finalDate = new Date(0);
         let maxMonthDate = new Date(0);
@@ -2969,7 +2969,7 @@ const ChannelStreamScheduleModel = {
 const ChannelsModel = {
   broadcaster_language: () => {
     let languages = ["en", "id", "ca", "da", "de", "es", "fr", "it", "hu", "nl", "no","pl", "pt", "ro", "sk", "fi", "sv", "tl", "vi", "tr", "cs", "el", "bg", "ru", "uk", "ar", "ms", "hi", "th", "zh", "ja", "zh-hk", "ko", "asl", "other"]
-    return languages[getRandomInt(0, languages.length)-1]
+    return languages[getRandomInt(0, languages.length-1)]
   },
   broadcaster_login: () => {
     let string = ""
@@ -3008,7 +3008,7 @@ const ChannelsModel = {
     return getRandomInt(0,999999999).toString()
   },
   is_live: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return false
       case 2:
@@ -3052,7 +3052,7 @@ const ChannelsModel = {
 const ChannelInformationModel = {
   broadcaster_language: () => {
     let languages = ["en", "id", "ca", "da", "de", "es", "fr", "it", "hu", "nl", "no","pl", "pt", "ro", "sk", "fi", "sv", "tl", "vi", "tr", "cs", "el", "bg", "ru", "uk", "ar", "ms", "hi", "th", "zh", "ja", "zh-hk", "ko", "asl", "other"]
-    return languages[getRandomInt(0, languages.length)-1]
+    return languages[getRandomInt(0, languages.length-1)]
   },
   broadcaster_login: () => {
     let string = ""
@@ -3129,7 +3129,7 @@ const ChannelEmotesModel =  {
   },
   emote_type: () => {
     let types = ["bitstier","follower","subscriptions"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   emote_set_id: () => {
     return getRandomInt(0,999999999).toString()
@@ -3138,16 +3138,16 @@ const ChannelEmotesModel =  {
     let tiers = ["1000","2000", "3000"]
     switch(emote_type){
       case "subscriptions":
-        return tiers[getRandomInt(0,tiers.length)-1]
+        return tiers[getRandomInt(0,tiers.length-1)]
       default:
         return ""
     }
   },
   format: () => {
     let formats = ["static", "animated"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [formats[getRandomInt(0,formats.length)-1]]
+        return [formats[getRandomInt(0,formats.length-1)]]
       case 2:
         return formats
     }
@@ -3155,14 +3155,14 @@ const ChannelEmotesModel =  {
   scale: () => {
     let scales = ["1.0", "2.0", "3.0"]
     let array = []
-    switch(getRandomInt(0,3)){
+    switch(getRandomInt(1,3)){
       case 1:
-        return [scales[getRandomInt(0,scales.length)-1]]
+        return [scales[getRandomInt(0,scales.length-1)]]
       case 2:
-        array.push(scales[getRandomInt(0,scales.length)-1])
+        array.push(scales[getRandomInt(0,scales.length-1)])
         let newScale;
         do {
-          newScale = scales[getRandomInt(0,scales.length)-1]
+          newScale = scales[getRandomInt(0,scales.length-1)]
         } while (array.includes(newScale))
         array.push(newScale)
         return array
@@ -3172,9 +3172,9 @@ const ChannelEmotesModel =  {
   },
   theme_mode: () => {
     let themes = ["light", "dark"]
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
-        return [themes[getRandomInt(0,themes.length)-1]]
+        return [themes[getRandomInt(0,themes.length-1)]]
       case 2:
         return themes
     }
@@ -3298,7 +3298,7 @@ const BroadcasterSubscriptionsModel = {
     return string
   },
   is_gift: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return false
       case 2:
@@ -3307,7 +3307,7 @@ const BroadcasterSubscriptionsModel = {
   },
   tier: () => {
     let tiers = ["1000","2000","3000"]
-    return tiers[getRandomInt(0,tiers.length)-1] 
+    return tiers[getRandomInt(0,tiers.length-1)] 
   },
   plan_name: () => {
     let string = ""
@@ -3391,7 +3391,7 @@ const BlockedTermsModel = {
     return finalDate.toISOString()
   },
   updated_at: (created_at) => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         let updated_at = new Date(created_at)
         updated_at.setTime(updated_at.getTime()+getRandomInt(0,9999999))
@@ -3401,7 +3401,7 @@ const BlockedTermsModel = {
     }
   },
   expires_at: (updated_at) => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return null
       case 2:
@@ -3679,7 +3679,7 @@ const StreamTagsModel = {
     return string
   },
   is_auto: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return false
       case 2:
@@ -3987,7 +3987,7 @@ export function getUserSubscription(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  switch(getRandomInt(0,2)){
+  switch(getRandomInt(1,2)){
     case 1:
       mockupData["data"].forEach((sub)=>{
         [
@@ -4050,7 +4050,7 @@ export function getUsersFollows(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  switch(getRandomInt(0,3)){
+  switch(getRandomInt(1,3)){
     case 1:
       // Who is Following X?=> to_id stays the same
       mockupData["total"] = 1

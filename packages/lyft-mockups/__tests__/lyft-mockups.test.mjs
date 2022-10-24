@@ -14,7 +14,7 @@ describe('@dynamic-data/lyft-mockups', () => {
       "DriverETA",
       "2022-04-03"
     );
-    console.log("getDriverETAMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log("getDriverETAMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(MOCK)
     // const result = {}
     expect(typeof result).toBe("object");
@@ -25,7 +25,7 @@ describe('@dynamic-data/lyft-mockups', () => {
       "NearbyDrivers",
       "2022-04-03"
     );
-    console.log("getNearbyDriversMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log("getNearbyDriversMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(MOCK)
     // const result = {}
     expect(typeof result).toBe("object");
@@ -36,7 +36,7 @@ describe('@dynamic-data/lyft-mockups', () => {
       "RideEstimates",
       "2022-04-03"
     );
-    console.log("getRideEstimatesMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log("getRideEstimatesMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(MOCK)
     // const result = {}
     expect(typeof result).toBe("object");
@@ -47,7 +47,7 @@ describe('@dynamic-data/lyft-mockups', () => {
       "RideTypes",
       "2022-04-03"
     );
-    console.log("getRideTypesMockupData ", JSON.stringify(result, undefined, 2));
+    // console.log("getRideTypesMockupData ", JSON.stringify(result, undefined, 2));
     // console.log(MOCK)
     // const result = {}
     expect(typeof result).toBe("object");

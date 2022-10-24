@@ -12,7 +12,7 @@ const RawDataModel = {
   rsid: () => {//https://www.snpedia.com/index.php?title=Category:Is_a_snp&pageuntil=Rs1004467#mw-pages
     let letters = ["i", "myh", "omim", "rs"] //100,000+ snps that fall into 4 categories
     let string = ""
-    let letter = letters[getRandomInt(0,letters.length)-1]
+    let letter = letters[getRandomInt(0,letters.length-1)]
     string += letter
     switch (letter){
       case "omim":
@@ -22,16 +22,16 @@ const RawDataModel = {
         string += "6 c.2161"
         break;
       case "i":
-        string += getRandomInt(700013,6056364)
+        string += getRandomInt(700014,6056364)
         break;
       case "rs":
-        string += getRandomInt(0,1008240677)
+        string += getRandomInt(1,1008240677)
         break;
     }
     return string
   },
   chromosome: () => { //Humans have 23 chromosomes
-    return getRandomInt(0,23)
+    return getRandomInt(1,23)
   },
   position: () => { //Over 600,000+ positions
     let x
@@ -42,7 +42,7 @@ const RawDataModel = {
     return x
   },
   genotype: () => { //A and T can combine with each other, C and G can combine with each other. All alleles can combine with themself 
-    let first = getRandomInt(0,4)
+    let first = getRandomInt(1,4)
     let string = ""
     switch (first){
       case 1:
@@ -58,7 +58,7 @@ const RawDataModel = {
         string+= "G"
         break;
     }
-    let second = getRandomInt(0,2)
+    let second = getRandomInt(1,2)
     if (string === "A" || string === "T") {
       switch (second){
         case 1:
