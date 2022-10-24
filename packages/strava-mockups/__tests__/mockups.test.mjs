@@ -1,62 +1,155 @@
-import { getRandomInt } from "@dynamic-data/utils";
+"use strict";
 
-import MOCK from "@dynamic-data/oura-data";
+const { getRandomInt } = require("@dynamic-data/utils");
+
+import MOCK from "@dynamic-data/strava-data";
 
 import {
-  getModelCSVHeader,
+  getEquipmentMockupData,
+  getClubMockupData,
+  getSegmentEffortMockupData,
   getActivityMockupData,
-  getReadinessMockupData,
-  getSleepMockupData,
-} from "@dynamic-data/oura-mockups";
+  getAthleteStatsMockupData,
+  getActivityZoneMockupData,
+  getActivityCommentsMockupData,
+  getSegmentsMockupData,
+  getActivityLapMockupData,
+  getAthleteMockupData,
+  getActivityStreamData,
+  getRouteMockupData,
+  getAthleteActivitesData
+  } from "@dynamic-data/strava-mockups";
 
-describe("Oura", () => {
+describe("Strava", () => {
   //test.todo("needs tests");
-  it("ActivitySummary mockup datamodel from default", () => {
-    const data = MOCK.ActivitySummary;
-    //console.log("MOCK ", MOCK);
-    //console.log("MOCK DATA", data);
-
-    expect(typeof data).toBe("object");
+  it("MOCK datamodel", () => {
+    // console.log(JSON.stringify(MOCK, undefined, 2));
+    expect(typeof MOCK).toBe("object");
   });
-
-  it("RandomInt", () => {
-    const result = getRandomInt(1, 10);
-    //console.log(typeof result);
-    expect(typeof result).toEqual("number");
+  it("getEquipmentMockupData", () => {
+    const result = getEquipmentMockupData(
+      "SYNC",
+      "Equipment",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
   });
-
-  it("getModelCSVHeader", () => {
-    const result = getModelCSVHeader("ActivitySummaryAsync");
-    //console.log(result);
-    expect(Array.isArray(result)).toBe(true);
+  it("getClubMockupData", () => {
+    const result = getClubMockupData(
+      "SYNC",
+      "Club",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
+  });
+  it("getSegmentEffortMockupData", () => {
+    const result = getSegmentEffortMockupData(
+      "SYNC",
+      "SegmentEfforts",
+      "2022-04-03"
+    );
+    // console.log(result);
+    expect(typeof result).toBe("object");
   });
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
       "SYNC",
-      "ActivitySummary",
-      "2022-04-03T04:00:00+03:00"
+      "Activity",
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
-
-  it("getReadinessMockupData", () => {
-    const result = getReadinessMockupData(
+  it("getAthleteStatsMockupData", () => {
+    const result = getAthleteStatsMockupData(
       "SYNC",
-      "ReadinessSummary",
-      "2022-04-03T04:00:00+03:00"
+      "AthleteStats",
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
-
-  it("getSleepMockupData", () => {
-    const result = getSleepMockupData(
+  it("getActivityZoneMockupData", () => {
+    const result = getActivityZoneMockupData(
       "SYNC",
-      "SleepSummary",
-      "2022-04-03T04:00:00+03:00"
+      "ActivityZone",
+      "2022-04-03"
     );
-    //console.log(result);
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getActivityCommentsMockupData", () => {
+    const result = getActivityCommentsMockupData(
+      "SYNC",
+      "ActivityComments",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getSegmentsMockupData", () => {
+    const result = getSegmentsMockupData(
+      "SYNC",
+      "Segments",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getActivityLapMockupData", () => {
+    const result = getActivityLapMockupData(
+      "SYNC",
+      "ActivityLap",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getAthleteMockupData", () => {
+    const result = getAthleteMockupData(
+      "SYNC",
+      "Athlete",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getActivityStreamData", () => {
+    const result = getActivityStreamData(
+      "SYNC",
+      "ActivityStream",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getRouteMockupData", () => {
+    const result = getRouteMockupData(
+      "SYNC",
+      "Route",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getAthleteActivitesData", () => {
+    const result = getAthleteActivitesData(
+      "SYNC",
+      "AthleteActivities",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
+    expect(typeof result).toBe("object");
+  });
+  it("getAthleteActivitesData", () => {
+    const result = getAthleteActivitesData(
+      "SYNC",
+      "AthleteActivities",
+      "2022-04-03"
+    );
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 });

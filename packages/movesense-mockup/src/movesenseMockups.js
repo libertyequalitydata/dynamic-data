@@ -79,7 +79,7 @@ const DeviceInfoModel = {
   addressInfo: () => {
     let array = []
     let name = ""
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         name = "WIFI"
         break
@@ -150,7 +150,7 @@ const PeerListModel = {
 const PeerChangeModel = {
   State: () => {
     let array = []
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         array.push(0)
         array.push("DISCONNECTED")

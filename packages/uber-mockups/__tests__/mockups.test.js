@@ -101,7 +101,7 @@ describe('@dynamic-data/uber-mockups', () => {
       "UserInfo",
       "2022-04-03"
     );
-    console.log(JSON.stringify(result, undefined, 2))
+    // console.log(JSON.stringify(result, undefined, 2))
     expect(typeof result).toBe("object");
   });
 });

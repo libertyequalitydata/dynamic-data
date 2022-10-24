@@ -902,7 +902,7 @@ const HealthRecordModel = {
     return result;
   },
   dataTypeName: () => {
-    switch (getRandomInt(0,3)){
+    switch (getRandomInt(1,5)){
       case 1:
         return "com.huawei.continuous.ecg_record"
       case 2:
@@ -1001,16 +1001,16 @@ const SampleSetModel = {
         obj = HealthSamplingModel["ECGDetail"](1,"[-635795.75,-635813.5,-636456.25,-637246.44,-637302.9,-637826.3,-638903.0,-640107.06,-639138.4,-636218.9,-631505.94,-626216.7,-621731.44]")
         break;
       case "com.huawei.continuous.sleep.fragment":
-        obj = HealthSamplingModel["SleepFragment"](getRandomInt(0,5))
+        obj = HealthSamplingModel["SleepFragment"](getRandomInt(1,5))
         break;
       case "com.huawei.instantaneous.heart_rate":
-        obj = HealthSamplingModel["HeartRate"](getRandomInt(0,256)-1)
+        obj = HealthSamplingModel["HeartRate"](getRandomInt(0,255))
         break;
       case "com.huawei.health.record.menstrual_cycle":
-        obj = HealthSamplingModel["MenstrualFlow"](getRandomInt(0,10)-1)
+        obj = HealthSamplingModel["MenstrualFlow"](getRandomInt(0,9))
         break;
       case "com.huawei.dysmenorrhoea":
-        obj = HealthSamplingModel["HeartRate"](getRandomInt(0,10)-1)
+        obj = HealthSamplingModel["HeartRate"](getRandomInt(0,9))
         break;
         
     }
@@ -1413,7 +1413,7 @@ function SamplePoint(name){
         
         startTime: 1624312598000000000,
         endTime: 1624312598000000000,
-        ...HealthSamplingModel["ExerciseHeartRate"](getRandomInt(0,10)-1),
+        ...HealthSamplingModel["ExerciseHeartRate"](getRandomInt(0,9)),
         modifyTime: 1642476171373,
       }
       ]
@@ -1421,7 +1421,7 @@ function SamplePoint(name){
       return [{
         startTime: 1624312598000000000,
         endTime: 1624312598000000000,
-        ...FitnessSamplingModel["SpeedInstantaneous"](getRandomInt(0,10)-1),
+        ...FitnessSamplingModel["SpeedInstantaneous"](getRandomInt(0,9)),
         modifyTime: 1642476171373,
       }
       ]
@@ -1429,7 +1429,7 @@ function SamplePoint(name){
       return [{
         startTime: 1624312598000000000,
         endTime: 1624312598000000000,
-        ...FitnessSamplingModel["StepCadenceInstantaneous"](getRandomInt(0,10)-1),
+        ...FitnessSamplingModel["StepCadenceInstantaneous"](getRandomInt(0,9)),
         modifyTime: 1642476171373,
       }
       ]
@@ -1579,7 +1579,7 @@ const ActivityRecordModel = {
     }
   },
   activityType: () => {
-    return types[getRandomInt(0,types.length)-1]["value"]
+    return types[getRandomInt(0,types.length-1)]["value"]
     // return 26
   },
   cursor: () => {
@@ -3179,23 +3179,23 @@ const HealthRecordDataModel = {
     return [
       {
         fieldName: "ecg_type",
-        integerValue: types[getRandomInt(0,types.length)-1]
+        integerValue: types[getRandomInt(0,types.length-1)]
       },
       {
         fieldName: "avg_heart_rate",
-        integerValue: getRandomInt(0,256)-1
+        integerValue: getRandomInt(0,255)
       },
       {
         fieldName: "ecg_arrhythmia_type",
-        longValue: Math.pow(2,getRandomInt(0,7)-1)
+        longValue: Math.pow(2,getRandomInt(0,6))
       },
       {
         fieldName: "user_symptom",
-        longValue: Math.pow(2,getRandomInt(0,10)-1)
+        longValue: Math.pow(2,getRandomInt(0,9))
       },
       {
         fieldName: "sampling_frequency",
-        integerValue: getRandomInt(0,1001)-1
+        integerValue: getRandomInt(0,1000)
       },
       {
         fieldName: "ecg_algorithm_version",
@@ -3311,11 +3311,11 @@ const HealthRecordDataModel = {
       },
       {
         fieldName: "status",
-        integerValue: getRandomInt(0,5)-1
+        integerValue: getRandomInt(0,4)
       },
       {
         fieldName: "subStatus",
-        integerValue: getRandomInt(0,3)-1
+        integerValue: getRandomInt(0,2)
       },
       {
         fieldName: "timeZone",
@@ -3385,7 +3385,7 @@ const DataCollectorModel = {
     "com.huawei.health.record.sleep",
     "com.huawei.health.record.tachycardia",
     "com.huawei.health.record.bradycardia"]
-    name = names[getRandomInt(0,names.length)-1]
+    name = names[getRandomInt(0,names.length-1)]
     switch (name) {
       case "com.huawei.instantaneous.height":
         field = [{
@@ -4213,11 +4213,11 @@ const DataCollectorModel = {
     }
 
     return {
-      devType: types[getRandomInt(0,types.length)-1],
-      manufacturer: manufacturers[getRandomInt(0,manufacturers.length)-1],
+      devType: types[getRandomInt(0,types.length-1)],
+      manufacturer: manufacturers[getRandomInt(0,manufacturers.length-1)],
       modelNum: modelNum,
       uniqueId: uniqueId,
-      version: getRandomInt(0,12)-1 + "." + getRandomInt(0,12)-1,
+      version: getRandomInt(0,11) + "." + getRandomInt(0,11),
   }
   },
   name: () => {

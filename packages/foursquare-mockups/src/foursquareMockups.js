@@ -53,7 +53,7 @@ const PhotoDetailsModel = {
         "url": "http://instagram.com"
       }
     ]
-    return sources[getRandomInt(0,sources.length)-1]
+    return sources[getRandomInt(0,sources.length-1)]
   },
   prefix: () => {
     return "https://igx.4sqi.net/img/general/"
@@ -241,7 +241,7 @@ const VenueModel = {
     const length = getRandomInt(0,types.length)
     let final = 0
     for (var i =0; i<length; i++){
-      let x = getRandomInt(0,types.length)-1
+      let x = getRandomInt(0,types.length-1)
       groups.push({
         "type": types[x]["type"],
         "name": types[x]["type"],
@@ -283,7 +283,7 @@ const VenueModel = {
     const length = getRandomInt(0,types.length)
     let final = 0
     for (var i =0; i<length; i++){
-      let x = getRandomInt(0,types.length)-1
+      let x = getRandomInt(0,types.length-1)
       groups.push({
         "type": types[x]["type"],
         "name": types[x]["type"],
@@ -302,7 +302,7 @@ const VenueModel = {
   },
   phrases: () => {
     const text = getRandomString(getRandomInt(15,100))
-    const start = getRandomInt(0,text.length)-1
+    const start = getRandomInt(0,text.length-1)
     const end = getRandomInt(start, text.length-1)
     const subStr = text.substring(start, end)
     return {
@@ -660,7 +660,7 @@ const TipDetailsModel = {
   },
   type: () => {
     let types = ["user"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   canonicalUrl: (id) => {
     return `https://foursquare.com/item/${id}`
@@ -850,7 +850,7 @@ const HoursModel = {
     const length = getRandomInt(0,Math.max(...filtered))
     var final = []
     for (var i = 0; i<length;){
-      var index = getRandomInt(0,filtered.length)-1
+      var index = getRandomInt(0,filtered.length-1)
       if (!final.includes(filtered[index])){
         final.push(filtered[index])
         i++;

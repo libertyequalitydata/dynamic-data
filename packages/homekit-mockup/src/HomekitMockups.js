@@ -39,7 +39,7 @@ const HomeModel = {
     return string
   },
   isPrimary: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -47,7 +47,7 @@ const HomeModel = {
     }
   },
   supportsAddingNetworkRouter: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -55,7 +55,7 @@ const HomeModel = {
     }
   },
   homeHubState: () => {
-    return getRandomInt(0,3)-1
+    return getRandomInt(0,2)
   },
   
 }
@@ -255,14 +255,14 @@ const AccessoryModel = {
         "descENG": "An uncategorized accessory."
       }
     ]
-    let index = getRandomInt(0,categories.length)-1
+    let index = getRandomInt(0,categories.length-1)
     return {
       "categoryType": categories[index]["category"],
       "localizedDescription": categories[index]["descENG"]
     }
   },
   isReachable: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -270,7 +270,7 @@ const AccessoryModel = {
     }
   },
   isBlocked: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -278,7 +278,7 @@ const AccessoryModel = {
     }
   },
   supportsIdentify: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -286,7 +286,7 @@ const AccessoryModel = {
     }
   },
   isBridged: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -294,7 +294,7 @@ const AccessoryModel = {
     }
   },
   uniqueIdentifierForBridgedAccessories: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return null
       case 2:
@@ -416,7 +416,7 @@ const ServicesModel = {
     "HMServiceTypeLabel",
     "HMServiceTypeAccessoryInformation"
   ]
-  return types[getRandomInt(0,types.length)-1]
+  return types[getRandomInt(0,types.length-1)]
   },
   localizedDescription: (serviceType) => {
     switch(serviceType){
@@ -507,7 +507,7 @@ const ServicesModel = {
     }
   },
   isUserInteractive: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -777,14 +777,14 @@ const CharacteristicsModel = {
   },
   properties: () => {
     let properties = ["HMCharacteristicPropertyReadable","HMCharacteristicPropertyWritable","HMCharacteristicPropertySupportsEvent","HMCharacteristicPropertyHidden"]
-    let length = getRandomInt(0,properties.length)
+    let length = getRandomInt(1,properties.length)
     let final = []
     switch(length){
       case 1:
-        return [properties[getRandomInt(0,properties.length)-1]]
+        return [properties[getRandomInt(0,properties.length-1)]]
       case 2:
         for (var i = 0;i<2;){
-          let index = getRandomInt(0,properties.length)-1
+          let index = getRandomInt(0,properties.length-1)
           if (!final.includes(properties[index])){
             final.push(properties[index])
             i++
@@ -793,14 +793,14 @@ const CharacteristicsModel = {
         return final
       case 3:
         for (var i = 0;i<3;){
-          let index = getRandomInt(0,properties.length)-1
+          let index = getRandomInt(0,properties.length-1)
           if (!final.includes(properties[index])){
             final.push(properties[index])
             i++
           }
         }
         return final
-      case 4:
+      default:
         return properties
     }
   }, 
@@ -924,96 +924,96 @@ const CharacteristicsModel = {
       "HMCharacteristicTypeLabelNamespace"
 
     ]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   value: (characteristicType) => {
     switch(characteristicType){
       case "HMCharacteristicTypeCurrentLightLevel":
-        return getRandomInt(0,1001)-1
+        return getRandomInt(0,1000)
       case "HMCharacteristicTypeHue":
-        return (getRandomInt(0,36000000001)-1)/100000000
+        return (getRandomInt(0,36000000000))/100000000
       case "HMCharacteristicTypeBrightness":
-        return getRandomInt(0,101)-1
+        return getRandomInt(0,100)
       case "HMCharacteristicTypeSaturation":
-        return (getRandomInt(0,10000000001)-1)/100000000
+        return (getRandomInt(0,10000000000))/100000000
       case "HMCharacteristicTypeColorTemperature":
-        return 1000000/(getRandomInt(1500,7001)-1)
+        return 1000000/(getRandomInt(1500,7000))
       case "HMCharacteristicTypeBatteryLevel":
-        return getRandomInt(0,101)-1
+        return getRandomInt(0,100)
       case "HMCharacteristicTypeChargingState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeContactState":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeOutletInUse":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypePowerState":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeStatusLowBattery":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeOutputState":
         return ""
       case "HMCharacteristicTypeInputEvent":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeCurrentTemperature":
-        return (getRandomInt(10000,60001)-1)/1000
+        return (getRandomInt(10000,60000))/1000
       case "HMCharacteristicTypeTargetTemperature":
-        return (getRandomInt(10000,60001)-1)/1000
+        return (getRandomInt(10000,60000))/1000
       case "HMCharacteristicTypeTemperatureUnits":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeTargetHeatingCooling":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeCurrentHeatingCooling":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeTargetHeaterCoolerState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeCurrentHeaterCoolerState":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeCoolingThreshold":
-        return (getRandomInt(10000,60001)-1)/1000
+        return (getRandomInt(10000,60000))/1000
       case "HMCharacteristicTypeHeatingThreshold":
-        return (getRandomInt(10000,60001)-1)/1000
+        return (getRandomInt(10000,60000))/1000
       case "HMCharacteristicTypeCurrentRelativeHumidity":
-        return (getRandomInt(0,10000000001)-1)/100000000
+        return (getRandomInt(0,10000000000))/100000000
       case "HMCharacteristicTypeTargetRelativeHumidity":
-        return (getRandomInt(0,10000000001)-1)/100000000
+        return (getRandomInt(0,10000000000))/100000000
       case "HMCharacteristicTypeCurrentHumidifierDehumidifierState":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeTargetHumidifierDehumidifierState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeHumidifierThreshold":
-        return (getRandomInt(0,10000000001)-1)/100000000
+        return (getRandomInt(0,10000000000))/100000000
       case "HMCharacteristicTypeDehumidifierThreshold":
-        return (getRandomInt(0,10000000001)-1)/100000000
+        return (getRandomInt(0,10000000000))/100000000
       case "HMCharacteristicTypeAirQuality":
-        return getRandomInt(0,6)-1
+        return getRandomInt(0,5)
       case "HMCharacteristicTypeAirParticulateDensity":
-        return getRandomInt(10,71)-1 //Air Particular Matter Density - Needs a lot more understanding 
+        return getRandomInt(10,70) //Air Particular Matter Density - Needs a lot more understanding 
       case "HMCharacteristicTypeAirParticulateSize":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeSmokeDetected":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCarbonDioxideDetected":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCarbonDioxideLevel":
-        return getRandomInt(250,6001)-1
+        return getRandomInt(250,6000)
       case "HMCharacteristicTypeCarbonDioxidePeakLevel":
-        return getRandomInt(250,6001)-1
+        return getRandomInt(250,6000)
       case "HMCharacteristicTypeCarbonMonoxideDetected":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCarbonMonoxideLevel":
-        return (getRandomInt(0,81)-1)/10
+        return (getRandomInt(0,80))/10
       case "HMCharacteristicTypeCarbonMonoxidePeakLevel":
-        return (getRandomInt(0,81)-1)/10
+        return (getRandomInt(0,80))/10
       case "HMCharacteristicTypeNitrogenDioxideDensity":
         return getRandomInt(50,100)/1000
       case "HMCharacteristicTypeOzoneDensity":
@@ -1027,131 +1027,131 @@ const CharacteristicsModel = {
       case "HMCharacteristicTypeVolatileOrganicCompoundDensity":
         return getRandomInt(15,35) //Unsure
       case "HMCharacteristicTypeCurrentFanState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeTargetFanState":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeRotationDirection":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeRotationSpeed":
-        return (getRandomInt(0,100001)-1)/1000
+        return (getRandomInt(0,100000))/1000
       case "HMCharacteristicTypeSwingMode":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCurrentAirPurifierState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeTargetAirPurifierState":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeFilterLifeLevel":
-        return (getRandomInt(0,100001)-1)/1000
+        return (getRandomInt(0,100000))/1000
       case "HMCharacteristicTypeFilterChangeIndication":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeFilterResetChangeIndication":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeWaterLevel":
-        return (getRandomInt(0,100001)-1)/1000
+        return (getRandomInt(0,100000))/1000
       case "HMCharacteristicTypeValveType":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeLeakDetected":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCurrentDoorState":
-        return getRandomInt(0,5)-1
+        return getRandomInt(0,4)
       case "HMCharacteristicTypeTargetDoorState":
-        return getRandomInt(0,5)-1
+        return getRandomInt(0,4)
       case "HMCharacteristicTypeCurrentPosition":
-        return getRandomInt(0,101)-1
+        return getRandomInt(0,100)
       case "HMCharacteristicTypeTargetPosition":
-        return getRandomInt(0,101)-1
+        return getRandomInt(0,100)
       case "HMCharacteristicTypePositionState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeStatusJammed":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeHoldPosition":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeSlatType":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeCurrentSlatState":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeCurrentHorizontalTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeTargetHorizontalTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeCurrentVerticalTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeTargetVerticalTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeCurrentTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeTargetTilt":
-        return getRandomInt(0,181)-91
+        return getRandomInt(0,180)-90
       case "HMCharacteristicTypeLockManagementAutoSecureTimeout":
-        return getRandomInt(0,601)-1
+        return getRandomInt(0,600)
       case "HMCharacteristicTypeLockManagementControlPoint":
         return null
       case "HMCharacteristicTypeLockMechanismLastKnownAction":
-        return getRandomInt(0,11)-1
+        return getRandomInt(0,10)
       case "HMCharacteristicTypeLockPhysicalControls":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeMotionDetected":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeCurrentLockMechanismState":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeTargetLockMechanismState":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeCurrentSecuritySystemState":
-        return getRandomInt(0,5)-1
+        return getRandomInt(0,4)
       case "HMCharacteristicTypeTargetSecuritySystemState":
-        return getRandomInt(0,4)-1
+        return getRandomInt(0,3)
       case "HMCharacteristicTypeObstructionDetected":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeOccupancyDetected":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeSecuritySystemAlarmType":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeSupportedRTPConfiguration":
         return null
       case "HMCharacteristicTypeDigitalZoom":
         return null
       case "HMCharacteristicTypeOpticalZoom":
-        return (getRandomInt(0,10001)-1)/1000
+        return (getRandomInt(0,10000))/1000
       case "HMCharacteristicTypeImageMirroring":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeImageRotation":
-        switch(getRandomInt(0,4)){
+        switch(getRandomInt(1,4)){
           case 1:
             return 0
           case 2:
             return 90
-          case 1:
+          case 3:
             return 180
-          case 2:
+          case 4:
             return 270
         }
       case "HMCharacteristicTypeNightVision":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
@@ -1168,44 +1168,44 @@ const CharacteristicsModel = {
       case "HMCharacteristicTypeSetupStreamEndpoint":
         return null
       case "HMCharacteristicTypeAudioFeedback":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeVolume":
-        return getRandomInt(0,101)-1
+        return getRandomInt(0,100)
       case "HMCharacteristicTypeMute":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeActive":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeStatusTampered":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeStatusFault":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeStatusActive":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeInUse":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeIsConfigured":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeRemainingDuration":
-        return getRandomInt(0,601)-1
+        return getRandomInt(0,600)
       case "HMCharacteristicTypeSetDuration":
-        return getRandomInt(0,601)-1
+        return getRandomInt(0,600)
       case "HMCharacteristicTypeProgramMode":
-        return getRandomInt(0,3)-1
+        return getRandomInt(0,2)
       case "HMCharacteristicTypeName":
         let string = ""
         let characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -1216,7 +1216,7 @@ const CharacteristicsModel = {
         }
         return string
       case "HMCharacteristicTypeIdentify":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
@@ -1227,14 +1227,14 @@ const CharacteristicsModel = {
       case "HMCharacteristicTypeLogs":
         return null
       case "HMCharacteristicTypeAdminOnlyAccess":
-        switch(getRandomInt(0,2)){
+        switch(getRandomInt(1,2)){
           case 1:
             return true
           case 2:
             return false
         }
       case "HMCharacteristicTypeIsConfigured":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
       case "HMCharacteristicTypeHardwareVersion":
         return getRandomInt(0,10).toString() + "." + getRandomInt(0,10).toString() + "." +getRandomInt(0,10).toString()
       case "HMCharacteristicTypeSoftwareVersion":
@@ -1242,11 +1242,11 @@ const CharacteristicsModel = {
       case "HMCharacteristicTypeLabelIndex":
         return getRandomInt(0,10)
       case "HMCharacteristicTypeLabelNamespace":
-        return getRandomInt(0,2)-1
+        return getRandomInt(0,1)
     }
   },
   isNotificationEnabled: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2580,10 +2580,10 @@ const StreamControlModel = {
     return getRandomInt(100000,300000)/100000
   },
   audioStreamSetting: () => {
-    return getRandomInt(0,3)
+    return getRandomInt(1,3)
   },
   streamState: () => {
-    return getRandomInt(0,4)
+    return getRandomInt(1,4)
   },
 }
 
@@ -2643,10 +2643,10 @@ const ActionSetModel = {
       "HMActionSetTypeTriggerOwned"
 
     ]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   actions: () => {
-    let length = getRandomInt(0,3)
+    let length = getRandomInt(1,3)
     let array = []
     for (var i = 0; i< length; i++){
       let string = ""
@@ -2668,7 +2668,7 @@ const ActionSetModel = {
     return array
   },
   isExecuting: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2702,7 +2702,7 @@ const TriggerModel = {
     return string
   },
   isEnabled: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2738,7 +2738,7 @@ const TriggerModel = {
     }
   },
   executeOnce: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       default:
@@ -2762,7 +2762,7 @@ const TimerTriggerModel = {
     return string
   },
   isEnabled: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2794,7 +2794,7 @@ const TimerTriggerModel = {
     return randomDate.getTime() + getRandomInt(0,63072000)
   },
   recurrence: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return null
       case 2:
@@ -2813,11 +2813,11 @@ const TimerTriggerModel = {
           "weekOfYear": null,
           "weekday": null,
           "weekdayOrdinal": null,
-          "day": getRandomInt(0,35)-1,
-          "hour": getRandomInt(0,24)-1,
-          "minute": getRandomInt(0,60)-1,
-          "second": getRandomInt(0,60)-1,
-          "nanosecond": getRandomInt(0,1000000000)-1,
+          "day": getRandomInt(0,34),
+          "hour": getRandomInt(0,23),
+          "minute": getRandomInt(0,59),
+          "second": getRandomInt(0,59),
+          "nanosecond": getRandomInt(0,999999999),
           "description": "",
           "debugDescription": "",
           "customMirror": "",
@@ -2828,7 +2828,7 @@ const TimerTriggerModel = {
   recurrenceCalendar: () => {
     let identifiers = ["buddhist", "chinese", "coptic", "ethiopicAmeteAlem", "ethiopicAmeteMihret", "gregorian", "hebrew", "indian", "islamic", "islamicCivil", "islamicTabular", "islamicUmmAlQura", "iso8601", "japanese", "persian", "republicOfChina"]
     return {
-      "identifier": identifiers[getRandomInt(0,identifiers.length)-1]
+      "identifier": identifiers[getRandomInt(0,identifiers.length-1)]
     }
   },
   timeZone: () => {
@@ -2994,7 +2994,7 @@ const EventModel = {
       }
     }
     let significantEvent = ""
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         significantEvent = "sunrise"
       case 2:
@@ -3232,7 +3232,6 @@ export function getHMHomeManager(dataType, dataModel, dataDate) {
       mockupData[k] = mockupDataRow[i];
     });
   }
-  // console.log(mockupData)
   let primaryUUID = null;
   [
     "authorizationStatus",
@@ -3243,7 +3242,7 @@ export function getHMHomeManager(dataType, dataModel, dataDate) {
     switch(key){
       case "authorizationStatus":
         let homeAuthorizationStatus = ["restricted", "authorized", "determined"]
-        mockupData[key] = homeAuthorizationStatus[getRandomInt(0,homeAuthorizationStatus.length)-1]
+        mockupData[key] = homeAuthorizationStatus[getRandomInt(0,homeAuthorizationStatus.length-1)]
         break
       case "homes": 
         mockupData[key].forEach((home)=>{
@@ -3291,7 +3290,7 @@ export function getHMHomeManager(dataType, dataModel, dataDate) {
                 })
                 break
               case "zones":
-                let zonesLength = getRandomInt(0,4)
+                let zonesLength = getRandomInt(1,4)
                 for (var i = 1; i<zonesLength; i++){
                   home[key2].push(Object.assign({}, home[key2][0]))
                 }
@@ -3305,7 +3304,7 @@ export function getHMHomeManager(dataType, dataModel, dataDate) {
                     switch(key3){
                       case "rooms":
                         zone[key3] = []
-                        let roomsLength = getRandomInt(0,3)
+                        let roomsLength = getRandomInt(1,3)
                         for (var i = 0; i<roomsLength; i++){
                           zone[key3].push(JSON.parse(JSON.stringify(sampleRoom)))
                         }
@@ -4246,7 +4245,7 @@ export function getHMEventTrigger(dataType, dataModel, dataDate) {
           break;
         case "events":
           mockupData[key].forEach((event)=>{
-            switch(getRandomInt(0,7)){
+            switch(getRandomInt(1,7)){
               case 1:
                 event = EventModel["HMPresenceEvent"]()
                 break
@@ -4321,7 +4320,7 @@ export function getHMEventTrigger(dataType, dataModel, dataDate) {
           break;
         case "endEvents":
           mockupData[key].forEach((event)=>{
-            switch(getRandomInt(0,7)){
+            switch(getRandomInt(1,7)){
               case 1:
                 event = EventModel["HMPresenceEvent"]()
                 break

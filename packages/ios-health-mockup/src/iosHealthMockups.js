@@ -9,7 +9,7 @@ import MOCK from "@dynamic-data/ios-health-data";
 
 const CharacteristicsModel = {
   biologicalSex: () => {
-    // switch(getRandomInt(0,4)-1){
+    // switch(getRandomInt(1,4)-1){
     //   case 0:
     //     return "notSet"
     //   case 1:
@@ -22,7 +22,7 @@ const CharacteristicsModel = {
     return getRandomInt(0,4)-1
   },
   bloodType: () => {
-    // switch(getRandomInt(0,9)-1){
+    // switch(getRandomInt(1,9)-1){
     //   case 0:
     //     return "notSet"
     //   case 1:
@@ -91,7 +91,7 @@ const CharacteristicsModel = {
     }
   },
   fitzpatrickSkinType: () => {
-    // switch(getRandomInt(0,7)-1){
+    // switch(getRandomInt(1,7)-1){
     //   case 0:
     //     return "notSet"
     //   case 1:
@@ -110,7 +110,7 @@ const CharacteristicsModel = {
     return getRandomInt(0,7)-1
   },
   wheelchairUse: () => {
-    // switch(getRandomInt(0,3)-1){
+    // switch(getRandomInt(1,3)-1){
     //   case 0:
     //     return "notSet"
     //   case 1:
@@ -124,7 +124,7 @@ const CharacteristicsModel = {
 
 const HKActivitySummaryModel = {
   activityMoveMode: () => {
-    // switch(getRandomInt(0,2)){
+    // switch(getRandomInt(1,2)){
     //   case 1:
     //     return "activeEnergy"
     //   case 2:
@@ -445,7 +445,7 @@ const HKElectrocardiogramModel = {
     }
   },
   symptomsStatus:() =>{
-    // switch(getRandomInt(0,3)){
+    // switch(getRandomInt(1,3)){
     //   case 1:
     //     return "none"
     //   case 2: 
@@ -469,7 +469,7 @@ const HKElectrocardiogramModel = {
 const HKWorkoutConfigurationModel = {
   activityType: () => {
     let intArray = [2,7,18,22,49,1,3,5,6,10,75,23,25,27,36,41,42,51,33,62,80,52,37,70,71,13,74,59,16,20,50,11,73,63,64,44,68,69,76,58,77,78,57,29,66,4,79,34,43,47,48,9,17,19,21,24,26,32,60,12,61,40,67,39,31,35,38,45,46,53,54,55,8,65,28,72,56,3000]
-    return intArray[getRandomInt(0,intArray.length)-1]
+    return intArray[getRandomInt(0,intArray.length-1)]
   },
   locationType: () => {
     return getRandomInt(0,3)
@@ -668,7 +668,7 @@ const HKWorkoutModel = {
   },
   workoutActivityType: () => {
     let intArray = [2,7,18,22,49,1,3,5,6,10,75,23,25,27,36,41,42,51,33,62,80,52,37,70,71,13,74,59,16,20,50,11,73,63,64,44,68,69,76,58,77,78,57,29,66,4,79,34,43,47,48,9,17,19,21,24,26,32,60,12,61,40,67,39,31,35,38,45,46,53,54,55,8,65,28,72,56,3000]
-    return intArray[getRandomInt(0,intArray.length)-1]
+    return intArray[getRandomInt(0,intArray.length-1)]
   },
   totalFlightsClimbed: () => {
     return null

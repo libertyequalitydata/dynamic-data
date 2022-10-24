@@ -2,17 +2,10 @@
 
 const MOCK = require("@dynamic-data/whoop-data");
 const { 
-  ActivityType,
-  AggregateData,
-  Event,
-  Membership,
-  Metric,
-  Report,
-  SleepDetails,
-  SurveryResponse,
+  Cycle,
+  Recovery,
+  Sleep,
   User,
-  VoiceOfWhoop,
-  VoiceOfWhoopCycle,
   Workout
  } = require("@dynamic-data/whoop-data/mockups");
 
@@ -29,60 +22,25 @@ describe("Whoop", () => {
 
     expect(typeof MOCK).toBe("object");
   });
-  it("ActivityType datamodels from default", () => {
-    // console.log("ActivityType ", JSON.stringify(ActivityType, undefined, 2));
+  it("Cycle datamodels from default", () => {
+    // console.log("Cycle ", JSON.stringify(Cycle, undefined, 2));
 
-    expect(typeof ActivityType).toBe("object");
+    expect(typeof Cycle).toBe("object");
   });
-  it("AggregateData, datamodels from default", () => {
-    // console.log("AggregateData ", JSON.stringify(AggregateData, undefined, 2));
+  it("Recovery, datamodels from default", () => {
+    // console.log("Recovery ", JSON.stringify(Recovery, undefined, 2));
 
-    expect(typeof AggregateData).toBe("object");
+    expect(typeof Recovery).toBe("object");
   });
-  it("Event datamodels from default", () => {
-    // console.log("Event ", JSON.stringify(Event, undefined, 2));
+  it("Sleep datamodels from default", () => {
+    // console.log("Sleep ", JSON.stringify(Sleep, undefined, 2));
 
-    expect(typeof Event).toBe("object");
-  });
-  it("Membership datamodels from default", () => {
-    // console.log("Membership ", JSON.stringify(Membership, undefined, 2));
-
-    expect(typeof Membership).toBe("object");
-  });
-  it("Metric datamodels from default", () => {
-    // console.log("Metric ", JSON.stringify(Metric, undefined, 2));
-
-    expect(typeof Metric).toBe("object");
-  });
-  it("Report datamodels from default", () => {
-    // console.log("Report ", JSON.stringify(Report, undefined, 2));
-
-    expect(typeof Report).toBe("object");
-  });
-  it("SleepDetails datamodels from default", () => {
-    // console.log("SleepDetails ", JSON.stringify(SleepDetails, undefined, 2));
-
-    expect(typeof SleepDetails).toBe("object");
-  });
-  it("SurveryResponse datamodels from default", () => {
-    // console.log("SurveryResponse ", JSON.stringify(SurveryResponse, undefined, 2));
-
-    expect(typeof SurveryResponse).toBe("object");
+    expect(typeof Sleep).toBe("object");
   });
   it("User datamodels from default", () => {
     // console.log("User ", JSON.stringify(User, undefined, 2));
 
     expect(typeof User).toBe("object");
-  });
-  it("VoiceOfWhoop datamodels from default", () => {
-    // console.log("VoiceOfWhoop ", JSON.stringify(VoiceOfWhoop, undefined, 2));
-
-    expect(typeof VoiceOfWhoop).toBe("object");
-  });
-  it("VoiceOfWhoopCycle datamodels from default", () => {
-    // console.log("VoiceOfWhoopCycle ", JSON.stringify(VoiceOfWhoopCycle, undefined, 2));
-
-    expect(typeof VoiceOfWhoopCycle).toBe("object");
   });
   it("Workout datamodels from default", () => {
     // console.log("Workout ", JSON.stringify(Workout, undefined, 2));

@@ -52,7 +52,7 @@ const ActivityModel = {
   },
   type : ()=>{
     let types = [ "AlpineSki", "BackcountrySki", "Canoeing", "Crossfit", "EBikeRide", "Elliptical", "Golf", "Handcycle", "Hike", "IceSkate", "InlineSkate", "Kayaking", "Kitesurf", "NordicSki", "Ride", "RockClimbing", "RollerSki", "Rowing", "Run", "Sail", "Skateboard", "Snowboard", "Snowshoe", "Soccer", "StairStepper", "StandUpPaddling", "Surfing", "Swim", "Velomobile", "VirtualRide", "VirtualRun", "Walk", "WeightTraining", "Wheelchair", "Windsurf", "Workout", "Yoga"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   start_date : ()=>{
     let finalDate = new Date(0);
@@ -341,14 +341,14 @@ const ActivityModel = {
 
     let string = timezones[index].zones;
     string+= " ";
-    string+= timezones[index].areas[getRandomInt(0,timezones[index].areas.length)-1]
+    string+= timezones[index].areas[getRandomInt(0,timezones[index].areas.length-1)]
     return string
 
 
   },
   utc_offset : ()=>{
     let offsets = [-12,-11,-10,-9.5,-9,-8,-7,-6,-5,-4,-3.5,-3,-3,-2,-1,0,1,2,3,3.5,4,5,5.5,5.75,6,6.5,7,8,8.75,9,9.5,10,10.5,11,12,12.75]
-    return offsets[getRandomInt(0,offsets.length)-1]*60*60
+    return offsets[getRandomInt(0,offsets.length-1)]*60*60
   },
   start_latlng : ()=>{
     return [getRandomInt(-90000000000000,90000000000000)/1000000000000, getRandomInt(-180000000000000,180000000000000)/1000000000000]
@@ -966,7 +966,7 @@ const AthleteModel = {
   },
   measurement_preference : ()=>{
     let measurements = ["feet", "meters"]
-    return measurements[getRandomInt(0,measurements.length)-1]
+    return measurements[getRandomInt(0,measurements.length-1)]
   },
   clubs : ()=>{
     return getRandomInt(0,3)-1
@@ -1007,7 +1007,7 @@ const ClubModel = {
     let start = ["Team", "Club", "Group"]
     let place = ["Strava", "B", "C"]
     let sport = ["Cycling","Walking","Running","Swmming","Hiking"]
-    return start[getRandomInt(0, start.length)-1] + " " +place[getRandomInt(0, place.length)-1] + " " + sport[getRandomInt(0, sport.length)-1]
+    return start[getRandomInt(0, start.length-1)] + " " +place[getRandomInt(0, place.length-1)] + " " + sport[getRandomInt(0, sport.length-1)]
   },
   profile_medium : () => {
     return "https://dgalywyr863hv.cloudfront.net/pictures/clubs/1/1582/4/medium.jpg"
@@ -1023,7 +1023,7 @@ const ClubModel = {
   },
   sport_type : () => {
     let types = ["cycling","running","triathlon","other"]
-    return types[getRandomInt(0, types.length)-1]
+    return types[getRandomInt(0, types.length-1)]
   },
   activity_types : (sport_type) => {
     let types = {
@@ -1041,7 +1041,7 @@ const ClubModel = {
       case "triathlon":
         return types.triathlon
       case "other":
-        switch (getRandomInt(0,types.length)-1){
+        switch (getRandomInt(0,types.length-1)){
           case 0:
             return types.swimming
           case 1:
@@ -1126,7 +1126,7 @@ const ClubModel = {
   },
   membership : () => {
     let membership = ['member', 'pending'];
-    return membership[getRandomInt(0,membership.length)-1]
+    return membership[getRandomInt(0,membership.length-1)]
   },
   admin : () => {
     switch (getRandomInt(0,2)){
@@ -1158,7 +1158,7 @@ const ClubModel = {
   },
   club_type : () => {
     let club_type = ['company', 'club type 2', 'club type 3'];
-    return club_type[getRandomInt(0,club_type.length)-1]
+    return club_type[getRandomInt(0,club_type.length-1)]
   },
   post_count : () => {
     return getRandomInt(0,500)
@@ -1200,17 +1200,17 @@ const EquipmentModel = {
   },
   brand_name : ()=>{
     let brands = ["BMX", "BMC"]
-    return brands[getRandomInt(0,brands.length)-1]
+    return brands[getRandomInt(0,brands.length-1)]
     
   },
   name : ()=>{
     let brands = ["BMX", "BMC"]
-    return brands[getRandomInt(0,brands.length)-1]
+    return brands[getRandomInt(0,brands.length-1)]
     
   },
   model_name : ()=>{
     let brands = ["Teammachine", "Bike2"]
-    return brands[getRandomInt(0,brands.length)-1]
+    return brands[getRandomInt(0,brands.length-1)]
   },
   frame_type : ()=>{
     return getRandomInt(0,10)
@@ -1381,7 +1381,7 @@ const SegmentModel = {
   },
   activity_type: () => {
     let types = [ "AlpineSki", "BackcountrySki", "Canoeing", "Crossfit", "EBikeRide", "Elliptical", "Golf", "Handcycle", "Hike", "IceSkate", "InlineSkate", "Kayaking", "Kitesurf", "NordicSki", "Ride", "RockClimbing", "RollerSki", "Rowing", "Run", "Sail", "Skateboard", "Snowboard", "Snowshoe", "Soccer", "StairStepper", "StandUpPaddling", "Surfing", "Swim", "Velomobile", "VirtualRide", "VirtualRun", "Walk", "WeightTraining", "Wheelchair", "Windsurf", "Workout", "Yoga"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   distance: () => {
     return getRandomInt(0,99999)/100
@@ -1717,7 +1717,7 @@ const ActivityZoneModel = {
     },
     type : () => {
       let types = ["heartrate"]
-      return types[getRandomInt(0,types.length)-1]
+      return types[getRandomInt(0,types.length-1)]
     },
     points : () => {
       return getRandomInt(0,100)
@@ -1867,7 +1867,7 @@ const ExplorerReponseModel = {
 const StreamModel = {
   type: () => {
     let types = ["distance", "latlng", "altitude", "velocity_smooth", "heartrate", "cadence", "watts", "temp", "moving", "grade_smooth"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   data: (type, size) => {
     let array = [];
@@ -1935,21 +1935,21 @@ const StreamModel = {
   },
   series_type: () => {
     let types = ["distance","time"]
-    return types[getRandomInt(0,types.length)-1]
+    return types[getRandomInt(0,types.length-1)]
   },
   original_size: () => {
     return getRandomInt(0,15)
   },
   resolution: () => {
     let resolution = ["low","medium","high"]
-    return resolution[getRandomInt(0,resolution.length)-1]
+    return resolution[getRandomInt(0,resolution.length-1)]
   },
 
 }
 
 const RouteModel = {
   private : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -1995,7 +1995,7 @@ const RouteModel = {
     return getRandomInt(0,999)
   },
   starred : () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
@@ -2131,7 +2131,7 @@ const SummarySegmentEffort = {
     return getRandomInt(0,9999)/10
   },
   is_kom: () => {
-    switch(getRandomInt(0,2)){
+    switch(getRandomInt(1,2)){
       case 1:
         return true
       case 2:
