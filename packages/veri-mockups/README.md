@@ -1,25 +1,49 @@
-# `veri-data`
+
+# `veri-mockups`
+
+  
 
 > Dynamic data faker modules for Veri datasources
 
+  
+
 ## Usage
+
+  
 
 Dataobjects:
 
-- mealActivity
+  
+
+- mealActivityMockup
+
+  
 
 ```
+
 // CJS/Node
 
-const { mealActivity } = require('@dynamic-data/veri-data');
-const veriData = require('@dynamic-data/veri-data'); // All objects...
+  
+const  MOCK  =  require("@dynamic-data/veri-mockups"); // All functions...
+
+const {
+getMealActivityMockupData
+} =  require("@dynamic-data/veri-mockups");
 
 ```
 
+  
+
 ```
+
 // ESM/React
 
-import { mealActivity } from '@dynamic-data/veri-data';
-import veriData from '@dynamic-data/veri-data'; // All objects...
+  
+
+import  MOCK  from  "@dynamic-data/veri-mockups"; // All functions...
+
+import {
+getMealActivityMockupData
+} from  "@dynamic-data/veri-mockups";
 
 ```

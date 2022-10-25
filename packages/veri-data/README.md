@@ -1,25 +1,45 @@
-# `veri-mockups`
+
+# `veri-data`
+
+  
 
 > Mockup datamodules for Veri datasources
 
+  
+
 ## Usage
+
+  
 
 Dataobjects:
 
+  
+
 - mealActivityMockup
 
+  
+
 ```
+
 // CJS/Node
 
-const { mealActivityMockup } = require('@dynamic-data/veri-mockups');
-const veriMockups = require('@dynamic-data/veri-mockups'); // All objects...
+  
+const  MOCK  =  require("@dynamic-data/veri-data"); // All objects...
+
+const { mealActivity } =  require('@dynamic-data/veri-data/mockups');  
 
 ```
 
+  
+
 ```
+
 // ESM/React
 
-import { mealActivityMockup } from '@dynamic-data/veri-mockups';
-import veriMockups from '@dynamic-data/veri-mockups'; // All objects...
+  
+
+import  MOCK  from "@dynamic-data/veri-data"; // All objects...
+
+import { mealActivity } from '@dynamic-data/veri-data/mockups';  
 
 ```
