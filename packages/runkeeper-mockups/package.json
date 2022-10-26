@@ -1,14 +1,28 @@
 {
   "name": "@dynamic-data/runkeeper-mockups",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Dynamic Data Generator for RunKeeper App",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>","Jashaul <djashaul@gmail.com>"],
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "tero <tero@prifina.com>",
+    "Jashaul <djashaul@gmail.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Runkeeper", "Health", "Fitness", "Route", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "keywords": [
+    "Runkeeper",
+    "Health",
+    "Fitness",
+    "Route",
+    "Data",
+    "Faker",
+    "Dynamic",
+    "Artifical",
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
@@ -43,6 +57,6 @@
   },
   "dependencies": {
     "@dynamic-data/runkeeper-data": "^1.0.3",
-    "@dynamic-data/utils": "^0.0.11"
+    "@dynamic-data/utils": "^0.0.12"
   }
 }

@@ -1,14 +1,23 @@
 {
   "name": "@dynamic-data/veri-mockups",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Veri Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["Ishana<ishana71298@gmail.com>"],
+  "contributor": [
+    "Ishana<ishana71298@gmail.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Veri", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "keywords": [
+    "Veri",
+    "Data",
+    "Faker",
+    "Dynamic",
+    "Artifical",
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
@@ -42,7 +51,7 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/veri-data": "^1.0.0",
-    "@dynamic-data/utils": "^0.0.11"
+    "@dynamic-data/utils": "^0.0.12",
+    "@dynamic-data/veri-data": "^1.0.1"
   }
 }

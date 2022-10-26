@@ -1,14 +1,27 @@
 {
   "name": "@dynamic-data/foursquare-mockups",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Dynamic Data Faker for FourSquare",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>","Jashaul <djashaul@gmail.com>"],
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "tero <tero@prifina.com>",
+    "Jashaul <djashaul@gmail.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Foursquare", "4square", "Location",  "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "keywords": [
+    "Foursquare",
+    "4square",
+    "Location",
+    "Data",
+    "Faker",
+    "Dynamic",
+    "Artifical",
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
@@ -42,6 +55,6 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.11"
+    "@dynamic-data/utils": "^0.0.12"
   }
 }

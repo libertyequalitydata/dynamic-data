@@ -1,14 +1,20 @@
 {
   "name": "@dynamic-data/utils",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Utils for Mockup Data",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>", "Jashaul <djashaul@gmail.com>"],
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "tero <tero@prifina.com>",
+    "Jashaul <djashaul@gmail.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Prifina"],
+  "keywords": [
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",

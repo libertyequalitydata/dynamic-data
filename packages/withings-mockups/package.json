@@ -1,14 +1,26 @@
 {
   "name": "@dynamic-data/withings-mockups",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Withings Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "tero <tero@prifina.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Withings", "Health", "Fitness", "Data", "Faker", "Dynamic", "Artifical", "Prifina"],
+  "keywords": [
+    "Withings",
+    "Health",
+    "Fitness",
+    "Data",
+    "Faker",
+    "Dynamic",
+    "Artifical",
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
@@ -42,6 +54,6 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.11"
+    "@dynamic-data/utils": "^0.0.12"
   }
 }
