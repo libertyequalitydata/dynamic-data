@@ -1,6 +1,6 @@
-# `uber-mockups`
+# `uber-data`
 
-> Mockup data modules for Uber datasources
+> Mockup datamodules for Uber datasources
 
 ## Usage
 
@@ -20,15 +20,15 @@ Dataobjects:
 ```
 // CJS/Node
 
-const { products } = require('@dynamic-data/uber-mockups');
-const uberMockups = require('@dynamic-data/uber-mockups'); // All objects...
+const { products } = require('@dynamic-data/uber-data');
+const uberMockups = require('@dynamic-data/uber-data'); // All objects...
 
 ```
 
 ```
 // ESM/React
 
-import { products } from '@dynamic-data/uber-mockups';
-import uberMockups from '@dynamic-data/uber-mockups'; // All objects...
+import { products } from '@dynamic-data/uber-data';
+import uberMockups from '@dynamic-data/uber-data'; // All objects...
 
 ```
