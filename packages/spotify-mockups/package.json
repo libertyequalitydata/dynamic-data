@@ -1,0 +1,61 @@
+{
+  "name": "@dynamic-data/spotify-mockups",
+  "version": "1.0.0",
+  "description": "Dynamic Data Generator for Spotify API",
+  "author": "Prifina Inc (https://dev.prifina.com/)",
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "Ishana <ishana71298@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
+  },
+  "keywords": [
+    "Spotify",
+    "Streaming",
+    "Music",
+    "Music Streaming",
+    "Data",
+    "Faker",
+    "Dynamic",
+    "Artifical",
+    "Prifina"
+  ],
+  "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
+  "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "rimraf dist && rollup -c",
+    "test": "node --expose-gc ./node_modules/.bin/jest --runInBand --logHeapUsage -c ../../jest.config.js  --selectProjects=@dynamic-data/spotify-mockups"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.1.3",
+    "babel-jest": "^27.5.1",
+    "cross-env": "^7.0.3",
+    "jest": "^28.1.3",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.70.1"
+  },
+  "dependencies": {
+    "@dynamic-data/spotify-data": "^1.0.0",
+    "@dynamic-data/utils": "^0.0.11"
+  }
+}

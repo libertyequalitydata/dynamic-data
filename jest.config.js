@@ -36,6 +36,8 @@ const sensorBNO055Data = require("./packages/sensor-bno055-data/package.json")
 const sensorBNO055Mockup = require("./packages/sensor-bno055-mockups/package.json") 
 const stravaData = require("./packages/strava-data/package.json") 
 const stravaMockup = require("./packages/strava-mockups/package.json") 
+const spotifyData = require("./packages/spotify-data/package.json") 
+const spotifyMockup = require("./packages/spotify-mockups/package.json") 
 const twitchData = require("./packages/twitch-data/package.json") 
 const twitchMockup = require("./packages/twitch-mockup/package.json") 
 const uberData = require("./packages/uber-data/package.json") 
@@ -440,6 +442,26 @@ module.exports = {
       testMatch: [
         "<rootDir>/packages/strava-mockups/**/__tests__/*.test.js",
         "<rootDir>/packages/strava-mockups/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: spotifyData.name,
+
+      testMatch: [
+        "<rootDir>/packages/spotify-data/**/__tests__/*.test.js",
+        "<rootDir>/packages/spotify-data/**/__tests__/*.test.mjs",
+      ],
+
+    },{
+      ...base,
+
+      displayName: spotifyMockup.name,
+
+      testMatch: [
+        "<rootDir>/packages/spotify-mockups/**/__tests__/*.test.js",
+        "<rootDir>/packages/spotify-mockups/**/__tests__/*.test.mjs",
       ],
 
     },{
