@@ -8,7 +8,7 @@
     "lerna": "^6.0.1"
   },
   "scripts": {
-    "build": "lerna run build",
+    "build": "yarn install && lerna run build",
     "test": "lerna run test --parallel --no-sort"
   }
 }
