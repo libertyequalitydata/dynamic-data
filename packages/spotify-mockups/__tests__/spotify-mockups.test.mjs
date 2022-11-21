@@ -1,9 +1,9 @@
 'use strict';
 
 
-const MOCK = require("@dynamic-data/spotify-data");
+import MOCK from "@dynamic-data/spotify-data";
 
-const {
+import {
     getAlbumMockupData,
     getArtistMockupData,
     getArtistRelatedArtistwMockupData,
@@ -15,14 +15,14 @@ const {
     getTrackAudioFeaturesMockupData,
     getUserProfileMockupData,
     getEpisodeMockupData
-} = require("../../spotify-mockups/src");
+} from "@dynamic-data/spotify-mockups";
 
 
-describe('spotify-data', () => {
+describe('spotify-mockups', () => {
     it('getAlbumMockupData', () => {
       const result = getAlbumMockupData(
         "SYNC",
-        "AlbumModel",
+        "Album",
         "2022-11-10"
       );
       expect(typeof result).toBe('object');
@@ -32,7 +32,7 @@ describe('spotify-data', () => {
     it('getArtistMockupData', () => {
         const result = getArtistMockupData(
           "SYNC",
-          "ArtistModel",
+          "Artist",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -42,7 +42,7 @@ describe('spotify-data', () => {
       it('getArtistRelatedArtistwMockupData', () => {
         const result = getArtistRelatedArtistwMockupData(
           "SYNC",
-          "ArtistRelatedArtistModel",
+          "ArtistRelatedArtists",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -52,7 +52,7 @@ describe('spotify-data', () => {
       it('getArtistTopTracksMockupData', () => {
         const result = getArtistTopTracksMockupData(
           "SYNC",
-          "ArtistTopTracksModel",
+          "ArtistTopTracks",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -62,7 +62,7 @@ describe('spotify-data', () => {
       it('getShowsMockupData', () => {
         const result = getShowsMockupData(
           "SYNC",
-          "ShowsModel",
+          "Show",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -72,7 +72,7 @@ describe('spotify-data', () => {
       it('getPlaylistMockupData', () => {
         const result = getPlaylistMockupData(
           "SYNC",
-          "PlaylistModel",
+          "Playlist",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -82,7 +82,7 @@ describe('spotify-data', () => {
       it('getTrackMockupData', () => {
         const result = getTrackMockupData(
           "SYNC",
-          "TrackModel",
+          "Track",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -92,7 +92,7 @@ describe('spotify-data', () => {
       it('getTrackAudioAnalysisMockupData', () => {
         const result = getTrackAudioAnalysisMockupData(
           "SYNC",
-          "TrackAudioAnalysisModel",
+          "TrackAudioAnalysis",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -102,7 +102,7 @@ describe('spotify-data', () => {
       it('getTrackAudioFeaturesMockupData', () => {
         const result = getTrackAudioFeaturesMockupData(
           "SYNC",
-          "TrackAudioFeaturesModel",
+          "TrackAudioFeatures",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');
@@ -112,10 +112,9 @@ describe('spotify-data', () => {
       it('getUserProfileMockupData', () => {
         const result = getUserProfileMockupData(
           "SYNC",
-          "UserProfileModel",
+          "User",
           "2022-11-10"
         );
-        console.log(result);
         expect(typeof result).toBe('object');
         expect(!Array.isArray(result)).toBeTruthy();
         expect(Object.keys(result).length).not.toBe(0);
@@ -123,7 +122,7 @@ describe('spotify-data', () => {
       it('getEpisodeMockupData', () => {
         const result = getEpisodeMockupData(
           "SYNC",
-          "EpisodeModel",
+          "Episode",
           "2022-11-10"
         );
         expect(typeof result).toBe('object');

@@ -6,24 +6,24 @@
 
 Dataobjects -
 
-- album
-- artist
-- episode
-- artistRelatedArtists
-- artistTopTracks
-- playlist
-- shows
-- track
-- trackAudioAnalysis
-- trackAudioFeatures
-- userProfile
+- getAlbumMockupData
+- getArtistMockupData
+- getArtistRelatedArtistwMockupData
+- getArtistTopTracksMockupData
+- getShowsMockupData
+- getPlaylistMockupData
+- getTrackMockupData
+- getTrackAudioAnalysisMockupData
+- getTrackAudioFeaturesMockupData
+- getUserProfileMockupData
+- getEpisodeMockupData
 
 
 
 ```
 // CJS/Node
 
-const { artist } = require('@dynamic-data/spotify-mockups');
+const { getAlbumMockupData } = require('@dynamic-data/spotify-mockups');
 const spotifyMockups = require('@dynamic-data/spotify-mockups'); // All objects...
 
 ```
@@ -31,7 +31,7 @@ const spotifyMockups = require('@dynamic-data/spotify-mockups'); // All objects.
 ```
 // ESM/React
 
-import { artist } from '@dynamic-data/spotify-mockups';
+import { getAlbumMockupData } from '@dynamic-data/spotify-mockups';
 import spotifyMockups from '@dynamic-data/spotify-mockups'; // All objects...
 
 ```

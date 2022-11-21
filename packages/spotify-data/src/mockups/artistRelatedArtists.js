@@ -1,5 +1,3 @@
-const utils = require('@dynamic-data/utils');
-
 export const artistRelatedArtists = {
     artists: [
       {

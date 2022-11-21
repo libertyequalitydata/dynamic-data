@@ -15,7 +15,8 @@ const {
     episode
 } = require('@dynamic-data/spotify-data/mockups');
 
-describe('@dynamic-data/spotify-mockups', () => {
+
+describe('@dynamic-data/spotify-data', () => {
     it("Mockup datamodels from default", () => {
         console.log("MOCK ", MOCK);
         expect(typeof MOCK).toBe("object");

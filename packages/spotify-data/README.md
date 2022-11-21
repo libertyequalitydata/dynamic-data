@@ -23,7 +23,7 @@ Dataobjects -
 ```
 // CJS/Node
 
-const { artist } = require('@dynamic-data/spotify-data');
+const { artist } = require('@dynamic-data/spotify-data/mockups');
 const spotifyData = require('@dynamic-data/spotify-data'); // All objects...
 
 ```
@@ -31,7 +31,7 @@ const spotifyData = require('@dynamic-data/spotify-data'); // All objects...
 ```
 // ESM/React
 
-import { artist } from '@dynamic-data/spotify-data';
+import { artist } from '@dynamic-data/spotify-data/mockups';
 import spotifyData from '@dynamic-data/spotify-data'; // All objects...
 
 ```

@@ -15,7 +15,8 @@ import {
     album_type: () => {
         return "compilation"
     },
-    artists: (id) => {
+    artists: () => {
+      var id = getRandomString(22)
         return [
             {
               external_urls: {
@@ -46,7 +47,7 @@ import {
         }
     },
     external_urls: (id) => {
-        return 'spotify:' `https://open.spotify.com/album/` + id
+        return {'spotify': `https://open.spotify.com/album/` + id}
     },
     genres: () => {
         return []
@@ -98,8 +99,8 @@ import {
   };
   
   const ArtistModel = {
-    external_urls: () => {
-        return 'spotify:' `https://open.spotify.com/artist/` + id
+    external_urls: (id) => {
+        return {'spotify': `https://open.spotify.com/artist/` + id}
     },
     followers: () => {
         let hrefObj = null;
@@ -119,7 +120,7 @@ import {
             "pop rap"
           ]
     },
-    href: () => {
+    href: (id) => {
         return `https://api.spotify.com/v1/artists/` + id
     },
     id: () => {
@@ -145,7 +146,7 @@ import {
     type: () => {
         return "artist"
     },
-    uri: () => {
+    uri: (id) => {
         return `spotify:artist:` + id
     },
   }
@@ -154,6 +155,8 @@ import {
         return AlbumModel
     },
     artists: () => {
+
+      var id = getRandomString(22)
         return [
 
             {
@@ -184,10 +187,10 @@ import {
           isrc: isrcObj
         }
     },
-    external_urls: () => {
+    external_urls: (id) => {
         return {spotify: `https://open.spotify.com/track/` + id}
     },
-    href: () => {
+    href: (id) => {
         return `https://api.spotify.com/v1/tracks/` + id
     },
     id: () => {
@@ -200,12 +203,13 @@ import {
         return true
     },
     linked_from: () => {
+        var id = getRandomString(22)
         return {
             external_urls: {
               spotify: `https://open.spotify.com/track/` + id
             },
             href: `https://api.spotify.com/v1/tracks/` + id,
-            id: getRandomString(22),
+            id: id,
             type: "track",
             uri: `spotify:track:` + id
         }
@@ -225,7 +229,7 @@ import {
     type: () => {
         return "track"
     },
-    uri: () => {
+    uri: (id) => {
         return `spotify:track:` + id
     },
   }
@@ -382,13 +386,13 @@ import {
     id: () => {
         return getRandomString(22)
     },
-    uri: () => {
+    uri: (id) => {
         return `spotify:track:` + id
     },
-    track_href: () => {
+    track_href: (id) => {
         return `https://api.spotify.com/v1/tracks/` + id
     },
-    analysis_url: () => {
+    analysis_url: (id) => {
         return `https://api.spotify.com/v1/audio-analysis/` + id
     },
     duration_ms: () => {
@@ -610,6 +614,9 @@ import {
           "ZW"
         ]
     },
+    copyrights: () => {
+      return []
+  },
     description: () => {
         return getRandomString(22)
     },
@@ -723,11 +730,14 @@ import {
     language: () => {
         return "en"
     },
+    languages: () => {
+      return ["fr","en"]
+  },
     name: () => {
         return getRandomString(22) + getRandomString(22)
     },
     release_date: () => {
-        return getRandomDate()
+        return getRandomDateTime()
     },
     release_date_precision: () => {
         return "day"
@@ -755,6 +765,12 @@ import {
             spotify: `https://open.spotify.com/playlist/` + getRandomString(22)
         }
     },
+    followers: () => {
+      return {
+          href: null,
+          total: getRandomInt(1,999999)
+      }
+  },
     href: () => {
         return `https://api.spotify.com/v1/playlists/` + getRandomString(22)
     },
@@ -784,15 +800,16 @@ import {
         return getRandomString(22)
     },
     owner: () => {
+        var id = getRandomName()
         return {
             display_name: getRandomString(22),
             external_urls: {
                 spotify: `https://open.spotify.com/user/` + getRandomString(22)
             },
             href: `https://api.spotify.com/v1/users/` + getRandomString(22),
-            id: getRandomName(),
+            id: id,
             type: "user",
-            uri: `spotify:user:` + id
+            uri: `spotify:user:${id}`
         }
     },
     primary_color: () => {
@@ -809,7 +826,7 @@ import {
             href: `https://api.spotify.com/v1/playlists/` + getRandomString(22) + `/tracks`,
             items: [
                 {
-                    added_at: getRandomDate(),
+                    added_at: getRandomDateTime(),
                     added_by: {
                         external_urls: {
                             spotify: `https://open.spotify.com/user/` + getRandomString(22)
@@ -883,7 +900,7 @@ const dataModels = {
       mockup: TrackModel,
     },
     Show: {
-      data: MOCK.show,
+      data: MOCK.shows,
       mockup: ShowModel,
     },
     Episode: {
@@ -911,7 +928,7 @@ const dataModels = {
       mockup: ArtistRelatedArtistsModel,
     },
     ArtistTopTracks: {
-      data: MOCK.artistTopTracks,
+      data: MOCK.artistTopTracks, 
       mockup: ArtistTopTracksModel,
     },
 
@@ -938,13 +955,13 @@ const dataModels = {
   
     [
         "album_type",
+        "id",
         "artists",
         "copyrights",
         "external_ids",
         "external_urls",
         "genres",
         "href",
-        "id",
         "images",
         "label",
         "name",
@@ -960,56 +977,18 @@ const dataModels = {
         case "album_type":
           mockupData[key] = mockupModel[key]();
           break;
-        case "artist":
-            [
-                "external_urls",
-                "href",
-                "id",
-                "name",
-                "type",
-                "uri"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
-            break;
+        case "artists":
+          mockupData[key] = mockupModel[key]();
+          break;
         case "copyrights":
-                [
-                    "text",
-                    "type"
-                ].forEach((key2, i) => {
-                    switch(key2){
-                        default:
-                            mockupData[key2] = mockupModel[key2]();
-                            break;
-                    }
-                })
-              break;
+          mockupData[key] = mockupModel[key]();
+          break;
         case "external_ids":
-            [
-                "upc"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
-            break;
+          mockupData[key] = mockupModel[key]();
+          break;
         case "external_urls":
-            [
-                "spotify"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
-            break;
+          mockupData[key] = mockupModel[key](mockupData["id"]);
+          break;
         case "genres":
             mockupData[key] = mockupModel[key]();
             break;
@@ -1020,17 +999,7 @@ const dataModels = {
             mockupData[key] = mockupModel[key]();
             break;
         case "images":
-            [
-                "height",
-                "url",
-                "width"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
+            mockupData[key] = mockupModel[key]();
             break;
         case "label":
             mockupData[key] = mockupModel[key]();
@@ -1049,42 +1018,6 @@ const dataModels = {
             break;
         case "total_tracks":
             mockupData[key] = mockupModel[key]();
-            break;
-        case "tracks":
-            [
-                "href",
-                "items",
-                "limit",
-                "next",
-                "offset",
-                "previous",
-                "total"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    case "href":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                    case "items":
-                        mockupData[key2] = AlbumModel[key2]();
-                        break;
-                    case "limit":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                    case "next":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                    case "offset":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                    case "previous":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                    case "total":
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-
-                }
-            })
             break;
         case "type":
             mockupData[key] = mockupModel[key]();
@@ -1117,11 +1050,11 @@ const dataModels = {
     }
   
     [
+        "id",
         "external_urls",
         "followers",
         "genres",
         "href",
-        "id",
         "images",
         "name",
         "popularity",
@@ -1130,49 +1063,22 @@ const dataModels = {
     ].forEach((key, i) => {
       switch (key) {
         case "external_urls":
-            [
-                "spotify"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
-            break;
+          mockupData[key] = mockupModel[key](mockupData["id"]);
+          break;
         case "followers":
-            [
-                "href",
-                "total" 
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                } 
-            })
-            break;
+          mockupData[key] = mockupModel[key]();
+          break;
         case "genres":
             mockupData[key] = mockupModel[key]();
             break;
         case "href":
-            mockupData[key] = mockupModel[key]();
+            mockupData[key] = mockupModel[key](mockupData["id"]);
             break;
         case "id":
             mockupData[key] = mockupModel[key]();
             break;
         case "images":
-            [
-                "height",
-                "url",
-                "width"
-            ].forEach((key2, i) => {
-                switch(key2){
-                    default:
-                        mockupData[key2] = mockupModel[key2]();
-                        break;
-                }
-            })
+            mockupData[key] = mockupModel[key]();
             break;
         case "name":
             mockupData[key] = mockupModel[key]();
@@ -1184,7 +1090,7 @@ const dataModels = {
             mockupData[key] = mockupModel[key]();
             break;
         case "uri":
-            mockupData[key] = mockupModel[key]();
+            mockupData[key] = mockupModel[key](mockupData["id"]);
             break;
         default:
             mockupData[key] = mockupModel[key]()
@@ -1209,6 +1115,7 @@ const dataModels = {
       });
     }
       [
+        "id",
         "album",
         "artists",
         "disc_number",
@@ -1217,7 +1124,6 @@ const dataModels = {
         "external_ids",
         "external_urls",
         "href",
-        "id",
         "is_local",
         "is_playable",
         "linked_from",
@@ -1232,163 +1138,85 @@ const dataModels = {
           case "album":
             [
               "album_type",
-              "artists",
-              "available_markets",
-              "external_urls",
-              "href",
               "id",
+              "artists",
+              "copyrights",
+              "external_ids",
+              "external_urls",
+              "genres",
+              "href",
               "images",
+              "label",
               "name",
+              "popularity",
               "release_date",
               "release_date_precision",
               "total_tracks",
+              "tracks",
               "type",
               "uri"
-            ].forEach((key2, i) => {
-              switch (key2) {
-                case "album_type":
-                  mockupData[key2] = mockupModel[key2]();
+          ].forEach((key2, i) => {
+            switch (key2) {
+              case "album_type":
+                mockupData[key][key2] = AlbumModel[key2]();
+                break;
+              case "artists":
+                mockupData[key][key2] = AlbumModel[key2](mockupData[key]["id"]);
+                break;
+              case "copyrights":
+                mockupData[key][key2] = AlbumModel[key2]();
+                break;
+              case "external_ids":
+                mockupData[key][key2] = AlbumModel[key2]();
+                break;
+              case "external_urls":
+                mockupData[key][key2] = AlbumModel[key2](mockupData[key]["id"]);
+                break;
+              case "genres":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "artists":
-                  [
-                    "external_urls",
-                    "href",
-                    "id",
-                    "name",
-                    "type",
-                    "uri"
-                  ].forEach((key3, i) => {
-                    switch (key3) {
-                      case "external_urls":
-                        [
-                          "spotify"
-                        ].forEach((key4, i) => {
-                          switch (key4) {
-                            default:
-                              mockupData[key4] = mockupModel[key4]();
-                              break;
-                          }
-                        })
-                        break;
-                      case "href":
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                      case "id":
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                      case "name":
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                      case "type":
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                      case "uri":
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                      default:
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                    }
-                  })
+              case "href":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "available_markets":
-                  mockupData[key2] = mockupModel[key2]();
+              case "id":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "external_urls":
-                  [
-                    "spotify"
-                  ].forEach((key3, i) => {
-                    switch (key3) {
-                      default:
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                    }
-                  })
+              case "images":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "href":
-                  mockupData[key2] = mockupModel[key2]();
+              case "label":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "id":
-                  mockupData[key2] = mockupModel[key2]();
+              case "name":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "images":
-                  [
-                    "height",
-                    "url",
-                    "width"
-                  ].forEach((key3, i) => {
-                    switch (key3) {
-                      default:
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                    }
-                  })
+              case "popularity":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "name":
-                  mockupData[key2] = mockupModel[key2]();
+              case "release_date":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "release_date":
-                  mockupData[key2] = mockupModel[key2]();
+              case "release_date_precision":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "release_date_precision":
-                  mockupData[key2] = mockupModel[key2]();
+              case "total_tracks":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "total_tracks":
-                  mockupData[key2] = mockupModel[key2]();
+              case "type":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "type":
-                  mockupData[key2] = mockupModel[key2]();
+              case "uri":
+                  mockupData[key][key2] = AlbumModel[key2]();
                   break;
-                case "uri":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                default:
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-              }
-            })
+              default:
+                mockupData[key][key2] = AlbumModel[key2]();
+                break;
+      
+            }
+          });
             break;
           case "artists":
-            [
-              "external_urls",
-              "href",
-              "id",
-              "name",
-              "type",
-              "uri"
-            ].forEach((key2, i) => {
-              switch (key2) {
-                case "external_urls":
-                  [
-                    "spotify"
-                  ].forEach((key3, i) => {
-                    switch (key3) {
-                      default:
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                    }
-                  })
-                  break;
-                case "href":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "id":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "name":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "type":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "uri":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                default:
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-              }
-            })
+            mockupData[key] = mockupModel[key]();
             break;
           case "disc_number":
             mockupData[key] = mockupModel[key]();
@@ -1400,29 +1228,13 @@ const dataModels = {
             mockupData[key] = mockupModel[key]();
             break;
           case "external_ids":
-            [
-              "isrc"
-            ].forEach((key2, i) => {
-              switch (key2) {
-                default:
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-              }
-            })
+            mockupData[key] = mockupModel[key]();
             break;
           case "external_urls":
-            [
-              "spotify"
-            ].forEach((key2, i) => {
-              switch (key2) {
-                default:
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-              }
-            })
+            mockupData[key] = mockupModel[key](mockupData["id"]);
             break;
           case "href":
-            mockupData[key] = mockupModel[key]();
+            mockupData[key] = mockupModel[key](mockupData["id"]);
             break;
           case "id":
             mockupData[key] = mockupModel[key]();
@@ -1434,43 +1246,8 @@ const dataModels = {
             mockupData[key] = mockupModel[key]();
             break;
           case "linked_from":
-            [
-              "external_urls",
-              "href",
-              "id",
-              "type",
-              "uri"
-            ].forEach((key2, i) => {
-              switch (key2) {
-                case "external_urls":
-                  [
-                    "spotify"
-                  ].forEach((key3, i) => {
-                    switch (key3) {
-                      default:
-                        mockupData[key3] = mockupModel[key3]();
-                        break;
-                    }
-                  })
-                  break;
-                case "href":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "id":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "type":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                case "uri":
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-                default:
-                  mockupData[key2] = mockupModel[key2]();
-                  break;
-              }
-            })
-          break;
+            mockupData[key] = mockupModel[key]();
+            break;
           case "name":
             mockupData[key] = mockupModel[key]();
             break;
@@ -1487,7 +1264,7 @@ const dataModels = {
             mockupData[key] = mockupModel[key]();
             break;
           case "uri":
-            mockupData[key] = mockupModel[key]();
+            mockupData[key] = mockupModel[key](mockupData["id"]);
             break;
           default:
             mockupData[key] = mockupModel[key]();
@@ -1525,72 +1302,6 @@ export function getUserProfileMockupData(dataType, dataModel, dataDate) {
     "uri"
   ].forEach((key, i) => {
     switch (key) {
-      case "display_name":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "external_urls":
-        [
-          "spotify"
-        ].forEach((key2, i) => {
-          switch (key2) {
-            default:
-              mockupData[key2] = mockupModel[key2]();
-              break;
-          }
-        })
-        break;
-      case "followers":
-        [
-          "href",
-          "total"
-        ].forEach((key2, i) => {
-          switch (key2) {
-            case "href":
-              mockupData[key2] = mockupModel[key2]();
-              break;
-            case "total":
-              mockupData[key2] = mockupModel[key2]();
-              break;
-            default:
-              mockupData[key2] = mockupModel[key2]();
-              break;
-          }
-        })
-        break;
-      case "href":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "id":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "images":
-        [
-          "height",
-          "url",
-          "width"
-        ].forEach((key2, i) => {
-          switch (key2) {
-            case "height":
-              mockupData[key2] = mockupModel[key2]();
-              break;
-            case "url":
-              mockupData[key2] = mockupModel[key2]();
-              break;
-            case "width":
-              mockupData[key2] = mockupModel[key2]();
-              break;
-            default:
-              mockupData[key2] = mockupModel[key2]();
-              break;
-          }
-        })
-        break;
-      case "type":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "uri":
-        mockupData[key] = mockupModel[key]();
-        break;
       default:
         mockupData[key] = mockupModel[key]();
         break;
@@ -1617,6 +1328,7 @@ export function getTrackAudioFeaturesMockupData(dataType, dataModel, dataDate) {
   }
 
   [
+    "id",
     "danceability",
     "energy",
     "key",
@@ -1629,7 +1341,6 @@ export function getTrackAudioFeaturesMockupData(dataType, dataModel, dataDate) {
     "valence",
     "tempo",
     "type",
-    "id",
     "uri",
     "track_href",
     "analysis_url", 
@@ -1637,59 +1348,10 @@ export function getTrackAudioFeaturesMockupData(dataType, dataModel, dataDate) {
     "time_signature"
   ].forEach((key, i) => {
     switch (key) {
-      case "danceability":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "energy":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "key":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "loudness":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "mode":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "speechiness":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "acousticness":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "instrumentalness":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "liveness":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "valence":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "tempo":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "type":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "id":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "uri":
-        mockupData[key] = mockupModel[key]();
-        break;
       case "track_href":
-        mockupData[key] = mockupModel[key]();
-        break;
+      case "uri":
       case "analysis_url":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "duration_ms":
-        mockupData[key] = mockupModel[key]();
-        break;
-      case "time_signature":
-        mockupData[key] = mockupModel[key]();
+        mockupData[key] = mockupModel[key](mockupData["id"]);
         break;
       default:
         mockupData[key] = mockupModel[key]();
@@ -1726,331 +1388,6 @@ export function getTrackAudioAnalysisMockupData(dataType, dataModel, dataDate) {
     
     ].forEach((key, i) => {
       switch (key) {
-        case "meta":
-          [
-            "analyzer_version",
-            "platform",
-            "detailed_status",
-            "status_code",
-            "timestamp",
-            "analysis_time",
-            "input_process"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "analyzer_version":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "platform":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "detailed_status":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "status_code":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "timestamp":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "analysis_time":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "input_process":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          break;
-        case "track":
-          [
-            "num_samples",
-            "duration",
-            "sample_md5",
-            "offset_seconds",
-            "window_seconds",
-            "analysis_sample_rate",
-            "analysis_channels",
-            "end_of_fade_in",
-            "start_of_fade_out",
-            "loudness",
-            "tempo",
-            "tempo_confidence",
-            "time_signature",
-            "time_signature_confidence",
-            "key",
-            "key_confidence",
-            "mode",
-            "mode_confidence",
-            "codestring",
-            "code_version",
-            "echoprintstring",
-            "echoprint_version",
-            "synchstring",
-            "synch_version",
-            "rhythmstring",
-            "rhythm_version"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "num_samples":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "sample_md5":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "offset_seconds":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "window_seconds":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "analysis_sample_rate":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "analysis_channels":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "end_of_fade_in":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "start_of_fade_out":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "tempo":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "tempo_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "time_signature":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "time_signature_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "key":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "key_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "mode":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "mode_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "codestring":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "code_version":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "echoprintstring":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "echoprint_version":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "synchstring":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "synch_version":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "rhythmstring":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "rhythm_version":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          break;
-
-        case "bars":
-          [
-            "start",
-            "duration",
-            "confidence"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          break;
-          
-        case "beats":
-          [
-            "start",
-            "duration",
-            "confidence"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          break;
-        case "sections":
-          [
-            "start",
-            "duration",
-            "confidence",
-            "loudness",
-            "tempo",
-            "tempo_confidence",
-            "key",
-            "key_confidence",
-            "mode",
-            "mode_confidence",
-            "time_signature",
-            "time_signature_confidence"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "tempo":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "tempo_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "key":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "key_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "mode":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "mode_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "time_signature":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "time_signature_confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          
-        case "segments":
-          [
-            "start",
-            "duration",
-            "confidence",
-            "loudness_start",
-            "loudness_max_time",
-            "loudness_max",
-            "loudness_end",
-            "pitches",
-            "timbre",
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness_start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness_max_time":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness_max":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "loudness_end":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "pitches":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "timbre":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-
-        case "tatums":
-          [
-            "start",
-            "duration",
-            "confidence"
-          ].forEach((key2, i) => {
-            switch (key2) {
-              case "start":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "duration":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-              case "confidence":
-                mockupData[key2] = mockupModel[key2]();
-                break;
-
-              default:
-                mockupData[key2] = mockupModel[key2]();
-                break;
-            }
-          })
-          break;
         default:
           mockupData[key] = mockupModel[key]();
           break;
@@ -2073,11 +1410,11 @@ export function getShowsMockupData(dataType, dataModel, dataDate){
         mockupData[k] = mockupDataRow[i];
       });
     }
+
     [
       'available_markets',
-      'copyright',
+      'copyrights',
       'description',
-      'episodes',
       'is_externally_hosted',
       'languages',
       'media_type',
@@ -2090,13 +1427,10 @@ export function getShowsMockupData(dataType, dataModel, dataDate){
         case "available_markets":
           mockupData[key] = mockupModel[key]();
           break;
-        case "copyright":
+        case "copyrights":
           mockupData[key] = mockupModel[key]();
           break;
         case "description":
-          mockupData[key] = mockupModel[key]();
-          break;
-        case "episodes":
           mockupData[key] = mockupModel[key]();
           break;
         case "is_externally_hosted":
