@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/huawei-mockups",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Huawei Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -54,6 +54,6 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.12"
+    "@dynamic-data/utils": "^0.0.13"
   }
 }

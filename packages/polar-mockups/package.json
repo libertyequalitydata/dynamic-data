@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/polar-mockups",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Dynamic Data Faker for Polar",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -55,6 +55,6 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.12"
+    "@dynamic-data/utils": "^0.0.13"
   }
 }

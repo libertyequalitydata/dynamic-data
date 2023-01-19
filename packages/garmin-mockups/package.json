@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/garmin-mockups",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Garmin Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -55,6 +55,6 @@
   },
   "dependencies": {
     "@dynamic-data/garmin-data": "^0.0.7",
-    "@dynamic-data/utils": "^0.0.12"
+    "@dynamic-data/utils": "^0.0.13"
   }
 }

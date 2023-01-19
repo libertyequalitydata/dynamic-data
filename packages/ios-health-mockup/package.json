@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/ios-health-mockups",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "IOS Health Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -56,6 +56,6 @@
     "rollup": "^2.70.1"
   },
   "dependencies": {
-    "@dynamic-data/utils": "^0.0.12"
+    "@dynamic-data/utils": "^0.0.13"
   }
 }
