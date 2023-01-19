@@ -144,10 +144,14 @@ const SleepSummaryModel = {
     return Math.ceil(sleepSecs * p);
   },
   hr_lowest: (hr_5min) => {
-    let hr = hr_5min.filter(hr => hr !== 0);
-    return hr.min()
+    //console.log("HR 5min ARG ", hr_5min)
+    //let hr = hr_5min.filter(hr => hr !== 0);
+    const hr = hr_5min.sort();
+    //console.log("LOWEST HR", hr);
+    return hr[0];
   },
   hr_average: (hr_5min) => {
+
     return getAverage(hr_5min)
   },
   temperature_delta: () => {
@@ -173,9 +177,12 @@ const SleepSummaryModel = {
     timeIntervals = Math.floor(timeIntervals / 300000)
 
     let hrArr = []
+    // otherwise the heart rate list values are always same and hr_lowest/average is always same too
+    const startValue = getRandomInt(40, 60);
     for (var i = 0; i < timeIntervals; i++) {
-      hrArr.push(getRandomInt(60, 90))
+      hrArr.push(getRandomInt(startValue, 90))
     }
+    //console.log("HR_5min ", timeIntervals, hrArr);
     return hrArr
 
   },
@@ -329,6 +336,8 @@ export function getSleepMockupData(dataModel, dataDate) {
     "hypnogram_5min",
     "hr_5min",
     "rmssd_5min",
+    "hr_lowest",
+    "hr_average"
   ].forEach((key, i) => {
     switch (key) {
       case "summary_date":
@@ -380,6 +389,11 @@ export function getSleepMockupData(dataModel, dataDate) {
       case "deep":
         mockupData[key] = mockupModel[key](mockupData["total"], mockupData["light"], mockupData["rem"])
         break;
+      case "hr_lowest":
+      case "hr_average":
+        console.log("TEST ");
+        mockupData[key] = mockupModel[key](mockupData["hr_5min"])
+        break
       case "hypnogram_5min":
       case "hr_5min":
       case "rmssd_5min":
