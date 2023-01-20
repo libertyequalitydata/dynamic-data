@@ -19,6 +19,7 @@ export default [
       },
     ],
     plugins: [
+      externals(),
       resolve({ extensions }),
       babel({
         babelHelpers: "bundled",
@@ -26,7 +27,7 @@ export default [
         extensions,
         exclude: "./node_modules/**",
       }),
-      exclude()
+      
     ],
   },
 ];
