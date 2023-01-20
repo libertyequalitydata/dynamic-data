@@ -23,7 +23,7 @@ describe("Garmin", () => {
     expect(typeof result).toBe("object");
   });
 
-  it.only("getSleepMockupData", () => {
+  it("getSleepMockupData", () => {
     const result = getSleepsMockupData(
 
       "SleepsData",

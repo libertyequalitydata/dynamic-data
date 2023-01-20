@@ -9,6 +9,23 @@ import {
 
 import MOCK from "@dynamic-data/oura-data";
 
+
+
+/*
+
+var date = new Date(dataDate)
+mockupData[key] = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
+var hrs = hr_5min.slice()
+  const hr = hrs.sort(function(a, b){return a-b});
+  console.log(hr)
+  return hr[0];
+*/
+// CHECK 
+
+
+
+
+
 const ActivitySummaryModel = {
   summary_date: (d, i) => {
     return getNewDate(d, i, "DATE");

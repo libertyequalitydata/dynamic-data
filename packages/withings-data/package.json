@@ -3,12 +3,23 @@
   "version": "0.0.9",
   "description": "Mockup DataModel for Withings connector",
   "author": "Prifina Inc (https://dev.prifina.com/)",
-  "contributor": ["dylan <dylan.finneycs@gmail.com>","tero <tero@prifina.com>"],
+  "contributor": [
+    "dylan <dylan.finneycs@gmail.com>",
+    "tero <tero@prifina.com>"
+  ],
   "repository": {
-    "type" : "git",
-    "url" : "git@github.com:libertyequalitydata/dynamic-data.git"
+    "type": "git",
+    "url": "git@github.com:libertyequalitydata/dynamic-data.git"
   },
-  "keywords": ["Withings", "Health", "Fitness", "Data", "Data Model", "Model", "Prifina"],
+  "keywords": [
+    "Withings",
+    "Health",
+    "Fitness",
+    "Data",
+    "Data Model",
+    "Model",
+    "Prifina"
+  ],
   "homepage": "https://github.com/libertyequalitydata/dynamic-data#readme",
   "issues": "https://github.com/libertyequalitydata/dynamic-data/issues",
   "license": "MIT",
