@@ -33,6 +33,13 @@ export function getRandomInt(min, max) {
   */
 }
 
+export function convertToInt(double, min, max) {
+  return Math.floor(double * (max - min + 1) + min);
+  /*
+  Math.ceil((Math.random() * (max - min)) + min); // Whole number between min + 1 and max
+  */
+}
+
 export function getNewDate(dStr, days, format) {
   const currentDate = new Date(dStr);
   const dateTS = currentDate.setDate(currentDate.getDate() + days);
@@ -72,8 +79,12 @@ export function getSleepDate(sleepDate, startHour, rangeHour) {
 }
 
 // picks a random value from list
-export function pickRandomValue(items) {
-  return items[Math.floor(Math.random() * items.length)];
+export function pickRandomValue(items, randGen=null) {
+  if (randGen===null){
+    return items[Math.floor(Math.random() * items.length)];
+  } else {
+    return items[convertToInt(randGen.random(),0,items.length)];
+  }
 }
 
 // returns true or false at random
@@ -769,4 +780,22 @@ export function linearRegression(y,x){
   lr['r2'] = Math.pow((n*sum_xy - sum_x*sum_y)/Math.sqrt((n*sum_xx-sum_x*sum_x)*(n*sum_yy-sum_y*sum_y)),2);
 
   return lr;
+}
+
+
+export function uniformRandomNumbers(n, total,randGen){
+  var dividers = [0,total]
+  while (n-1 > dividers.length-2){
+    var newDivider = convertToInt(randGen.random(),1,total-1)
+    if (!dividers.includes(newDivider)) {
+      dividers.push(newDivider)
+    }
+  }
+  dividers = dividers.sort(function(a, b){return a-b})
+  var randomNumbers = []
+  for (var i =0; i< dividers.length-1;i++){
+    randomNumbers.push(dividers[i+1]-dividers[i])
+  }
+  return randomNumbers
+
 }
