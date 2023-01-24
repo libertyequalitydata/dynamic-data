@@ -8,10 +8,10 @@ describe("utils", () => {
     const min = 5;
     const max = 10;
     const val = utils.getRandomInt(min, max);
-    
+
     // checking if value is an integer and within range
     expect(typeof val).toBe('number');
-    expect(val%1).toBe(0);
+    expect(val % 1).toBe(0);
     expect(val).toBeGreaterThan(4);
     expect(val).toBeLessThan(11);
   });
@@ -34,7 +34,7 @@ describe("utils", () => {
     const min = 5;
     const max = 6;
     const val = utils.getRandomFloat(min, max);
-    
+
     // checking if value is a float and within range
     expect(typeof val).toBe('number');
     expect(val).toBeGreaterThan(4);
@@ -96,7 +96,7 @@ describe("utils", () => {
   it('MersenneTwister Range', () => {
     var randGen = new utils.MersenneTwister()
     var randomDouble = randGen.random()
-    var randomInt = utils.convertToInt(randomDouble, 1,10)
+    var randomInt = utils.convertToInt(randomDouble, 1, 10)
     // checking if value is of type object
     expect(typeof randomInt).toBe('number');
     expect(randomInt).toBeGreaterThan(0);
@@ -104,10 +104,11 @@ describe("utils", () => {
   });
   it('uniformRandomNumbers', () => {
     var randGen = new utils.MersenneTwister()
-    var test = utils.uniformRandomNumbers(2,5,randGen)
+    var test = utils.uniformRandomNumbers(2, 5, randGen)
+    //console.log("TEST ", test, typeof test);
     // checking if value is of type object
     expect(typeof test).toBe('object');
-    expect(typeof newTest).toBe('object');
+    //expect(typeof newTest).toBe('object');
 
   });
 });
