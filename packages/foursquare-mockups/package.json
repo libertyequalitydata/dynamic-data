@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/foursquare-mockups",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Dynamic Data Faker for FourSquare",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -49,7 +49,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
     "@babel/runtime": "^7.17.9",
-    "@dynamic-data/utils": "^0.0.13",
+    "@dynamic-data/utils": "^0.0.14",
     "babel-jest": "^27.5.1",
     "cross-env": "^7.0.3",
     "jest": "^28.1.3",
