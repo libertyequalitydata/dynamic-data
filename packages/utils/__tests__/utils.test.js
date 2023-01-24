@@ -3,7 +3,7 @@
 const utils = require("@dynamic-data/utils");
 
 describe("utils", () => {
-  //test.todo("needs tests");
+  // test.todo("needs tests");
   it('getRandomInt', () => {
     const min = 5;
     const max = 10;
@@ -84,5 +84,30 @@ describe("utils", () => {
     expect(typeof car).toBe('object');
     expect(!Array.isArray(car)).toBeTruthy();
     expect(Object.keys(car).length).not.toBe(0);
+  });
+  it('MersenneTwister', () => {
+    var randGen = new utils.MersenneTwister()
+    var random = randGen.random()
+    // checking if value is of type object
+    expect(typeof random).toBe('number');
+    expect(random).toBeGreaterThan(0);
+    expect(random).toBeLessThan(1);
+  });
+  it('MersenneTwister Range', () => {
+    var randGen = new utils.MersenneTwister()
+    var randomDouble = randGen.random()
+    var randomInt = utils.convertToInt(randomDouble, 1,10)
+    // checking if value is of type object
+    expect(typeof randomInt).toBe('number');
+    expect(randomInt).toBeGreaterThan(0);
+    expect(randomInt).toBeLessThan(11);
+  });
+  it('uniformRandomNumbers', () => {
+    var randGen = new utils.MersenneTwister()
+    var test = utils.uniformRandomNumbers(2,5,randGen)
+    // checking if value is of type object
+    expect(typeof test).toBe('object');
+    expect(typeof newTest).toBe('object');
+
   });
 });

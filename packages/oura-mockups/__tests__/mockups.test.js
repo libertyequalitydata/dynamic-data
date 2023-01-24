@@ -23,17 +23,26 @@ describe("Oura", () => {
 
   it("getModelCSVHeader", () => {
     const result = getModelCSVHeader("ActivitySummaryAsync");
-    console.log(result);
+    // console.log(result);
     expect(Array.isArray(result)).toBe(true);
   });
   it("getActivityMockupData", () => {
     const result = getActivityMockupData(
 
       "ActivitySummary",
-      "2022-04-03"
+      "2022-04-03",
+    );
+    const resultSeed = getActivityMockupData(
+
+      "ActivitySummary",
+      "2022-04-03",
+      1
     );
     console.log("ActivitySummary ", result);
+    // console.log("ActivitySummary Seeded", resultSeed);
     expect(typeof result).toBe("object");
+    expect(typeof resultSeed).toBe("object");
+
   });
 
   it("getReadinessMockupData", () => {
@@ -42,18 +51,32 @@ describe("Oura", () => {
       "ReadinessSummary",
       "2022-04-03"
     );
+    const resultSeed = getReadinessMockupData(
+
+      "ReadinessSummary",
+      "2022-04-03",
+      1
+    );
     console.log("ReadinessSummary ", result);
+    // console.log("ReadinessSummary Seeded", resultSeed);
     expect(typeof result).toBe("object");
+    expect(typeof resultSeed).toBe("object");
   });
 
   it("getSleepSummaryMockupData", () => {
     const result = getSleepMockupData("SleepSummary", "2022-04-03");
+    const resultSeed = getSleepMockupData("SleepSummary", "2022-04-03",1);
     console.log("SLEEP RESULT ", result);
+    // console.log("SLEEP RESULT Seeded", resultSeed);
     expect(typeof result).toBe("object");
+    expect(typeof resultSeed).toBe("object");
   });
   it("getSleepDataMockupData", () => {
     const result = getSleepMockupData("SleepData", "2022-04-03");
+    const resultSeed = getSleepMockupData("SleepData", "2022-04-03",1);
     console.log("SLEEP RESULT ", result);
+    // console.log("SLEEP RESULT Seeded", resultSeed);
     expect(typeof result).toBe("object");
+    expect(typeof resultSeed).toBe("object");
   });
 });

@@ -1,13 +1,18 @@
 import {
   toIsoString,
-  getRandomInt,
   getNewDate,
   getSleepDate,
   pickRandomValue,
-  getAverage
+  getAverage,
+  MersenneTwister,
+  convertToInt
 } from "@dynamic-data/utils";
 
 import MOCK from "@dynamic-data/oura-data";
+
+
+var randGen = new MersenneTwister()
+
 
 const ActivitySummaryModel = {
   summary_date: (d, i) => {
@@ -19,18 +24,18 @@ const ActivitySummaryModel = {
     //return '2016-09-04T03:59:59+03:00';
   },
   daily_movement: () => {
-    return getRandomInt(1000, 15000);
+    return convertToInt(randGen.random(),1000, 15000)
   },
 
   steps: (m) => {
-    const steps = getRandomInt(20, 60);
+    const steps = convertToInt(randGen.random(),20, 60);
     return Math.ceil((m * steps) / 100);
   },
   cal_total: () => {
-    return getRandomInt(2000, 3500);
+    return convertToInt(randGen.random(),2000, 3500)
   },
   cal_active: (m) => {
-    const cals = getRandomInt(20, 60);
+    const cals = convertToInt(randGen.random(),20, 60);
     return Math.ceil((m * cals) / 100);
   },
 };
@@ -40,37 +45,37 @@ const ReadinessSummaryModel = {
     return getNewDate(d, i, "DATE");
   },
   period_id: () => {
-    return getRandomInt(0, 100);
+    return convertToInt(randGen.random(),0, 100)
   },
   score: (score_previous_night, score_sleep_balance, score_previous_day, score_activity_balance, score_resting_hr, score_hrv_balance, score_recovery_index, score_temperature) => {
     return Math.round((score_previous_night + score_sleep_balance + score_previous_day + score_activity_balance + score_resting_hr + score_hrv_balance + score_recovery_index + score_temperature) / 8);
   },
   score_previous_night: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_sleep_balance: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_previous_day: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_activity_balance: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_resting_hr: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_hrv_balance: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_recovery_index: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   score_temperature: () => {
-    return getRandomInt(0, 101) - 1;
+    return convertToInt(randGen.random(),0, 100)
   },
   rest_mode_state: () => {
-    return pickRandomValue([0, 1, 2, 3, 4]);
+    return pickRandomValue([0, 1, 2, 3, 4], randGen);
   },
 };
 
@@ -83,7 +88,8 @@ const SleepSummaryModel = {
     return getSleepDate(d, start, range);
   },
   bedtime_end: (d, sleepTimeRangeInMins) => {
-    const sleepTime = getRandomInt(
+    const sleepTime = convertToInt(
+      randGen.random(),
       sleepTimeRangeInMins[0],
       sleepTimeRangeInMins[1]
     );
@@ -95,28 +101,28 @@ const SleepSummaryModel = {
     return Math.round((0.1 * score_alignment) + (0.1 * score_deep) + (0.1 * score_rem) + (0.1 * score_latency) + (0.1 * score_efficiency) + (0.15 * score_disturbances) + (0.35 * score_total))
   },
   score_alignment: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_deep: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_rem: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_latency: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_efficiency: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_disturbances: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   score_total: () => {
-    return getRandomInt(60, 90)
+    return convertToInt(randGen.random(),60, 90)
   },
   restless: () => {
-    return getRandomInt(0, 100)
+    return convertToInt(randGen.random(),60, 90)
   },
   efficiency: (duration, total) => {
     return Math.round((total / duration) * 100)
@@ -127,7 +133,7 @@ const SleepSummaryModel = {
     return Math.ceil((endTimeTS - startTimeTS) / 1000); // secs
   },
   total: (duration) => {
-    return duration - getRandomInt(500, 2000)
+    return duration - convertToInt(randGen.random(),500, 2000)
   },
   deep: (total, light, rem) => {
     return total - light - rem
@@ -136,26 +142,27 @@ const SleepSummaryModel = {
     return duration - total
   },
   light: (totalSleep) => {
-    const p = getRandomInt(40, 70) / 100;
+    const p = convertToInt(randGen.random(),40, 70) / 100;
     return Math.ceil(totalSleep * p);
   },
   rem: (sleepSecs) => {
-    const p = getRandomInt(40, 70) / 100;
+    const p = convertToInt(randGen.random(),40, 70) / 100;
     return Math.ceil(sleepSecs * p);
   },
   hr_lowest: (hr_5min) => {
     //console.log("HR 5min ARG ", hr_5min)
     //let hr = hr_5min.filter(hr => hr !== 0);
-    const hr = hr_5min.sort();
-    //console.log("LOWEST HR", hr);
+    var hrs = hr_5min.slice() //Avoids Sorting original array
+    const hr = hrs.sort(function(a, b){return a-b}); //Sorts lowest to highest number instead of digits (e.g. without the function, the array would show [100,20] instead of [20,100]) 
     return hr[0];
+    //console.log("LOWEST HR", hr);
   },
   hr_average: (hr_5min) => {
 
     return getAverage(hr_5min)
   },
   temperature_delta: () => {
-    return (getRandomInt(0, 5000) / 1000) - 2.5
+    return (convertToInt(randGen.random(),0, 5000) / 1000) - 2.5
   },
   hypnogram_5min: (bedtime_start, bedtime_end) => {
     const bedtimeStart = new Date(bedtime_start)
@@ -165,7 +172,7 @@ const SleepSummaryModel = {
 
     let hypnogramString = ""
     for (var i = 0; i < timeIntervals; i++) {
-      hypnogramString += getRandomInt(0, 4).toString()
+      hypnogramString += convertToInt(randGen.random(),0, 4).toString()
     }
     return hypnogramString
 
@@ -178,9 +185,9 @@ const SleepSummaryModel = {
 
     let hrArr = []
     // otherwise the heart rate list values are always same and hr_lowest/average is always same too
-    const startValue = getRandomInt(40, 60);
+    const startValue = convertToInt(randGen.random(),40, 60);
     for (var i = 0; i < timeIntervals; i++) {
-      hrArr.push(getRandomInt(startValue, 90))
+      hrArr.push(convertToInt(randGen.random(),startValue, 90))
     }
     //console.log("HR_5min ", timeIntervals, hrArr);
     return hrArr
@@ -194,7 +201,7 @@ const SleepSummaryModel = {
 
     let rmssdArr = []
     for (var i = 0; i < timeIntervals; i++) {
-      rmssdArr.push(getRandomInt(0, 100))
+      rmssdArr.push(convertToInt(randGen.random(),0, 100))
     }
     return rmssdArr
 
@@ -234,10 +241,15 @@ export function getModelCSVHeader(dataModel) {
   return dataModels[dataModel].data[0].split("\t");
 }
 
-export function getActivityMockupData(dataModel, dataDate) {
+export function getActivityMockupData(dataModel, dataDate, seed) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   mockupData = dataModels[dataModel].data;
+  if (seed === null) {
+    randGen = new MersenneTwister()
+  } else {
+    randGen = new MersenneTwister(seed)
+  }
 
   [
     "summary_date",
@@ -250,7 +262,8 @@ export function getActivityMockupData(dataModel, dataDate) {
   ].forEach((key, i) => {
     switch (key) {
       case "summary_date":
-        mockupData[key] = dataDate;
+        var date = new Date(dataDate)
+        mockupData[key] = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
         break;
       case "daily_movement":
         mockupData[key] = mockupModel[key]();
@@ -282,10 +295,15 @@ export function getActivityMockupData(dataModel, dataDate) {
   return mockupData;
 }
 
-export function getReadinessMockupData(dataModel, dataDate) {
+export function getReadinessMockupData(dataModel, dataDate,seed = null) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   mockupData = dataModels[dataModel].data;
+  if (seed === null) {
+    randGen = new MersenneTwister()
+  } else {
+    randGen = new MersenneTwister(seed)
+  }
 
   ["summary_date",
     "period_id",
@@ -301,7 +319,8 @@ export function getReadinessMockupData(dataModel, dataDate) {
     "rest_mode_state"].forEach((key, i) => {
       switch (key) {
         case "summary_date":
-          mockupData[key] = dataDate;
+          var date = new Date(dataDate)
+          mockupData[key] = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
           break;
         case "score":
           mockupData[key] = mockupModel[key](mockupData["score_previous_night"], mockupData["score_sleep_balance"], mockupData["score_previous_day"], mockupData["score_activity_balance"], mockupData["score_resting_hr"], mockupData["score_hrv_balance"], mockupData["score_recovery_index"], mockupData["score_temperature"]);
@@ -315,10 +334,15 @@ export function getReadinessMockupData(dataModel, dataDate) {
   return mockupData;
 }
 
-export function getSleepMockupData(dataModel, dataDate) {
+export function getSleepMockupData(dataModel, dataDate, seed = null) {
   let mockupData = {};
   const mockupModel = dataModels[dataModel].mockup;
   mockupData = dataModels[dataModel].data;
+  if (seed === null) {
+    randGen = new MersenneTwister()
+  } else {
+    randGen = new MersenneTwister(seed)
+  }
 
   [
     "summary_date",
@@ -332,7 +356,17 @@ export function getSleepMockupData(dataModel, dataDate) {
     "light",
     "rem",
     "deep",
+    "score_alignment",
+    "score_deep",
+    "score_rem",
+    "score_latency",
+    "score_efficiency",
+    "score_disturbances",
+    "score_total",
+    "restless",
+    "efficiency",
     "score",
+    "temperature_delta",
     "hypnogram_5min",
     "hr_5min",
     "rmssd_5min",
@@ -341,7 +375,8 @@ export function getSleepMockupData(dataModel, dataDate) {
   ].forEach((key, i) => {
     switch (key) {
       case "summary_date":
-        mockupData[key] = dataDate;
+        var date = new Date(dataDate)
+        mockupData[key] = `${date.getFullYear()}-${('0' + (date.getMonth()+1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
         break;
       case "timezone":
         mockupData[key] = 0; // all dates are utc
@@ -370,6 +405,7 @@ export function getSleepMockupData(dataModel, dataDate) {
         );
         break;
       case "awake":
+      case "efficiency":
         mockupData[key] = mockupModel[key](mockupData["duration"], mockupData["total"]);
         break;
       case "total":
@@ -383,15 +419,12 @@ export function getSleepMockupData(dataModel, dataDate) {
           mockupData["total"] - mockupData["light"]
         );
         break;
-      case "restless":
-        mockupData[key] = mockupModel[key]()
-        break
+      
       case "deep":
         mockupData[key] = mockupModel[key](mockupData["total"], mockupData["light"], mockupData["rem"])
         break;
       case "hr_lowest":
       case "hr_average":
-        console.log("TEST ");
         mockupData[key] = mockupModel[key](mockupData["hr_5min"])
         break
       case "hypnogram_5min":
@@ -400,6 +433,14 @@ export function getSleepMockupData(dataModel, dataDate) {
         mockupData[key] = mockupModel[key](
           mockupData["bedtime_start"], mockupData["bedtime_end"]
         );
+        break;
+      case "rmssd_5min":
+        mockupData[key] = mockupModel[key](
+          mockupData["duration"], mockupData["total"]
+        );
+        break;
+      default:
+        mockupData[key] = mockupModel[key]();
         break;
     }
   });
