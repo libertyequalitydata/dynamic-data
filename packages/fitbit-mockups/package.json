@@ -1,6 +1,6 @@
 {
   "name": "@dynamic-data/fitbit-mockups",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Fitbit Mockup Data Generators",
   "author": "Prifina Inc (https://dev.prifina.com/)",
   "contributor": [
@@ -60,6 +60,6 @@
     "@dynamic-data/fitbit-data": "^0.0.9"
   },
   "peerDependencies": {
-    "@dynamic-data/utils": "^0.0.13"
+    "@dynamic-data/utils": "^0.0.14"
   }
 }
